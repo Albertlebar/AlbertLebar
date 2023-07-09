@@ -8,7 +8,7 @@
                     <img class="mb-6" src="{{ asset('assets/images/logo.png') }}" width="15%"/>
                 </div>
                 <div class="text-center text-uppercase text-bold mb-6"><br/>
-                    <h4>Laravel Boilerplate1</h4>
+                    <h4>Laravel Boilerplate</h4>
                 </div>
             </div>
         </div>
