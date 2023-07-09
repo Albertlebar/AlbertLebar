@@ -14,6 +14,7 @@ Route::patch('/change_password', 'AdminController@update_password')->name('chang
 
 // Blog Controller
 Route::resource('blogs', 'BlogController');
+Route::resource('contests', 'ContestController');
 Route::get('/allBlogs', 'BlogController@getAll')->name('allBlogs');
 
 /* ===== Blog End =========== */
