@@ -221,7 +221,7 @@
                             <div class="sidebar-banner">
                                 <div class="img-container">
                                     <a href="#">
-                                        <img src="assets/img/banner/sidebar-banner.jpg" alt="">
+                                        <img src="{{asset('assets/img/banner/sidebar-banner.jpg') }}" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -275,8 +275,8 @@
                                     <div class="product-item">
                                         <figure class="product-thumb">
                                             <a href="javascript:void(0);">
-                                                <img class="pri-img" src="assets/img/product/product-1.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/product/product-18.jpg" alt="product">
+                                                <img class="pri-img" src="{{ asset('assets/img/product/product-1.jpg') }}" alt="product">
+                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg') }}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                                 <div class="product-label new">
@@ -329,8 +329,8 @@
                                     <div class="product-list-item">
                                         <figure class="product-thumb">
                                             <a href="javascript:void(0);">
-                                                <img class="pri-img" src="assets/img/product/product-1.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/product/product-18.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('assets/img/product/product-1.jpg') }}" alt="product">
+                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                                 <div class="product-label new">

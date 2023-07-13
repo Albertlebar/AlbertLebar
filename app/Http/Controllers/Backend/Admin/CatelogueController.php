@@ -140,9 +140,6 @@ class CatelogueController extends Controller
      */
     public function store(Request $request)
     {
-        echo "<pre>";
-        print_r($request->all());
-        die;
         if ($request->ajax()) {
          // Setup the validator
          $rules = [
