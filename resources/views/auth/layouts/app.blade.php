@@ -10,6 +10,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/login/css/util.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/login/css/main.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('/assets/css/vendor/bootstrap.min.css') }}">
 </head>
 <body>
 <div id="app">

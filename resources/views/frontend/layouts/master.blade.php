@@ -4,14 +4,12 @@
     @include('frontend.layouts.head')
 </head>
 <body>
-    <div class="container">    
-        <section>
-            @yield('content')
-        </section>
-        <!-- Footer section -->
-        <footer>
-            @include('frontend.layouts.footer')
-        </footer>
-    </div>
+    <!-- Start Header Area -->
+        @include('frontend.layouts.header')    
+    <!-- end Header Area -->
+
+        @yield('content')
+        
+        @include('frontend.layouts.footer')
 </body>
 </html>

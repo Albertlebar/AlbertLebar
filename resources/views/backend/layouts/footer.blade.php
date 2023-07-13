@@ -1,8 +1,8 @@
 <div class="app-footer">
-    <div class="col-12 text-center rounded-top"
+    <!-- <div class="col-12 text-center rounded-top"
          style="bottom: 0; font-weight: bold;padding: 10px;">
         Developed by Riyadh Ahmed || &nbsp; {{date('Y')}}
-    </div>
+    </div> -->
 </div>
 <script src="{{ asset('/assets/js/main.js') }}"></script>
 <script src="{{ asset('/assets/js/ajax_submit.js') }}"></script>

@@ -53,6 +53,10 @@
     height: 45px;
 }
 
+.verticle-line {
+    border-left: 1px solid #6c757d;
+}
+
 @media only screen and (max-width: 600px) {
     .app-header .app-header__content.header-mobile-open {
         visibility: visible;

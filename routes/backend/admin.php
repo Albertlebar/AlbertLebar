@@ -19,6 +19,23 @@ Route::get('/allBlogs', 'BlogController@getAll')->name('allBlogs');
 
 /* ===== Blog End =========== */
 
+/* ===== Category Start =========== */
+
+// Category Controller
+
+Route::resource('categories','CategoryController');
+Route::get('/allCategory','CategoryController@getAll')->name('allCategory');
+
+/* ===== Category End =========== */
+
+// Catelogue Controller
+
+/* ===== Catelogue Start =========== */
+
+Route::resource('catelogues','CatelogueController');
+Route::get('/allCatelogue','CatelogueController@getAll')->name('allCatelogue');
+
+/* ===== Catelogue End =========== */
 
 /* ===== Access Management Start =========== */
 Route::resource('users', 'UserController');

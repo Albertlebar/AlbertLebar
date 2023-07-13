@@ -32,11 +32,14 @@ Route::group([
     });
 
 // User Auth
-Route::prefix('user_login')->group(function () {
+Route::prefix('user')->group(function () {
     Route::get('login', 'Auth\User\LoginController@login')->name('user.auth.login');
+    Route::get('/register','Auth\User\RegisterController@register')->name('user.auth.register');
     Route::post('login', 'Auth\User\LoginController@loginUser')->name('user.auth.loginUser');
     Route::post('logout', 'Auth\User\LoginController@logout')->name('user.auth.logout');
     Route::get('logout', 'Auth\User\LoginController@logout');
+
+    // Route::get('')
 });
 
 // User Dashborad

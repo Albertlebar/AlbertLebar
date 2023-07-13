@@ -9,14 +9,14 @@
                     </i>
                 </div>
                 <div>Analytics Dashboard
-                    <div class="page-title-subheading">This is an example dashboard created using build-in elements and
+                    <!-- <div class="page-title-subheading">This is an example dashboard created using build-in elements and
                         components.
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-md-6 col-xl-4">
             <div class="card mb-3 widget-content bg-midnight-bloom">
                 <div class="widget-content-wrapper text-white">
@@ -372,5 +372,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 @endsection

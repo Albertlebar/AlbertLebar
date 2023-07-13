@@ -33,12 +33,12 @@
     <div class="scrollbar-sidebar">
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
-                <li>
+                <!-- <li>
                     <a href="{{ URL :: to('/admin/dashboard') }}">
                         <i class="metismenu-icon pe-7s-rocket"></i>
                         Dashboard
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="{{ URL :: to('/admin/users') }}">
                         <i class="metismenu-icon pe-7s-users"></i>
@@ -46,12 +46,24 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ URL :: to('/admin/categories') }}">
+                        <i class="metismenu-icon pe-7s-categories"></i>
+                        Categories
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ URL :: to('/admin/catelogues') }}">
+                        <i class="metismenu-icon pe-7s-categories"></i>
+                        Catalogue
+                    </a>
+                </li>
+                <!-- <li>
                     <a href="{{ URL :: to('/admin/blogs') }}">
                         <i class="metismenu-icon pe-7s-bookmarks"></i>
                         Blogs
                     </a>
-                </li>
-                <li>
+                </li> -->
+                <!-- <li>
                     <a href="{{ URL :: to('/admin/contests') }}">
                         <i class="metismenu-icon pe-7s-bookmarks"></i>
                         Contents
@@ -102,7 +114,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 <li>
                     <a href="{{ URL :: to('/admin_login/logout') }}">
                         <i class="metismenu-icon pe-7s-upload"></i>
