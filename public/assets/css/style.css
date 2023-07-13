@@ -3342,11 +3342,11 @@ textarea:focus {
 }
 
 .product-content-list {
-  padding-left: 20px;
+   /*padding-left: 20px;
   max-width: 70%;
   -webkit-flex-basis: 70%;
       -ms-flex-preferred-size: 70%;
-          flex-basis: 70%;
+          flex-basis: 70%; */
 }
 @media only screen and (max-width: 767.98px) {
   .product-content-list {
@@ -3375,9 +3375,9 @@ textarea:focus {
   color: #c29958;
 }
 .product-content-list p {
-  padding-top: 15px;
+  /* padding-top: 15px;
   margin-top: 22px;
-  border-top: 1px solid #efefef;
+  border-top: 1px solid #efefef; */
 }
 
 /*-------- product list item end --------*/
@@ -6128,4 +6128,7 @@ font-family:Arial;
  color:#fff;
   width:375px;
   font-size:40px;
+}
+.modal-dialog.modal-dialog-centered {
+  max-width:700px;
 }
