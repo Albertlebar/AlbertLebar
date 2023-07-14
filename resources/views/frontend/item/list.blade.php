@@ -126,7 +126,7 @@
                 </div>
 
                 <div class="col text-center"><div class="product-amount">
-                                                <p>Showing 1–16 of 21 results</p>
+                                            
                                             </div></div>
                                     
                                     <div class="col">
@@ -156,601 +156,59 @@
                             <!-- product item list wrapper start -->
                             <div class="shop-product-wrap greed-view row mbn-30">
                                 <!-- product single item start -->
-                                <div class="col-md-4 col-sm-6 p-1">
-                                    <!-- product grid start -->
-                                    
-                                   <div class="hero-slider-active slick-arrow-style slick-arrow-style_hero slick-dot-style">
-                                        <!-- product item start -->
-                                        <div class="product-item">
-                                            <figure class="product-thumb">
-                                                <a href="product-details.html">
-                                                <img class="pri-img" src="{{asset('assets/img/product/product-1.jpg') }}" alt="product">
-                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg')}}" alt="product">    
-                                                </a>
-                                                <div class="product-badge">
-                                                    <div class="product-label new">
-                                                        <span>new</span>
-                                                    </div>
-                                                    <div class="product-label discount">
-                                                        <span>10%</span>
-                                                    </div>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                    <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                </div>
-                                                <div class="cart-hover">
-                                                    <button class="btn btn-cart">add to cart</button>
-                                                </div>
-                                            </figure>
-                                            
-                                        </div>
-                                        <!-- product item end -->
-
-                                        <!-- product item start -->
-                                        <div class="product-item">
-                                            <figure class="product-thumb">
-                                                <a href="product-details.html">
-                                                <img class="pri-img" src="{{asset('assets/img/product/product-2.jpg') }}" alt="product">
-                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg')}}" alt="product">
-                                                </a>
-                                                <div class="product-badge">
-                                                    <div class="product-label new">
-                                                        <span>sale</span>
-                                                    </div>
-                                                    <div class="product-label discount">
-                                                        <span>new</span>
-                                                    </div>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                    <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                </div>
-                                                <div class="cart-hover">
-                                                    <button class="btn btn-cart">add to cart</button>
-                                                </div>
-                                            </figure>
-                                           
-                                        </div>
-                                        <!-- product item end -->
-
-                                        <!-- product item start -->
-                                        <div class="product-item">
-                                            <figure class="product-thumb">
-                                                <a href="product-details.html">
-                                                <img class="pri-img" src="{{asset('assets/img/product/product-3.jpg') }}" alt="product">
-                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg')}}" alt="product">
-                                                </a>
-                                                <div class="product-badge">
-                                                    <div class="product-label new">
-                                                        <span>new</span>
-                                                    </div>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                    <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                </div>
-                                                <div class="cart-hover">
-                                                    <button class="btn btn-cart">add to cart</button>
-                                                </div>
-                                            </figure>
-                                            
-                                        </div>
-                                        <!-- product item end -->
-
-                                         <!-- product item start -->
-                                         <div class="product-item">
-                                            <figure class="product-thumb">
-                                                <a href="product-details.html">
-                                                <img class="pri-img" src="{{asset('assets/img/product/product-4.jpg') }}" alt="product">
-                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg')}}" alt="product">
-                                                </a>
-                                                <div class="product-badge">
-                                                    <div class="product-label new">
-                                                        <span>new</span>
-                                                    </div>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                    <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                </div>
-                                                <div class="cart-hover">
-                                                    <button class="btn btn-cart">add to cart</button>
-                                                </div>
-                                            </figure>
-                                            
-                                        </div>
-                                        <!-- product item end -->
-
-                                        <!-- product item start -->
-                                        <div class="product-item">
-                                            <figure class="product-thumb">
-                                                <a href="product-details.html">
-                                                <img class="pri-img" src="{{asset('assets/img/product/product-1.jpg') }}" alt="product">
-                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg')}}" alt="product">
-                                                </a>
-                                                <div class="product-badge">
-                                                    <div class="product-label new">
-                                                        <span>sale</span>
-                                                    </div>
-                                                    <div class="product-label discount">
-                                                        <span>15%</span>
-                                                    </div>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                    <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                </div>
-                                                <div class="cart-hover">
-                                                    <button class="btn btn-cart">add to cart</button>
-                                                </div>
-                                            </figure>
-                                            
-                                        </div>
-                                        <!-- product item end -->
-
-                                        <!-- product item start -->
-                                        <div class="product-item">
-                                            <figure class="product-thumb">
-                                                <a href="product-details.html">
-                                                <img class="pri-img" src="{{asset('assets/img/product/product-1.jpg') }}" alt="product">
-                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg')}}" alt="product">
-                                                </a>
-                                                <div class="product-badge">
-                                                    <div class="product-label new">
-                                                        <span>new</span>
-                                                    </div>
-                                                    <div class="product-label discount">
-                                                        <span>20%</span>
-                                                    </div>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                    <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                </div>
-                                                <div class="cart-hover">
-                                                    <button class="btn btn-cart">add to cart</button>
-                                                </div>
-                                            </figure>
-                                           
-                                        </div>
-                                        <!-- product item end -->
-                                        
-                                    </div>
-
-                                    <div class="product-content-list py-2 px-3">
+                                    @forelse($items as $item)
+                                    <div class="col-md-4 col-sm-6  p-1">
+                                    <div class="product-item">
+                                        <figure class="product-thumb">
+                                            <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details" href="javascript:void(0);">
+                                                @foreach($item->itemImage as $images)
+                                                    @if($images->is_main_image == 1)
+                                                        <img class="pri-img" src="{{asset('assets/images/items/').'/'.$images->images}}" alt="product">
+                                                    @else
+                                                        <img class="sec-img" src="{{asset('assets/images/items/').'/'.$images->images}}" alt="product">
+                                                    @endif
+                                                @endforeach
+                                            </a>
+                                            <div class="button-group">
+                                                <a style="color: #f195ab;" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="left"><i class="pe-7s-like"></i></a>
+                                                <!-- <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details" id="quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a> -->
+                                            </div>
+                                            <!-- <div class="cart-hover">
+                                                <button class="btn btn-cart">add to cart</button>
+                                            </div> -->
+                                        </figure>
+                                        <div class="product-content-list py-2 px-3">
 
                                         <div class="row">
-                                            <div class="col">
-                                                Metal Type : <strong> 9K </strong>
+                                            <!-- <div class="col">
+                                                Metal Type : <strong> {{ config('params.metal_type')[$item->metal_type] }} </strong>
                                             </div>
                                             <div class="col text-end">
-                                                Metal color: <strong> Yellow</strong>
-                                            </div>
+                                                Metal color: <strong> {{ config('params.metal_colour')[$item->metal_colour] }}</strong>
+                                            </div> -->
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <h5 class="product-name p-0"><a href="javascript:void(0);">xzkkvxhkgsd</a></h5>
+                                                <h6 style="font-size: 12px;" class="product-name p-0"><a href="javascript:void(0);">{{ $item->item_title }}</a></h6>
                                                 
                                             </div>
                                             <div class="col text-end">
-                                                <div class="price-box mt-2">
-                                                    <span class="price-regular">£ 2932.5000</span>
+                                                <div class="price-box">
+                                                    <span style="font-size: 12px;color: #f195ab;" class="price-regular">&pound; {{ $item->total_retail }}</span>
                                                 </div>
                                             </div>
-                                            <p>Vivamus a lobortis ipsum, vel condimentum magna.  </p>
+                                            <!-- <p>{{ $item->item_description }}</p> -->
                                         </div>
-
                                     </div>
-
-                                    
-                                    </div>
-                                 
+                                </div>
+                            </div>
+                                    @empty
+                                        <div style="text-align: left;">No items found</div>
+                                    @endforelse
+                                    <!-- product list item end -->
                                 
-                                    <div class="col-md-4 col-sm-6 p-1">
-                                    <!-- product grid start -->
-                                    
-                                   <div class="hero-slider-active slick-arrow-style slick-arrow-style_hero slick-dot-style">
-                                        <!-- product item start -->
-                                        <div class="product-item">
-                                            <figure class="product-thumb">
-                                                <a href="product-details.html">
-                                                <img class="pri-img" src="{{asset('assets/img/product/product-1.jpg') }}" alt="product">
-                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg')}}" alt="product">    
-                                                </a>
-                                                <div class="product-badge">
-                                                    <div class="product-label new">
-                                                        <span>new</span>
-                                                    </div>
-                                                    <div class="product-label discount">
-                                                        <span>10%</span>
-                                                    </div>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                    <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                </div>
-                                                <div class="cart-hover">
-                                                    <button class="btn btn-cart">add to cart</button>
-                                                </div>
-                                            </figure>
-                                            
-                                        </div>
-                                        <!-- product item end -->
-
-                                        <!-- product item start -->
-                                        <div class="product-item">
-                                            <figure class="product-thumb">
-                                                <a href="product-details.html">
-                                                <img class="pri-img" src="{{asset('assets/img/product/product-2.jpg') }}" alt="product">
-                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg')}}" alt="product">
-                                                </a>
-                                                <div class="product-badge">
-                                                    <div class="product-label new">
-                                                        <span>sale</span>
-                                                    </div>
-                                                    <div class="product-label discount">
-                                                        <span>new</span>
-                                                    </div>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                    <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                </div>
-                                                <div class="cart-hover">
-                                                    <button class="btn btn-cart">add to cart</button>
-                                                </div>
-                                            </figure>
-                                           
-                                        </div>
-                                        <!-- product item end -->
-
-                                        <!-- product item start -->
-                                        <div class="product-item">
-                                            <figure class="product-thumb">
-                                                <a href="product-details.html">
-                                                <img class="pri-img" src="{{asset('assets/img/product/product-3.jpg') }}" alt="product">
-                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg')}}" alt="product">
-                                                </a>
-                                                <div class="product-badge">
-                                                    <div class="product-label new">
-                                                        <span>new</span>
-                                                    </div>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                    <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                </div>
-                                                <div class="cart-hover">
-                                                    <button class="btn btn-cart">add to cart</button>
-                                                </div>
-                                            </figure>
-                                            
-                                        </div>
-                                        <!-- product item end -->
-
-                                         <!-- product item start -->
-                                         <div class="product-item">
-                                            <figure class="product-thumb">
-                                                <a href="product-details.html">
-                                                <img class="pri-img" src="{{asset('assets/img/product/product-4.jpg') }}" alt="product">
-                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg')}}" alt="product">
-                                                </a>
-                                                <div class="product-badge">
-                                                    <div class="product-label new">
-                                                        <span>new</span>
-                                                    </div>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                    <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                </div>
-                                                <div class="cart-hover">
-                                                    <button class="btn btn-cart">add to cart</button>
-                                                </div>
-                                            </figure>
-                                            
-                                        </div>
-                                        <!-- product item end -->
-
-                                        <!-- product item start -->
-                                        <div class="product-item">
-                                            <figure class="product-thumb">
-                                                <a href="product-details.html">
-                                                <img class="pri-img" src="{{asset('assets/img/product/product-1.jpg') }}" alt="product">
-                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg')}}" alt="product">
-                                                </a>
-                                                <div class="product-badge">
-                                                    <div class="product-label new">
-                                                        <span>sale</span>
-                                                    </div>
-                                                    <div class="product-label discount">
-                                                        <span>15%</span>
-                                                    </div>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                    <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                </div>
-                                                <div class="cart-hover">
-                                                    <button class="btn btn-cart">add to cart</button>
-                                                </div>
-                                            </figure>
-                                            
-                                        </div>
-                                        <!-- product item end -->
-
-                                        <!-- product item start -->
-                                        <div class="product-item">
-                                            <figure class="product-thumb">
-                                                <a href="product-details.html">
-                                                <img class="pri-img" src="{{asset('assets/img/product/product-1.jpg') }}" alt="product">
-                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg')}}" alt="product">
-                                                </a>
-                                                <div class="product-badge">
-                                                    <div class="product-label new">
-                                                        <span>new</span>
-                                                    </div>
-                                                    <div class="product-label discount">
-                                                        <span>20%</span>
-                                                    </div>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                    <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                </div>
-                                                <div class="cart-hover">
-                                                    <button class="btn btn-cart">add to cart</button>
-                                                </div>
-                                            </figure>
-                                           
-                                        </div>
-                                        <!-- product item end -->
-                                        
-                                    </div>
-
-                                    <div class="product-content-list py-2 px-3">
-
-                                        <div class="row">
-                                            <div class="col">
-                                                Metal Type : <strong> 9K </strong>
-                                            </div>
-                                            <div class="col text-end">
-                                                Metal color: <strong> Yellow</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <h5 class="product-name p-0"><a href="javascript:void(0);">xzkkvxhkgsd</a></h5>
-                                                
-                                            </div>
-                                            <div class="col text-end">
-                                                <div class="price-box mt-2">
-                                                    <span class="price-regular">£ 2932.5000</span>
-                                                </div>
-                                            </div>
-                                            <p>Vivamus a lobortis ipsum, vel condimentum magna.  </p>
-                                        </div>
-
-                                    </div>
-
-                                    
-                                    </div>
-                                 
-
-                                    <div class="col-md-4 col-sm-6 p-1">
-                                    <!-- product grid start -->
-                                    
-                                   <div class="hero-slider-active slick-arrow-style slick-arrow-style_hero slick-dot-style">
-                                        <!-- product item start -->
-                                        <div class="product-item">
-                                            <figure class="product-thumb">
-                                                <a href="product-details.html">
-                                                <img class="pri-img" src="{{asset('assets/img/product/product-1.jpg') }}" alt="product">
-                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg')}}" alt="product">    
-                                                </a>
-                                                <div class="product-badge">
-                                                    <div class="product-label new">
-                                                        <span>new</span>
-                                                    </div>
-                                                    <div class="product-label discount">
-                                                        <span>10%</span>
-                                                    </div>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                    <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                </div>
-                                                <div class="cart-hover">
-                                                    <button class="btn btn-cart">add to cart</button>
-                                                </div>
-                                            </figure>
-                                            
-                                        </div>
-                                        <!-- product item end -->
-
-                                        <!-- product item start -->
-                                        <div class="product-item">
-                                            <figure class="product-thumb">
-                                                <a href="product-details.html">
-                                                <img class="pri-img" src="{{asset('assets/img/product/product-2.jpg') }}" alt="product">
-                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg')}}" alt="product">
-                                                </a>
-                                                <div class="product-badge">
-                                                    <div class="product-label new">
-                                                        <span>sale</span>
-                                                    </div>
-                                                    <div class="product-label discount">
-                                                        <span>new</span>
-                                                    </div>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                    <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                </div>
-                                                <div class="cart-hover">
-                                                    <button class="btn btn-cart">add to cart</button>
-                                                </div>
-                                            </figure>
-                                           
-                                        </div>
-                                        <!-- product item end -->
-
-                                        <!-- product item start -->
-                                        <div class="product-item">
-                                            <figure class="product-thumb">
-                                                <a href="product-details.html">
-                                                <img class="pri-img" src="{{asset('assets/img/product/product-3.jpg') }}" alt="product">
-                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg')}}" alt="product">
-                                                </a>
-                                                <div class="product-badge">
-                                                    <div class="product-label new">
-                                                        <span>new</span>
-                                                    </div>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                    <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                </div>
-                                                <div class="cart-hover">
-                                                    <button class="btn btn-cart">add to cart</button>
-                                                </div>
-                                            </figure>
-                                            
-                                        </div>
-                                        <!-- product item end -->
-
-                                         <!-- product item start -->
-                                         <div class="product-item">
-                                            <figure class="product-thumb">
-                                                <a href="product-details.html">
-                                                <img class="pri-img" src="{{asset('assets/img/product/product-4.jpg') }}" alt="product">
-                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg')}}" alt="product">
-                                                </a>
-                                                <div class="product-badge">
-                                                    <div class="product-label new">
-                                                        <span>new</span>
-                                                    </div>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                    <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                </div>
-                                                <div class="cart-hover">
-                                                    <button class="btn btn-cart">add to cart</button>
-                                                </div>
-                                            </figure>
-                                            
-                                        </div>
-                                        <!-- product item end -->
-
-                                        <!-- product item start -->
-                                        <div class="product-item">
-                                            <figure class="product-thumb">
-                                                <a href="product-details.html">
-                                                <img class="pri-img" src="{{asset('assets/img/product/product-1.jpg') }}" alt="product">
-                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg')}}" alt="product">
-                                                </a>
-                                                <div class="product-badge">
-                                                    <div class="product-label new">
-                                                        <span>sale</span>
-                                                    </div>
-                                                    <div class="product-label discount">
-                                                        <span>15%</span>
-                                                    </div>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                    <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                </div>
-                                                <div class="cart-hover">
-                                                    <button class="btn btn-cart">add to cart</button>
-                                                </div>
-                                            </figure>
-                                            
-                                        </div>
-                                        <!-- product item end -->
-
-                                        <!-- product item start -->
-                                        <div class="product-item">
-                                            <figure class="product-thumb">
-                                                <a href="product-details.html">
-                                                <img class="pri-img" src="{{asset('assets/img/product/product-1.jpg') }}" alt="product">
-                                                <img class="sec-img" src="{{asset('assets/img/product/product-18.jpg')}}" alt="product">
-                                                </a>
-                                                <div class="product-badge">
-                                                    <div class="product-label new">
-                                                        <span>new</span>
-                                                    </div>
-                                                    <div class="product-label discount">
-                                                        <span>20%</span>
-                                                    </div>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                    <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                </div>
-                                                <div class="cart-hover">
-                                                    <button class="btn btn-cart">add to cart</button>
-                                                </div>
-                                            </figure>
-                                           
-                                        </div>
-                                        <!-- product item end -->
-                                        
-                                    </div>
-
-                                    <div class="product-content-list py-2 px-3">
-
-                                        <div class="row">
-                                            <div class="col">
-                                                Metal Type : <strong> 9K </strong>
-                                            </div>
-                                            <div class="col text-end">
-                                                Metal color: <strong> Yellow</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <h5 class="product-name p-0"><a href="javascript:void(0);">xzkkvxhkgsd</a></h5>
-                                                
-                                            </div>
-                                            <div class="col text-end">
-                                                <div class="price-box mt-2">
-                                                    <span class="price-regular">£ 2932.5000</span>
-                                                </div>
-                                            </div>
-                                            <p>Vivamus a lobortis ipsum, vel condimentum magna.  </p>
-                                        </div>
-
-                                    </div>
-
-                                    
-                                    </div>
-                                 
-                               
-                                    </div>
-
-
-                                    
+                                <!-- product single item start -->
+                            </div>
                             <!-- product item list wrapper end -->
 
                             <!-- start pagination area -->
@@ -765,12 +223,36 @@
                             </div>
                             <!-- end pagination area -->
                         </div>
-
-                        
                     </div>
                     <!-- shop main wrapper end -->
                 </div>
             </div>
         </div>
+
+        <div class="modal" id="quick_view_item_details">
+        
+        </div>
         <!-- page main wrapper end -->
 @endsection
+@push('script')
+    <script type="text/javascript">
+            $(document).ready(function () {
+            // View Form
+            $(".quick_view_details").click(function(event){
+                $("#quick_view_item_details").empty();
+                var id = $(this).attr('data-id');
+                $.ajax({
+                    url: 'item-details' + '/' + id,
+                    type: 'get',
+                    success: function (data) {
+                        $("#quick_view_item_details").html(data.html);
+                        $('#quick_view_item_details').modal('show'); // show bootstrap modal
+                    },
+                    error: function (result) {
+                        $("#quick_view_item_details").html("Sorry Cannot Load Data");
+                    }
+                });
+            });
+        });
+    </script>
+@endpush
