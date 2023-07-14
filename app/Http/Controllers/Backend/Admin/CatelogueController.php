@@ -10,6 +10,7 @@ use App\Models\Item;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\ItemImage;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 use View;
@@ -172,6 +173,27 @@ class CatelogueController extends Controller
             ]);
          } else {
 
+            if(!empty($request->photo))
+            {
+              if($request->hasFile('photo'))
+              {
+                $files = [];
+                  foreach ($request->file('photo') as $photo) {
+                    $destinationPath = public_path('assets/images/items/');
+                      $extension = $photo->getClientOriginalExtension();
+                      $fileName = time() . '_' . uniqid() . '.' . $extension;
+                      $file_path = 'assets/images/items/' . $fileName;
+                      $photo->move($destinationPath, $fileName);
+                      $files[] = $fileName; 
+                  }
+              }else{
+                return response()->json([
+                        'type' => 'error',
+                        'message' => "<div class='alert alert-warning'>Please! File is not valid</div>"
+                      ]);
+              }
+            }
+            
             DB::beginTransaction();
             try {
 
@@ -199,6 +221,19 @@ class CatelogueController extends Controller
                $item->created_by = Auth::user()->id;
                $item->updated_by = Auth::user()->id;
                $item->save();
+
+               foreach ($files as $key => $value) {
+                 $itemImage = new ItemImage();
+                 $itemImage->item_id = $item->id;
+                 $itemImage->images = $value;
+                 if($key == $request->is_main_image)
+                 {
+                    $itemImage->is_main_image = 1;
+                 }else{
+                    $itemImage->is_main_image = 0;
+                 }
+                 $itemImage->save();
+               }
 
                DB::commit();
                return response()->json(['type' => 'success', 'message' => "Successfully Created"]);

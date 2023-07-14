@@ -8,12 +8,12 @@
                             <div class="widget-title">
                                 <div class="widget-logo">
                                     <a href="index.html">
-                                       <h4>Logo Here</h4>
+                                       <img src="{{ asset('assets/img/logo.png') }}" alt="Albert" style="max-width: 75%;">
                                     </a>
                                 </div>
                             </div>
                             <div class="widget-body">
-                                <p>We are a team of designers and developers that create high quality</p>
+                                <p>We are a team of designers and developers that create high quality Jewellery.</p>
                             </div>
                         </div>
                     </div>
@@ -23,9 +23,9 @@
                             <div class="widget-body">
                                 <address class="contact-block">
                                     <ul>
-                                        <li><i class="pe-7s-home"></i> Address of shop London Here</li>
-                                        <li><i class="pe-7s-mail"></i> <a href="mailto:demo@plazathemes.com">demo@yourdomain.com </a></li>
-                                        <li><i class="pe-7s-call"></i> <a href="tel:(012)800456789987">(012) 800 456 789-987</a></li>
+                                        <li><i class="pe-7s-home"></i> London Diamond Bourse <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100 Hatton Garden <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EC1N 8NX <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;London, United Kingdom</li>
+                                        <li><i class="pe-7s-mail"></i> <a href="mailto:demo@plazathemes.com">sales@albertlebar.com </a></li>
+                                        <li><i class="pe-7s-call"></i> <a href="tel:07930 906567">07930 906567</a></li>
                                     </ul>
                                 </address>
                             </div>
@@ -39,7 +39,7 @@
                                     <li><a href="javascript:void(0)">about us</a></li>
                                     <li><a href="javascript:void(0)">Delivery Information</a></li>
                                     <li><a href="javascript:void(0)">privet policy</a></li>
-                                    <li><a href="javascript:void(0)">Terms & Conditions</a></li>
+                                    <li><a href="{{ URL :: to('/terms-conditions') }}">Terms & Conditions</a></li>
                                     <li><a href="javascript:void(0)">contact us</a></li>
                                     <li><a href="javascript:void(0)">site map</a></li>
                                 </ul>

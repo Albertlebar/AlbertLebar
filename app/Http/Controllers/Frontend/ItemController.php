@@ -18,4 +18,11 @@ class ItemController extends Controller
       	$items = $items->paginate($pagination);
       	return View::make('frontend.item.list', compact('items'));
    }
+
+   public function itemDetails(Request $request)
+   {
+		$item = Item::where('id',$request->item_id)->first();
+        $view = View::make('frontend.item.quick_view', compact('item'))->render();
+        return response()->json(['html' => $view]);
+   }
 }

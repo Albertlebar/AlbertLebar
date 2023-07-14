@@ -57,13 +57,15 @@
             </div>
             <div id="append_image">
                 <div class="col-md-12 input-group">
-                    <input type="radio" name="is_main_image-0" class="form-control-sm" value="0">
-                    <input id="photo-0" type="file" name="photo" style="display:none">
-                    <div class="input-group-prepend">
-                        <a class="btn btn-secondary text-white" onclick="$('input[id=photo-0]').click();">Browse</a>
+                    <div class="col-md-2">
+                        <input type="radio" name="is_main_image" class="form-control-sm" value="0">
                     </div>
-                    <input type="text" name="SelectedFileName" class="form-control" id="SelectedFileName"
-                           value="" readonly>
+                    <div class="col-md-6">
+                        <input id="photo-0" type="file" accept="image/*" class="form-control" name="photo[0]" onchange="showImage(0)">
+                    </div>
+                    <div class="col-md-4">
+                        <img id="preview-0" src="" alt="" style="width: 100px; height: 100px;">
+                    </div>
                 </div>
             </div>
             <div class="mt-3">
@@ -129,27 +131,27 @@
 
 <script>
 
-    $(document).ready(function () {
+    function showImage(imgNumber) {
+        const imageUploader = document.querySelector("#photo-"+imgNumber);
+        const imagePreview = document.querySelector("#preview-"+imgNumber);
+      let reader = new FileReader();
+     reader.readAsDataURL(imageUploader.files[0]);
+      reader.onload = function(e) {
+        imagePreview.classList.add("show");
+        imagePreview.src = e.target.result;
+      };
+    }
 
-        $('input[id=photo]').change(function () {
-                    $('#SelectedFileName').val($(this).val());
-                });
+        let number_of_image = 1;
+    $(document).ready(function () {
 
         $("body").on("click", "#add_more", function (e) {
             $("#append_image").append(
-                '<div class="col-md-12 input-group mt-1"><input type="radio" name="is_main_image-0" class="form-control-sm" value="0">\
-                <input id="photo" type="file" name="photo" style="display:none">\
-                <div class="input-group-prepend">\
-                    <a class="btn btn-secondary text-white">Browse</a>\
-                </div>\
-                <input type="text" name="SelectedFileName" class="form-control" id="SelectedFileName"\
-                       value="" readonly></div>'
+                '<div class="col-md-12 input-group"><div class="col-md-2"><input type="radio" name="is_main_image" class="form-control-sm" value="'+ number_of_image +'"></div><div class="col-md-6"><input id="photo-'+ number_of_image +'" type="file" accept="image/*" class="form-control" name="photo['+ number_of_image +']" onchange="showImage('+ number_of_image +')"></div><div class="col-md-4"><img id="preview-'+ number_of_image +'" src="" alt="" style="width: 100px; height: 100px;"></div></div>'
             );
+            number_of_image++;
         });
 
-        $('input[type="checkbox"].flat-green').iCheck({
-            checkboxClass: 'icheckbox_flat-green',
-        });
 
         $('#create').validate({// <- attach '.validate()' to your form
             // Rules for form validation

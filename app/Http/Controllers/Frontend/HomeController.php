@@ -22,5 +22,8 @@ class HomeController extends Controller
       return view('frontend.newsDetails', compact('blog'));
    }
 
-
+   public function termsConditions()
+   {
+      return view('frontend.term_conditions');
+   }
 }
