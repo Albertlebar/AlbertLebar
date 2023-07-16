@@ -36,11 +36,11 @@
                             <h6 class="widget-title">Information</h6>
                             <div class="widget-body">
                                 <ul class="info-list">
-                                    <li><a href="javascript:void(0)">about us</a></li>
+                                    <li><a href="{{ URL :: to('/about-us') }}">About Us</a></li>
                                     <li><a href="javascript:void(0)">Delivery Information</a></li>
-                                    <li><a href="javascript:void(0)">privet policy</a></li>
+                                    <li><a href="{{ URL :: to('/return-policy') }}">Return Policy</a></li>
                                     <li><a href="{{ URL :: to('/terms-conditions') }}">Terms & Conditions</a></li>
-                                    <li><a href="javascript:void(0)">contact us</a></li>
+                                    <li><a href="{{ URL :: to('/book-appointment') }}">Book Appointment</a></li>
                                     <li><a href="javascript:void(0)">site map</a></li>
                                 </ul>
                             </div>

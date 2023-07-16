@@ -17,5 +17,6 @@
     @yield('content')
 </div>
 <script src="{{ asset('/assets/login/js/main.js') }}"></script>
+@stack('script')
 </body>
 </html>

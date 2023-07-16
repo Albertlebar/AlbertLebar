@@ -57,6 +57,12 @@
                         Catalogue
                     </a>
                 </li>
+                <li>
+                    <a href="{{ URL :: to('/admin/appointments') }}">
+                        <i class="metismenu-icon pe-7s-categories"></i>
+                        Appointments
+                    </a>
+                </li>
                 <!-- <li>
                     <a href="{{ URL :: to('/admin/blogs') }}">
                         <i class="metismenu-icon pe-7s-bookmarks"></i>

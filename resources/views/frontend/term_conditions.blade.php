@@ -6,7 +6,7 @@
   padding: 50px 80px;
   margin: auto;
   background: white;
-  box-shadow: 2px 2px 2px rgba(0,0,0,0.6);
+  box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.6);
   max-width: 800px;
   min-width: 500px;
 }

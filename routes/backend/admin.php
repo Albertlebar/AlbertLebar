@@ -35,6 +35,10 @@ Route::get('/allCategory','CategoryController@getAll')->name('allCategory');
 Route::resource('catelogues','CatelogueController');
 Route::get('/allCatelogue','CatelogueController@getAll')->name('allCatelogue');
 
+Route::get('/appointments','DashboardController@appointment');
+Route::get('/allAppointment','DashboardController@getAllAppointment')->name('allAppointment');
+
+
 /* ===== Catelogue End =========== */
 
 /* ===== Access Management Start =========== */

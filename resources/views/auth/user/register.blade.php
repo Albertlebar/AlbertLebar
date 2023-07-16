@@ -15,7 +15,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto">
-              <h3 class="login-heading mb-4">Welcome back!</h3>
+              <h3 class="login-heading mb-4">Welcome</h3>
 
               <!-- Sign In Form -->
               <form method="POST" action="{{ route('user.auth.register') }}" class="validate-form">
@@ -23,6 +23,18 @@
                 @if ($errors->has('email'))
                     <span class="is-invalid">{{ $errors->first('email') }}</span>
                 @endif
+                <div class="form-floating mb-3 d-flex">
+                  <div>
+                    <input class="form-check-input" type="radio" name="user_type" id="trade" value="0" checked>
+                    <label class="form-check-label" for="trade">Trade</label>  
+                  </div>
+                  <div style="margin-left: 1rem; ">
+                    <input class="form-check-input" type="radio" name="user_type" id="call" value="1">
+                    <label class="form-check-label" for="call">Retailer</label>
+                  </div>
+                  <span id="error_appointment" class="has-error"></span>
+                </div>
+
                 <div class="form-floating mb-3">
                   <input type="text" name="f_name" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{ old('f_name') }}">
                   <label for="floatingInput required">First Name</label>
@@ -126,3 +138,10 @@
         }
     </style>
 @endsection
+@push('script')
+<script type="text/javascript">
+  $("body").on("change", "input[name='user_type']", function (e) {
+      
+  });
+</script>
+@endpush
