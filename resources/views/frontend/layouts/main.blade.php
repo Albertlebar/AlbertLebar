@@ -4,7 +4,7 @@
         <!-- hero slider area end -->
 
         <!-- service policy area start -->
-        <div class="service-policy section-padding" style="margin-top: 400px; ">
+        <div class="service-policy section-padding">
             <div class="container">
                 <div class="row mtn-30">
                     <div class="col-sm-6 col-lg-3">
@@ -2410,3 +2410,6 @@
         <i class="fa fa-angle-up"></i>
     </div>
     <!-- Scroll to Top End -->
+
+
+  
