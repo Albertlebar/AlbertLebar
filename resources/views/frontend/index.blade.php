@@ -7,7 +7,7 @@
         <!-- hero slider area end -->
 
         <!-- service policy area start -->
-        <div class="service-policy section-padding" style="margin-top: 400px; ">
+        <div class="service-policy section-padding shop-main-wrapper">
             <div class="container">
                 <div class="row mtn-30">
                     <div class="col-sm-6 col-lg-3">
@@ -2414,4 +2414,24 @@
     </div>
     <!-- Scroll to Top End -->
 
+
 @endsection
+
+@push('script')
+<script type="text/javascript">
+// banner hight
+$(document).ready(function() {  
+    var banerHeight = $('.video-container').height();
+    $('.shop-main-wrapper').css('marginTop', banerHeight - 60);
+    // console.log(banerHeight);
+});
+
+$(window).resize(function(){
+    var banerHeight = $('.video-container').height();
+    $('.shop-main-wrapper').css('marginTop', banerHeight - 60);
+    // console.log(banerHeight);
+
+});
+</script>
+
+@endpush
