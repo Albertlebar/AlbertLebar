@@ -1644,15 +1644,15 @@ textarea:focus {
   background-color: #222222;
 }
 .btn-sqr {
-  color: #fff;
-  font-size: 15px;
-  border-radius: 0;
-  background-color: #c29958;
-  padding: 12px 25px;
+  color: #fff !important;
+  font-size: 15px !important;
+  border-radius: 0 !important;
+  background-color: #c29958 !important;
+  padding: 12px 25px !important;
 }
 .btn-sqr:hover {
-  color: #fff;
-  background-color: #222222;
+  color: #fff !important;
+  background-color: #222222 !important;
 }
 
 /*----- mobile menu start -----*/
@@ -6335,4 +6335,24 @@ font-family:Arial;
 .main-menu ul li:hover a i.fa {
   transform: rotate(181deg);
   top:3px;
+}
+
+
+.add-to-cart {
+  height: 40px !important;
+  color: #fff !important;
+  line-height: 40px !important;
+  border-radius: 50px !important;
+  padding: 0 25px !important;
+  background-color: #c29958 !important;
+}
+.add-to-cart:hover {
+  color: #fff;
+  background-color: #222222 !important;
+} 
+
+.header-area {
+  position: absolute;
+    top: 0;
+    width: 100%;
 }

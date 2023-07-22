@@ -12,6 +12,9 @@
 		}
 	});
 
+	var headerTop = $(".main-header ").height();
+	console.log("assadasdasdsadasasdasdasd",headerTop);
+	$('.shop-main-wrapper').css('marginTop', headerTop);
 
 	// tooltip active js
 	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))

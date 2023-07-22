@@ -14,12 +14,12 @@
       }
 ?>
 <div class="shop-main-wrapper section-padding">
-    <div class="container-fluid">
-      <div class="section-padding">
+    <div class="container">
+      <div class="section-bg-color">
         <div class="row">
             <div class="col-lg-12 col-12">
               <div class="cart-table table-responsive mb-40">
-                <table>
+                <table class="table table-bordered">
                   <thead>
                     <tr>
                       <th class="pro-thumbnail">Image</th>
@@ -60,31 +60,43 @@
                 </table>
               </div>
             </div>
-            <div class="col-lg-6"></div>
-            <div class="col-lg-6">
-                <div class="cart-total">
-                  <h3>Cart Totals</h3>
-                  <table>
+        
+            
+        </div>
+        <div class="row">
+        <div class="col-lg-5 ms-auto">
+          <div class="cart-calculator-wrapper">
+                <div class="cart-total p-0 cart-calculate-items">
+                  <h6>Cart Totals</h6>
+                  <div class="table-responsive">
+                  <table class="table">
                     <tbody>
                       <tr class="cart-subtotal">
                         
                       </tr>
                       <tr class="order-total">
-                        <th>Total</th>
+                        <td>Total</td>
                         <td>
                           <strong><span class="amount"><span id="bk-cart-subtotal-price"><span class="money" >&pound;{{ $allTotal ?? '' }}</span></span></span></strong>
                         </td>
                       </tr>                                         
                     </tbody>
-                  </table><div class="proceed-to-checkout">
-                    <a href="{{ URL :: to('/checkout') }}" class="theme-default-button">Proceed to Checkout</a>
+                  </table>
                   </div>
+                  
                 </div>
+                <div class="proceed-to-checkout">
+                    <a href="{{ URL :: to('/checkout') }}" class="btn btn-sqr d-block">Proceed to Checkout</a>
+                  </div>
+                 
               </div>
+            </div>
         </div>
       </div>
     <div>
 </div>
+    </div>
+    </div>
 <!-- page main wrapper end -->
 @endsection
 @push('script')
