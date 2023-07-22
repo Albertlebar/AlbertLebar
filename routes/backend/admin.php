@@ -38,8 +38,23 @@ Route::get('/allCatelogue','CatelogueController@getAll')->name('allCatelogue');
 Route::get('/appointments','DashboardController@appointment');
 Route::get('/allAppointment','DashboardController@getAllAppointment')->name('allAppointment');
 
-
 /* ===== Catelogue End =========== */
+
+/* ===== Stock Start =========== */
+
+Route::resource('stocks','StockController');
+// Route::get('/allCatelogue','CatelogueController@getAll')->name('allCatelogue');
+
+/* ===== Stock End =========== */
+
+
+/* ===== Order Start =========== */
+
+Route::resource('orders','OrderController');
+Route::get('/allOrders','OrderController@getAll')->name('allOrders');
+
+/* ===== Order End =========== */
+
 
 /* ===== Access Management Start =========== */
 Route::resource('users', 'UserController');

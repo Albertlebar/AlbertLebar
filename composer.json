@@ -19,6 +19,7 @@
         "laravelcollective/html": "^6.2.0",
         "spatie/laravel-backup": "^6.11.2",
         "spatie/laravel-permission": "^3.13",
+        "stripe/stripe-php": "^10.17",
         "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {

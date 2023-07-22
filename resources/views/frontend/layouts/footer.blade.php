@@ -164,67 +164,51 @@
                 <div class="minicart-content-box">
                     <div class="minicart-item-wrapper">
                         <ul>
+                            <?php
+                            $allTotal = 0;
+                            ?>
+                            @if(isset($cartItem))
+                            @forelse($cartItem as $id=>$item)
                             <li class="minicart-item">
                                 <div class="minicart-thumb">
                                     <a href="javascript:void(0);">
-                                        <img src="assets/img/cart/cart-1.jpg" alt="product">
+                                        <img src="{{asset('assets/images/items/').'/'.$item['images']}}" alt="product">
                                     </a>
                                 </div>
                                 <div class="minicart-content">
                                     <h3 class="product-name">
-                                        <a href="javascript:void(0);">Ring1</a>
+                                        <a href="javascript:void(0);">{{ $item['item_title'] }}</a>
                                     </h3>
                                     <p>
-                                        <span class="cart-quantity">1 <strong>&times;</strong></span>
-                                        <span class="cart-price">$100.00</span>
+                                        <span class="cart-quantity">{{ $item['quantity'] }} <strong>&times;</strong></span>
+                                        <span class="cart-price">{{ $item['price'] }}</span>
                                     </p>
                                 </div>
                                 <button class="minicart-remove"><i class="pe-7s-close"></i></button>
                             </li>
-                            <li class="minicart-item">
-                                <div class="minicart-thumb">
-                                    <a href="javascript:void(0);">
-                                        <img src="assets/img/cart/cart-2.jpg" alt="product">
-                                    </a>
-                                </div>
-                                <div class="minicart-content">
-                                    <h3 class="product-name">
-                                        <a href="javascript:void(0);">Ring2</a>
-                                    </h3>
-                                    <p>
-                                        <span class="cart-quantity">1 <strong>&times;</strong></span>
-                                        <span class="cart-price">$80.00</span>
-                                    </p>
-                                </div>
-                                <button class="minicart-remove"><i class="pe-7s-close"></i></button>
-                            </li>
+                            <?php
+                                $Total = $item['quantity'] * $item['price'];
+                                $allTotal = $allTotal + $Total;
+                            ?>
+                            @empty
+                            <div style="text-align: center;">No Item added</div>
+                            @endforelse
+                            @endif
                         </ul>
                     </div>
 
                     <div class="minicart-pricing-box">
                         <ul>
-                            <li>
-                                <span>sub-total</span>
-                                <span><strong>$300.00</strong></span>
-                            </li>
-                            <li>
-                                <span>Eco Tax (-2.00)</span>
-                                <span><strong>$10.00</strong></span>
-                            </li>
-                            <li>
-                                <span>VAT (20%)</span>
-                                <span><strong>$60.00</strong></span>
-                            </li>
                             <li class="total">
                                 <span>total</span>
-                                <span><strong>$370.00</strong></span>
+                                <span><strong>&pound;{{ $allTotal }}</strong></span>
                             </li>
                         </ul>
                     </div>
 
                     <div class="minicart-button">
-                        <a href="javascript:void(0)"><i class="fa fa-shopping-cart"></i> View Cart</a>
-                        <a href="javascript:void(0)"><i class="fa fa-share"></i> Checkout</a>
+                        <a href="{{ URL :: to('/cart') }}"><i class="fa fa-shopping-cart"></i> View Cart</a>
+                        <!-- <a href="javascript:void(0)"><i class="fa fa-share"></i> Checkout</a> -->
                     </div>
                 </div>
             </div>

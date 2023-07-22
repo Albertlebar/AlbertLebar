@@ -9,8 +9,10 @@ use Illuminate\Support\Facades\Validator;
 use DB;
 use View;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Appointment;
+use App\Models\Cart;
 
 
 class HomeController extends Controller
@@ -18,8 +20,7 @@ class HomeController extends Controller
 
    public function index()
    {
-      $latest_news = Blog::where('category', 'Latest News')->where('status', 1)->orderby('created_at', 'desc')->take(4)->get();
-      return View::make('frontend.index', compact('latest_news'));
+      return View::make('frontend.index');
    }
 
    // News Details

@@ -9,38 +9,30 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="product-large-slider">
+                            @foreach($item->itemImage as $images)
+                            @if($images->is_main_image == 1)
                             <div class="pro-large-img img-zoom">
-                                <img  src="{{asset('assets/img/product/product-details-img1.jpg') }}".jpg" alt="product-details" />
+                                <img  src="{{asset('assets/images/items/').'/'.$images->images}}".jpg" alt="product-details" />
                             </div>
+                            @else
                             <div class="pro-large-img img-zoom">
-                                <img  src="{{asset('assets/img/product/product-details-img2.jpg') }}" alt="product-details" />
+                                <img  src="{{asset('assets/images/items/').'/'.$images->images}}".jpg" alt="product-details" />
                             </div>
-                            <div class="pro-large-img img-zoom">
-                                <img  src="{{asset('assets/img/product/product-details-img3.jpg') }}" alt="product-details" />
-                            </div>
-                            <div class="pro-large-img img-zoom">
-                                <img  src="{{asset('assets/img/product/product-details-img4.jpg') }}" alt="product-details" />
-                            </div>
-                            <div class="pro-large-img img-zoom">
-                                <img  src="{{asset('assets/img/product/product-details-img5.jpg') }}" alt="product-details" />
-                            </div>
+                            @endif
+                            @endforeach
                         </div>
                         <div class="pro-nav slick-row-10 slick-arrow-style">
+                            @foreach($item->itemImage as $images)
+                            @if($images->is_main_image == 1)
                             <div class="pro-nav-thumb">
-                                <img src="{{asset('assets/img/product/product-details-img1.jpg') }}" alt="product-details" />
+                                <img src="{{asset('assets/images/items/').'/'.$images->images}}" alt="product-details" />
                             </div>
+                            @else
                             <div class="pro-nav-thumb">
-                                <img src="{{asset('assets/img/product/product-details-img2.jpg') }}" alt="product-details" />
+                                <img src="{{asset('assets/images/items/').'/'.$images->images}}" alt="product-details" />
                             </div>
-                            <div class="pro-nav-thumb">
-                                <img src="{{asset('assets/img/product/product-details-img3.jpg') }}" alt="product-details" />
-                            </div>
-                            <div class="pro-nav-thumb">
-                                <img src="{{asset('assets/img/product/product-details-img4.jpg') }}" alt="product-details" />
-                            </div>
-                            <div class="pro-nav-thumb">
-                                <img src="{{asset('assets/img/product/product-details-img5.jpg') }}" alt="product-details" />
-                            </div>
+                            @endif
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-lg-7">
@@ -51,17 +43,21 @@
                             <div class="price-box">
                                 <span class="price-regular">&pound; {{ $item->total_retail }}</span>
                             </div>
-                            
+                            <div class="quantity-cart-box d-flex align-items-center">
+                                <h6 class="option-title">Size:</h6>
+                                <div class="size">
+                                    {!! Form::select('item_size', config('params.item_size') ?? [],  $item->item_size ?? 'H', ['class' => 'form-control','data-control'=>"select2", 'id'=>'item-size']) !!}
+                                </div>
+                            </div>
                             <div class="quantity-cart-box d-flex align-items-center">
                                 <h6 class="option-title">qty:</h6>
                                 <div class="quantity">
-                                    <div class="pro-qty"><input type="text" value="1"></div>
+                                    <div class="pro-qty"><input type="text" id="item-qty" value="1"></div>
                                 </div>
-                                
                             </div>
                             <div class="action_link">
-                                    <a class="btn btn-cart2" href="#">Add to cart</a>
-                                </div>
+                                <a class="btn btn-cart add-to-cart" item-id="{{ $item->id }}" href="#"><strong>Add to cart</strong></a>
+                            </div>
                            
                         </div>
                     </div>

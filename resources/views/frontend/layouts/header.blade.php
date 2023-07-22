@@ -10,6 +10,12 @@
                         <div class="main-menu-area">
                             <div class="main-menu">
                                 <!-- main menu navbar start -->
+                                @if (Session::has('payment-success'))
+                                    <div class="alert alert-success text-center">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                        <p>{{ Session::get('payment-success') }}</p>
+                                    </div>
+                                @endif
                                 <nav class="desktop-menu">
                                     <ul>
                                         <li><a href="{{ URL :: to('/item/ring') }}">RING</a></li>
@@ -53,8 +59,22 @@
                                         </a>
                                         <ul class="dropdown-list">
                                             <li><a href="javascript:void(0)">My Account</a></li>
-                                            <li><a class="dropdown-item" href="{{ route('user.auth.login') }}">Login</a>
-                                            </li>
+                                            @guest
+                                                <li><a class="dropdown-item" href="{{ route('login') }}">Login</a>
+                                                </li>
+                                            @else
+                                                <li>
+                                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                                       onclick="event.preventDefault();
+                                                                     document.getElementById('logout-form').submit();">
+                                                        {{ __('Logout') }}
+                                                    </a>
+
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                                </li>
+                                            @endguest
                                         </ul>
                                     </li>
                                     <li>
@@ -63,12 +83,15 @@
                                             <div class="notification">0</div>
                                         </a>
                                     </li>
-                                    <!-- <li>
-                                            <a href="javascript:void(0)" class="minicart-btn">
-                                                <i class="pe-7s-shopbag"></i>
-                                                <div class="notification">2</div>
-                                            </a>
-                                        </li> -->
+                                    <li>
+                                        <a href="javascript:void(0)" class="minicart-btn">
+                                            <i class="pe-7s-shopbag"></i>
+                                            @if(isset($cartItem))
+
+                                            <div class="notification">{{ count($cartItem)}}</div>
+                                            @endif
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -81,11 +104,7 @@
         <!-- header middle area end -->
     </div>
     <!-- main header start -->
-    <div class="video-container">
-        <video autoplay loop muted id="video-bg">
-            <source src="{{ asset('assets/video/main_video.mp4') }}" type="video/mp4">
-        </video>
-    </div>
+    @yield('video')
     <!-- mobile header start -->
     <!-- mobile header start -->
     <div class="mobile-header d-lg-none d-md-block sticky">

@@ -1,5 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title', 'Book Appointment')
+@section('video','frontend.layouts.video_container')
 @section('content')
   <style type="text/css">
     .page {

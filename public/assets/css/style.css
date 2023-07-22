@@ -33,6 +33,112 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
+/*Cart CSS*/
+.cart-table table {
+    border-color: #ddd;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+table {
+    border-collapse: collapse;
+}
+.cart-table thead {
+    background: #f7f7f7;
+    color: #222;
+}
+.cart-table table tbody tr td.pro-thumbnail {
+    width: 130px;
+}
+.cart-table table tbody tr td.pro-title {
+    width: 270px;
+}
+.cart-table table tbody tr td.pro-price {
+    width: 130px;
+}
+.cart-table table tbody tr td.pro-quantity {
+    width: 180px;
+}
+.cart-table table tbody tr td.pro-subtotal {
+    width: 120px;
+}
+.cart-table table tbody tr td.pro-remove {
+    width: 150px;
+}
+.cart-table table tbody tr td.pro-quantity .product-quantity {
+    border-radius: 30px;
+    position: sticky;
+}
+.cart-table table tbody tr td.pro-quantity .product-quantity input {
+    background: transparent none repeat scroll 0 0;
+    border: medium none;
+    height: 38px;
+    padding-left: 0;
+    padding-right: 0; 
+    text-align: center;
+    width: 40px;
+}
+.cart-table table tbody tr td.pro-quantity .product-quantity span.dec {
+    left: 0;
+}
+.cart-table table tbody tr td.pro-quantity .product-quantity span.inc {
+    right: 0;
+}
+.cart-table table tbody tr td.pro-quantity .product-quantity span {
+    color: #222;
+    top: 1px;
+    font-size: 20px;
+}
+.cart-table table tbody tr td.pro-quantity .product-quantity span {
+    color: #ddd;
+    cursor: pointer;
+    display: block;
+    height: 38px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 29px;
+}
+.cart-table table tbody tr td {
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 10px;
+    vertical-align: middle;
+    text-align: center;
+}
+.cart-table td, .cart-table th {
+    border: none;
+}
+.cart-total {
+    background: #f7f7f7;
+    padding: 20px;
+}
+tr.cart-subtotal td, tr.cart-subtotal th {
+    font-weight: 400;
+}
+tr.order-total {
+    font-size: 18px;
+}
+.proceed-to-checkout .theme-default-button {
+    margin-top: 20px;
+    width: 100%;
+}
+.theme-default-button {
+    border-radius: 30px;
+}
+.theme-default-button {
+    color: #fff;
+    font-size: 15px;
+    border-radius: 0;
+    background-color: #c29958;
+}
+
+
+
+
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin: 0;
   line-height: 1.5;
@@ -191,7 +297,7 @@ textarea:focus {
 /* ----tab problem fix css ----*/
 /*------- modal fix start -------*/
 .modal-dialog {
-  max-width: 1000px;
+  max-width: 700px !important;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .modal-dialog {
@@ -3742,9 +3848,16 @@ textarea:focus {
   border-color: #c29958;
   background-color: #c29958;
 }
-.paginatoin-area .pagination-box li.active a {
+.paginatoin-area .pagination-box li.active{
   color: #fff;
   background-color: #c29958;
+  height: 36px;
+  width: 36px;
+  font-size: 14px;
+  display: inline-block;
+  text-align: center;
+  line-height: 36px;
+  border-radius: 50%;
 }
 
 /*------ pagination area style end ------*/

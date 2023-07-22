@@ -9,3 +9,15 @@ Route::get('/viewNews/{blog}', 'HomeController@viewNews');
 
 Route::get('/item/{item_type}','ItemController@index');
 Route::get('item/item-details/{item_id}','ItemController@itemDetails');
+
+
+Route::post('item/add-to-cart', 'ItemController@addToCart');
+Route::get('cart','CheckoutController@cart');
+
+Route::middleware('auth')->group(function ()
+{
+	Route::get('checkout','CheckoutController@checkout');
+	Route::post('checkout/shipping','CheckoutController@saveShipping');
+	Route::post('stripe', 'CheckoutController@stripePost')->name('stripe.post');
+	Route::get('checkout/payment/{order_id}', 'CheckoutController@payment')->name('checkout.payment');
+});

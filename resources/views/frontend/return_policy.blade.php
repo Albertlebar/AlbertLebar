@@ -39,7 +39,7 @@
   
 }
 </style>
-    <div class="page">
+    <div class="shop-main-wrapper section-padding page">
   <div id="terms-and-conditions">
     <h1>Return Policy for Jewelry Retail Company (United Kingdom)</h1>
     <ol>
@@ -122,3 +122,25 @@
   </div><!--  end #terms-and-conditions  -->
 </div><!--  end .page  -->
 @endsection
+@push('script')
+<script type="text/javascript">
+// banner hight
+$(document).ready(function() {
+
+    // $(document).on("change", "#item_size", function(e) {
+    //     e.preventDefault();
+    //     var item_type = $(this).val();
+    //     alert(item_type);
+    // });
+    var banerHeight = $('.video-container').height();
+    $('.shop-main-wrapper').css('marginTop', banerHeight - 60);
+     $(window).resize(function(){
+    var banerHeight = $('.video-container').height();
+    $('.shop-main-wrapper').css('marginTop', banerHeight - 60);
+    // console.log(banerHeight);
+
+    });  
+});
+</script>
+
+@endpush

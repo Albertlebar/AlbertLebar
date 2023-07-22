@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 use View;
 
 class AppServiceProvider extends ServiceProvider
@@ -37,5 +38,9 @@ class AppServiceProvider extends ServiceProvider
         $running_session = $setting ? $setting->running_year : $running_year;
 
         config(['running_session' => $running_session]);
+
+        // Paginator::defaultView('custom-pagination');
+
+        // Paginator::defaultSimpleView('simple-pagination');
     }
 }

@@ -1,4 +1,7 @@
 @extends('frontend.layouts.master')
+@section('video')
+@include('frontend.layouts.video_container')
+@endsection 
 @section('title', 'Home')
 @section('content')
     <main >

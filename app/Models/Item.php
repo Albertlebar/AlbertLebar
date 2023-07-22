@@ -21,4 +21,14 @@ class Item extends Model
     {
         return $this->hasMany(ItemImage::class, 'item_id','id');	
     }
+
+    public function itemMainImage()
+    {
+        return $this->hasMany(ItemImage::class, 'item_id','id')->where('is_main_image',1);	
+    }
+
+    public function itemQty()
+    {
+    	return $this->hasMany(ItemStock::class,'item_id','id');
+    }
 }

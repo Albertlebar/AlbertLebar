@@ -1,9 +1,8 @@
-@extends('frontend.layouts.master')
-@section('title', 'Item')
-@section('content')
-<!-- page main wrapper start -->
-<div class="shop-main-wrapper section-padding pb-0 pt-0">
-    <div class="container-fluid">
+@extends('frontend.layouts.master') @section('video')
+@include('frontend.layouts.video_container') @endsection  @section('title',
+'Item') @section('content') <!-- page main wrapper start --> <div
+class="shop-main-wrapper section-padding pb-0 pt-0"> <div
+class="container-fluid">
 
 
         <div class="row">
@@ -275,13 +274,8 @@
 
                     <!-- start pagination area -->
                     <div class="paginatoin-area text-center mt-0 mb-0">
-                        <ul class="pagination-box">
-                            <li><a class="previous" href="#"><i class="pe-7s-angle-left"></i></a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a class="next" href="#"><i class="pe-7s-angle-right"></i></a></li>
-                        </ul>
+                            <!-- {{$items->links('vendor.pagination.default')}} -->
+                        {{ $items->appends(request()->input())->links('vendor.pagination.default') }}
                     </div>
                     <!-- end pagination area -->
                 </div>
@@ -298,6 +292,7 @@
 @endsection
 @push('script')
 <script type="text/javascript">
+
 $(document).ready(function() {
     // View Form
     $(".quick_view_details").click(function(event) {
@@ -311,10 +306,6 @@ $(document).ready(function() {
             success: function(data) {
                 $("#quick_view_item_details").html(data.html);
                 $('#quick_view_item_details').modal('show'); // show bootstrap modal
-                $('.product-large-slider').slick();
-            $('.pro-nav').slick();
-            $('.img-zoom').zoom(); 
-
             },
             error: function(result) {
                 $("#quick_view_item_details").html("Sorry Cannot Load Data");
@@ -327,20 +318,68 @@ $(document).ready(function() {
 
 
 // banner hight
-$(document).ready(function() {  
+$(document).ready(function() {
 
-    var banerHeight = $('.video-container').height();
-    $('.shop-main-wrapper').css('marginTop', banerHeight - 60);
+    // $(document).on("change", "#item_size", function(e) {
+    //     e.preventDefault();
+    //     var item_type = $(this).val();
+    //     alert(item_type);
+    // });  
+
+    $(document).on("click", ".add-to-cart", function(e) {
+        e.preventDefault();
+        var itemId = $(this).attr('item-id');
+        var itemSize = $('#item-size').val();
+        var itemQty = $('#item-qty').val();
+        $.ajax({
+            url: 'add-to-cart',
+            data:{'item_id' : itemId, 'item_size' : itemSize, 'item_qty' : itemQty,'_token':"{{csrf_token()}}"},
+            dataType: 'json',
+            type: 'POST',
+            success: function(data) {
+                location.reload(true); // show bootstrap modal
+            },
+            error: function(result) {
+                $("#quick_view_item_details").html("Sorry Cannot Load Data");
+            }
+          
+        });
+    });  
+
     // console.log(banerHeight);
 
     $('#quick_view_item_details').on('shown.bs.modal', function () {
-        $('.product-large-slider').slick();
+        $('.product-large-slider').not('.slick-initialized').slick({
+            fade: true,
+            arrows: false,
+            speed: 1000,
+            asNavFor: '.pro-nav'
+        });
 
-       
+        $('.pro-nav').not('.slick-initialized').slick({
+        slidesToShow: 4,
+        asNavFor: '.product-large-slider',
+        centerMode: true,
+        speed: 1000,
+        centerPadding: 0,
+        focusOnSelect: true,
+        prevArrow: '<button type="button" class="slick-prev"><i class="lnr lnr-chevron-left"></i></button>',
+        nextArrow: '<button type="button" class="slick-next"><i class="lnr lnr-chevron-right"></i></button>',
+        responsive: [{
+            breakpoint: 576,
+            settings: {
+                slidesToShow: 3,
+            }
+        }]
+    });
+        $('.img-zoom').zoom();
     });
 
 
 });
+
+var banerHeight = $('.video-container').height();
+    $('.shop-main-wrapper').css('marginTop', banerHeight - 60);
 
 $(window).resize(function(){
     var banerHeight = $('.video-container').height();

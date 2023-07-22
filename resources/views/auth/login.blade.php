@@ -1,58 +1,64 @@
 @extends('auth.layouts.app')
 @section('content')
-    <div class="main">
-        <div class="signup-content">
-            <div class="signup-form">
-                <form method="POST" action="{{ route('login') }}" class="register-form" id="register-form">
-                    @csrf
-                    <h4>Sign In</h4>
-                    <p>Enter your email address and password to access account</p>
-                    <div class="form-group">
-                        <label for="address">Email Address :</label>
-                        <input id="email" type="email"
-                               class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
-                               value="{{ old('email') }}" required autofocus>
-                        @if ($errors->has('email'))
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password :</label>
-                        <input id="password" type="password"
-                               class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                               name="password" required>
 
-                        @if ($errors->has('password'))
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                        @endif
-                    </div>
-                    <div class="form-group" style="display: none">
-                        <input class="form-check-input" type="checkbox" name="remember"
-                               id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                        <label class="form-check-label" for="remember">
-                            {{ __('Remember Me') }}
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-dark btn-block">
-                            {{ __('Login') }}
-                        </button>
-                        @if (Route::has('password.request'))
-                            <a class="" style="display:none;" href="{{ route('password.request') }}">
-                                {{ __('Forgot Your Password?') }}
-                            </a>
-                        @endif
-                    </div>
-                </form>
-            </div>
-            <div class="signup-img">
-                <img src="{{ asset('assets/images/BG_image_8.png') }}" class="right-image" alt="">
-            </div>
+<div class="container-fluid ps-md-0">
+  <div class="row g-0">
+    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image">
+        <div class="video-container">
+            <video autoplay loop muted>
+                <source src="{{ asset('assets/video/login1.mp4') }}" type="video/mp4">
+            </video>
         </div>
     </div>
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto">
+              <h3 class="login-heading mb-4">Welcome back!</h3>
+
+              <!-- Sign In Form -->
+              <form method="POST" action="{{ route('login') }}" class="validate-form">
+                @csrf
+                @if ($errors->has('email'))
+                    <span class="is-invalid">{{ $errors->first('email') }}</span>
+                @endif
+                <div class="form-floating mb-3">
+                  <input type="text" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{ old('email') }}">
+                  <label for="floatingInput">Email address</label>
+                </div>
+                
+                <div class="form-floating mb-3">
+                  <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
+                  <label for="floatingPassword">Password</label>
+                </div>
+
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
+                  <label class="form-check-label" for="rememberPasswordCheck">
+                    Remember password
+                  </label>
+                </div>
+
+                <div class="d-grid">
+                  <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</button>
+                  <div class="text-center">
+                    <a class="small" href="{{ route('register') }}">Registration</a> | 
+                    <a class="small" href="route('password.request')">Forgot password?</a>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <style>
+        .is-invalid {
+            color: red;
+        }
+    </style>
 @endsection

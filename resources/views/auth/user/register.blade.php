@@ -18,7 +18,7 @@
               <h3 class="login-heading mb-4">Welcome</h3>
 
               <!-- Sign In Form -->
-              <form method="POST" action="{{ route('user.auth.register') }}" class="validate-form">
+              <form method="POST" action="{{ route('user.auth.registerUser') }}" class="validate-form">
                 @csrf
                 @if ($errors->has('email'))
                     <span class="is-invalid">{{ $errors->first('email') }}</span>
@@ -36,77 +36,82 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="text" name="f_name" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{ old('f_name') }}">
+                  <input type="text" name="f_name" class="form-control" id="f_name" placeholder="name@example.com" value="{{ old('f_name') }}">
                   <label for="floatingInput required">First Name</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="text" name="l_name" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{ old('l_name') }}">
+                  <input type="text" name="l_name" class="form-control" id="l_name" placeholder="name@example.com" value="{{ old('l_name') }}">
                   <label for="floatingInput required">Last Name</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="text" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{ old('email') }}">
-                  <label for="floatingInput required">email</label>
+                  <input type="text" name="email" class="form-control" id="email" placeholder="name@example.com" value="{{ old('email') }}">
+                  <label for="floatingInput required">Email</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="text" name="address_field_1" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{ old('address_field_1') }}">
+                  <input type="text" name="company" class="form-control" id="company" placeholder="name@example.com" value="{{ old('company') }}">
+                  <label for="floatingInput required">Company</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input type="text" name="address_field_1" class="form-control" id="address_field_1" placeholder="name@example.com" value="{{ old('address_field_1') }}">
                   <label for="floatingInput required">Address field 1</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="text" name="address_field_2" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{ old('address_field_1') }}">
+                  <input type="text" name="address_field_2" class="form-control" id="address_field_2" placeholder="name@example.com" value="{{ old('address_field_1') }}">
                   <label for="floatingInput required">Address field 2</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="text" name="city" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{ old('city') }}">
+                  <input type="text" name="city" class="form-control" id="city" placeholder="name@example.com" value="{{ old('city') }}">
                   <label for="floatingInput required">City</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="text" name="country" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{ old('country') }}">
+                  <input type="text" name="country" class="form-control" id="country" placeholder="name@example.com" value="{{ old('country') }}">
                   <label for="floatingInput required">Country</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="text" name="state_province_county" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{ old('state_province_county') }}">
+                  <input type="text" name="state_province_county" class="form-control" id="state_province_county" placeholder="name@example.com" value="{{ old('state_province_county') }}">
                   <label for="floatingInput required">State/Province/County</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="text" name="postcode" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{ old('postcode') }}">
+                  <input type="text" name="postcode" class="form-control" id="postcode" placeholder="name@example.com" value="{{ old('postcode') }}">
                   <label for="floatingInput required">Postcode</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="text" name="telephone" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{ old('telephone') }}">
+                  <input type="text" name="telephone" class="form-control" id="telephone" placeholder="name@example.com" value="{{ old('telephone') }}">
                   <label for="floatingInput required">Telephone</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="text" name="mobile" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{ old('mobile') }}">
+                  <input type="text" name="mobile" class="form-control" id="mobile" placeholder="name@example.com" value="{{ old('mobile') }}">
                   <label for="floatingInput required">Mobile</label>
                 </div>
                 
                 <div class="form-floating mb-3">
-                  <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
+                  <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                   <label for="floatingPassword">Password</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="confirm_password" class="form-control" name="confirm_password" id="floatingPassword" placeholder="Confirm Password">
+                  <input type="confirm_password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Confirm Password">
                   <label for="floatingPassword">Confirm Password</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="vat_number" class="form-control" name="vat_number" id="floatingPassword" placeholder="VAT Number">
+                  <input type="vat_number" class="form-control" name="vat_number" id="vat_number" placeholder="VAT Number">
                   <label for="floatingPassword">VAT Number</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <textarea type="refrences" class="form-control" name="refrences" id="floatingPassword" placeholder="Refrences"></textarea>
+                  <textarea type="refrences" class="form-control" name="refrences" id="refrences" placeholder="Refrences"></textarea>
                   <label for="floatingPassword">Refrences</label>
                 </div>
 
@@ -141,7 +146,17 @@
 @push('script')
 <script type="text/javascript">
   $("body").on("change", "input[name='user_type']", function (e) {
-      
+    let user_type = $(this).val();
+    if(user_type == 1)
+    {
+      $('#company').addClass('d-none');
+      $('#vat_number').addClass('d-none');
+      $('#refrences').addClass('d-none'); 
+    }else{
+      $('#company').removeClass('d-none');
+      $('#vat_number').removeClass('d-none');
+      $('#refrences').removeClass('d-none');
+    }
   });
 </script>
 @endpush

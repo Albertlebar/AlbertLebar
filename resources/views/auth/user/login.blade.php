@@ -18,7 +18,7 @@
               <h3 class="login-heading mb-4">Welcome back!</h3>
 
               <!-- Sign In Form -->
-              <form method="POST" action="{{ route('user.auth.loginUser') }}" class="validate-form">
+              <form method="POST" action="{{ route('login') }}" class="validate-form">
                 @csrf
                 @if ($errors->has('email'))
                     <span class="is-invalid">{{ $errors->first('email') }}</span>
@@ -42,9 +42,9 @@
 
                 <div class="d-grid">
                   <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</button>
-                  <div class="text-center">
+                  <!-- <div class="text-center">
                     <a class="small" href="{{ route('user.auth.register') }}">Registeration</a> / <a class="small" href="#">Forgot password?</a>
-                  </div>
+                  </div> -->
                 </div>
 
               </form>

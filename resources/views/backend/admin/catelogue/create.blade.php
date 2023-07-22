@@ -1,6 +1,7 @@
 <form id='create' action="" enctype="multipart/form-data" method="post" accept-charset="utf-8" class="needs-validation"
       novalidate>
     <div class="form-row">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <div id="status"></div>
         <br/>
         <div class="clearfix"></div>
@@ -209,7 +210,7 @@
                 var list_id = [];
                 
                 var myData = new FormData($("#create")[0]);
-                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+                var CSRF_TOKEN = $('input[name="csrf_token"]').val();
                 myData.append('_token', CSRF_TOKEN);
                 myData.append('roles', list_id);
 

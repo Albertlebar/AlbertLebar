@@ -58,6 +58,18 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ URL :: to('/admin/stocks') }}">
+                        <i class="metismenu-icon pe-7s-stock"></i>
+                        Stock
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ URL :: to('/admin/orders') }}">
+                        <i class="metismenu-icon pe-7s-categories"></i>
+                        Orders
+                    </a>
+                </li>
+                <li>
                     <a href="{{ URL :: to('/admin/appointments') }}">
                         <i class="metismenu-icon pe-7s-categories"></i>
                         Appointments

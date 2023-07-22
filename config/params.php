@@ -15,4 +15,43 @@ return [
         '2' => 'Red',
         '3' => 'Mix',
     ],
+    'item_size' => [
+        'H' => 'H',
+        'I' => 'I',
+        'J' => 'J',
+        'K' => 'K',
+        'L' => 'L',
+        'M' => 'M',
+        'N' => 'N',
+        'O' => 'O',
+        'P' => 'P',
+        'Q' => 'Q',
+        'R' => 'R',
+        'S' => 'S',
+        'T' => 'T',
+        'U' => 'U',
+        'V' => 'V',
+        'W' => 'W',
+    ],
+
+    'order_type' => [
+        '0' => 'Ready',
+        '1' => 'Make'
+    ],
+
+    'order_status' => [
+        '0' => 'Pending',
+        '1' => 'Received',
+        '2' => 'Shipped',
+        '3' => 'Success',
+        '4' => 'Canceled',
+    ],
+
+    'payment_status' => [
+        '0' => 'Pending',
+        '1' => 'Received',
+        '2' => 'Shipped',
+        '3' => 'Success',
+        '4' => 'Canceled',
+    ]
 ];
