@@ -44,6 +44,9 @@ class UserController extends Controller
         ->addColumn('status', function ($users) {
            return $users->status ? '<label class="badge badge-success">Active</label>' : '<label class="badge badge-danger">Inactive</label>';
         })
+        ->addColumn('user_type', function ($users) {
+           return config('params.user_type')[$users->user_type];
+        })
         ->addColumn('action', function ($user) use ($can_edit, $can_delete) {
            $html = '<div class="btn-group">';
            $html .= '<a data-toggle="tooltip" ' . $can_edit . '  id="' . $user->id . '" class="btn btn-xs btn-info mr-1 edit" title="Edit"><i class="fa fa-edit"></i> </a>';
@@ -51,7 +54,7 @@ class UserController extends Controller
            $html .= '</div>';
            return $html;
         })
-        ->rawColumns(['action', 'file_path', 'status', 'role'])
+        ->rawColumns(['action', 'file_path', 'status', 'role', 'user_type'])
         ->addIndexColumn()
         ->make(true);
    }
