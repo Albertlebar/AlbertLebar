@@ -33,6 +33,8 @@
                                 <th>User Name</th>
                                 <th>Email</th>
                                 <th>Roles</th>
+                                <th>User Type</th>
+                                <th>Is Approved</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -71,6 +73,8 @@
                     {data: 'name', name: 'name'},
                     {data: 'email', name: 'email'},
                     {data: 'role', name: 'role'},
+                    {data: 'user_type', name: 'user_type'},
+                    {data: 'is_approved', name: 'is_approved'},
                     {data: 'status', name: 'status'},
                     {data: 'action', name: 'action'}
                 ],

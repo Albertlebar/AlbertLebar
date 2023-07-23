@@ -2,6 +2,10 @@
 
 
 return [
+    'user_type' => [
+        '0' => 'Trade',
+        '1' => 'Retailer', 
+    ],
     'metal_type' => [
         '' => 'Select Metal Type',
         '0' => '9K',
@@ -53,5 +57,10 @@ return [
         '2' => 'Shipped',
         '3' => 'Success',
         '4' => 'Canceled',
-    ]
+    ],
+
+    'bool_val' => [
+        '0' => 'No',
+        '1' => 'Yes',
+    ],
 ];

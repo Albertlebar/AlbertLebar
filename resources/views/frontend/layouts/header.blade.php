@@ -16,6 +16,12 @@
                                         <p>{{ Session::get('payment-success') }}</p>
                                     </div>
                                 @endif
+                                @if ($errors->has('global'))
+                                    <div class="alert alert-danger text-center">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                        <p>{{ $errors->first('global') }}</p>
+                                    </div>
+                                @endif
                                 <nav class="desktop-menu">
                                     <ul>
                                         <li><a href="{{ URL :: to('/item/ring') }}">RING</a></li>
