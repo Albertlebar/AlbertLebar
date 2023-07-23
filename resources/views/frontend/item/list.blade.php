@@ -185,7 +185,7 @@ class="container-fluid">
                             <div class="product-item">
                                 <div
                                     class="hero-slider-active slick-arrow-style slick-arrow-style_hero slick-dot-style">
-                                    <figure class="product-thumb">
+                                    <figure class="product-thumb mb-0">
                                         <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details"
                                             href="javascript:void(0);">
                                             @foreach($item->itemImage as $images)
@@ -210,7 +210,7 @@ class="container-fluid">
                                                 <button class="btn btn-cart">add to cart</button>
                                             </div> -->
                                     </figure>
-                                    <figure class="product-thumb">
+                                    <figure class="product-thumb mb-0">
                                         <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details"
                                             href="javascript:void(0);">
                                             @foreach($item->itemImage as $images)
@@ -379,11 +379,11 @@ $(document).ready(function() {
 });
 
 var banerHeight = $('.video-container').height();
-    $('.shop-main-wrapper').css('marginTop', banerHeight - 60);
+    $('.shop-main-wrapper').css('marginTop', banerHeight + 5);
 
 $(window).resize(function(){
     var banerHeight = $('.video-container').height();
-    $('.shop-main-wrapper').css('marginTop', banerHeight - 60);
+    $('.shop-main-wrapper').css('marginTop', banerHeight + 5);
     // console.log(banerHeight);
 
 });
