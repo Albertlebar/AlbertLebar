@@ -71,7 +71,19 @@ class RegisterController extends Controller
             'f_name' => $data['f_name'],
             'l_name' => $data['l_name'],
             'email' => $data['email'],
-            // 'is_approved' => $data
+            'company' => $data['company'],
+            'address_field_1' => $data['address_field_1'],
+            'address_field_2' => $data['address_field_2'],
+            'city' => $data['city'],
+            'country' => $data['country'],
+            'state_province_county' => $data['state_province_county'],
+            'postcode' => $data['postcode'],
+            'telephone' => $data['telephone'],
+            'mobile' => $data['mobile'],
+            'vat_number' => $data['vat_number'],
+            'refrences' => $data['refrences'],
+            'user_type' => $data['user_type'],
+            'is_approved' => $data['user_type'] == 0 ? '0' : '1',
             'password' => Hash::make($data['password']),
         ]);
     }

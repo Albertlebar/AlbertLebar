@@ -47,6 +47,9 @@ class UserController extends Controller
         ->addColumn('user_type', function ($users) {
            return config('params.user_type')[$users->user_type];
         })
+        ->addColumn('is_approved', function ($users) {
+           return config('params.bool_val')[$users->is_approved];
+        })
         ->addColumn('action', function ($user) use ($can_edit, $can_delete) {
            $html = '<div class="btn-group">';
            $html .= '<a data-toggle="tooltip" ' . $can_edit . '  id="' . $user->id . '" class="btn btn-xs btn-info mr-1 edit" title="Edit"><i class="fa fa-edit"></i> </a>';
@@ -54,7 +57,7 @@ class UserController extends Controller
            $html .= '</div>';
            return $html;
         })
-        ->rawColumns(['action', 'file_path', 'status', 'role', 'user_type'])
+        ->rawColumns(['action', 'file_path', 'status', 'role', 'user_type', 'is_approved'])
         ->addIndexColumn()
         ->make(true);
    }
@@ -246,6 +249,7 @@ class UserController extends Controller
                $user->name = $request->input('name');
                $user->email = $request->input('email');
                $user->status = $request->input('status');
+               $user->is_approved = $request->input('is_approved');
                $user->password = Hash::make($request->password);
                $user->file_path = $file_path;
                $user->save();

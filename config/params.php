@@ -57,5 +57,10 @@ return [
         '2' => 'Shipped',
         '3' => 'Success',
         '4' => 'Canceled',
-    ]
+    ],
+
+    'bool_val' => [
+        '0' => 'No',
+        '1' => 'Yes',
+    ],
 ];
