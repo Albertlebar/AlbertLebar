@@ -39,7 +39,7 @@
   
 }
 </style>
-    <div class="page">
+    <div class="shop-main-wrapper section-padding page">
   <div id="terms-and-conditions">
     <h1>Terms & Conditions</h1>
     <ol>
