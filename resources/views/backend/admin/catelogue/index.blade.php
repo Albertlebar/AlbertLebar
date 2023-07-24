@@ -34,7 +34,7 @@
                                 <th>Item Code</th>
                                 <th>Item Description</th>
                                 <th>Supplier Name</th>
-                                <th>Supplier Code</th>
+                                <!-- <th>Supplier Code</th> -->
                                 <th>Metal Type</th>
                                 <th>Metal Colour</th>
                                 <th>Total Gold Weight</th>
@@ -87,7 +87,7 @@
                     {data: 'item_code', name: 'item_code'},
                     {data: 'item_description', name: 'item_description'},
                     {data: 'supplier_name', name: 'supplier_name'},
-                    {data: 'supplier_code', name: 'supplier_code'},
+                    // {data: 'supplier_code', name: 'supplier_code'},
                     {data: 'metal_type', name: 'metal_type'},
                     {data: 'metal_colour', name: 'metal_colour'},
                     {data: 'total_gold_weight', name: 'total_gold_weight'},
