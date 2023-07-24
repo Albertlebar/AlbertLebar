@@ -1,27 +1,30 @@
 @extends('frontend.layouts.master')
-@section('title', 'Book Appointment')
-@section('video','frontend.layouts.video_container')
+@section('title', 'Book Appointment') 
 @section('content')
   <style type="text/css">
     .page {
   padding: 50px 80px;
-  margin: auto;
+  /*margin: auto;*/
   background: white;
   box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.6);
-  max-width: 800px;
-  min-width: 500px;
+  /*max-width: 800px;
+  min-width: 500px;*/
 }
 
 #terms-and-conditions {
   font-size: 15px; // default  
 }
 </style>
-<div class="page">
-  <div id="terms-and-conditions">
+<div class="shop-main-wrapper section-padding page">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="{{ asset('assets/img/appointment_page.jpg') }}" alt="Albert" style="max-width: 75%;"></div>
+    <div class="col-md-6">
+      <div id="terms-and-conditions">
     <h1 style="margin-bottom: 10px;">Book Appointment</h1>
     <form id='create' action="" enctype="multipart/form-data" method="post" accept-charset="utf-8" class="needs-validation"
       novalidate>
-      <div class="form-group row">
+      <div class="form-group row mt-5">
         <div class="col-md-4">
           <strong><label for="staticEmail" class="col-form-label">First Name :</label></strong>
         </div>
@@ -55,8 +58,8 @@
         <div class="col-md-8">
           <input class="form-check-input" type="radio" name="appointment_type" id="face_to_face" value="0" checked>
           <label class="form-check-label" for="face_to_face">Face to Face</label>
-          <input class="form-check-input" type="radio" name="appointment_type" id="call" value="1">
-          <label class="form-check-label" for="call">Call</label>
+          <input class="form-check-input ml-2" type="radio" name="appointment_type" id="call" value="1">
+          <label class="form-check-label ml-4" for="call">Call</label>
           <span id="error_appointment" class="has-error"></span> 
         </div>
       </div>
@@ -83,6 +86,8 @@
       </div>
     </form>
   </div><!--  end #terms-and-conditions  -->
+    </div>
+  </div>
 </div><!--  end .page  -->
 @endsection
 @push('script')

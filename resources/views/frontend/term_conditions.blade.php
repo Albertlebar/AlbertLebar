@@ -39,8 +39,8 @@
   
 }
 </style>
-    <div class="shop-main-wrapper section-padding page">
-  <div id="terms-and-conditions">
+    <div class="shop-main-wrapper section-padding page" style="background: #f195ab;">
+  <div id="terms-and-conditions" style="color: white;">
     <h1>Terms & Conditions</h1>
     <ol>
       <li>

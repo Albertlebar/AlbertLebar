@@ -38,8 +38,8 @@
   
 }
 </style>
-<div class="page">
-  <div id="terms-and-conditions">
+<div class="shop-main-wrapper section-padding page" style="background: #f195ab;">
+  <div id="terms-and-conditions" style="color: white;">
     <h1 style="margin-bottom: 10px;">About Us</h1>
     <ul>
       <li style="list-style: disc;">

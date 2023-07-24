@@ -3,7 +3,8 @@
         <div class="modal-header">
             <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" style="background: #f195ab;
+  color: white;">
             <!-- product details inner end -->
             <div class="product-details-inner">
                 <div class="row">
@@ -41,7 +42,7 @@
                             <h3 class="product-name">{{ $item->item_title }}</h3>
                             <p class="pro-desc">{{ $item->item_description }}</p>
                             <div class="price-box">
-                                <span class="price-regular">&pound; {{ $item->total_retail }}</span>
+                                <span class="price-regular"  style="color: black;">&pound; {{ number_format((float)$item->total_retail, 2, '.', '') }}</span>
                             </div>
                             <div class="quantity-cart-box d-flex align-items-center">
                                 <h6 class="option-title">Size:</h6>
@@ -56,7 +57,7 @@
                                 </div>
                             </div>
                             <div class="action_link">
-                                <a class="btn btn-cart add-to-cart" item-id="{{ $item->id }}" href="#"><strong>Add to cart</strong></a>
+                                <a style="background: white !important; color: black !important;" class="btn btn-cart add-to-cart" item-id="{{ $item->id }}" href="#"><strong>Add to cart</strong></a>
                             </div>
                            
                         </div>

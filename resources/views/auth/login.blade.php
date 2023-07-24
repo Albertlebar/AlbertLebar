@@ -15,6 +15,13 @@
         <div class="container">
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto">
+              <div class="col-md-12 text-center mb-2">
+                <div class="logo">
+                    <a href="{{ URL :: to('/') }}">
+                        <img src="{{ asset('assets/img/logo.png') }}" alt="Albert" style="max-width: 30%;">
+                    </a>
+                </div>
+              </div>
               <h3 class="login-heading mb-4">Welcome back!</h3>
 
               <!-- Sign In Form -->

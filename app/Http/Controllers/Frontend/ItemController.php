@@ -14,7 +14,7 @@ class ItemController extends Controller
 {
    public function index(Request $request)
    {
-   		$pagination = 1;
+   		$pagination = 9;
    		$category = Category::where('title',$request->item_type)->first();
       	$items = Item::where('category_id',$category->id);
       	$items = $items->paginate($pagination);

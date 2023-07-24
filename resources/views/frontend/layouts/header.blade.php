@@ -39,7 +39,7 @@
                     <!-- start logo area -->
                     <div class="col-lg-2 text-center">
                         <div class="logo">
-                            <a href="index.html">
+                            <a href="{{ URL :: to('/') }}">
                                 <img src="{{ asset('assets/img/logo.png') }}" alt="Albert" style="max-width: 75%;">
                             </a>
                         </div>
@@ -120,7 +120,7 @@
                 <div class="col-12">
                     <div class="mobile-main-header">
                         <div class="mobile-logo">
-                            <a href="index.html">
+                            <a href="{{ URL :: to('/') }}">
                                 <img src="{{ asset('assets/img/logo.png') }}" alt="Albert" style="max-width: 75%;">
                             </a>
                         </div>

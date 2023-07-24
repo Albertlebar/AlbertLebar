@@ -255,7 +255,7 @@ class="container-fluid">
                                         <div class="col text-end">
                                             <div class="price-box">
                                                 <span style="font-size: 12px;color: #f195ab;"
-                                                    class="price-regular">&pound; {{ $item->total_retail }}</span>
+                                                    class="price-regular">&pound; {{ number_format((float)$item->total_retail, 2, '.', '') }}</span>
                                             </div>
                                         </div>
                                         <!-- <p>{{ $item->item_description }}</p> -->

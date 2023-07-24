@@ -15,6 +15,13 @@
         <div class="container">
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto">
+              <div class="col-md-12 text-center mb-2">
+                <div class="logo">
+                    <a href="{{ URL :: to('/') }}">
+                        <img src="{{ asset('assets/img/logo.png') }}" alt="Albert" style="max-width: 30%;">
+                    </a>
+                </div>
+              </div>
               <h3 class="login-heading mb-4">Welcome</h3>
 
               <!-- Sign In Form -->
@@ -56,7 +63,7 @@
                 @endif
                 </div>
 
-                <div class="form-floating mb-3">
+                <div class="form-floating mb-3" id="company_field">
                   <input type="text" name="company" class="form-control" id="company" placeholder="name@example.com" value="{{ old('company') }}">
                   <label for="floatingInput required">Company</label>
                   @if ($errors->has('company'))
@@ -144,7 +151,7 @@
                 @endif
                 </div>
 
-                <div class="form-floating mb-3">
+                <div class="form-floating mb-3" id="vat_number_field">
                   <input type="vat_number" class="form-control" name="vat_number" id="vat_number" placeholder="VAT Number">
                   <label for="floatingPassword">VAT Number</label>
                   @if ($errors->has('vat_number'))
@@ -152,7 +159,7 @@
                 @endif
                 </div>
 
-                <div class="form-floating mb-3">
+                <div class="form-floating mb-3" id="refrences_field">
                   <textarea type="text" class="form-control" name="refrences" id="refrences" placeholder="Refrences"></textarea>
                   <label for="floatingPassword">Refrences</label>
                   @if ($errors->has('refrences'))
@@ -193,13 +200,13 @@
     let user_type = $(this).val();
     if(user_type == 1)
     {
-      $('#company').addClass('d-none');
-      $('#vat_number').addClass('d-none');
-      $('#refrences').addClass('d-none'); 
+      $('#company_field').addClass('d-none');
+      $('#vat_number_field').addClass('d-none');
+      $('#refrences_field').addClass('d-none'); 
     }else{
-      $('#company').removeClass('d-none');
-      $('#vat_number').removeClass('d-none');
-      $('#refrences').removeClass('d-none');
+      $('#company_field').removeClass('d-none');
+      $('#vat_number_field').removeClass('d-none');
+      $('#refrences_field').removeClass('d-none');
     }
   });
 </script>
