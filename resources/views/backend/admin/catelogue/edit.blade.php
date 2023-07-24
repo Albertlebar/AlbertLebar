@@ -103,6 +103,13 @@
                 <input type="number" class="form-control" id="total_retail" name="total_retail" value="{{ $item->total_retail }}" placeholder="" required>
                 <span id="error_profit_retail" class="has-error"></span>
             </div>
+            <div class="form-group col-md-12 col-sm-12">
+                <label for=""> Status </label><br/>
+                <input type="radio" name="is_active" class="flat-green"
+                       value="1" {{ ( $item->is_active == 1 ) ? 'checked' : '' }} /> Active
+                <input type="radio" name="is_active" class="flat-green"
+                       value="0" {{ ( $item->is_active == 0 ) ? 'checked' : '' }}/> In Active
+            </div>
         </div>
         
         <div class="col-md-12 mb-3">

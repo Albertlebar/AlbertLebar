@@ -16,7 +16,7 @@ class ItemController extends Controller
    {
    		$pagination = 9;
    		$category = Category::where('title',$request->item_type)->first();
-      	$items = Item::where('category_id',$category->id);
+      	$items = Item::where('category_id',$category->id)->where('is_active',1);
       	$items = $items->paginate($pagination);
       	return View::make('frontend.item.list', compact('items'));
    }

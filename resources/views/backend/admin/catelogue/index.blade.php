@@ -48,6 +48,7 @@
                                 <th>Profit Retail %</th> -->
                                 <th>Total Trade</th>
                                 <th>Total Retail</th>
+                                <th>Is Active</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -100,6 +101,7 @@
                     // {data: 'profit_retail', name: 'profit_retail'},
                     {data: 'total_trade', name: 'total_trade'},
                     {data: 'total_retail', name: 'total_retail'},
+                    {data: 'is_active', name: 'is_active'},
                     {data: 'action', name: 'action'}
                 ],
                 "autoWidth": true,

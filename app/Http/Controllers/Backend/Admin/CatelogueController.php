@@ -98,6 +98,9 @@ class CatelogueController extends Controller
         ->addColumn('total_retail', function ($items) {
            return $items->total_retail;
         })
+        ->addColumn('is_active', function ($items) {
+           return $items->is_active ? '<label class="badge badge-success">Active</label>' : '<label class="badge badge-danger">Inactive</label>';
+        })
         ->addColumn('action', function ($items) use ($can_edit, $can_delete) {
            $html = '<div class="btn-group">';
            $html .= '<a data-toggle="tooltip" ' . $can_edit . '  id="' . $items->id . '" class="btn btn-xs btn-info mr-1 edit" title="Edit"><i class="fa fa-edit"></i> </a>';
@@ -105,7 +108,7 @@ class CatelogueController extends Controller
            $html .= '</div>';
            return $html;
         })
-        ->rawColumns(['action', 'category_id', 'item_title', 'item_code', 'item_description', 'supplier_name', 'supplier_code', 'metal_type', 'metal_colour', 'total_gold_weight', 'total_ct_weight', 'gold_price', 'stone_price', 'labour_cost', 'duty_and_extra', 'total_cost', 'profit_trade', 'profit_retail', 'total_trade', 'total_retail'])
+        ->rawColumns(['action', 'category_id', 'item_title', 'item_code', 'item_description', 'supplier_name', 'supplier_code', 'metal_type', 'metal_colour', 'total_gold_weight', 'total_ct_weight', 'gold_price', 'stone_price', 'labour_cost', 'duty_and_extra', 'total_cost', 'profit_trade', 'profit_retail', 'total_trade', 'total_retail', 'is_active'])
         ->addIndexColumn()
         ->make(true);
    }
@@ -218,6 +221,7 @@ class CatelogueController extends Controller
                $item->profit_retail = $request->input('profit_retail');
                $item->total_trade = $request->input('total_trade');
                $item->total_retail = $request->input('total_retail');
+               $item->is_active = $request->input('is_active');
                $item->created_by = Auth::user()->id;
                $item->updated_by = Auth::user()->id;
                $item->save();
@@ -349,6 +353,7 @@ class CatelogueController extends Controller
                $item->profit_retail = $request->input('profit_retail');
                $item->total_trade = $request->input('total_trade');
                $item->total_retail = $request->input('total_retail');
+               $item->is_active = $request->input('is_active');
                $item->updated_by = Auth::user()->id;
                $item->save();
 
