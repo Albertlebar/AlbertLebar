@@ -38,16 +38,16 @@
                                 <th>Metal Type</th>
                                 <th>Metal Colour</th>
                                 <th>Total Gold Weight</th>
-                                <!-- <th>Total Ct Weight</th>
+                                <th>Total Ct Weight</th>
                                 <th>Gold Price</th>
                                 <th>Stone Price</th>
-                                <th>Labour Cost</th>
-                                <th>Duty And Extra</th>
-                                <th>Total Cost</th>
-                                <th>Profit Trade %</th>
-                                <th>Profit Retail %</th>
+                                <!-- <th>Labour Cost</th> -->
+                                <!-- <th>Duty And Extra</th> -->
+                                <!-- <th>Total Cost</th> -->
+                                <!-- <th>Profit Trade %</th>
+                                <th>Profit Retail %</th> -->
                                 <th>Total Trade</th>
-                                <th>Total Retail</th> -->
+                                <th>Total Retail</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -90,16 +90,16 @@
                     {data: 'metal_type', name: 'metal_type'},
                     {data: 'metal_colour', name: 'metal_colour'},
                     {data: 'total_gold_weight', name: 'total_gold_weight'},
-                    // {data: 'total_ct_weight', name: 'total_ct_weight'},
-                    // {data: 'gold_price', name: 'gold_price'},
-                    // {data: 'stone_price', name: 'stone_price'},
+                    {data: 'total_ct_weight', name: 'total_ct_weight'},
+                    {data: 'gold_price', name: 'gold_price'},
+                    {data: 'stone_price', name: 'stone_price'},
                     // {data: 'labour_cost', name: 'labour_cost'},
                     // {data: 'duty_and_extra', name: 'duty_and_extra'},
                     // {data: 'total_cost', name: 'total_cost'},
                     // {data: 'profit_trade', name: 'profit_trade'},
                     // {data: 'profit_retail', name: 'profit_retail'},
-                    // {data: 'total_trade', name: 'total_trade'},
-                    // {data: 'total_retail', name: 'total_retail'},
+                    {data: 'total_trade', name: 'total_trade'},
+                    {data: 'total_retail', name: 'total_retail'},
                     {data: 'action', name: 'action'}
                 ],
                 "autoWidth": true,
