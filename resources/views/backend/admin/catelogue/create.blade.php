@@ -124,9 +124,9 @@
             <div class="form-group col-md-12 col-sm-12">
                 <label for=""> Status </label><br/>
                 <input type="radio" name="is_active" class="flat-green"
-                       value="1" {{ ( $user->is_active == 1 ) ? 'checked' : '' }} /> Active
+                       value="1"/> Active
                 <input type="radio" name="is_active" class="flat-green"
-                       value="0" {{ ( $user->is_active == 0 ) ? 'checked' : '' }}/> In Active
+                       value="0"/> In Active
             </div>
         </div>
         <div class="col-md-12 mb-3">
