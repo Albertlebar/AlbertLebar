@@ -3,8 +3,7 @@
         <div class="modal-header">
             <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
         </div>
-        <div class="modal-body" style="background: #f195ab;
-  color: white;">
+        <div class="modal-body" style="">
             <!-- product details inner end -->
             <div class="product-details-inner">
                 <div class="row">
@@ -55,9 +54,14 @@
                                 <div class="quantity">
                                     <div class="pro-qty"><input type="text" id="item-qty" value="1"></div>
                                 </div>
+                                <div style="width: 50px;">
+                                    <a style="color: #f195ab;" href="javascript:void(0);"
+                                                data-bs-toggle="tooltip" data-bs-placement="left"><i
+                                                    class="pe-7s-like"></i></a>
+                                </div>
                             </div>
                             <div class="action_link">
-                                <a style="background: white !important; color: black !important;" class="btn btn-cart add-to-cart" item-id="{{ $item->id }}" href="#"><strong>Add to cart</strong></a>
+                                <a style="background: #f195ab !important; color: black !important;" class="btn btn-cart add-to-cart" item-id="{{ $item->id }}" href="#"><strong>Add to cart</strong></a>
                             </div>
                            
                         </div>

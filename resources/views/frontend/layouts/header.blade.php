@@ -64,11 +64,11 @@
                                             <i class="pe-7s-user"></i>
                                         </a>
                                         <ul class="dropdown-list">
-                                            <li><a href="javascript:void(0)">My Account</a></li>
                                             @guest
                                                 <li><a class="dropdown-item" href="{{ route('login') }}">Login</a>
                                                 </li>
                                             @else
+                                            <li><a href="javascript:void(0)">My Account</a></li>
                                                 <li>
                                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                                        onclick="event.preventDefault();

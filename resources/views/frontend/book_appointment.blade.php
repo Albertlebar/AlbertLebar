@@ -81,6 +81,15 @@
           <span id="error_appointment_date" class="has-error"></span>
         </div>
       </div>
+      <div class="form-group row">
+        <div class="col-md-4">
+          <strong><label for="staticEmail" class="col-form-label">Notes :</label></strong>
+        </div>
+        <div class="col-md-8">
+          <textarea type="text" class="form-control" id="notes" name="notes" value="" placeholder=""></textarea>
+          <span id="error_notes" class="has-error"></span>
+        </div>
+      </div>
       <div class="text-center">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>

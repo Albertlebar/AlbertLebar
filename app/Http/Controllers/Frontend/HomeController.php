@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Appointment;
 use App\Models\Cart;
+use App\Models\Item;
 
 
 class HomeController extends Controller
@@ -20,7 +21,8 @@ class HomeController extends Controller
 
    public function index()
    {
-      return View::make('frontend.index');
+      $items = Item::latest()->limit(8)->get();
+      return View::make('frontend.index',compact('items'));
    }
 
    // News Details
@@ -80,6 +82,7 @@ class HomeController extends Controller
                $appointment->phone_number = $request->input('phone_number');
                $appointment->appointment_type = $request->input('appointment_type');
                $appointment->appointment_date = \DateTime::createFromFormat('d/m/Y H:i:s', $request->input('appointment_date').' '.date('H:i:s'));
+               $appointment->notes = $request->input('notes');
                $appointment->save();
                DB::commit();
                return response()->json(['type' => 'success', 'message' => "Successfully Created"]);

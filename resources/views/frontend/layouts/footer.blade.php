@@ -19,7 +19,7 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="widget-item">
-                            <h6 class="widget-title">Contact Us</h6>
+                            <!-- <h6 class="widget-title">Contact Us</h6> -->
                             <div class="widget-body">
                                 <address class="contact-block">
                                     <ul>
@@ -33,14 +33,14 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="widget-item">
-                            <h6 class="widget-title">Information</h6>
+                            <!-- <h6 class="widget-title">Information</h6> -->
                             <div class="widget-body">
-                                <ul class="info-list">
+                                <ul class="info-list" style="display: block !important;">
                                     <li><a href="{{ URL :: to('/about-us') }}">About Us</a></li>
+                                    <li><a href="{{ URL :: to('/book-appointment') }}">Book Appointment</a></li>
                                     <!-- <li><a href="javascript:void(0)">Delivery Information</a></li> -->
                                     <li><a href="{{ URL :: to('/return-policy') }}">Return Policy</a></li>
                                     <li><a href="{{ URL :: to('/terms-conditions') }}">Terms & Conditions</a></li>
-                                    <li><a href="{{ URL :: to('/book-appointment') }}">Book Appointment</a></li>
                                     <!-- <li><a href="javascript:void(0)">site map</a></li> -->
                                 </ul>
                             </div>
@@ -48,11 +48,12 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="widget-item">
-                            <h6 class="widget-title">Follow Us</h6>
+                            <!-- <h6 class="widget-title">Follow Us</h6> -->
                             <div class="widget-body social-link">
                                 <a target="_blank" href="https://www.facebook.com/lebardiamondandjewelry"><i class="fa fa-facebook" style="font-family: "></i></a>
                                 <a target="_blank" href="https://www.linkedin.com/company/93232851/admin/feed/posts/"><i class="fa fa-linkedin"></i></a>
                                 <a target="_blank" href="https://www.instagram.com/albertlebarjewellery/"><i class="fa fa-instagram"></i></a>
+                                <a target="_blank" href="https://api.whatsapp.com/send?phone=447930906567"><i class="fa fa-whatsapp"></i></a>
                             </div>
                         </div>
                     </div>
@@ -65,7 +66,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="copyright-text text-center">
-                            <p>&copy; 2023 | <a href="{{ URL :: to('/') }}">
+                            <p><a href="{{ URL :: to('/') }}">
                             <img src="{{ asset('assets/img/logo.png') }}" alt="Albert" style="max-width: 7%;"></a></p>
                         </div>
                     </div>
