@@ -146,53 +146,33 @@
                             @forelse($items as $item)
                             <div class="product-item">
                                 <figure class="product-thumb">
-                                    <a href="javascript:void(0);">
-                                        <img class="pri-img" src="{{ asset('assets/img/product/product-6.jpg') }}" alt="product">
-                                        <img class="sec-img" src="{{ asset('assets/img/product/product-13.jpg') }}" alt="product">
+                                    @foreach($item->itemImage as $images)
+                                    <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details" href="javascript:void(0);">
+                                    @if($images->is_main_image == 1)
+                                        <img class="pri-img" src="{{asset('assets/images/items/').'/'.$images->images}}" alt="product">
+                                    @else
+                                        <img class="sec-img" src="{{asset('assets/images/items/').'/'.$images->images}}" alt="product">
+                                    @endif
                                     </a>
-                                    <div class="product-badge">
-                                        <div class="product-label new">
-                                            <span>new</span>
-                                        </div>
-                                        <div class="product-label discount">
-                                            <span>10%</span>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                     <div class="button-group">
                                         <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                        <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                    </div>
-                                    <div class="cart-hover">
-                                        <button class="btn btn-cart">add to cart</button>
                                     </div>
                                 </figure>
-                                <div class="product-caption text-center">
-                                    <div class="product-identity">
-                                        <p class="manufacturer-name"><a href="javascript:void(0);">Gold</a></p>
+                                <div class="row">
+                                        <div class="col">
+                                            <h6 style="font-size: 12px;" class="product-name p-0"><a
+                                                    href="javascript:void(0);" style=" color: black !important">{{ $item->item_title }}</a></h6>
+
+                                        </div>
+                                        <div class="col text-end">
+                                            <div class="price-box">
+                                                <span style="font-size: 12px;color: #f195ab;"
+                                                    class="price-regular">&pound; {{ number_format((float)$item->total_retail, 2, '.', '') }}</span>
+                                            </div>
+                                        </div>
+                                        <!-- <p>{{ $item->item_description }}</p> -->
                                     </div>
-                                    <ul class="color-categories">
-                                        <li>
-                                            <a class="c-lightblue" href="#" title="LightSteelblue"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-darktan" href="#" title="Darktan"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-grey" href="#" title="Grey"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-brown" href="#" title="Brown"></a>
-                                        </li>
-                                    </ul>
-                                    <h6 class="product-name">
-                                        <a href="javascript:void(0);">Perfect Diamond Jewelry</a>
-                                    </h6>
-                                    <div class="price-box">
-                                        <span class="price-regular">$60.00</span>
-                                        <span class="price-old"><del>$70.00</del></span>
-                                    </div>
-                                </div>
                             </div>
                             @empty
                             <div style="text-align: left;">No items found</div>
@@ -415,7 +395,9 @@
         <i class="fa fa-angle-up"></i>
     </div>
     <!-- Scroll to Top End -->
+<div class="modal" id="quick_view_item_details">
 
+</div>
 
 @endsection
 
@@ -426,6 +408,52 @@ $(document).ready(function() {
     var banerHeight = $('.video-container').height();
     $('.shop-main-wrapper').css('marginTop', banerHeight - 60);
     // console.log(banerHeight);
+
+    $(".quick_view_details").click(function(event) {
+       
+        $("#quick_view_item_details").empty();
+      
+        var id = $(this).attr('data-id');
+        $.ajax({
+            url: 'item/item-details' + '/' + id,
+            type: 'get',
+            success: function(data) {
+                $("#quick_view_item_details").html(data.html);
+                $('#quick_view_item_details').modal('show'); // show bootstrap modal
+            },
+            error: function(result) {
+                $("#quick_view_item_details").html("Sorry Cannot Load Data");
+            }
+          
+        });
+    });
+
+    $('#quick_view_item_details').on('shown.bs.modal', function () {
+        $('.product-large-slider').not('.slick-initialized').slick({
+            fade: true,
+            arrows: false,
+            speed: 1000,
+            asNavFor: '.pro-nav'
+        });
+
+        $('.pro-nav').not('.slick-initialized').slick({
+        slidesToShow: 4,
+        asNavFor: '.product-large-slider',
+        centerMode: true,
+        speed: 1000,
+        centerPadding: 0,
+        focusOnSelect: true,
+        prevArrow: '<button type="button" class="slick-prev"><i class="lnr lnr-chevron-left"></i></button>',
+        nextArrow: '<button type="button" class="slick-next"><i class="lnr lnr-chevron-right"></i></button>',
+        responsive: [{
+            breakpoint: 576,
+            settings: {
+                slidesToShow: 3,
+            }
+        }]
+    });
+        $('.img-zoom').zoom();
+    });
 });
 
 $(window).resize(function(){
