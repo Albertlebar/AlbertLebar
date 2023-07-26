@@ -13,6 +13,7 @@
 <!-- google fonts -->
 <!-- Favicons -->
 <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,900" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/santral-blackitalic" rel="stylesheet">
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="{{ asset('/assets/css/vendor/bootstrap.min.css') }}">
 <!-- Pe-icon-7-stroke CSS -->

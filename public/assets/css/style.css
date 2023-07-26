@@ -1,10 +1,11 @@
 /*------ Typography Style Start ------*/
+
 body {
   color: #555555;
   line-height: 1.7;
   font-size: 14px;
   font-weight: 500;
-  font-family: benton-sans,sans-serif;
+  font-family: Santral-Medium;
 }
 
 a {
