@@ -29,7 +29,7 @@
           <strong><label for="staticEmail" class="col-form-label">First Name :</label></strong>
         </div>
         <div class="col-md-8">
-          <input type="text" name="first_name" class="form-control" id="first_name" value="">
+          <input type="text" name="first_name" class=" input-round-style" id="first_name" value="">
           <span id="error_first_name" class="has-error"></span>
         </div>
       </div>
@@ -38,7 +38,7 @@
           <strong><label for="staticEmail" class="col-form-label">Last Name :</label></strong>
         </div>
         <div class="col-md-8">
-          <input type="text" name="last_name" class="form-control" id="last_name" value="">
+          <input type="text" name="last_name" class=" input-round-style" id="last_name" value="">
           <span id="error_last_name" class="has-error"></span>
         </div>
       </div>
@@ -47,7 +47,7 @@
           <strong><label for="staticEmail" class="col-form-label">Email :</label></strong>
         </div>
         <div class="col-md-8">
-          <input type="text" name="email" class="form-control" id="email" value="">
+          <input type="text" name="email" class=" input-round-style" id="email" value="">
           <span id="error_email" class="has-error"></span>
         </div>
       </div>
@@ -68,7 +68,7 @@
           <strong><label for="staticEmail" class="col-form-label">Phone Number :</label></strong>
         </div>
         <div class="col-md-8">
-          <input type="number" name="phone_number" class="form-control" id="phone_number" value="">
+          <input type="number" name="phone_number" class=" input-round-style" id="phone_number" value="">
           <span id="error_phone_number" class="has-error"></span>
         </div>
       </div>
@@ -77,7 +77,7 @@
           <strong><label for="staticEmail" class="col-form-label">Appointment Date :</label></strong>
         </div>
         <div class="col-md-8">
-          <input type="text" name="appointment_date" id="datepicker" />
+          <input type="text" class="input-round-style" name="appointment_date" id="datepicker" />
           <span id="error_appointment_date" class="has-error"></span>
         </div>
       </div>
@@ -91,7 +91,7 @@
         </div>
       </div>
       <div class="text-center">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" style="background: #f195ab !important; color: black !important;" class="btn btn-cart">Submit</button>
       </div>
     </form>
   </div><!--  end #terms-and-conditions  -->

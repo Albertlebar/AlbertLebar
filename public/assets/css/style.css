@@ -1663,6 +1663,14 @@ textarea:focus {
   background-color: #222222 !important;
 }
 
+.input-round-style{
+  width: 375px;
+  height: 40px;
+  border: 1px solid #ddd;
+  padding: 0 15px;
+  border-radius: 40px;
+  float: left;
+}
 /*----- mobile menu start -----*/
 .mobile-header {
   padding: 10px 0;
