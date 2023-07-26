@@ -3875,12 +3875,12 @@ textarea:focus {
 }
 .paginatoin-area .pagination-box li a:hover {
   color: #fff;
-  border-color: #c29958;
-  background-color: #c29958;
+  border-color: #f195ab;
+  background-color: #f195ab;
 }
 .paginatoin-area .pagination-box li.active{
   color: #fff;
-  background-color: #c29958;
+  background-color: #f195ab;
   height: 36px;
   width: 36px;
   font-size: 14px;
