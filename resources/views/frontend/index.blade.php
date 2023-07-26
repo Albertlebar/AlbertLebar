@@ -146,15 +146,20 @@
                             @forelse($items as $item)
                             <div class="product-item">
                                 <figure class="product-thumb">
-                                    @foreach($item->itemImage as $images)
                                     <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details" href="javascript:void(0);">
-                                    @if($images->is_main_image == 1)
-                                        <img class="pri-img" src="{{asset('assets/images/items/').'/'.$images->images}}" alt="product">
-                                    @else
-                                        <img class="sec-img" src="{{asset('assets/images/items/').'/'.$images->images}}" alt="product">
+                                    @if(!empty($item->photo_0))
+                                        <img class="pri-img" src="{{ asset($item->photo_0) }}" alt="product">
+                                    @endif
+                                    @if(!empty($item->photo_1))
+                                        <img class="sec-img" src="{{ asset($item->photo_1) }}" alt="product">
+                                    @endif
+                                    @if(!empty($item->photo_2))
+                                        <img class="sec-img" src="{{ asset($item->photo_2) }}" alt="product">
+                                    @endif
+                                    @if(!empty($item->photo_3))
+                                        <img class="sec-img" src="{{ asset($item->photo_3) }}" alt="product">
                                     @endif
                                     </a>
-                                    @endforeach
                                     <div class="button-group">
                                         <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
                                     </div>
@@ -186,14 +191,14 @@
         <!-- featured product area end -->
 
         <!-- testimonial area start -->
-        <section class="testimonial-area section-padding bg-img" data-bg="{{ asset('assets/img/testimonial/testimonials-bg.jpeg')}}" style="color: white;">
+        <section class="testimonial-area section-padding bg-img1" style="color: black;background-image: url({{ asset('assets/img/testimonial/testimonials-bg.jpeg')}})">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <!-- section title start -->
                         <div class="section-title text-center">
-                            <h2 class="title" style="color: white !important;">testimonials</h2>
-                            <p class="sub-title">What they say</p>
+                            <h2 class="title" style="color: black !important;">testimonials</h2>
+                            <p class="sub-title"><strong>What they say</strong></p>
                         </div>
                         <!-- section title start -->
                     </div>
@@ -219,8 +224,8 @@
                         <div class="testimonial-content-wrapper">
                             <div class="testimonial-content-carousel">
                                 <div class="testimonial-content">
-                                    <p>Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</p>
-                                    <div class="ratings">
+                                    <p><strong> Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</strong></p>
+                                    <div class="ratings" style="color: black;">
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
@@ -230,8 +235,8 @@
                                     <h5 class="testimonial-author">lindsy niloms</h5>
                                 </div>
                                 <div class="testimonial-content">
-                                    <p>Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</p>
-                                    <div class="ratings">
+                                    <p><strong> Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</strong></p>
+                                    <div class="ratings"  style="color: black;">
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
@@ -241,8 +246,8 @@
                                     <h5 class="testimonial-author">Daisy Millan</h5>
                                 </div>
                                 <div class="testimonial-content">
-                                    <p>Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</p>
-                                    <div class="ratings">
+                                    <p><strong> Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</strong></p>
+                                    <div class="ratings"  style="color: black;">
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
@@ -252,8 +257,8 @@
                                     <h5 class="testimonial-author">Anamika lusy</h5>
                                 </div>
                                 <div class="testimonial-content">
-                                    <p>Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</p>
-                                    <div class="ratings">
+                                    <p><strong> Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</strong></p>
+                                    <div class="ratings"  style="color: black;">
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>

@@ -200,10 +200,24 @@ img {
   transition: 0.4s;
 }
 
-.bg-img {
+.bg-img1 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.bg-img1::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.40);
 }
 
 .btn,
