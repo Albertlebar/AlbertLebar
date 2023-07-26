@@ -2,6 +2,11 @@
 <html>
 <head>
     @include('backend.layouts.head')
+    <style type="text/css">
+        .modal-lg {
+            max-width: 80% !important;
+        }
+    </style>
 </head>
 <body>
 <div class="app-container app-theme-white fixed-sidebar fixed-header body-tabs-line">

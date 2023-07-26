@@ -19,7 +19,7 @@ class="container-fluid">
                             <div class="col-sm-12 col-lg-12 mb-6 d-flex justify-content-center text-center">
                                 <div class="row d-flex align-items-center dd-full-menu">
                                     <div class="col-auto">
-                                        <div class="main-menu">
+                                        <!-- <div class="main-menu">
                                             <ul>
                                                 <li class="active"><a class="p-0" href="index.html">Metal Type <i
                                                             class="fa fa-angle-down"></i></a>
@@ -60,10 +60,10 @@ class="container-fluid">
                                                     </ul>
                                                 </li>
                                             </ul>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="col-auto">
-                                        <div class="main-menu">
+                                        <!-- <div class="main-menu">
                                             <ul>
                                                 <li class="active"><a class="p-0" href="index.html">Metal Type <i
                                                             class="fa fa-angle-down"></i></a>
@@ -104,10 +104,10 @@ class="container-fluid">
                                                     </ul>
                                                 </li>
                                             </ul>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="col-auto">
-                                        <div class="main-menu">
+                                        <!-- <div class="main-menu">
                                             <ul>
                                                 <li class="active"><a class="p-0" href="index.html">Metal Type <i
                                                             class="fa fa-angle-down"></i></a>
@@ -148,7 +148,7 @@ class="container-fluid">
                                                     </ul>
                                                 </li>
                                             </ul>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -159,7 +159,7 @@ class="container-fluid">
 
                                 <div class="top-bar-right d-flex">
 
-                                    <div class="product-short">
+                                    <!-- <div class="product-short">
                                         <p class="mb-0">Sort By : </p>
                                         <select class="nice-select" name="sortby">
                                             <option value="trending">Relevance</option>
@@ -170,7 +170,7 @@ class="container-fluid">
                                             <option value="price-asc">Model (A - Z)</option>
                                             <option value="price-asc">Model (Z - A)</option>
                                         </select>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -188,17 +188,26 @@ class="container-fluid">
                                     <figure class="product-thumb mb-0">
                                         <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details"
                                             href="javascript:void(0);">
-                                            @foreach($item->itemImage as $images)
-                                            @if($images->is_main_image == 1)
-                                            <img class="pri-img"
-                                                src="{{asset('assets/images/items/').'/'.$images->images}}"
-                                                alt="product">
-                                            @else
-                                            <img class="sec-img"
-                                                src="{{asset('assets/images/items/').'/'.$images->images}}"
+                                            @if(!empty($item->photo_0))
+                                                <img class="pri-img"
+                                                src="{{asset($item->photo_0)}}"
                                                 alt="product">
                                             @endif
-                                            @endforeach
+                                            @if(!empty($item->photo_1))
+                                                <img class="sec-img"
+                                                src="{{asset($item->photo_1) }}"
+                                                alt="product">
+                                            @endif
+                                            @if(!empty($item->photo_2))
+                                                <img class="sec-img"
+                                                src="{{asset($item->photo_2) }}"
+                                                alt="product">
+                                            @endif
+                                            @if(!empty($item->photo_3))
+                                                <img class="sec-img"
+                                                src="{{asset($item->photo_3) }}"
+                                                alt="product">
+                                            @endif
                                         </a>
                                         <div class="button-group">
                                             <a style="color: #f195ab;" href="javascript:void(0);"
@@ -213,17 +222,26 @@ class="container-fluid">
                                     <figure class="product-thumb mb-0">
                                         <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details"
                                             href="javascript:void(0);">
-                                            @foreach($item->itemImage as $images)
-                                            @if($images->is_main_image == 1)
-                                            <img class="pri-img"
-                                                src="{{asset('assets/images/items/').'/'.$images->images}}"
-                                                alt="product">
-                                            @else
-                                            <img class="sec-img"
-                                                src="{{asset('assets/images/items/').'/'.$images->images}}"
+                                            @if(!empty($item->photo_0))
+                                                <img class="pri-img"
+                                                src="{{asset($item->photo_0)}}"
                                                 alt="product">
                                             @endif
-                                            @endforeach
+                                            @if(!empty($item->photo_1))
+                                                <img class="sec-img"
+                                                src="{{asset($item->photo_1) }}"
+                                                alt="product">
+                                            @endif
+                                            @if(!empty($item->photo_2))
+                                                <img class="sec-img"
+                                                src="{{asset($item->photo_2) }}"
+                                                alt="product">
+                                            @endif
+                                            @if(!empty($item->photo_3))
+                                                <img class="sec-img"
+                                                src="{{asset($item->photo_3) }}"
+                                                alt="product">
+                                            @endif
                                         </a>
                                         <div class="button-group">
                                             <a style="color: #f195ab;" href="javascript:void(0);"
@@ -255,7 +273,7 @@ class="container-fluid">
                                         <div class="col text-end">
                                             <div class="price-box">
                                                 <span style="font-size: 12px;color: #f195ab;"
-                                                    class="price-regular">&pound; {{ number_format((float)$item->total_retail, 2, '.', '') }}</span>
+                                                    class="price-regular"><strong>&pound; {{ number_format((float)$item->total_retail, 2, '.', '') }}</strong></span>
                                             </div>
                                         </div>
                                         <!-- <p>{{ $item->item_description }}</p> -->

@@ -9,30 +9,43 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="product-large-slider">
-                            @foreach($item->itemImage as $images)
-                            @if($images->is_main_image == 1)
+                            @if(!empty($item->photo_0))
                             <div class="pro-large-img img-zoom">
-                                <img  src="{{asset('assets/images/items/').'/'.$images->images}}".jpg" alt="product-details" />
-                            </div>
-                            @else
-                            <div class="pro-large-img img-zoom">
-                                <img  src="{{asset('assets/images/items/').'/'.$images->images}}".jpg" alt="product-details" />
+                                <img  src="{{asset($item->photo_0)}}" alt="product-details" />
                             </div>
                             @endif
-                            @endforeach
+                            @if(!empty($item->photo_1))
+                            <div class="pro-large-img img-zoom">
+                                <img  src="{{asset($item->photo_1)}}" alt="product-details" />
+                            </div>
+                            @endif
+                            @if(!empty($item->photo_2))
+                            <div class="pro-large-img img-zoom">
+                                <img  src="{{asset($item->photo_2)}}" alt="product-details" />
+                            </div>
+                            @endif
+                            @if(!empty($item->photo_3))
+                            <div class="pro-large-img img-zoom">
+                                <img  src="{{asset($item->photo_3)}}" alt="product-details" />
+                            </div>
+                            @endif
                         </div>
                         <div class="pro-nav slick-row-10 slick-arrow-style">
-                            @foreach($item->itemImage as $images)
-                            @if($images->is_main_image == 1)
+                            @if(!empty($item->photo_1))
                             <div class="pro-nav-thumb">
-                                <img src="{{asset('assets/images/items/').'/'.$images->images}}" alt="product-details" />
-                            </div>
-                            @else
-                            <div class="pro-nav-thumb">
-                                <img src="{{asset('assets/images/items/').'/'.$images->images}}" alt="product-details" />
+                                <img src="{{ asset($item->photo_1) }}" alt="product-details" />
                             </div>
                             @endif
-                            @endforeach
+                            @if(!empty($item->photo_2))
+                            <div class="pro-nav-thumb">
+                                <img src="{{ asset($item->photo_2) }}" alt="product-details" />
+                            </div>
+                            @endif
+                            @if(!empty($item->photo_3))
+                            <div class="pro-nav-thumb">
+                                <img src="{{ asset($item->photo_3) }}" alt="product-details" />
+                            </div>
+                            @endif
                         </div>
                     </div>
                     <div class="col-lg-7">
@@ -46,7 +59,7 @@
                             <div class="quantity-cart-box d-flex align-items-center">
                                 <h6 class="option-title">Size:</h6>
                                 <div class="size">
-                                    {!! Form::select('item_size', config('params.item_size') ?? [],  $item->item_size ?? 'H', ['class' => 'form-control','data-control'=>"select2", 'id'=>'item-size']) !!}
+                                    {!! Form::select('item_size', $itemSize ?? [],  '', ['class' => 'form-control dropdown-select','data-control'=>"select2", 'id'=>'item-size']) !!}
                                 </div>
                             </div>
                             <div class="quantity-cart-box d-flex align-items-center">

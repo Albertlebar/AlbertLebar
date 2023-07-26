@@ -27,6 +27,7 @@
                                 <th>Phone Number</th>
                                 <th>Appointment Type</th>
                                 <th>Appointment Date</th>
+                                <th>Notes</th>
                             </tr>
                             </thead>
                         </table>
@@ -64,7 +65,8 @@
                     {data: 'email', name: 'email'},
                     {data: 'phone_number', name: 'phone_number'},
                     {data: 'appointment_type', name: 'appointment_type'},
-                    {data: 'appointment_date', name: 'appointment_date'}
+                    {data: 'appointment_date', name: 'appointment_date'},
+                    {data: 'notes', name: 'notes'}
                 ],
                 "autoWidth": true,
                 "scrollX": true

@@ -161,18 +161,18 @@ class CheckoutController extends Controller
 
     ]); 
 
-    if($stripe->status == 'succeeded')
-    {
-        $orderDetails->payment_status = 3;
-        $orderDetails->save();
-        foreach ($orderItem as $itemDetails) {
-            $itemStock = ItemStock::where('item_id',$itemDetails->item_id)->first();
-            $itemStockCount = json_decode($itemStock->stock,true);
-            $itemStockCount[$itemDetails->size] = $itemStockCount[$itemDetails->size] - $itemDetails->quantity;
-            $itemStock->stock = json_encode($itemStockCount);
-            $itemStock->save();
-        }
-    }
+    // if($stripe->status == 'succeeded')
+    // {
+    //     $orderDetails->payment_status = 3;
+    //     $orderDetails->save();
+    //     foreach ($orderItem as $itemDetails) {
+    //         $itemStock = ItemStock::where('item_id',$itemDetails->item_id)->first();
+    //         $itemStockCount = json_decode($itemStock->stock,true);
+    //         $itemStockCount[$itemDetails->size] = $itemStockCount[$itemDetails->size] - $itemDetails->quantity;
+    //         $itemStock->stock = json_encode($itemStockCount);
+    //         $itemStock->save();
+    //     }
+    // }
 
     Session::flash('payment-success', 'Payment successful!');
 

@@ -14,144 +14,20 @@
         <div id="status"></div>
         <br/>
         <div class="clearfix"></div>
-        @if(isset($item) && $item->category->title == 'Ring')
         <div class="col-md-6">
-            <div class="form-group row">
-                <div class="col-md-4">
-                  <strong><label for="staticEmail" class="col-form-label">H :</label></strong>
+            @if(!empty($itemStock))
+            @foreach($itemStock as $stock)
+                <div class="form-group row">
+                    <div class="col-md-4">
+                      <strong><label for="staticEmail" class="col-form-label">{{ $stock->size }} :</label></strong>
+                    </div>
+                    <div class="col-md-8">
+                      <input type="number" name="stock[{{$stock->id}}]" class="form-control" id="stock" value="{{$stock->stock}}">
+                    </div>
                 </div>
-                <div class="col-md-8">
-                  <input type="number" name="stock[H]" class="form-control" id="stock" value="{{ (isset($itemQty['H']) && $itemQty['H'] != 0) ? $itemQty['H'] : 0 }}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-4">
-                  <strong><label for="staticEmail" class="col-form-label">I :</label></strong>
-                </div>
-                <div class="col-md-8">
-                  <input type="number" name="stock[I]" class="form-control" value="{{ (isset($itemQty['I']) && $itemQty['I'] != 0) ? $itemQty['I'] : 0 }}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-4">
-                  <strong><label for="staticEmail" class="col-form-label">J :</label></strong>
-                </div>
-                <div class="col-md-8">
-                  <input type="number" name="stock[J]" class="form-control" value="{{ (isset($itemQty['J']) && $itemQty['J'] != 0) ? $itemQty['J'] : 0 }}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-4">
-                  <strong><label for="staticEmail" class="col-form-label">K :</label></strong>
-                </div>
-                <div class="col-md-8">
-                  <input type="number" name="stock[K]" class="form-control" value="{{ (isset($itemQty['K']) && $itemQty['K'] != 0) ? $itemQty['K'] : 0 }}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-4">
-                  <strong><label for="staticEmail" class="col-form-label">L :</label></strong>
-                </div>
-                <div class="col-md-8">
-                  <input type="number" name="stock[L]" class="form-control" value="{{ (isset($itemQty['L']) && $itemQty['L'] != 0) ? $itemQty['L'] : 0 }}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-4">
-                  <strong><label for="staticEmail" class="col-form-label">M :</label></strong>
-                </div>
-                <div class="col-md-8">
-                  <input type="number" name="stock[M]" class="form-control" value="{{ (isset($itemQty['M']) && $itemQty['M'] != 0) ? $itemQty['M'] : 0 }}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-4">
-                  <strong><label for="staticEmail" class="col-form-label">N :</label></strong>
-                </div>
-                <div class="col-md-8">
-                  <input type="number" name="stock[N]" class="form-control" value="{{ (isset($itemQty['N']) && $itemQty['N'] != 0) ? $itemQty['N'] : 0 }}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-4">
-                  <strong><label for="staticEmail" class="col-form-label">O :</label></strong>
-                </div>
-                <div class="col-md-8">
-                  <input type="number" name="stock[O]" class="form-control" value="{{ (isset($itemQty['O']) && $itemQty['O'] != 0) ? $itemQty['O'] : 0 }}">
-                </div>
-            </div>
+            @endforeach
+            @endif
         </div>
-        <div class="col-md-6 verticle-line">
-            <div class="form-group row">
-                <div class="col-md-4">
-                  <strong><label for="staticEmail" class="col-form-label">P :</label></strong>
-                </div>
-                <div class="col-md-8">
-                  <input type="number" name="stock[P]" class="form-control" value="{{ (isset($itemQty['P']) && $itemQty['P'] != 0) ? $itemQty['P'] : 0 }}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-4">
-                  <strong><label for="staticEmail" class="col-form-label">Q :</label></strong>
-                </div>
-                <div class="col-md-8">
-                  <input type="number" name="stock[Q]" class="form-control" value="{{ (isset($itemQty['Q']) && $itemQty['Q'] != 0) ? $itemQty['Q'] : 0 }}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-4">
-                  <strong><label for="staticEmail" class="col-form-label">R :</label></strong>
-                </div>
-                <div class="col-md-8">
-                  <input type="number" name="stock[R]" class="form-control" value="{{ (isset($itemQty['R']) && $itemQty['R'] != 0) ? $itemQty['R'] : 0 }}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-4">
-                  <strong><label for="staticEmail" class="col-form-label">S :</label></strong>
-                </div>
-                <div class="col-md-8">
-                  <input type="number" name="stock[S]" class="form-control" value="{{ (isset($itemQty['S']) && $itemQty['S'] != 0) ? $itemQty['S'] : 0 }}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-4">
-                  <strong><label for="staticEmail" class="col-form-label">T :</label></strong>
-                </div>
-                <div class="col-md-8">
-                  <input type="number" name="stock[T]" class="form-control" value="{{ (isset($itemQty['T']) && $itemQty['T'] != 0) ? $itemQty['T'] : 0 }}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-4">
-                  <strong><label for="staticEmail" class="col-form-label">U :</label></strong>
-                </div>
-                <div class="col-md-8">
-                  <input type="number" name="stock[U]" class="form-control" value="{{ (isset($itemQty['U']) && $itemQty['U'] != 0) ? $itemQty['U'] : 0 }}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-4">
-                  <strong><label for="staticEmail" class="col-form-label">V :</label></strong>
-                </div>
-                <div class="col-md-8">
-                  <input type="number" name="stock[V]" class="form-control" value="{{ (isset($itemQty['V']) && $itemQty['V'] != 0) ? $itemQty['V'] : 0 }}">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-4">
-                  <strong><label for="staticEmail" class="col-form-label">W :</label></strong>
-                </div>
-                <div class="col-md-8">
-                  <input type="number" name="stock[W]" class="form-control" value="{{ (isset($itemQty['W']) && $itemQty['W'] != 0) ? $itemQty['W'] : 0 }}">
-                </div>
-            </div>
-        </div>
-        @else
-         <div class="col-md-8">
-          <input type="number" name="stock[A]" class="form-control" id="stock" value="{{ (isset($itemQty['A']) && $itemQty['A'] != 0) ? $itemQty['A'] : 0 }}">
-        </div>   
-        @endif
         <div class="col-md-12 mb-3">
             <button type="submit" class="btn btn-success button-submit"
                     data-loading-text="Loading..."><span class="fa fa-save fa-fw"></span> Save

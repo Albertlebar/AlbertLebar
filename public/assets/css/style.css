@@ -33,6 +33,14 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
+.dropdown-select{
+  width: 90px !important;
+  height: 40px !important;
+  border: 1px solid #ddd !important;
+  padding: 0 15px !important;
+  border-radius: 40px !important;
+  float: left !important;
+}
 /*Cart CSS*/
 .cart-table table {
     border-color: #ddd;
@@ -702,7 +710,7 @@ textarea:focus {
   -o-transition: 0.4s;
   transition: 0.4s;
   border-radius: 50%;
-  background-color: #c29958;
+  background-color: #f195ab;
   -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
           box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
@@ -1206,7 +1214,7 @@ textarea:focus {
   font-size: 10px;
   color: #fff;
   border-radius: 50%;
-  background-color: #c29958;
+  background-color: #f195ab;
 }
 .header-configure-area ul li a:hover {
   color: #c29958;
@@ -1647,7 +1655,7 @@ textarea:focus {
   color: #fff !important;
   font-size: 15px !important;
   border-radius: 0 !important;
-  background-color: #c29958 !important;
+  background-color: #f195ab !important;
   padding: 12px 25px !important;
 }
 .btn-sqr:hover {
@@ -2604,7 +2612,7 @@ textarea:focus {
 .policy-icon {
   font-size: 30px;
   line-height: 1;
-  color: #c29958;
+  color: #f195ab;
   padding-right: 16px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -2760,10 +2768,10 @@ textarea:focus {
 }
 .section-title .title {
   text-transform: capitalize;
-  background: -webkit-gradient(linear, left top, right top, from(#c29958), color-stop(#000), to(#c29958));
-  background: -webkit-linear-gradient(left, #c29958, #000, #c29958);
-  background: -o-linear-gradient(left, #c29958, #000, #c29958);
-  background: linear-gradient(90deg, #c29958, #000, #c29958);
+  background: -webkit-gradient(linear, left top, right top, from(#f195ab), color-stop(#000), to(#c29958));
+  background: -webkit-linear-gradient(left, #f195ab, #000, #f195ab);
+  background: -o-linear-gradient(left, #f195ab, #000, #f195ab);
+  background: linear-gradient(90deg, #f195ab, #000, #f195ab);
   background-repeat: no-repeat;
   background-size: 90%;
   -webkit-animation: shine 3s linear infinite;
@@ -5494,10 +5502,10 @@ blockquote {
   white-space: nowrap;
 }
 .cart-table .table thead {
-  background-color: #c29958;
+  background-color: #f195ab;
 }
 .cart-table .table thead tr th {
-  border-color: #c29958;
+  border-color: #f195ab;
   border-bottom: 0 solid transparent;
   color: #fff;
   font-size: 14px;
@@ -6049,7 +6057,7 @@ blockquote {
   color: #555555;
 }
 .contact-block li a:hover {
-  color: #c29958;
+  color: #f195ab;
   letter-spacing: 1.1px;
 }
 
@@ -6066,7 +6074,7 @@ blockquote {
   text-transform: capitalize;
 }
 .info-list li a:hover {
-  color: #c29958;
+  color: #f195ab;
 }
 
 .social-link {
@@ -6082,16 +6090,16 @@ blockquote {
   display: inline-block;
   text-align: center;
   background-color: #fff;
-  border-radius: 50%;
-  border: 1px solid #dedede;
+  /*border-radius: 50%;*/
+  /*border: 1px solid #dedede;*/  
 }
 .social-link a:last-child {
   margin-right: 0;
 }
 .social-link a:hover {
-  color: #fff;
-  background-color: #c29958;
-  border-color: #c29958;
+  color: #f195ab;
+  /*background-color: #c29958;*/
+  /*border-color: #c29958;*/
 }
 
 @media only screen and (max-width: 767.98px) {

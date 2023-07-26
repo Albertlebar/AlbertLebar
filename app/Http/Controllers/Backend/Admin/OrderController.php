@@ -42,7 +42,7 @@ class OrderController extends Controller
            return config('params.order_status')[$orders->order_status];
         })
         ->addColumn('order_total', function ($orders) {
-           return $orders->order_total;
+           return number_format((float)$orders->order_total, 2, '.', '');
         })
         ->addColumn('shipping_address_first_name', function ($orders) {
            return $orders->shipping_address_first_name . ' ' . $orders->shipping_address_last_name;

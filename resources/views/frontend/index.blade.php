@@ -11,9 +11,9 @@
 
         <!-- service policy area start -->
         <div class="service-policy section-padding shop-main-wrapper">
-            <div class="container">
-                <div class="row mtn-30">
-                    <div class="col-sm-6 col-lg-3">
+            <div class="container text-center">
+                <div class="d-flex mtn-30" style="justify-content: space-around;">
+                    <div class="">
                         <div class="policy-item">
                             <div class="policy-icon">
                                 <i class="pe-7s-plane"></i>
@@ -24,7 +24,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="">
                         <div class="policy-item">
                             <div class="policy-icon">
                                 <i class="pe-7s-help2"></i>
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="">
                         <div class="policy-item">
                             <div class="policy-icon">
                                 <i class="pe-7s-back"></i>
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="">
                         <div class="policy-item">
                             <div class="policy-icon">
                                 <i class="pe-7s-credit"></i>
@@ -141,7 +141,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div class="product-carousel-4_2 slick-row-10 slick-arrow-style">
+                        <div class="blog-carousel-active slick-row-10 slick-arrow-style">
                             <!-- product item start -->
                             @forelse($items as $item)
                             <div class="product-item">
@@ -168,7 +168,7 @@
                                         <div class="col text-end">
                                             <div class="price-box">
                                                 <span style="font-size: 12px;color: #f195ab;"
-                                                    class="price-regular">&pound; {{ number_format((float)$item->total_retail, 2, '.', '') }}</span>
+                                                    class="price-regular"><strong>&pound; {{ number_format((float)$item->total_retail, 2, '.', '') }}</strong></span>
                                             </div>
                                         </div>
                                         <!-- <p>{{ $item->item_description }}</p> -->
@@ -186,13 +186,13 @@
         <!-- featured product area end -->
 
         <!-- testimonial area start -->
-        <section class="testimonial-area section-padding bg-img" data-bg="assets/img/testimonial/testimonials-bg.jpg">
+        <section class="testimonial-area section-padding bg-img" data-bg="{{ asset('assets/img/testimonial/testimonials-bg.jpeg')}}" style="color: white;">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <!-- section title start -->
                         <div class="section-title text-center">
-                            <h2 class="title">testimonials</h2>
+                            <h2 class="title" style="color: white !important;">testimonials</h2>
                             <p class="sub-title">What they say</p>
                         </div>
                         <!-- section title start -->
@@ -277,114 +277,6 @@
         <!-- group product end -->
 
         <!-- latest blog area start -->
-        <section class="latest-blog-area section-padding pt-0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <!-- section title start -->
-                        <div class="section-title text-center">
-                            <h2 class="title">latest blog</h2>
-                        </div>
-                        <!-- section title start -->
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="blog-carousel-active slick-row-10 slick-arrow-style">
-                            <!-- blog post item start -->
-                            <div class="blog-post-item">
-                                <figure class="blog-thumb">
-                                    <a href="javascript:void(0)">
-                                        <img src="{{ asset('assets/img/blog/blog-img1.jpg') }}" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <p>09/07/2023 | <a href="#">Logo name</a></p>
-                                    </div>
-                                    <h5 class="blog-title">
-                                        <a href="javascript:void(0)">Celebrity Daughter Opens Up About Having Her Eye Color Changed</a>
-                                    </h5>
-                                </div>
-                            </div>
-                            <!-- blog post item end -->
-
-                            <!-- blog post item start -->
-                            <div class="blog-post-item">
-                                <figure class="blog-thumb">
-                                    <a href="javascript:void(0)">
-                                        <img src="{{ asset('assets/img/blog/blog-img2.jpg') }}" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <p>09/07/2023 | <a href="#">Logo name</a></p>
-                                    </div>
-                                    <h5 class="blog-title">
-                                        <a href="javascript:void(0)">Children Left Home Alone For 4 Days In TV series Experiment</a>
-                                    </h5>
-                                </div>
-                            </div>
-                            <!-- blog post item end -->
-
-                            <!-- blog post item start -->
-                            <div class="blog-post-item">
-                                <figure class="blog-thumb">
-                                    <a href="javascript:void(0)">
-                                        <img src="{{ asset('assets/img/blog/blog-img3.jpg') }}" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <p>09/07/2023 | <a href="#">Logo name</a></p>
-                                    </div>
-                                    <h5 class="blog-title">
-                                        <a href="javascript:void(0)">Lotto Winner Offering Up Money To Any Man That Will Date Her</a>
-                                    </h5>
-                                </div>
-                            </div>
-                            <!-- blog post item end -->
-
-                            <!-- blog post item start -->
-                            <div class="blog-post-item">
-                                <figure class="blog-thumb">
-                                    <a href="javascript:void(0)">
-                                        <img src="{{ asset('assets/img/blog/blog-img4.jpg') }}" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <p>09/07/2023 | <a href="#">Logo name</a></p>
-                                    </div>
-                                    <h5 class="blog-title">
-                                        <a href="javascript:void(0)">People are Willing Lie When Comes Money, According to Research</a>
-                                    </h5>
-                                </div>
-                            </div>
-                            <!-- blog post item end -->
-
-                            <!-- blog post item start -->
-                            <div class="blog-post-item">
-                                <figure class="blog-thumb">
-                                    <a href="javascript:void(0)">
-                                        <img src="{{ asset('assets/img/blog/blog-img5.jpg') }}" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <p>09/07/2023 | <a href="#">Logo name</a></p>
-                                    </div>
-                                    <h5 class="blog-title">
-                                        <a href="javascript:void(0)">romantic Love Stories Of Hollywoodâ€™s Biggest Celebrities</a>
-                                    </h5>
-                                </div>
-                            </div>
-                            <!-- blog post item end -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <!-- latest blog area end -->
 
 

@@ -1,11 +1,12 @@
-<form id='edit' action="" enctype="multipart/form-data" method="post" accept-charset="utf-8" class="needs-validation"
+<form id='edit' action="" enctype="multipart/form-data" method="" accept-charset="utf-8" class="needs-validation"
       novalidate>
-      {{method_field('PATCH')}}
+      {{method_field('PUT')}}
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <div class="form-row">
         <div id="status"></div>
         <br/>
         <div class="clearfix"></div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="form-group col-md-12 col-sm-12">
                 <label for=""> Category </label>
                 {!! Form::select('category_id', $categories ?? [],  $item->category_id ?? '', ['class' => 'form-control','data-control'=>"select2", 'id'=>'role']) !!}
@@ -57,7 +58,7 @@
                 <span id="error_total_ct_weight" class="has-error"></span>
             </div>
         </div>
-        <div class="col-md-6 verticle-line">
+        <div class="col-md-4 verticle-line">
             <div class="form-group col-md-12 col-sm-12">
                 <label for=""> Gold Price </label>
                 <input type="number" class="form-control" id="gold_price" name="gold_price" value="{{ $item->gold_price }}" placeholder="" required>
@@ -110,6 +111,64 @@
                 <input type="radio" name="is_active" class="flat-green"
                        value="0" {{ ( $item->is_active == 0 ) ? 'checked' : '' }}/> In Active
             </div>
+            <div class="form-group col-md-12 col-sm-12">
+                <label for=""> Best Seller </label><br/>
+                <input type="radio" name="best_seller" class="flat-green"
+                       value="1" {{ ( $item->best_seller == 1 ) ? 'checked' : '' }}/> Yes
+                <input type="radio" name="best_seller" class="flat-green"
+                       value="0" {{ ( $item->best_seller == 0 ) ? 'checked' : '' }}/> No
+            </div>
+            <div class="form-group col-md-12 col-sm-12">
+                <label for=""> Is Sale ? </label><br/>
+                <input type="radio" name="is_sale" class="flat-green"
+                       value="1" {{ ( $item->is_sale == 1 ) ? 'checked' : '' }} /> Yes
+                <input type="radio" name="is_sale" class="flat-green"
+                       value="0" {{ ( $item->is_sale == 0 ) ? 'checked' : '' }}> No
+            </div>
+        </div>
+        <div class="col-md-4 verticle-line">
+            <div id="append_image">
+                <div class="">
+                    <!-- <div class="col-md-2">
+                        <input type="radio" name="is_main_image" class="form-control-sm" value="0">
+                    </div> -->
+                    <div style="text-align: center;">
+                        <img id="preview-0" src="{{ asset($item->photo_0) }}" alt="" style="width: 105px; height: 100px;">
+                    </div>
+                    <div class="mt-1" style="margin: auto;width: 35%;">
+                        <input id="photo-0" type="file" accept="image/*" class="form-control" name="photo_0" onchange="showImage(0)">
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <!-- <div class="col-md-2">
+                        <input type="radio" name="is_main_image" class="form-control-sm" value="0">
+                    </div> -->
+                    <div class="col-md-4 p-0 pl-2">
+                        <div style="">
+                            <img id="preview-1" src="{{ asset($item->photo_1) }}" alt="" style="width: 105px; height: 100px;">
+                        </div>
+                        <div class="mt-1" style="margin: auto;width: 102px;">
+                            <input id="photo-1" type="file" accept="image/*" class="form-control" name="photo_1" onchange="showImage(1)">
+                        </div>
+                    </div>
+                    <div class="col-md-4 p-0 pl-1">
+                        <div style="text-align: center;">
+                            <img id="preview-2" src="{{ asset($item->photo_2) }}" alt="" style="width: 105px; height: 100px;">
+                        </div>
+                        <div class="mt-1" style="margin: auto;width: 102px;">
+                            <input id="photo-2" type="file" accept="image/*" class="form-control" name="photo_2" onchange="showImage(2)">
+                        </div>
+                    </div>
+                    <div class="col-md-4 p-0">
+                        <div style="text-align: right;">
+                            <img id="preview-3" src="{{ asset($item->photo_3) }}" alt="" style="width: 105px; height: 100px;">
+                        </div>
+                        <div class="mt-1" style="margin: auto;width: 102px;">
+                            <input id="photo-3" type="file" accept="image/*" class="form-control" name="photo_3" onchange="showImage(3)">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <div class="col-md-12 mb-3">
@@ -121,8 +180,25 @@
 </form>
 
 <script>
-
+    function showImage(imgNumber) {
+        const imageUploader = document.querySelector("#photo-"+imgNumber);
+        const imagePreview = document.querySelector("#preview-"+imgNumber);
+      let reader = new FileReader();
+     reader.readAsDataURL(imageUploader.files[0]);
+      reader.onload = function(e) {
+        imagePreview.classList.add("show");
+        imagePreview.src = e.target.result;
+      };
+    }
+     let number_of_image = 1;
     $(document).ready(function () {
+        $("body").on("click", "#add_more", function (e) {
+            $("#append_image").append(
+                '<div class="col-md-12 input-group"><div class="col-md-2"><input type="radio" name="is_main_image" class="form-control-sm" value="'+ number_of_image +'"></div><div class="col-md-6"><input id="photo-'+ number_of_image +'" type="file" accept="image/*" class="form-control" name="new_photo['+ number_of_image +']" onchange="showImage('+ number_of_image +')"></div><div class="col-md-4"><img id="preview-'+ number_of_image +'" src="" alt="" style="width: 100px; height: 100px;"></div></div>'
+            );
+            number_of_image++;
+        });
+
         $('input[type="checkbox"].flat-green').iCheck({
             checkboxClass: 'icheckbox_flat-green',
         });
@@ -183,7 +259,7 @@
                 var list_id = [];
                 
                 var myData = new FormData($("#edit")[0]);
-                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+                var CSRF_TOKEN = $('input[name="csrf_token"]').val();
                 myData.append('_token', CSRF_TOKEN);
                 myData.append('roles', list_id);
 

@@ -173,7 +173,7 @@
                             <li class="minicart-item">
                                 <div class="minicart-thumb">
                                     <a href="javascript:void(0);">
-                                        <img src="{{asset('assets/images/items/').'/'.$item['images']}}" alt="product">
+                                        <img src="{{ asset($item['images']) }}" alt="product">
                                     </a>
                                 </div>
                                 <div class="minicart-content">
@@ -182,7 +182,7 @@
                                     </h3>
                                     <p>
                                         <span class="cart-quantity">{{ $item['quantity'] }} <strong>&times;</strong></span>
-                                        <span class="cart-price">{{ $item['price'] }}</span>
+                                        <span class="cart-price" style="color: #f195ab;">{{ number_format((float)$item['price'], 2, '.', '') }}</span>
                                     </p>
                                 </div>
                                 <button class="minicart-remove"><i class="pe-7s-close"></i></button>
@@ -202,7 +202,7 @@
                         <ul>
                             <li class="total">
                                 <span>total</span>
-                                <span><strong>&pound;{{ $allTotal }}</strong></span>
+                                <span><strong style="color: #f195ab !important;">&pound;{{ number_format((float)$allTotal, 2, '.', '') }}</strong></span>
                             </li>
                         </ul>
                     </div>

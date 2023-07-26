@@ -123,7 +123,7 @@
                                 ?>
                                     <tr>
                                     <td>{{ $rowCount }}</td>
-                                      <td class="pro-thumbnail"><img width="80px;" height="80px" src="{{asset('assets/images/items/').'/'.$item->itemDetails->itemMainImage[0]->images}}"></td>
+                                      <td class="pro-thumbnail"><img width="80px;" height="80px" src="{{asset($item->itemDetails->photo_0)}}"></td>
                                       <td class="pro-title">
                                         {{ $item->itemDetails->item_title }}  
                                       </td>
@@ -134,7 +134,7 @@
                                           {{ $item->size }}
                                       </td>
                                       <td>
-                                          &pound;{{ $item->price }}
+                                          &pound; {{ number_format((float)$item->price, 2, '.', '') }}
                                       </td>
                                     </tr>
                                 <?php
@@ -143,7 +143,7 @@
                                 @endforeach
                                 <tr style="background: #f195ab;">
                                     <td colspan="5" class="text-right"><strong>Total</strong></td>
-                                    <td><strong>&pound;{{ $order->order_total }}</strong></td>
+                                    <td><strong>&pound;{{ number_format((float)$order->order_total, 2, '.', '') }}</strong></td>
                                 </tr>
                             </tbody>
                         </table>

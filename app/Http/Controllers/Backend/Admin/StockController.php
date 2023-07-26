@@ -56,17 +56,10 @@ class StockController extends Controller
     {
         DB::beginTransaction();
         try{
-            $itemStock = ItemStock::where('item_id',$request->item_id)->first();
-            if(isset($itemStock))
-            {
-                $itemStock->item_id = $request->input('item_id');  
-                $itemStock->stock = json_encode($request->input('stock'));  
+            foreach ($request->stock as $key => $value) {
+                $itemStock = ItemStock::find($key);
+                $itemStock->stock = $value;
                 $itemStock->save();
-            }else{
-                $itemStock = new ItemStock();
-               $itemStock->item_id = $request->input('item_id');
-               $itemStock->stock = json_encode($request->input('stock'));
-               $itemStock->save();
             }
             return response()->json(['type' => 'success', 'message' => "Successfully Created"]);
 
@@ -99,10 +92,9 @@ class StockController extends Controller
          $haspermision = auth()->user()->can('user-edit');
          if ($haspermision) {
             $item = Item::where('id', $id)->first();
-            $itemStock = ItemStock::where('item_id',$id)->first();
-            $itemQty = isset($itemStock) ? json_decode($itemStock->stock,true) : NULL;
+            $itemStock = ItemStock::where('item_id',$id)->get();
             $roles = Role::all(); //Get all roles
-            $view = View::make('backend.admin.stock.edit', compact('item', 'itemStock', 'itemQty','roles'))->render();
+            $view = View::make('backend.admin.stock.edit', compact('item', 'itemStock','roles'))->render();
             return response()->json(['html' => $view]);
          } else {
             abort(403, 'Sorry, you are not authorized to access the page');

@@ -66,37 +66,37 @@ class CatelogueController extends Controller
            return config('params.metal_colour')[$items->metal_colour];
         })
         ->addColumn('total_gold_weight', function ($items) {
-           return $items->total_gold_weight;
+           return number_format((float)$items->total_gold_weight, 2, '.', '');
         })
         ->addColumn('total_ct_weight', function ($items) {
-           return $items->total_ct_weight;
+           return number_format((float)$items->total_ct_weight, 2, '.', '');
         })
         ->addColumn('gold_price', function ($items) {
-           return $items->gold_price;
+           return number_format((float)$items->gold_price, 2, '.', '');
         })
         ->addColumn('stone_price', function ($items) {
-           return $items->stone_price;
+           return number_format((float)$items->stone_price, 2, '.', '');          
         })
         ->addColumn('labour_cost', function ($items) {
-           return $items->labour_cost;
+           return number_format((float)$items->labour_cost, 2, '.', '');
         })
         ->addColumn('duty_and_extra', function ($items) {
-           return $items->duty_and_extra;
+           return number_format((float)$items->duty_and_extra, 2, '.', '');
         })
         ->addColumn('total_cost', function ($items) {
-           return $items->total_cost;
+           return number_format((float)$items->total_cost, 2, '.', '');
         })
         ->addColumn('profit_trade', function ($items) {
-           return $items->profit_trade;
+           return number_format((float)$items->profit_trade, 2, '.', '');
         })
         ->addColumn('profit_retail', function ($items) {
-           return $items->profit_retail;
+           return number_format((float)$items->profit_retail, 2, '.', '');
         })
         ->addColumn('total_trade', function ($items) {
-           return $items->total_trade;
+           return number_format((float)$items->total_trade, 2, '.', '');
         })
         ->addColumn('total_retail', function ($items) {
-           return $items->total_retail;
+           return number_format((float)$items->total_retail, 2, '.', '');
         })
         ->addColumn('is_active', function ($items) {
            return $items->is_active ? '<label class="badge badge-success">Active</label>' : '<label class="badge badge-danger">Inactive</label>';
@@ -176,25 +176,64 @@ class CatelogueController extends Controller
             ]);
          } else {
 
-            if(!empty($request->photo))
-            {
-              if($request->hasFile('photo'))
-              {
-                $files = [];
-                  foreach ($request->file('photo') as $photo) {
-                    $destinationPath = public_path('assets/images/items/');
-                      $extension = $photo->getClientOriginalExtension();
-                      $fileName = time() . '_' . uniqid() . '.' . $extension;
-                      $file_path = 'assets/images/items/' . $fileName;
-                      $photo->move($destinationPath, $fileName);
-                      $files[] = $fileName; 
-                  }
-              }else{
-                return response()->json([
-                        'type' => 'error',
-                        'message' => "<div class='alert alert-warning'>Please! File is not valid</div>"
-                      ]);
-              }
+            if ($request->hasFile('photo_0')) {
+               if ($request->file('photo_0')->isValid()) {
+                  $destinationPath = public_path('assets/images/items/');
+                  $extension = $request->file('photo_0')->getClientOriginalExtension();
+                  $fileName = time() . '.' . $extension;
+                  $file_path_0 = 'assets/images/items/' . $fileName;
+                  $request->file('photo_0')->move($destinationPath, $fileName);
+               } else {
+                  return response()->json([
+                    'type' => 'error',
+                    'message' => "<div class='alert alert-warning'>Please! File is not valid</div>"
+                  ]);
+               }
+            }
+
+            if ($request->hasFile('photo_1')) {
+               if ($request->file('photo_1')->isValid()) {
+                  $destinationPath = public_path('assets/images/items/');
+                  $extension = $request->file('photo_1')->getClientOriginalExtension();
+                  $fileName = time() . '.' . $extension;
+                  $file_path_1 = 'assets/images/items/' . $fileName;
+                  $request->file('photo_1')->move($destinationPath, $fileName);
+               } else {
+                  return response()->json([
+                    'type' => 'error',
+                    'message' => "<div class='alert alert-warning'>Please! File is not valid</div>"
+                  ]);
+               }
+            }
+
+            if ($request->hasFile('photo_2')) {
+               if ($request->file('photo_2')->isValid()) {
+                  $destinationPath = public_path('assets/images/items/');
+                  $extension = $request->file('photo_2')->getClientOriginalExtension();
+                  $fileName = time() . '.' . $extension;
+                  $file_path_2 = 'assets/images/items/' . $fileName;
+                  $request->file('photo_2')->move($destinationPath, $fileName);
+               } else {
+                  return response()->json([
+                    'type' => 'error',
+                    'message' => "<div class='alert alert-warning'>Please! File is not valid</div>"
+                  ]);
+               }
+            }
+
+            if ($request->hasFile('photo_3')) {
+               if ($request->file('photo_3')->isValid()) {
+                  $destinationPath = public_path('assets/images/items/');
+                  $extension = $request->file('photo_3')->getClientOriginalExtension();
+                  $fileName = time() . '.' . $extension;
+                  $file_path_3 = 'assets/images/items/' . $fileName;
+                  $request->file('photo_3')->move($destinationPath, $fileName);
+               } else {
+                  return response()->json([
+                    'type' => 'error',
+                    'message' => "<div class='alert alert-warning'>Please! File is not valid</div>"
+                  ]);
+               }
             }
             
             DB::beginTransaction();
@@ -222,22 +261,15 @@ class CatelogueController extends Controller
                $item->total_trade = $request->input('total_trade');
                $item->total_retail = $request->input('total_retail');
                $item->is_active = $request->input('is_active');
+               $item->is_sale = $request->input('is_sale');
+               $item->best_seller = $request->input('best_seller');
+               $item->photo_0 = $file_path_0;
+               $item->photo_1 = $file_path_1;
+               $item->photo_2 = $file_path_2;
+               $item->photo_3 = $file_path_3;
                $item->created_by = Auth::user()->id;
                $item->updated_by = Auth::user()->id;
                $item->save();
-
-               foreach ($files as $key => $value) {
-                 $itemImage = new ItemImage();
-                 $itemImage->item_id = $item->id;
-                 $itemImage->images = $value;
-                 if($key == $request->is_main_image)
-                 {
-                    $itemImage->is_main_image = 1;
-                 }else{
-                    $itemImage->is_main_image = 0;
-                 }
-                 $itemImage->save();
-               }
 
                DB::commit();
                return response()->json(['type' => 'success', 'message' => "Successfully Created"]);
@@ -329,6 +361,66 @@ class CatelogueController extends Controller
               'errors' => $validator->getMessageBag()->toArray()
             ]);
          } else {
+              
+            if ($request->hasFile('photo_0')) {
+               if ($request->file('photo_0')->isValid()) {
+                  $destinationPath = public_path('assets/images/items/');
+                  $extension = $request->file('photo_0')->getClientOriginalExtension();
+                  $fileName = time() . '.' . $extension;
+                  $file_path_0 = 'assets/images/items/' . $fileName;
+                  $request->file('photo_0')->move($destinationPath, $fileName);
+               } else {
+                  return response()->json([
+                    'type' => 'error',
+                    'message' => "<div class='alert alert-warning'>Please! File is not valid</div>"
+                  ]);
+               }
+            }
+
+            if ($request->hasFile('photo_1')) {
+               if ($request->file('photo_1')->isValid()) {
+                  $destinationPath = public_path('assets/images/items/');
+                  $extension = $request->file('photo_1')->getClientOriginalExtension();
+                  $fileName = time() . '.' . $extension;
+                  $file_path_1 = 'assets/images/items/' . $fileName;
+                  $request->file('photo_1')->move($destinationPath, $fileName);
+               } else {
+                  return response()->json([
+                    'type' => 'error',
+                    'message' => "<div class='alert alert-warning'>Please! File is not valid</div>"
+                  ]);
+               }
+            }
+
+            if ($request->hasFile('photo_2')) {
+               if ($request->file('photo_2')->isValid()) {
+                  $destinationPath = public_path('assets/images/items/');
+                  $extension = $request->file('photo_2')->getClientOriginalExtension();
+                  $fileName = time() . '.' . $extension;
+                  $file_path_2 = 'assets/images/items/' . $fileName;
+                  $request->file('photo_2')->move($destinationPath, $fileName);
+               } else {
+                  return response()->json([
+                    'type' => 'error',
+                    'message' => "<div class='alert alert-warning'>Please! File is not valid</div>"
+                  ]);
+               }
+            }
+
+            if ($request->hasFile('photo_3')) {
+               if ($request->file('photo_3')->isValid()) {
+                  $destinationPath = public_path('assets/images/items/');
+                  $extension = $request->file('photo_3')->getClientOriginalExtension();
+                  $fileName = time() . '.' . $extension;
+                  $file_path_3 = 'assets/images/items/' . $fileName;
+                  $request->file('photo_3')->move($destinationPath, $fileName);
+               } else {
+                  return response()->json([
+                    'type' => 'error',
+                    'message' => "<div class='alert alert-warning'>Please! File is not valid</div>"
+                  ]);
+               }
+            }
 
             DB::beginTransaction();
             try {
@@ -354,6 +446,20 @@ class CatelogueController extends Controller
                $item->total_trade = $request->input('total_trade');
                $item->total_retail = $request->input('total_retail');
                $item->is_active = $request->input('is_active');
+               $item->is_sale = $request->input('is_sale');
+               $item->best_seller = $request->input('best_seller');
+               if(!empty($file_path_0)){
+                $item->photo_0 = $file_path_0;                
+               }
+               if(!empty($file_path_1)){
+                $item->photo_1 = $file_path_1;                
+               }
+               if(!empty($file_path_2)){
+                $item->photo_2 = $file_path_2;                
+               }
+               if(!empty($file_path_3)){
+                $item->photo_3 = $file_path_3;                
+               }
                $item->updated_by = Auth::user()->id;
                $item->save();
 

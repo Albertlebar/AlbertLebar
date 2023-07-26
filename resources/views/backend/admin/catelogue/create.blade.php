@@ -5,7 +5,7 @@
         <div id="status"></div>
         <br/>
         <div class="clearfix"></div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="form-group col-md-12 col-sm-12">
                 <label for=""> Category </label>
                 {!! Form::select('category_id', $categories ?? [],  $userRoleId ?? '', ['class' => 'form-control','data-control'=>"select2", 'id'=>'role']) !!}
@@ -56,26 +56,8 @@
                 <input type="number" class="form-control" id="total_ct_weight" name="total_ct_weight" value="" placeholder="" required>
                 <span id="error_total_ct_weight" class="has-error"></span>
             </div>
-            <div id="append_image">
-                <div class="col-md-12 input-group">
-                    <div class="col-md-2">
-                        <input type="radio" name="is_main_image" class="form-control-sm" value="0">
-                    </div>
-                    <div class="col-md-6">
-                        <input id="photo-0" type="file" accept="image/*" class="form-control" name="photo[0]" onchange="showImage(0)">
-                    </div>
-                    <div class="col-md-4">
-                        <img id="preview-0" src="" alt="" style="width: 100px; height: 100px;">
-                    </div>
-                </div>
-            </div>
-            <div class="mt-3">
-                <button type="button" id="add_more" class="btn btn-info"
-                    data-loading-text="Loading..."></span>Add More
-                </button>
-            </div>
         </div>
-        <div class="col-md-6 verticle-line">
+        <div class="col-md-4 verticle-line">
             <div class="form-group col-md-12 col-sm-12">
                 <label for=""> Gold Price </label>
                 <input type="number" class="form-control" id="gold_price" name="gold_price" value="" placeholder="" required>
@@ -128,6 +110,69 @@
                 <input type="radio" name="is_active" class="flat-green"
                        value="0"/> In Active
             </div>
+            <div class="form-group col-md-12 col-sm-12">
+                <label for=""> Best Seller </label><br/>
+                <input type="radio" name="best_seller" class="flat-green"
+                       value="1"/> Yes
+                <input type="radio" name="best_seller" class="flat-green"
+                       value="0"/> No
+            </div>
+            <div class="form-group col-md-12 col-sm-12">
+                <label for=""> Is Sale ? </label><br/>
+                <input type="radio" name="is_sale" class="flat-green"
+                       value="1"/> Yes
+                <input type="radio" name="is_sale" class="flat-green"
+                       value="0"/> No
+            </div>
+        </div>
+        <div class="col-md-4 verticle-line">
+            <div id="append_image">
+                <div class="">
+                    <!-- <div class="col-md-2">
+                        <input type="radio" name="is_main_image" class="form-control-sm" value="0">
+                    </div> -->
+                    <div style="text-align: center;">
+                        <img id="preview-0" src="" alt="" style="width: 105px; height: 100px;">
+                    </div>
+                    <div class="mt-1" style="margin: auto;width: 35%;">
+                        <input id="photo-0" type="file" accept="image/*" class="form-control" name="photo_0" onchange="showImage(0)">
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <!-- <div class="col-md-2">
+                        <input type="radio" name="is_main_image" class="form-control-sm" value="0">
+                    </div> -->
+                    <div class="col-md-4 p-0 pl-2">
+                        <div style="">
+                            <img id="preview-1" src="" alt="" style="width: 105px; height: 100px;">
+                        </div>
+                        <div class="mt-1" style="margin: auto;width: 102px;">
+                            <input id="photo-1" type="file" accept="image/*" class="form-control" name="photo_1" onchange="showImage(1)">
+                        </div>
+                    </div>
+                    <div class="col-md-4 p-0 pl-1">
+                        <div style="text-align: center;">
+                            <img id="preview-2" src="" alt="" style="width: 105px; height: 100px;">
+                        </div>
+                        <div class="mt-1" style="margin: auto;width: 102px;">
+                            <input id="photo-2" type="file" accept="image/*" class="form-control" name="photo_2" onchange="showImage(2)">
+                        </div>
+                    </div>
+                    <div class="col-md-4 p-0">
+                        <div style="text-align: right;">
+                            <img id="preview-3" src="" alt="" style="width: 105px; height: 100px;">
+                        </div>
+                        <div class="mt-1" style="margin: auto;width: 102px;">
+                            <input id="photo-3" type="file" accept="image/*" class="form-control" name="photo_3" onchange="showImage(3)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="mt-3">
+                <button type="button" id="add_more" class="btn btn-info"
+                    data-loading-text="Loading..."></span>Add More
+                </button>
+            </div> -->
         </div>
         <div class="col-md-12 mb-3">
             <button type="submit" class="btn btn-success button-submit"

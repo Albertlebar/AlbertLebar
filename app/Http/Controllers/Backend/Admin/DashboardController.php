@@ -39,12 +39,15 @@ class DashboardController extends Controller
            return $appointment->phone_number;
         })
         ->addColumn('appointment_type', function ($appointment) {
-           return $appointment->appointment_type;
+           return $appointment->appointment_type == 0 ? 'Face to Face' : 'Call';
+        })
+        ->addColumn('notes', function ($appointment) {
+           return $appointment->notes;
         })
         ->addColumn('appointment_date', function ($appointment) {
            return $appointment->appointment_date;
         })
-        ->rawColumns(['first_name', 'last_name', 'email', 'phone_number', 'appointment_type', 'appointment_date'])
+        ->rawColumns(['first_name', 'last_name', 'email', 'phone_number', 'appointment_type', 'appointment_date', 'notes'])
         ->addIndexColumn()
         ->make(true);
     }

@@ -9,22 +9,29 @@ use Illuminate\Http\Request;
 use View;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Cart;
+use App\Models\ItemStock;
 
 class ItemController extends Controller
 {
    public function index(Request $request)
    {
    		$pagination = 9;
-   		$category = Category::where('title',$request->item_type)->first();
-      	$items = Item::where('category_id',$category->id)->where('is_active',1);
-      	$items = $items->paginate($pagination);
-      	return View::make('frontend.item.list', compact('items'));
+      if($request->item_type == 'sale')
+      {
+        $items = Item::where('is_sale',1)->where('is_active',1);
+      }else{
+        $category = Category::where('title',$request->item_type)->first();
+        $items = Item::where('category_id',$category->id)->where('is_active',1);
+      }
+      $items = $items->paginate($pagination);
+      return View::make('frontend.item.list', compact('items'));
    }
 
    public function itemDetails(Request $request)
    {
       $item = Item::where('id',$request->item_id)->first();
-      $view = View::make('frontend.item.quick_view', compact('item'))->render();
+      $itemSize = ItemStock::where('item_id',$request->item_id)->get()->pluck('size', 'id')->toArray();
+      $view = View::make('frontend.item.quick_view', compact('item','itemSize'))->render();
       return response()->json(['html' => $view]);
    }
 
@@ -48,7 +55,7 @@ class ItemController extends Controller
         'item_title' => $item->item_title,
         'quantity' => $request->item_qty,
         'size' => $request->item_size,
-        'images' => $item->itemMainImage[0]->images,
+        'images' => $item->photo_0,
         'price' => $item->total_retail,
         ];
         $request->Session()->put('cart', $cart);

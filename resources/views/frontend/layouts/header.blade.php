@@ -23,11 +23,14 @@
                                     </div>
                                 @endif
                                 <nav class="desktop-menu">
+                                    <?php
+                                        $categorys = \App\Models\Category::all(); 
+                                    ?>
                                     <ul>
-                                        <li><a href="{{ URL :: to('/item/ring') }}">RING</a></li>
-                                        <li><a href="{{ URL :: to('/item/earrings') }}">EARRINGS</a></li>
-                                        <li><a href="{{ URL :: to('/item/necklace') }}">NECKLACE</a></li>
-                                        <li><a href="{{ URL :: to('/item/bracelet') }}">BRACELET</a></li>
+                                        @forelse($categorys as $category)
+                                        <li><a href="{{ URL :: to('/item/'.strtolower($category->title)) }}">{{ strtoupper($category->title) }}</a></li>
+                                        @empty
+                                        @endforelse
                                         <li><a href="{{ URL :: to('/item/sale') }}">SALE</a></li>
                                     </ul>
                                 </nav>
@@ -171,10 +174,10 @@
                     <!-- mobile menu navigation start -->
                     <nav>
                         <ul class="mobile-menu">
-                            <li><a href="{{ URL :: to('/item/ring') }}">RING</a></li>
-                            <li><a href="{{ URL :: to('/item/earrings') }}">EARRINGS</a></li>
-                            <li><a href="{{ URL :: to('/item/necklace') }}">NECKLACE</a></li>
-                            <li><a href="{{ URL :: to('/item/bracelet') }}">BRACELET</a></li>
+                            @forelse($categorys as $category)
+                            <li><a href="{{ URL :: to('/item/'.strtolower($category->title)) }}">{{ strtoupper($category->title) }}</a></li>
+                            @empty
+                            @endforelse
                             <li><a href="{{ URL :: to('/item/sale') }}">SALE</a></li>
                         </ul>
                     </nav>

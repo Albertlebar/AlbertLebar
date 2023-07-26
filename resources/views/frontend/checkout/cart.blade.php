@@ -37,11 +37,11 @@
                     ?>
                     @foreach($cartItem as $id=>$item)
                     <tr>
-                      <td class="pro-thumbnail"><img src="{{asset('assets/images/items/').'/'.$item['images']}}"></td>
+                      <td class="pro-thumbnail"><img src="{{asset($item['images'])}}"></td>
                       <td class="pro-title">
                         {{ $item['item_title'] }}  
                       </td>
-                      <td class="pro-price"><span class="amount"><span class="money" data-currency-usd="$80.00">&pound;{{ $item['price'] }}</span></span></td>
+                      <td class="pro-price"><span class="amount"><span class="money" data-currency-usd="$80.00">&pound;{{ number_format((float)$item['price'], 2, '.', '') }}</span></span></td>
                       <td class="pro-quantity">
                         <div class="product-quantity quantity">
                           <input type="number" min="1" step="1" value="{{ $item['quantity'] }}" name="updates[]" disabled>
@@ -51,7 +51,7 @@
                         $Total = $item['quantity'] * $item['price'];
                         $allTotal = $allTotal + $Total;
                       ?>
-                      <td class="pro-subtotal"><span class="money" data-currency-usd="$160.00">&pound;{{ $Total }}</span></td>
+                      <td class="pro-subtotal"><span class="money" data-currency-usd="$160.00">&pound;{{ number_format((float)$Total, 2, '.', '') }}</span></td>
                       <td class="pro-remove"><a href="/cart/change?line=1&amp;quantity=0"><i class="pe-7s-trash"></i></a></td>
                     </tr>
                     @endforeach
@@ -77,7 +77,7 @@
                       <tr class="order-total">
                         <td>Total</td>
                         <td>
-                          <strong><span class="amount"><span id="bk-cart-subtotal-price"><span class="money" >&pound;{{ $allTotal ?? '' }}</span></span></span></strong>
+                          <strong><span class="amount"><span id="bk-cart-subtotal-price"><span class="money" >&pound;{{ number_format((float)$allTotal, 2, '.', '') }}</span></span></span></strong>
                         </td>
                       </tr>                                         
                     </tbody>

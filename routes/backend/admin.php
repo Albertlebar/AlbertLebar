@@ -43,6 +43,7 @@ Route::get('/allAppointment','DashboardController@getAllAppointment')->name('all
 /* ===== Stock Start =========== */
 
 Route::resource('stocks','StockController');
+Route::resource('catelogue-size','CatalogueSizeController');
 // Route::get('/allCatelogue','CatelogueController@getAll')->name('allCatelogue');
 
 /* ===== Stock End =========== */
