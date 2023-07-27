@@ -473,6 +473,7 @@ function escapeRegExp(str)
 
                     if (data.type === 'success') {
                         swal("Done!", "It was succesfully done!", "success");
+                        $("#link-tab-size-stock").trigger("click");
                         reload_table();
                         notify_view(data.type, data.message);
                         $('#loader').hide();
