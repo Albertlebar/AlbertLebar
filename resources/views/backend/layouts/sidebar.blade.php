@@ -54,7 +54,7 @@
                 <li>
                     <a href="{{ URL :: to('/admin/catelogues') }}">
                         <i class="metismenu-icon pe-7s-categories"></i>
-                        Catalogue
+                        All Products
                     </a>
                 </li>
                 <li>

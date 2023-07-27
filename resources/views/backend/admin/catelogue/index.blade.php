@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', ' All Catelogue')
+@section('title', ' All Products')
 @section('content')
     <div class="app-page-title">
         <div class="page-title-wrapper">
@@ -7,13 +7,13 @@
                 <div class="page-title-icon">
                     <i class="fa-duotone fa-ball-pile fa-lg"> </i>
                 </div>
-                <div>All Catelogues</div>
+                <div>All Products</div>
                 <div class="d-inline-block ml-2">
                     @can('user-create')
-                        <button class="btn btn-success" onclick="create()"><i
+                        <a href="{{ URL :: to('/admin/catelogues/create') }}" class="btn btn-success"><i
                                 class="glyphicon glyphicon-plus"></i>
                             New Item
-                        </button>
+                        </a>
                     @endcan
                 </div>
             </div>

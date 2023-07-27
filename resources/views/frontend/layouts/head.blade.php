@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- Favicon -->
-<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+<!-- <link rel="shortcut icon" type="image/x-icon" href=""> -->
 
 <!-- CSS
 ============================================ -->
@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="{{ asset('assets/css/plugins/jqueryui.min.css')}}">
 <!-- main style css -->
 <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-<link rel="shortcut icon" href="{{asset('/assets/images/favicon.png')}}">
+<link rel="shortcut icon" href="">
 
 
 <link rel="stylesheet" href="{{ asset('/assets/css/main.css') }}">

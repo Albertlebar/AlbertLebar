@@ -55,6 +55,7 @@ class CatalogueSizeController extends Controller
                 {
                     $itemStock = ItemStock::find($key);
                     $itemStock->size = $value;
+                    $itemStock->stock = $request->stock[$key];
                     $itemStock->save();
                 }
                 $itemStockDelete = ItemStock::where('item_id',$request->item_id)->whereNotIn('id',array_keys($request->size))->delete();
@@ -66,6 +67,7 @@ class CatalogueSizeController extends Controller
                     $itemStock = new ItemStock();
                     $itemStock->item_id = $request->item_id;
                     $itemStock->size = $value;
+                    $itemStock->stock = $request->new_stock[$key];
                     $itemStock->save();
                 }
             }

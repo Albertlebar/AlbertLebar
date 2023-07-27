@@ -11,10 +11,12 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\ItemImage;
+use App\Models\ItemStock;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 use View;
 use DB;
+use URL;
 
 class CatelogueController extends Controller
 {
@@ -103,7 +105,8 @@ class CatelogueController extends Controller
         })
         ->addColumn('action', function ($items) use ($can_edit, $can_delete) {
            $html = '<div class="btn-group">';
-           $html .= '<a data-toggle="tooltip" ' . $can_edit . '  id="' . $items->id . '" class="btn btn-xs btn-info mr-1 edit" title="Edit"><i class="fa fa-edit"></i> </a>';
+           $html .= '<a href="' . \URL :: to('admin/catelogues') .  '/' . $items->id . '/edit"  id="' . $items->id . '" class="btn btn-xs btn-info margin-r-5" title="View"><i class="fa fa-edit"></i> </a>';
+           // $html .= '<a data-toggle="tooltip" ' . $can_edit . '  id="' . $items->id . '" class="btn btn-xs btn-info mr-1 edit" title="Edit"><i class="fa fa-edit"></i> </a>';
            $html .= '<a data-toggle="tooltip" ' . $can_delete . ' id="' . $items->id . '" class="btn btn-xs btn-danger mr-1 delete" title="Delete"><i class="fa fa-trash"></i> </a>';
            $html .= '</div>';
            return $html;
@@ -120,20 +123,16 @@ class CatelogueController extends Controller
      */
     public function create(Request $request)
     {
-        if ($request->ajax()) {
-         $haspermision = auth()->user()->can('user-create');
-         if ($haspermision) {
-            $roles = Role::all();
-            $categories = Category::pluck('title','id')->toArray();
-            $categories[''] = 'Select Category';
-            $view = View::make('backend.admin.catelogue.create', compact('roles','categories'))->render();
-            return response()->json(['html' => $view]);
-         } else {
-            abort(403, 'Sorry, you are not authorized to access the page');
-         }
-      } else {
-         return response()->json(['status' => 'false', 'message' => "Access only ajax request"]);
-      }
+       $haspermision = auth()->user()->can('user-create');
+       if ($haspermision) {
+          $roles = Role::all();
+          $categories = Category::pluck('title','id')->toArray();
+          $categories[''] = 'Select Category';
+          $view = View::make('backend.admin.catelogue.create', compact('roles','categories'))->render();
+          return view('backend.admin.catelogue.create',compact('roles','categories'));
+       } else {
+          abort(403, 'Sorry, you are not authorized to access the page');
+       }
     }
 
     /**
@@ -263,16 +262,25 @@ class CatelogueController extends Controller
                $item->is_active = $request->input('is_active');
                $item->is_sale = $request->input('is_sale');
                $item->best_seller = $request->input('best_seller');
-               $item->photo_0 = $file_path_0;
-               $item->photo_1 = $file_path_1;
-               $item->photo_2 = $file_path_2;
-               $item->photo_3 = $file_path_3;
+               if(isset($file_path_0)){
+                $item->photo_0 = $file_path_0;                
+               }
+               if(isset($file_path_1)){
+                $item->photo_1 = $file_path_1;                
+               }
+               if(isset($file_path_2)){
+                $item->photo_2 = $file_path_2;                
+               }
+               if(isset($file_path_3)){
+                $item->photo_3 = $file_path_3;                
+               }
                $item->created_by = Auth::user()->id;
                $item->updated_by = Auth::user()->id;
                $item->save();
 
                DB::commit();
-               return response()->json(['type' => 'success', 'message' => "Successfully Created"]);
+               $returnURL = URL::to('/admin/catelogues') . '/' . $item->id . '/edit';
+               return response()->json(['type' => 'success', 'message' => "Successfully Created", 'returnURL' => $returnURL]);
 
             } catch (\Exception $e) {
                DB::rollback();
@@ -293,7 +301,7 @@ class CatelogueController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -304,21 +312,24 @@ class CatelogueController extends Controller
      */
     public function edit($id, Request $request)
     {
-        if ($request->ajax()) {
-         $haspermision = auth()->user()->can('user-edit');
-         if ($haspermision) {
-            $item = Item::where('id', $id)->first();
+       $haspermision = auth()->user()->can('user-edit');
+       if ($haspermision) {
+          $item = Item::where('id', $id)->first();
+          $roles = Role::all(); //Get all roles
+          if($request->tab == 'tab-size-stock')
+          {
+            $itemStock = ItemStock::where('item_id',$id)->get();
+            $view = View::make('backend.admin.catelogue.tab_size_stock', compact('item', 'itemStock','roles'))->render();
+            return response()->json(['html' => $view]);
+            // return view('backend.admin.catelogue.tab_size_stock',compact('item','itemStock','roles'));
+          }else{
             $categories = Category::pluck('title','id')->toArray();
             $categories[''] = 'Select Category';
-            $roles = Role::all(); //Get all roles
-            $view = View::make('backend.admin.catelogue.edit', compact('item', 'categories', 'roles'))->render();
-            return response()->json(['html' => $view]);
-         } else {
-            abort(403, 'Sorry, you are not authorized to access the page');
-         }
-      } else {
-         return response()->json(['status' => 'false', 'message' => "Access only ajax request"]);
-      }
+            return view('backend.admin.catelogue.edit',compact('item','categories'));
+          }
+       } else {
+          abort(403, 'Sorry, you are not authorized to access the page');
+       }
     }
 
     /**
