@@ -31,10 +31,10 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @if($cartItem)
                     <?php
                     $allTotal = 0;
                     ?>
+                    @if($cartItem)
                     @foreach($cartItem as $id=>$item)
                     <tr>
                       <td class="pro-thumbnail"><img src="{{asset($item['images'])}}"></td>

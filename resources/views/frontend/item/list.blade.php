@@ -16,10 +16,10 @@ class="container-fluid">
                         <div class="row shop-top-bar-menu">
 
 
-                            <div class="col-sm-12 col-lg-12 mb-6 d-flex justify-content-center text-center">
+                            <!-- <div class="col-sm-12 col-lg-12 mb-6 d-flex justify-content-center text-center">
                                 <div class="row d-flex align-items-center dd-full-menu">
                                     <div class="col-auto">
-                                        <!-- <div class="main-menu">
+                                        <div class="main-menu">
                                             <ul>
                                                 <li class="active"><a class="p-0" href="index.html">Metal Type <i
                                                             class="fa fa-angle-down"></i></a>
@@ -60,10 +60,10 @@ class="container-fluid">
                                                     </ul>
                                                 </li>
                                             </ul>
-                                        </div> -->
+                                        </div>
                                     </div>
                                     <div class="col-auto">
-                                        <!-- <div class="main-menu">
+                                        <div class="main-menu">
                                             <ul>
                                                 <li class="active"><a class="p-0" href="index.html">Metal Type <i
                                                             class="fa fa-angle-down"></i></a>
@@ -104,10 +104,10 @@ class="container-fluid">
                                                     </ul>
                                                 </li>
                                             </ul>
-                                        </div> -->
+                                        </div>
                                     </div>
                                     <div class="col-auto">
-                                        <!-- <div class="main-menu">
+                                        <div class="main-menu">
                                             <ul>
                                                 <li class="active"><a class="p-0" href="index.html">Metal Type <i
                                                             class="fa fa-angle-down"></i></a>
@@ -148,10 +148,10 @@ class="container-fluid">
                                                     </ul>
                                                 </li>
                                             </ul>
-                                        </div> -->
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="short-by">
 
@@ -159,18 +159,13 @@ class="container-fluid">
 
                                 <div class="top-bar-right d-flex">
 
-                                    <!-- <div class="product-short">
+                                    <div class="product-short">
                                         <p class="mb-0">Sort By : </p>
-                                        <select class="nice-select" name="sortby">
-                                            <option value="trending">Relevance</option>
-                                            <option value="sales">Name (A - Z)</option>
-                                            <option value="sales">Name (Z - A)</option>
-                                            <option value="rating">Price (Low &gt; High)</option>
-                                            <option value="date">Rating (Lowest)</option>
-                                            <option value="price-asc">Model (A - Z)</option>
-                                            <option value="price-asc">Model (Z - A)</option>
+                                        <select class="nice-select" name="sortby" id="sort-by">
+                                            <option value="low_high">Price low to high</option>
+                                            <option value="high_low">Price high to low</option>
                                         </select>
-                                    </div> -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -342,7 +337,79 @@ $(document).ready(function() {
     //     e.preventDefault();
     //     var item_type = $(this).val();
     //     alert(item_type);
-    // });  
+    // });
+
+     function ltrim(str, characters)
+{
+    var nativeTrimLeft = String.prototype.trimLeft;
+    str = makeString(str);
+    if (!characters && nativeTrimLeft) return nativeTrimLeft.call(str);
+    characters = defaultToWhiteSpace(characters);
+    return str.replace(new RegExp('^' + characters + '+'), '');
+}
+function makeString(object)
+{
+    if (object == null) return '';
+    return String(object);
+}
+function defaultToWhiteSpace(characters)
+{
+    if (characters == null){
+        return '\\s';
+    }
+    else if (characters.source){
+    return characters.source;
+    }
+    else{
+        return '[' + escapeRegExp(characters) + ']';
+    }
+}
+function escapeRegExp(str)
+{
+    return makeString(str).replace(/([.*+?^=!:${}()|[\]\/\\])/g, '\\$1');
+}
+    function set_query_para($key,$data)
+{
+    var url_string = "";
+    var search = ltrim(window.location.search,"?")
+    var search_join = [];
+    var $target_found = false;
+    var search_split = search.split("&");
+    if(search!="")
+    {
+        $.each(search_split,function($index,$value)
+        {
+            var $value_split = $value.split("=");
+            if($value_split.length=2)
+            {
+                if($value_split[0]==$key)
+                {
+                    $value_split[1] = $data
+                    $target_found = true;
+                }
+            }
+
+            var $value_join = $value_split.join("=");
+
+            search_join.push($value_join);
+      });
+    }
+
+    if(!$target_found)
+    {
+      search_join.push($key+"="+$data)
+    }
+
+    url_string  +=("?"+(search_join.join("&")));
+
+    history.pushState(null,null,url_string);
+}
+
+    $('#sort-by').change(function(e) {
+        var sortBy = $("#sort-by :selected").val();
+        set_query_para('sort',sortBy);
+        location.reload();
+    });
 
     $(document).on("click", ".add-to-cart", function(e) {
         e.preventDefault();

@@ -226,71 +226,7 @@
      let number_of_image = 1;
 </script>
 <script type="text/javascript">
-    function ltrim(str, characters)
-{
-    var nativeTrimLeft = String.prototype.trimLeft;
-    str = makeString(str);
-    if (!characters && nativeTrimLeft) return nativeTrimLeft.call(str);
-    characters = defaultToWhiteSpace(characters);
-    return str.replace(new RegExp('^' + characters + '+'), '');
-}
-function makeString(object)
-{
-    if (object == null) return '';
-    return String(object);
-}
-function defaultToWhiteSpace(characters)
-{
-    if (characters == null){
-        return '\\s';
-    }
-    else if (characters.source){
-    return characters.source;
-    }
-    else{
-        return '[' + escapeRegExp(characters) + ']';
-    }
-}
-function escapeRegExp(str)
-{
-    return makeString(str).replace(/([.*+?^=!:${}()|[\]\/\\])/g, '\\$1');
-}
-    function set_query_para($key,$data)
-{
-    var url_string = "";
-    var search = ltrim(window.location.search,"?")
-    var search_join = [];
-    var $target_found = false;
-    var search_split = search.split("&");
-    if(search!="")
-    {
-        $.each(search_split,function($index,$value)
-        {
-            var $value_split = $value.split("=");
-            if($value_split.length=2)
-            {
-                if($value_split[0]==$key)
-                {
-                    $value_split[1] = $data
-                    $target_found = true;
-                }
-            }
-
-            var $value_join = $value_split.join("=");
-
-            search_join.push($value_join);
-      });
-    }
-
-    if(!$target_found)
-    {
-      search_join.push($key+"="+$data)
-    }
-
-    url_string  +=("?"+(search_join.join("&")));
-
-    history.pushState(null,null,url_string);
-}
+    
     $(document).ready(function () {
         $('body').on('click', '.nav-link', function(event) {
             id = $('#id').val();

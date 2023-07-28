@@ -198,7 +198,6 @@
                         <!-- section title start -->
                         <div class="section-title text-center">
                             <h2 class="title" style="color: black !important;">testimonials</h2>
-                            <p class="sub-title"><strong>What they say</strong></p>
                         </div>
                         <!-- section title start -->
                     </div>

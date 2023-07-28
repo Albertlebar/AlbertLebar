@@ -15,7 +15,8 @@ class ItemController extends Controller
 {
    public function index(Request $request)
    {
-   		$pagination = 9;
+   		$pagination = 1;
+      
       if($request->item_type == 'sale')
       {
         $items = Item::where('is_sale',1)->where('is_active',1);
@@ -23,7 +24,15 @@ class ItemController extends Controller
         $category = Category::where('title',$request->item_type)->first();
         $items = Item::where('category_id',$category->id)->where('is_active',1);
       }
-      $items = $items->paginate($pagination);
+
+
+      if ($request->sort == 'low_high') {
+          $items = $items->orderBy('total_retail')->paginate($pagination);
+      } elseif (request()->sort == 'high_low') {
+          $items = $items->orderBy('total_retail', 'desc')->paginate($pagination);
+      } else {
+          $items = $items->paginate($pagination);
+      } 
       return View::make('frontend.item.list', compact('items'));
    }
 

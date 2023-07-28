@@ -57,7 +57,7 @@
                         All Products
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="{{ URL :: to('/admin/stocks') }}">
                         <i class="metismenu-icon pe-7s-stock"></i>
                         Stock
@@ -68,7 +68,7 @@
                         <i class="metismenu-icon pe-7s-stock"></i>
                         Catalogue Size
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="{{ URL :: to('/admin/orders') }}">
                         <i class="metismenu-icon pe-7s-categories"></i>
