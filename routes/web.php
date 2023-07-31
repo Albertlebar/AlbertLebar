@@ -13,6 +13,7 @@ Route::group([
 // Bakcend
 
 Route::post('/book-appointment-save','Frontend\HomeController@bookAppointmentSave')->name('book-appointment-save');
+
 // Admin Auth
 Route::prefix('admin_login')->group(function () {
     Route::get('login', 'Auth\Admin\LoginController@login')->name('admin.auth.login');
@@ -33,7 +34,7 @@ Route::group([
 
 // User Auth
 Route::prefix('user')->group(function () {
-    Auth::routes();
+    Auth::routes(['verify'=>true]);
     // Route::get('login', 'Auth\User\LoginController@login')->name('user.auth.login');
     // Route::get('/register','Auth\User\RegisterController@showRegistrationForm')->name('user.auth.register');
     // Route::post('/register','Auth\User\RegisterController@register')->name('user.auth.registerUser');
@@ -69,3 +70,12 @@ Route::group([
 //   }
 //});
 
+
+Route::group(['middleware' => ['auth']], function() {
+    /**
+    * Verification Routes
+    */
+    Route::get('/email/verify', 'VerificationController@show')->name('verification.notice');
+    Route::get('/email/verify/{id}/{hash}', 'VerificationController@verify')->name('verification.verify')->middleware(['signed']);
+    Route::post('/email/resend', 'VerificationController@resend')->name('verification.resend');
+});

@@ -30,6 +30,9 @@
                 @if ($errors->has('email'))
                     <span class="is-invalid">{{ $errors->first('email') }}</span>
                 @endif
+                @if (Session::has('message'))
+                    <span class="is-invalid">{{ Session::get('message') }}</span>
+                @endif
                 <div class="form-floating mb-3">
                   <input type="text" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{ old('email') }}">
                   <label for="floatingInput">Email address</label>

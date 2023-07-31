@@ -28,6 +28,8 @@
                                 <th>Appointment Type</th>
                                 <th>Appointment Date</th>
                                 <th>Notes</th>
+                                <th>Status</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                         </table>
@@ -66,7 +68,9 @@
                     {data: 'phone_number', name: 'phone_number'},
                     {data: 'appointment_type', name: 'appointment_type'},
                     {data: 'appointment_date', name: 'appointment_date'},
-                    {data: 'notes', name: 'notes'}
+                    {data: 'notes', name: 'notes'},
+                    {data: 'status', name: 'status'},
+                    {data: 'action', name: 'action'}
                 ],
                 "autoWidth": true,
                 "scrollX": true
@@ -79,30 +83,12 @@
         });
     </script>
     <script type="text/javascript">
-        function create() {
-            ajax_submit_create('catelogues');
-        }
-
         $(document).ready(function () {
-            // View Form
-            $("#manage_all").on("click", ".view", function () {
-                var id = $(this).attr('id');
-                ajax_submit_view('catelogues', id)
-            });
-
             // Edit Form
             $("#manage_all").on("click", ".edit", function () {
                 var id = $(this).attr('id');
-                ajax_submit_edit('catelogues', id)
+                ajax_submit_edit('appointments', id);
             });
-
-
-            // Delete
-            $("#manage_all").on("click", ".delete", function () {
-                var id = $(this).attr('id');
-                ajax_submit_delete('catelogues', id)
-            });
-
         });
 
     </script>

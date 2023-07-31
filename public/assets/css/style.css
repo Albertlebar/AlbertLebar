@@ -6317,7 +6317,7 @@ font-family:Arial;
   background: #fff;
   min-height: 55px;
   padding-top: 20px;
-  padding-bottom: 20px;
+  /*padding-bottom: 20px;*/
 }
 
 .service-policy.section-padding.shop-main-wrapper {
@@ -6388,4 +6388,219 @@ font-family:Arial;
   position: absolute;
     top: 0;
     width: 100%;
+}
+
+.mega-menu {
+  position: relative;
+  width: 100%;
+  padding: 0 30px;
+}
+
+.mega-menu ul {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  margin: 0;
+}
+
+.dd-main-ul {
+  border-bottom: 1px solid #eee;
+}
+
+.mega-menu ul a {
+  color: #222;
+  text-decoration: none;
+  padding-right: 20px;
+  font-weight: 300;
+}
+
+.mega-menu ul a:hover {
+  font-weight: 300;
+  text-shadow: 0 0 black;
+  transition: all 0.1s ease;
+}
+
+.mega-menu ul a svg {
+  transition: all 0.4s ease;
+}
+.mega-menu ul a:hover svg {
+  transform: rotateZ(-180deg);
+}
+
+
+.megamenu-dd {
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 0;
+  transition: height 0.4s ease-in;
+  overflow: hidden;
+  background: #fff;
+  z-index: 2;
+}
+
+.menu-slide:hover .megamenu-dd {
+  height: 200px;
+  transition: height 0.4s ease-out;
+  overflow: visible;
+  padding: 15px;
+}
+
+.megamenu-dd .sidebar-body ul {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  align-items: flex-start;
+}
+
+.sidebar-body .sidebar-body ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar-body {
+  overflow: hidden;
+  position: absolute;
+  top: 20px;
+  z-index: -1;
+  left: 28px;
+  width: 800px;
+  height: 200px;
+  padding-top: 30px;
+}
+
+.sidebar-body ul {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  transition-delay: 0.4s;
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  align-items: flex-start;
+}
+
+.sidebar-body ul .custom-checkbox .custom-control-label {
+  padding-left: 0;
+  transition: all 0.4s ease;
+  left: -20px;
+}
+
+.sidebar-body ul li:hover {
+  color: #999;
+  transition: all 0.4s ease;
+}
+
+.sidebar-body.z-9 ul {
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
+  transition-delay: 0.4s;
+}
+
+.menu-hover-1 .dd-menu-link-1 a,
+.menu-hover-2 .dd-menu-link-2 a,
+.menu-hover-3 .dd-menu-link-3 a,
+.menu-hover-last .dd-menu-link-last a {
+  font-weight: 300;
+  text-shadow: 0 0 black;
+  transition: all 0.1s ease;
+}
+
+.menu-hover-1 .dd-menu-link-1 a svg,
+.menu-hover-2 .dd-menu-link-2 a svg,
+.menu-hover-3 .dd-menu-link-3 a svg,
+.menu-hover-last .dd-menu-link-last a svg {
+  transform: rotateZ(-180deg);
+}
+
+.menu-hover-1 #dd-menu-1.z-9,
+.menu-hover-2 #dd-menu-2.z-9,
+.menu-hover-3 #dd-menu-3.z-9,
+.menu-hover-last #dd-menu-last.z-9 {
+  z-index: 10;
+}
+
+#dd-menu-1 {
+  opacity: 1;
+  max-height: 200px;
+  width: 800px;
+}
+
+#dd-menu-2,
+#dd-menu-3,
+#dd-menu-last {
+  opacity: 1;
+  max-height: 200px;
+  width: 800px;
+  left: 28px;
+}
+
+#dd-menu-last {
+  opacity: 1;
+  max-height: 200px;
+  width: 100%;
+  left: 0;
+  padding-left: 28px;
+}
+
+
+.dd-menu-link-1:hover:after,
+.dd-menu-link-2:hover:after,
+.dd-menu-link-3:hover:after,
+.dd-menu-link-last:hover:after {
+  content: "";
+  position: absolute;
+  top: 23px;
+  left: 0;
+  width: 800px;
+  height: 200px;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.sidebar-body .custom-checkbox .custom-control-label::before {
+  width: auto;
+  border: none;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  transition-delay: 0.4s;
+
+}
+
+.sidebar-body .custom-checkbox .custom-control-label::after {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  transition-delay: 0.4s;
+}
+
+.sidebar-body .custom-checkbox .custom-control-input:checked~.custom-control-label:before,
+.sidebar-body .custom-checkbox .custom-control-input:checked~.custom-control-label::after {
+  width: 10px;
+  background-image: none;
+  background: none;
+  display: inline-block;
+  transform: rotate(45deg);
+  height: 12px;
+  width: 7px;
+  border-bottom: 1px solid #303030;
+  border-right: 1px solid #101010;
+  top: 0px;
+  border-radius: 0;
+  left: -18px;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  transition-delay: 0.3s;
+}
+
+.sidebar-body .custom-checkbox .custom-control-input:checked~.custom-control-label {
+  text-shadow: 0 0 black;
+  left: 0;
+}
+
+@media only screen and (max-width: 479.98px) {
+  .mega-menu {
+    padding: 0 12px;
+  }
+  .mega-menu ul a {
+    padding-right: 12px;
+  }
 }

@@ -15,7 +15,7 @@ class ItemController extends Controller
 {
    public function index(Request $request)
    {
-   		$pagination = 1;
+   		$pagination = 9;
       
       if($request->item_type == 'sale')
       {

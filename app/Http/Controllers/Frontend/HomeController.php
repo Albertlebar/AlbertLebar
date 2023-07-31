@@ -19,6 +19,11 @@ use App\Models\Item;
 class HomeController extends Controller
 {
 
+   public function __construct()
+  {
+      $this->middleware(['is_verify_email']);
+  }
+
    public function index()
    {
       $items = Item::latest()->limit(8)->get();

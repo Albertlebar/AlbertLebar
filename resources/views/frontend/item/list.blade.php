@@ -14,157 +14,198 @@ class="container-fluid">
                     <!-- shop product top wrap start -->
                     <div class="shop-top-bar">
                         <div class="row shop-top-bar-menu">
+                            <div class="p-0 mb-6 d-flex justify-content-center text-center">
+                                <div class="mega-menu">
+                                    <ul class="dd-main-ul">
 
+                                        <div class="d-flex">
 
-                            <!-- <div class="col-sm-12 col-lg-12 mb-6 d-flex justify-content-center text-center">
-                                <div class="row d-flex align-items-center dd-full-menu">
-                                    <div class="col-auto">
-                                        <div class="main-menu">
-                                            <ul>
-                                                <li class="active"><a class="p-0" href="index.html">Metal Type <i
-                                                            class="fa fa-angle-down"></i></a>
-                                                    <ul class="dropdown">
-                                                        <div class="sidebar-single p-3 m-0">
-                                                            <div class="sidebar-body">
-                                                                <ul class="checkbox-container categories-list">
-                                                                    <li>
-                                                                        <div class="custom-control custom-checkbox">
-                                                                            <input type="checkbox"
-                                                                                class="custom-control-input"
-                                                                                id="customCheck2">
-                                                                            <label class="custom-control-label"
-                                                                                for="customCheck2">9K (3)</label>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li>
-                                                                        <div class="custom-control custom-checkbox">
-                                                                            <input type="checkbox"
-                                                                                class="custom-control-input"
-                                                                                id="customCheck3">
-                                                                            <label class="custom-control-label"
-                                                                                for="customCheck3">18K (4)</label>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li>
-                                                                        <div class="custom-control custom-checkbox">
-                                                                            <input type="checkbox"
-                                                                                class="custom-control-input"
-                                                                                id="customCheck4">
-                                                                            <label class="custom-control-label"
-                                                                                for="customCheck4">Platinum (15)</label>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
+                                            <li class="dd-menu-link-1">
+                                                <a href="javascript:void();">
+                                                    <span>Collection</span>
+                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M15.39 7.6a.54.54 0 00-.78 0L10 12.21 5.39 7.6a.54.54 0 00-.78 0 .55.55 0 000 .77L10 13.76l5.39-5.39a.55.55 0 000-.77z"
+                                                            fill="currentColor">
+                                                        </path>
+                                                    </svg>
+                                                </a>
+
+                                                <div class="sidebar-body" id="dd-menu-1">
+                                                    <ul class="checkbox-container categories-list">
+                                                        <li>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck2">
+                                                                <label class="custom-control-label"
+                                                                    for="customCheck2">9K
+                                                                    (3)</label>
                                                             </div>
-                                                        </div>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="main-menu">
-                                            <ul>
-                                                <li class="active"><a class="p-0" href="index.html">Metal Type <i
-                                                            class="fa fa-angle-down"></i></a>
-                                                    <ul class="dropdown">
-                                                        <div class="sidebar-single p-3 m-0">
-                                                            <div class="sidebar-body">
-                                                                <ul class="checkbox-container categories-list">
-                                                                    <li>
-                                                                        <div class="custom-control custom-checkbox">
-                                                                            <input type="checkbox"
-                                                                                class="custom-control-input"
-                                                                                id="customCheck2">
-                                                                            <label class="custom-control-label"
-                                                                                for="customCheck2">9K (3)</label>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li>
-                                                                        <div class="custom-control custom-checkbox">
-                                                                            <input type="checkbox"
-                                                                                class="custom-control-input"
-                                                                                id="customCheck3">
-                                                                            <label class="custom-control-label"
-                                                                                for="customCheck3">18K (4)</label>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li>
-                                                                        <div class="custom-control custom-checkbox">
-                                                                            <input type="checkbox"
-                                                                                class="custom-control-input"
-                                                                                id="customCheck4">
-                                                                            <label class="custom-control-label"
-                                                                                for="customCheck4">Platinum (15)</label>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
+                                                        </li>
+                                                        <li>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck3">
+                                                                <label class="custom-control-label"
+                                                                    for="customCheck3">18K
+                                                                    (4)</label>
                                                             </div>
-                                                        </div>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="main-menu">
-                                            <ul>
-                                                <li class="active"><a class="p-0" href="index.html">Metal Type <i
-                                                            class="fa fa-angle-down"></i></a>
-                                                    <ul class="dropdown">
-                                                        <div class="sidebar-single p-3 m-0">
-                                                            <div class="sidebar-body">
-                                                                <ul class="checkbox-container categories-list">
-                                                                    <li>
-                                                                        <div class="custom-control custom-checkbox">
-                                                                            <input type="checkbox"
-                                                                                class="custom-control-input"
-                                                                                id="customCheck2">
-                                                                            <label class="custom-control-label"
-                                                                                for="customCheck2">9K (3)</label>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li>
-                                                                        <div class="custom-control custom-checkbox">
-                                                                            <input type="checkbox"
-                                                                                class="custom-control-input"
-                                                                                id="customCheck3">
-                                                                            <label class="custom-control-label"
-                                                                                for="customCheck3">18K (4)</label>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li>
-                                                                        <div class="custom-control custom-checkbox">
-                                                                            <input type="checkbox"
-                                                                                class="custom-control-input"
-                                                                                id="customCheck4">
-                                                                            <label class="custom-control-label"
-                                                                                for="customCheck4">Platinum (15)</label>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
+                                                        </li>
+                                                        <li>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck4">
+                                                                <label class="custom-control-label"
+                                                                    for="customCheck4">Platinum (15)</label>
                                                             </div>
-                                                        </div>
+                                                        </li>
                                                     </ul>
-                                                </li>
-                                            </ul>
+                                                </div>
+
+
+                                            </li>
+                                            <li class="dd-menu-link-2">
+                                                <a href="javascript:void();">
+                                                    <span>Category</span>
+                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M15.39 7.6a.54.54 0 00-.78 0L10 12.21 5.39 7.6a.54.54 0 00-.78 0 .55.55 0 000 .77L10 13.76l5.39-5.39a.55.55 0 000-.77z"
+                                                            fill="currentColor">
+                                                        </path>
+                                                    </svg>
+                                                </a>
+
+                                                <div class="sidebar-body" id="dd-menu-2">
+                                                    <ul class="checkbox-container categories-list">
+                                                        <li>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck22">
+                                                                <label class="custom-control-label"
+                                                                    for="customCheck22">10k</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck33">
+                                                                <label class="custom-control-label"
+                                                                    for="customCheck33">18K
+                                                                    (4)</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck44">
+                                                                <label class="custom-control-label"
+                                                                    for="customCheck44">Platinum (15)</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+
+                                            </li>
+                                            <li class="dd-menu-link-3">
+                                                <a href="javascript:void();">
+                                                    <span>Material</span>
+                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M15.39 7.6a.54.54 0 00-.78 0L10 12.21 5.39 7.6a.54.54 0 00-.78 0 .55.55 0 000 .77L10 13.76l5.39-5.39a.55.55 0 000-.77z"
+                                                            fill="currentColor">
+                                                        </path>
+                                                    </svg>
+                                                </a>
+
+                                                <div class="sidebar-body" id="dd-menu-3">
+                                                    <ul class="checkbox-container categories-list">
+                                                        <li>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck32">
+                                                                <label class="custom-control-label"
+                                                                    for="customCheck32">30k</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck43">
+                                                                <label class="custom-control-label"
+                                                                    for="customCheck43">38K
+                                                                    (4)</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck54">
+                                                                <label class="custom-control-label"
+                                                                    for="customCheck54">3Platinum (15)</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+                                            </li>
                                         </div>
-                                    </div>
-                                </div>
-                            </div> -->
+                                        <div class="d-flex">
+                                            <li class="dd-menu-link-last">
+                                                <a href="javascript:void();" class="pe-0">
+                                                    <span>Sort by</span>
+                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M15.39 7.6a.54.54 0 00-.78 0L10 12.21 5.39 7.6a.54.54 0 00-.78 0 .55.55 0 000 .77L10 13.76l5.39-5.39a.55.55 0 000-.77z"
+                                                            fill="currentColor">
+                                                        </path>
+                                                    </svg>
+                                                </a>
 
-                            <div class="short-by">
+                                                <div class="sidebar-body" id="dd-menu-last">
+                                                    <ul class="checkbox-container categories-list">
+                                                        <li>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck332">
+                                                                <label class="custom-control-label"
+                                                                    for="customCheck332">Recommended</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck443">
+                                                                <label class="custom-control-label"
+                                                                    for="customCheck443">
+                                                                    Price low to high
+                                                                </label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck554">
+                                                                <label class="custom-control-label"
+                                                                    for="customCheck554">Price high to low</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+                                            </li>
+                                        </div>
+
+
+                                    </ul>
 
 
 
-                                <div class="top-bar-right d-flex">
-
-                                    <div class="product-short">
-                                        <p class="mb-0">Sort By : </p>
-                                        <select class="nice-select" name="sortby" id="sort-by">
-                                            <option value="low_high">Price low to high</option>
-                                            <option value="high_low">Price high to low</option>
-                                        </select>
+                                    <div class="megamenu-dd">
                                     </div>
                                 </div>
                             </div>
@@ -338,6 +379,45 @@ $(document).ready(function() {
     //     var item_type = $(this).val();
     //     alert(item_type);
     // });
+
+    $('.dd-menu-link-1').mouseenter(function() {
+            $(this).closest('.mega-menu').addClass('menu-hover-1 menu-slide');
+            $('.dd-menu-link-1 .sidebar-body').addClass('z-9');
+        })
+        .mouseleave(function() {
+            $(this).closest('.mega-menu').removeClass('menu-hover-1 menu-slide');
+            $('.dd-menu-link-1 .sidebar-body').removeClass('z-9');
+        });
+
+
+    $('.dd-menu-link-2').mouseenter(function() {
+            $(this).closest('.mega-menu').addClass('menu-hover-2 menu-slide');
+            $('.dd-menu-link-2 .sidebar-body').addClass('z-9');
+        })
+        .mouseleave(function() {
+            $(this).closest('.mega-menu').removeClass('menu-hover-2 menu-slide');
+            $('.dd-menu-link-2 .sidebar-body').removeClass('z-9');
+        });
+
+
+    $('.dd-menu-link-3').mouseenter(function() {
+            $(this).closest('.mega-menu').addClass('menu-hover-3 menu-slide');
+            $('.dd-menu-link-3 .sidebar-body').addClass('z-9');
+        })
+        .mouseleave(function() {
+            $(this).closest('.mega-menu').removeClass('menu-hover-3 menu-slide');
+            $('.dd-menu-link-3 .sidebar-body').removeClass('z-9');
+        });
+
+
+    $('.dd-menu-link-last').mouseenter(function() {
+            $(this).closest('.mega-menu').addClass('menu-hover-last menu-slide');
+            $('.dd-menu-link-last .sidebar-body').addClass('z-9');
+        })
+        .mouseleave(function() {
+            $(this).closest('.mega-menu').removeClass('menu-hover-last menu-slide');
+            $('.dd-menu-link-last .sidebar-body').removeClass('z-9');
+        });
 
      function ltrim(str, characters)
 {

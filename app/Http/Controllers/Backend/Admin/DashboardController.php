@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use View;
 use App\Models\Appointment;
 use Yajra\DataTables\DataTables;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -21,34 +22,28 @@ class DashboardController extends Controller
     	return View::make('backend.admin.appointment.index');
     }
 
-    public function getAllAppointment()
+    public function getDetails(Request $request)
     {
-    	$appointment = Appointment::all();
-      return Datatables::of($appointment)
-        
-        ->addColumn('first_name', function ($appointment) {
-           return $appointment->first_name;
-        })
-        ->addColumn('last_name', function ($appointment) {
-           return $appointment->last_name;
-        })
-        ->addColumn('email', function ($appointment) {
-           return $appointment->email;
-        })
-        ->addColumn('phone_number', function ($appointment) {
-           return $appointment->phone_number;
-        })
-        ->addColumn('appointment_type', function ($appointment) {
-           return $appointment->appointment_type == 0 ? 'Face to Face' : 'Call';
-        })
-        ->addColumn('notes', function ($appointment) {
-           return $appointment->notes;
-        })
-        ->addColumn('appointment_date', function ($appointment) {
-           return $appointment->appointment_date;
-        })
-        ->rawColumns(['first_name', 'last_name', 'email', 'phone_number', 'appointment_type', 'appointment_date', 'notes'])
-        ->addIndexColumn()
-        ->make(true);
+      echo "<pre>";
+      print_r($request->id);
+      die;
+      $haspermision = auth()->user()->can('user-edit');
+       if ($haspermision) {
+          $item = Item::where('id', $id)->first();
+          $roles = Role::all(); //Get all roles
+          if($request->tab == 'tab-size-stock')
+          {
+            $itemStock = ItemStock::where('item_id',$id)->get();
+            $view = View::make('backend.admin.catelogue.tab_size_stock', compact('item', 'itemStock','roles'))->render();
+            return response()->json(['html' => $view]);
+            // return view('backend.admin.catelogue.tab_size_stock',compact('item','itemStock','roles'));
+          }else{
+            $categories = Category::pluck('title','id')->toArray();
+            $categories[''] = 'Select Category';
+            return view('backend.admin.catelogue.edit',compact('item','categories'));
+          }
+       } else {
+          abort(403, 'Sorry, you are not authorized to access the page');
+       }
     }
 }
