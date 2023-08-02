@@ -64,7 +64,7 @@ class CatelogueController extends Controller
         ->addColumn('items.supplier_code', function ($items) {
            return $items->supplier_code;
         })
-        ->addColumn('items.metal_type', function ($items) {
+        ->addColumn('metal_type', function ($items) {
            return config('params.metal_type')[$items->metal_type];
         })
         ->addColumn('metal_colour', function ($items) {
@@ -114,7 +114,7 @@ class CatelogueController extends Controller
            $html .= '</div>';
            return $html;
         })
-        ->rawColumns(['action', 'category_id', 'total_stock', 'item_title', 'item_code', 'item_description', 'supplier_name', 'supplier_code', 'metal_type', 'metal_colour', 'total_gold_weight', 'total_ct_weight', 'gold_price', 'stone_price', 'labour_cost', 'duty_and_extra', 'total_cost', 'profit_trade', 'profit_retail', 'total_trade', 'total_retail', 'is_active'])
+        ->rawColumns(['action', 'items.category_id', 'items.total_stock', 'items.item_title', 'items.item_code', 'items.item_description', 'items.supplier_name', 'items.supplier_code', 'items.metal_type', 'items.metal_colour', 'items.total_gold_weight', 'items.total_ct_weight', 'items.gold_price', 'items.stone_price', 'items.labour_cost', 'items.duty_and_extra', 'items.total_cost', 'items.profit_trade', 'items.profit_retail', 'items.total_trade', 'items.total_retail', 'items.is_active'])
         ->addIndexColumn()
         ->make(true);
    }
