@@ -43,25 +43,25 @@ class CatelogueController extends Controller
       $items = Item::select('items.*', DB::raw("sum(item_stocks.stock) as total_stock"))->leftjoin('item_stocks','items.id','=','item_stocks.item_id')->groupBy('items.id')->get();
       return Datatables::of($items)
         
-        ->addColumn('items.category_id', function ($items) {
+        ->addColumn('category_id', function ($items) {
            return $items->category->title;
         })
         ->addColumn('total_stock', function ($items) {
            return $items->total_stock > 0 ? $items->total_stock : 0;
         })
-        ->addColumn('items.item_title', function ($items) {
+        ->addColumn('item_title', function ($items) {
            return $items->item_title;
         })
-        ->addColumn('items.item_code', function ($items) {
+        ->addColumn('item_code', function ($items) {
            return $items->item_code;
         })
-        ->addColumn('items.item_description', function ($items) {
+        ->addColumn('item_description', function ($items) {
            return $items->item_description;
         })
-        ->addColumn('items.supplier_name', function ($items) {
+        ->addColumn('supplier_name', function ($items) {
            return $items->supplier_name;
         })
-        ->addColumn('items.supplier_code', function ($items) {
+        ->addColumn('supplier_code', function ($items) {
            return $items->supplier_code;
         })
         ->addColumn('metal_type', function ($items) {
@@ -70,40 +70,40 @@ class CatelogueController extends Controller
         ->addColumn('metal_colour', function ($items) {
            return config('params.metal_colour')[$items->metal_colour];
         })
-        ->addColumn('items.total_gold_weight', function ($items) {
+        ->addColumn('total_gold_weight', function ($items) {
            return number_format((float)$items->total_gold_weight, 2, '.', '');
         })
-        ->addColumn('items.total_ct_weight', function ($items) {
+        ->addColumn('total_ct_weight', function ($items) {
            return number_format((float)$items->total_ct_weight, 2, '.', '');
         })
-        ->addColumn('items.gold_price', function ($items) {
+        ->addColumn('gold_price', function ($items) {
            return number_format((float)$items->gold_price, 2, '.', '');
         })
-        ->addColumn('items.stone_price', function ($items) {
+        ->addColumn('stone_price', function ($items) {
            return number_format((float)$items->stone_price, 2, '.', '');          
         })
-        ->addColumn('items.labour_cost', function ($items) {
+        ->addColumn('labour_cost', function ($items) {
            return number_format((float)$items->labour_cost, 2, '.', '');
         })
-        ->addColumn('items.duty_and_extra', function ($items) {
+        ->addColumn('duty_and_extra', function ($items) {
            return number_format((float)$items->duty_and_extra, 2, '.', '');
         })
-        ->addColumn('items.total_cost', function ($items) {
+        ->addColumn('total_cost', function ($items) {
            return number_format((float)$items->total_cost, 2, '.', '');
         })
-        ->addColumn('items.profit_trade', function ($items) {
+        ->addColumn('profit_trade', function ($items) {
            return number_format((float)$items->profit_trade, 2, '.', '');
         })
-        ->addColumn('items.profit_retail', function ($items) {
+        ->addColumn('profit_retail', function ($items) {
            return number_format((float)$items->profit_retail, 2, '.', '');
         })
-        ->addColumn('items.total_trade', function ($items) {
+        ->addColumn('total_trade', function ($items) {
            return number_format((float)$items->total_trade, 2, '.', '');
         })
-        ->addColumn('items.total_retail', function ($items) {
+        ->addColumn('total_retail', function ($items) {
            return number_format((float)$items->total_retail, 2, '.', '');
         })
-        ->addColumn('items.is_active', function ($items) {
+        ->addColumn('is_active', function ($items) {
            return $items->is_active ? '<label class="badge badge-success">Active</label>' : '<label class="badge badge-danger">Inactive</label>';
         })
         ->addColumn('action', function ($items) use ($can_edit, $can_delete) {
@@ -114,7 +114,7 @@ class CatelogueController extends Controller
            $html .= '</div>';
            return $html;
         })
-        ->rawColumns(['action', 'items.category_id', 'items.total_stock', 'items.item_title', 'items.item_code', 'items.item_description', 'items.supplier_name', 'items.supplier_code', 'items.metal_type', 'items.metal_colour', 'items.total_gold_weight', 'items.total_ct_weight', 'items.gold_price', 'items.stone_price', 'items.labour_cost', 'items.duty_and_extra', 'items.total_cost', 'items.profit_trade', 'items.profit_retail', 'items.total_trade', 'items.total_retail', 'items.is_active'])
+        ->rawColumns(['action', 'category_id', 'total_stock', 'item_title', 'item_code', 'item_description', 'supplier_name', 'supplier_code', 'metal_type', 'metal_colour', 'total_gold_weight', 'total_ct_weight', 'gold_price', 'stone_price', 'labour_cost', 'duty_and_extra', 'total_cost', 'profit_trade', 'profit_retail', 'total_trade', 'total_retail', 'is_active'])
         ->addIndexColumn()
         ->make(true);
    }
