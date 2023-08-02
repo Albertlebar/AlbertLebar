@@ -40,11 +40,14 @@ class CatelogueController extends Controller
          $can_delete = "style='display:none;'";
       }
 
-      $items = Item::all();
+      $items = Item::select('items.*', DB::raw("sum(item_stocks.stock) as total_stock"))->leftjoin('item_stocks','items.id','=','item_stocks.item_id')->groupBy('items.id')->get();
       return Datatables::of($items)
         
         ->addColumn('category_id', function ($items) {
            return $items->category->title;
+        })
+        ->addColumn('total_stock', function ($items) {
+           return $items->total_stock > 0 ? $items->total_stock : 0;
         })
         ->addColumn('item_title', function ($items) {
            return $items->item_title;
@@ -111,7 +114,7 @@ class CatelogueController extends Controller
            $html .= '</div>';
            return $html;
         })
-        ->rawColumns(['action', 'category_id', 'item_title', 'item_code', 'item_description', 'supplier_name', 'supplier_code', 'metal_type', 'metal_colour', 'total_gold_weight', 'total_ct_weight', 'gold_price', 'stone_price', 'labour_cost', 'duty_and_extra', 'total_cost', 'profit_trade', 'profit_retail', 'total_trade', 'total_retail', 'is_active'])
+        ->rawColumns(['action', 'category_id', 'total_stock', 'item_title', 'item_code', 'item_description', 'supplier_name', 'supplier_code', 'metal_type', 'metal_colour', 'total_gold_weight', 'total_ct_weight', 'gold_price', 'stone_price', 'labour_cost', 'duty_and_extra', 'total_cost', 'profit_trade', 'profit_retail', 'total_trade', 'total_retail', 'is_active'])
         ->addIndexColumn()
         ->make(true);
    }

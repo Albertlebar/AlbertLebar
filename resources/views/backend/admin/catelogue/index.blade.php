@@ -34,6 +34,7 @@
                                 <th>Item Code</th>
                                 <th>Item Description</th>
                                 <th>Supplier Name</th>
+                                <th>Totol Stock</th>
                                 <!-- <th>Supplier Code</th> -->
                                 <th>Metal Type</th>
                                 <th>Metal Colour</th>
@@ -87,6 +88,7 @@
                     {data: 'item_code', name: 'item_code'},
                     {data: 'item_description', name: 'item_description'},
                     {data: 'supplier_name', name: 'supplier_name'},
+                    {data: 'total_stock', name: 'total_stock'},
                     // {data: 'supplier_code', name: 'supplier_code'},
                     {data: 'metal_type', name: 'metal_type'},
                     {data: 'metal_colour', name: 'metal_colour'},
