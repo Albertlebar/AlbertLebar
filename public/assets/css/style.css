@@ -6604,3 +6604,40 @@ font-family:Arial;
     padding-right: 12px;
   }
 }
+
+#input-bar {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #f195ab;
+}
+
+#input-bar::placeholder {
+  color: #f195ab;
+}
+
+#search {
+  /*padding-left: 180px;*/
+  display: inline-block;
+}
+
+/*#inputParent {
+    margin-left: auto;
+}*/
+
+#input-bar {
+    margin-right: 1vw;
+    width: 0;
+    transition: 0.8s ease-in-out;
+    /*transition-property: opacity;*/
+} 
+
+
+#search:hover ~ #inputParent #input-bar {
+    width: 200px;
+}
+
+#inputParent #input-bar:hover{
+  width: 200px;
+  border-bottom: 0.3px solid #f195ab;
+}

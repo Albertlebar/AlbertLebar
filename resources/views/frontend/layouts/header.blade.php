@@ -52,13 +52,22 @@
                     <!-- mini cart area start -->
                     <div class="col-lg-5">
                         <div class="header-right d-flex align-items-center justify-content-lg-end">
-                            <div class="header-search-container" style="margin-right: 10px; ">
-                                <button class="search-trigger d-xl-none d-lg-block"><i
+                            <div class="header-search-container" id="searchParent" style="margin-right: 10px;display: contents; ">
+                                <button class="search-trigger" id="search"><i
                                         class="pe-7s-search"></i></button>
-                                <form class="header-search-box d-lg-none d-xl-block">
+                                <div id="inputParent">
+                                    <input type="text" placeholder="Search entire store" autocoplete="off"       id="input-bar">
+                                </div>
+                                <!-- <form class="header-search-box d-lg-none d-xl-block">
                                     <input type="text" placeholder="Search entire store" class="header-search-field">
                                     <button class="header-search-btn"><i class="pe-7s-search"></i></button>
-                                </form>
+                                </form> -->
+                               <!--  <div class="header-search-container" id="searchParent">
+                                    <i id="search" class="pe-7s-search"></i>
+                                    <div id="inputParent">
+                                        <input type="text" placeholder="Pesquise" autocoplete="off"       id="input-bar">
+                                    </div>
+                                </div> -->
                             </div>
                             <div class="header-configure-area">
                                 <ul class="nav justify-content-end">
