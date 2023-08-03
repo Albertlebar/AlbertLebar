@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 use View;
 use DB;
+use App\Models\Role;
+use App\Models\Item;
+use App\Models\User;
 
 class OrderController extends Controller
 {
@@ -65,9 +68,17 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $haspermision = auth()->user()->can('user-create');
+       if ($haspermision) {
+          $roles = Role::all();
+          $users = User::pluck('f_name','id')->toArray();
+          $view = View::make('backend.admin.catelogue.create', compact('roles','users'))->render();
+          return view('backend.admin.order.create',compact('roles','users'));
+       } else {
+          abort(403, 'Sorry, you are not authorized to access the page');
+       }
     }
 
     /**
@@ -139,5 +150,67 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function addProduct(Request $request)
+    {
+        $view = View::make('backend.admin.order.add_product')->render();
+            return response()->json(['html' => $view]);
+    }
+
+    public function addProductData(Request $request)
+    {
+        $can_edit = $can_delete = '';
+      if (!auth()->user()->can('user-edit')) {
+         $can_edit = "style='display:none;'";
+      }
+      if (!auth()->user()->can('user-delete')) {
+         $can_delete = "style='display:none;'";
+      }
+
+      $items = Item::select('items.*', DB::raw("sum(item_stocks.stock) as total_stock"))->leftjoin('item_stocks','items.id','=','item_stocks.item_id')->groupBy('items.id')->get();
+      return Datatables::of($items)
+        
+        ->addColumn('checkbox', function ($items) {
+            return '<input type="checkbox" id="'.$items->id.'" value="'. $items->id .'" name="someCheckbox[]" />';
+        })
+        ->addColumn('category_id', function ($items) {
+           return $items->category->title;
+        })
+        ->addColumn('total_stock', function ($items) {
+           return $items->total_stock > 0 ? $items->total_stock : 0;
+        })
+        ->addColumn('metal_type', function ($items) {
+           return config('params.metal_type')[$items->metal_type];
+        })
+        ->addColumn('metal_colour', function ($items) {
+           return config('params.metal_colour')[$items->metal_colour];
+        })
+        ->addColumn('total_trade', function ($items) {
+           return number_format((float)$items->total_trade, 2, '.', '');
+        })
+        ->addColumn('total_retail', function ($items) {
+           return number_format((float)$items->total_retail, 2, '.', '');
+        })
+        ->rawColumns(['checkbox','category_id','total_stock','metal_type','metal_colour','total_trade','total_retail'])
+        ->addIndexColumn()
+        ->make(true);
+    }
+
+    public function userDetails(Request $request)
+    {
+        $userDetails = User::where('id',$request->user_id)->first();
+        return response()->json(['userData' => $userDetails]);
+    }
+
+    public function getItemDetails(Request $request)
+    {
+        $ids = $request->ids;
+        $itemDetails = Item::whereIn('id',$ids)->get();
+        $view = View::make('backend.admin.order.order_item', compact('itemDetails'))->render();
+        return response()->json(['html' => $view]);
+        echo "<pre>";
+        print_r($itemDetails);
+        die;
     }
 }

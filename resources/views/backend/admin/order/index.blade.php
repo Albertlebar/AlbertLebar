@@ -8,6 +8,14 @@
                     <i class="fa-duotone fa-ball-pile fa-lg"> </i>
                 </div>
                 <div>All Order</div>
+                <div class="d-inline-block ml-2">
+                    @can('user-create')
+                        <a href="{{ URL :: to('/admin/orders/create') }}" class="btn btn-success"><i
+                                class="glyphicon glyphicon-plus"></i>
+                            Create Manual Order
+                        </a>
+                    @endcan
+                </div>
             </div>
         </div>
     </div>

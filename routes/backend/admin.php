@@ -53,6 +53,10 @@ Route::resource('catelogue-size','CatalogueSizeController');
 
 Route::resource('orders','OrderController');
 Route::get('/allOrders','OrderController@getAll')->name('allOrders');
+Route::get('/add-product','OrderController@addProduct')->name('addProduct');
+Route::get('/add-product-data','OrderController@addProductData')->name('addProductData');
+Route::get('/user-details','OrderController@userDetails')->name('userDetails');
+Route::post('/get-item-details','OrderController@getItemDetails')->name('getItemDetails');
 
 /* ===== Order End =========== */
 

@@ -436,8 +436,8 @@
 
         $(document).on("focusout", "#gold_price, #stone_price, #labour_cost, #duty_and_extra, #profit_trade, #profit_retail", function(e) {
             e.preventDefault();
-            var goldPrice = parseFloat($("#gold_price").val());
-            var stonePrice = parseFloat($("#stone_price").val());
+            var goldPrice = parseFloat($("#gold_price").val()) * parseFloat($("#total_gold_weight").val());
+            var stonePrice = parseFloat($("#stone_price").val()) * parseFloat($("#total_ct_weight").val());
             var labourCost = parseFloat($("#labour_cost").val());
             var dutyAndExtra = parseFloat($("#duty_and_extra").val());
 
@@ -447,7 +447,7 @@
             // var totalCost = (parseFloat(goldPrice) != '' ? parseFloat(goldPrice) : parseFloat(0))  + (parseFloat(stonePrice) != '' ? parseFloat(stonePrice) : parseFloat(0)) + (parseFloat(labourPrice) != '' ? parseFloat(labourPrice) : parseFloat(0)) + (parseFloat(dutyAndExtra) != '' ? parseFloat(dutyAndExtra) : parseFloat(0));
             // alert(totalCost);
 
-
+            console.log()
             $("#total_cost").val(totalCost.toFixed(4));
             var profitTrade = $("#profit_trade").val();
             var profitRetail = $("#profit_retail").val();
