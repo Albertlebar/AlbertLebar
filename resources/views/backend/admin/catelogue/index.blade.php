@@ -33,7 +33,7 @@
                                 <th>Title</th>
                                 <th>Item Code</th>
                                 <th>Item Description</th>
-                                <th>Supplier Name</th>
+                                <!-- <th>Supplier Name</th> -->
                                 <th>Totol Stock</th>
                                 <!-- <th>Supplier Code</th> -->
                                 <th>Metal Type</th>
@@ -87,7 +87,7 @@
                     {data: 'item_title', name: 'item_title'},
                     {data: 'item_code', name: 'item_code'},
                     {data: 'item_description', name: 'item_description'},
-                    {data: 'supplier_name', name: 'supplier_name'},
+                    // {data: 'supplier_name', name: 'supplier_name'},
                     {data: 'total_stock', name: 'total_stock'},
                     // {data: 'supplier_code', name: 'supplier_code'},
                     {data: 'metal_type', name: 'metal_type'},
