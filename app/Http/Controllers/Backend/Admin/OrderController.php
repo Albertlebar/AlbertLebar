@@ -14,6 +14,7 @@ use App\Models\Item;
 use App\Models\User;
 use App\Models\OrderItem;
 use URL;
+use PDF;
 
 class OrderController extends Controller
 {
@@ -94,9 +95,12 @@ class OrderController extends Controller
         $userDetails = User::find($request->user_id);
         $order = new Order();
         $order->user_id = $request->user_id;
+        $order->order_number = Order::autoGenerateOrderNumber();
         $order->order_type = 0;
         $order->order_status = 0;
         $order->payment_status = 0;
+        $order->sub_total = $request->i_sub_total;
+        $order->vat = $request->i_vat_total;
         $order->order_total = $request->i_total;
         $order->shipping_address_first_name = $userDetails->f_name;
         $order->shipping_address_last_name = $userDetails->l_name;
@@ -130,7 +134,10 @@ class OrderController extends Controller
     public function show($id, Request $request)
     {
         $order = Order::find($id);
-        return view('backend.admin.order.view',compact('order'));
+        // return view('backend.admin.order.invoice',compact('order'));
+        $pdf = PDF::loadView('backend.admin.order.invoice',compact('order'));
+        return $pdf->stream();
+        // return view('backend.admin.order.view',compact('order'));
         if ($request->ajax()) {
             $haspermision = auth()->user()->can('role-view');
             if ($haspermision) {

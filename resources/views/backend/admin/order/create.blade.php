@@ -136,7 +136,7 @@
                                 <td></td>
                             </tr
 >                            <tr style="background: #f195ab;">
-                                <td colspan="5" class="text-right"><strong>Add VAT (20 %)</strong></td>
+                                <td colspan="5" class="text-right"><strong>Add VAT (20 %)</strong><input type="hidden" name="i_vat_total" id="i_vat_total"></td>
                                 <td><input type="checkbox" class="add_vat" name="add_vat"></td>
                                 <td></td>
                             </tr>
@@ -190,8 +190,10 @@
         if($('.add_vat').is(':checked')) {
             var VAT = parseFloat(subTotalPrice) * parseFloat(0.2);
             total = parseFloat(VAT) + parseFloat(subTotalPrice);
+            $('#i_vat_total').val(VAT.toFixed(2));
         }else{
             total = parseFloat(subTotalPrice);
+            $('#i_vat_total').val(0.00);
         }
         $('#i_total').val(total.toFixed(2));
         $('#p_total').html('&pound;'+total.toFixed(2));
@@ -256,8 +258,10 @@
             if(this.checked) {
                 var VAT = parseFloat(subTotalPrice) * parseFloat(0.2);
                 Total = parseFloat(VAT) + parseFloat(subTotalPrice);
+                $('#i_vat_total').val(VAT.toFixed(2));
             }else{
                 Total = parseFloat(subTotalPrice);
+                $('#i_vat_total').val(0.00);
             }
             $('#i_total').val(Total.toFixed(2));
             $('#p_total').html('&pound;'+Total.toFixed(2))

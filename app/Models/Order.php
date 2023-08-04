@@ -20,4 +20,25 @@ class Order extends Model
     {
         return $this->belongsTo(User::class, 'user_id','id');
     }
+
+    public static function autoGenerateOrderNumber() {
+        $po_detail = self::select('order_number')->orderBy('id', 'desc')->first();
+        if (!empty($po_detail)) {
+            $expNum = explode('-', $po_detail->order_number);
+
+            for($i=1;$i<=100;$i++)
+            {
+              $poNum='O' . '-' . sprintf("%07d", $expNum[1] + $i);
+              $poExists = self::select('order_number')->where('order_number',$poNum)->first();
+              if(is_null($poExists))
+              {
+                return $poNum;
+              }
+            }
+            return 'O' . '-' . sprintf("%07d", $expNum[1] + 1);
+        }
+        else {
+            return 'O-0000001';
+        }
+    }
 }
