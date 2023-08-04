@@ -176,8 +176,6 @@ class CheckoutController extends Controller
 
     Session::flash('payment-success', 'Payment successful!');
 
-           
-
     return redirect('/');
 
 	}

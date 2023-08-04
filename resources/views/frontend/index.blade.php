@@ -14,46 +14,42 @@
             <div class="container text-center">
                 <div class="d-flex mtn-30" style="justify-content: space-around;">
                     <div class="">
-                        <div class="policy-item">
+                        <div class="policy-item" style="align-items: flex-end;">
                             <div class="policy-icon">
                                 <i class="pe-7s-plane"></i>
                             </div>
                             <div class="policy-content">
-                                <h6>Free Shipping</h6>
-                                <p>Free shipping all order</p>
+                                <h6>Free Shipping</h6>                                
                             </div>
                         </div>
                     </div>
                     <div class="">
-                        <div class="policy-item">
+                        <div class="policy-item" style="align-items: flex-end;">
                             <div class="policy-icon">
                                 <i class="pe-7s-help2"></i>
                             </div>
                             <div class="policy-content">
                                 <h6>Support 24/7</h6>
-                                <p>Support 24 hours a day</p>
                             </div>
                         </div>
                     </div>
                     <div class="">
-                        <div class="policy-item">
+                        <div class="policy-item" style="align-items: flex-end;">
                             <div class="policy-icon">
                                 <i class="pe-7s-back"></i>
                             </div>
                             <div class="policy-content">
                                 <h6>Money Return</h6>
-                                <p>30 days for free return</p>
                             </div>
                         </div>
                     </div>
                     <div class="">
-                        <div class="policy-item">
+                        <div class="policy-item" style="align-items: flex-end;">
                             <div class="policy-icon">
                                 <i class="pe-7s-credit"></i>
                             </div>
                             <div class="policy-content">
                                 <h6>100% Payment Secure</h6>
-                                <p>We ensure secure payment</p>
                             </div>
                         </div>
                     </div>
@@ -302,7 +298,7 @@
 // banner hight
 $(document).ready(function() {  
     var banerHeight = $('.video-container').height();
-    $('.shop-main-wrapper').css('marginTop', banerHeight - 60);
+    $('.shop-main-wrapper').css('marginTop', banerHeight - 50);
     // console.log(banerHeight);
 
     $(".quick_view_details").click(function(event) {
@@ -354,7 +350,7 @@ $(document).ready(function() {
 
 $(window).resize(function(){
     var banerHeight = $('.video-container').height();
-    $('.shop-main-wrapper').css('marginTop', banerHeight - 60);
+    $('.shop-main-wrapper').css('marginTop', banerHeight - 50);
     // console.log(banerHeight);
 
 });

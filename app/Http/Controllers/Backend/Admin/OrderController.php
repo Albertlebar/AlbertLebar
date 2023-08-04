@@ -12,6 +12,8 @@ use DB;
 use App\Models\Role;
 use App\Models\Item;
 use App\Models\User;
+use App\Models\OrderItem;
+use URL;
 
 class OrderController extends Controller
 {
@@ -89,7 +91,34 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $userDetails = User::find($request->user_id);
+        $order = new Order();
+        $order->user_id = $request->user_id;
+        $order->order_type = 0;
+        $order->order_status = 0;
+        $order->payment_status = 0;
+        $order->order_total = $request->i_total;
+        $order->shipping_address_first_name = $userDetails->f_name;
+        $order->shipping_address_last_name = $userDetails->l_name;
+        $order->shipping_address_1 = $userDetails->address_field_1;
+        $order->shipping_address_2 = $userDetails->address_field_2;
+        $order->shipping_city =  $userDetails->city;
+        $order->shipping_postcode = $userDetails->postcode;
+        $order->shipping_country = $userDetails->country;
+        $order->shipping_contact = $userDetails->mobile;
+        $order->save();
+        foreach ($request->item_id as $key => $value) {
+          $orderItem = new OrderItem();
+          $orderItem->order_id = $order->id;
+          $orderItem->item_id = $value;
+          $orderItem->quantity = $request->qty[$value];
+          $orderItem->size = $request->size[$value] ?? NULL;
+          $orderItem->price = $request->total_item_price[$value];
+          $orderItem->save();
+          // $item->delete();
+        }
+        $returnURL = URL::to('/admin/orders');
+        return response()->json(['type' => 'success', 'message' => "Successfully Created", 'returnURL' => $returnURL]);
     }
 
     /**
@@ -205,12 +234,18 @@ class OrderController extends Controller
 
     public function getItemDetails(Request $request)
     {
-        $ids = $request->ids;
-        $itemDetails = Item::whereIn('id',$ids)->get();
+        $id = $request->id;
+        $itemDetails = Item::where('id',$id)->get();
         $view = View::make('backend.admin.order.order_item', compact('itemDetails'))->render();
         return response()->json(['html' => $view]);
-        echo "<pre>";
-        print_r($itemDetails);
-        die;
+    }
+
+    public function getItem(Request $request)
+    {
+        $item = Item::where('item_title','LIKE',"%".$request['term']['term']."%")
+                    ->orWhere('item_code','LIKE',"%".$request['term']['term']."%")
+                    ->get()->toArray();
+
+        return response()->json(['data' => $item]);
     }
 }

@@ -31,4 +31,9 @@ class Item extends Model
     {
     	return $this->hasMany(ItemStock::class,'item_id','id');
     }
+
+    public function itemSize()
+    {
+        return $this->hasMany(ItemStock::class, 'item_id','id');
+    }
 }

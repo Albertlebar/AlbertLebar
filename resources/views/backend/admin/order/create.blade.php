@@ -7,14 +7,17 @@
                 <div class="card-body">
                     <ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
                       <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="link-tab-product-details" data-mdb-toggle="tab" href-div="tab-product-details" role="tab" aria-controls="ex1-tabs-1" aria-selected="true" >Ordder Details</a>
+                        <a class="nav-link active" id="link-tab-product-details" data-mdb-toggle="tab" href-div="tab-product-details" role="tab" aria-controls="ex1-tabs-1" aria-selected="true" >Order Details</a>
                       </li>
                     </ul>
                     <!-- Tabs content -->
+                    <form id='create' action="" enctype="multipart/form-data" method="post" accept-charset="utf-8" class="needs-validation"
+                        novalidate>
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                     <div class="tab-content" id="ex1-content">
                       <div class="tab-pane fade show active" id="tab-product-details" role="tabpanel" aria-labelledby="ex1-tab-1">
                         <div class="d-flex">
-                            <div class="col-md-9 col-sm-12">
+                            <div class="col-md-6 col-sm-12">
                                 <div class="d-flex mt-1">
                                     <div class="col-md-3">
                                         <p><strong> Customer : </strong></p>
@@ -28,8 +31,7 @@
                                         <p><strong> Shipping First Name : </strong></p>
                                     </div>
                                     <div class="col-md-9">
-                                       <input type="text" class="form-control" id="shipping_address_first_name" name="shipping_address_first_name" value="" placeholder="Shipping First Name" required>
-                                            <span id="error_shipping_address_first_name" class="has-error"></span>
+                                       <p id="shipping_address_first_name"></p>
                                     </div>
                                 </div>
                                 <div class="d-flex mt-1">
@@ -37,17 +39,17 @@
                                         <p><strong> Shipping Last Name : </strong></p>
                                     </div>
                                     <div class="col-md-9">
-                                       <input type="text" class="form-control" id="shipping_address_last_name" name="shipping_address_last_name" value="" placeholder="Shipping Last Name" required>
-                                            <span id="error_shipping_address_last_name" class="has-error"></span>
+                                       <p id="shipping_address_last_name"></p>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12" style="border-left: 1px solid #f195ab;">
                                 <div class="d-flex mt-1">
                                     <div class="col-md-3">
                                         <p><strong> Address 1 : </strong></p>
                                     </div>
                                     <div class="col-md-9">
-                                       <input type="text" class="form-control" id="shipping_address_1" name="shipping_address_1" value="" placeholder="Address 1" required>
-                                            <span id="error_shipping_address_1" class="has-error"></span>
+                                        <p  id="shipping_address_1"></p>
                                     </div>
                                 </div>
                                 <div class="d-flex mt-1">
@@ -55,8 +57,7 @@
                                         <p><strong> Address 2 : </strong></p>
                                     </div>
                                     <div class="col-md-9">
-                                       <input type="text" class="form-control" id="shipping_address_2" name="shipping_address_2" value="" placeholder="Address 2" required>
-                                            <span id="error_shipping_address_2" class="has-error"></span>
+                                        <p id="shipping_address_2"></p>
                                     </div>
                                 </div>
                                 <div class="d-flex mt-1">
@@ -64,8 +65,7 @@
                                         <p><strong> City : </strong></p>
                                     </div>
                                     <div class="col-md-9">
-                                       <input type="text" class="form-control" id="shipping_city" name="shipping_city" value="" placeholder="City" required>
-                                            <span id="error_shipping_city" class="has-error"></span>
+                                        <p  id="shipping_city"></p>
                                     </div>
                                 </div>
                                 <div class="d-flex mt-1">
@@ -73,8 +73,7 @@
                                         <p><strong> Postcode : </strong></p>
                                     </div>
                                     <div class="col-md-9">
-                                       <input type="text" class="form-control" id="shipping_postcode" name="shipping_postcode" value="" placeholder="Postcode" required>
-                                            <span id="error_shipping_postcode" class="has-error"></span>
+                                        <p id="shipping_postcode"></p>
                                     </div>
                                 </div>
                                 <div class="d-flex mt-1">
@@ -82,8 +81,7 @@
                                         <p><strong> Country : </strong></p>
                                     </div>
                                     <div class="col-md-9">
-                                       <input type="text" class="form-control" id="shipping_country" name="shipping_country" value="" placeholder="Country" required>
-                                            <span id="error_shipping_country" class="has-error"></span>
+                                        <p id="shipping_country"></p>
                                     </div>
                                 </div>
                                 <div class="d-flex mt-1">
@@ -91,16 +89,26 @@
                                         <p><strong> Contact : </strong></p>
                                     </div>
                                     <div class="col-md-9">
-                                       <input type="number" class="form-control" id="shipping_contact" name="shipping_contact" value="" placeholder="Contact" required>
-                                            <span id="error_shipping_contact" class="has-error"></span>
+                                        <p id="shipping_contact"></p>
                                     </div>
                                 </div>
                             </div>
                         </div>             
                       </div>
                     </div>
-                    <div>
+                    <!-- <div>
                         <a href="javascript:void(0)" class="btn btn-info add_item" style="color: white;"><span class="fa fa-plus fa-fw"></span> Add Product</a>
+                    </div> -->
+                    <hr style="border: 1px solid #f195ab;">
+                    <div class="col-md-6">
+                        <div class="d-flex mt-1">
+                            <div class="col-md-3">
+                                <p><strong> Select Product : </strong></p>
+                            </div>
+                            <div class="col-md-9">
+                                <select class="form-control select-product" id="select-item"></select>
+                            </div>
+                        </div>
                     </div>
                     <div class="table-responsive mt-3">
                         <table id="manage_all_item"
@@ -110,16 +118,44 @@
                                 <th>#</th>
                                 <th>Image</th>
                                 <th>Product Title</th>
-                                <th>Quantity</th>
                                 <th>Size</th>
+                                <th>Quantity</th>
                                 <th>Item Total</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="product-item">
                             
                             </tbody>
+                            <tr style="background: #f195ab;">
+                                <td colspan="5" class="text-right"><strong>Sub Total</strong></td>
+                                <td>
+                                    <input type="hidden" name="i_sub_total" value="" id="i_sub_total">
+                                    <strong><p id="p_sub_total">&pound;0</p></strong>
+                                </td>
+                                <td></td>
+                            </tr
+>                            <tr style="background: #f195ab;">
+                                <td colspan="5" class="text-right"><strong>Add VAT (20 %)</strong></td>
+                                <td><input type="checkbox" class="add_vat" name="add_vat"></td>
+                                <td></td>
+                            </tr>
+                            <tr style="background: #f195ab;">
+                                <td colspan="5" class="text-right"><strong>Total</strong></td>
+                                <td>
+                                    <input type="hidden" name="i_total" value="" id="i_total">
+                                    <strong><p id="p_total">&pound;0</p></strong>
+                                </td>
+                                <td></td>
+                            </tr>
                         </table>
                     </div>
+                    <div class="col-md-12 mt-3" style="text-align: end;">
+                        <button type="submit" class="btn btn-success button-submit"
+                                data-loading-text="Loading..."><span class="fa fa-save fa-fw"></span> Save
+                        </button>
+                    </div>
+                    </form>
                     <!-- Tabs content -->
                 </div>
             </div>
@@ -142,13 +178,121 @@
       };
     }
 
+    function subTotal(){
+        var subTotal = 0;
+        $('#product-item .total_item_price').each(function () {
+            subTotal = parseFloat(subTotal) + parseFloat($(this).val());
+        });
+        $('#i_sub_total').val(subTotal.toFixed(2));
+        $('#p_sub_total').html('&pound;'+subTotal.toFixed(2))
+        var subTotalPrice = $('#i_sub_total').val();
+        var total = 0;
+        if($('.add_vat').is(':checked')) {
+            var VAT = parseFloat(subTotalPrice) * parseFloat(0.2);
+            total = parseFloat(VAT) + parseFloat(subTotalPrice);
+        }else{
+            total = parseFloat(subTotalPrice);
+        }
+        $('#i_total').val(total.toFixed(2));
+        $('#p_total').html('&pound;'+total.toFixed(2));
+    }
+
         let number_of_image = 1;
     $(document).ready(function () {
 
+        $('#create').validate({// <- attach '.validate()' to your form
+            // Rules for form validation
+            
+            // Messages for form validation
+            
+            submitHandler: function (form) {
+
+                var list_id = [];
+                
+                var myData = new FormData($("#create")[0]);
+                var CSRF_TOKEN = $('input[name="csrf_token"]').val();
+                myData.append('_token', CSRF_TOKEN);
+                myData.append('roles', list_id);
+
+                $.ajax({
+                        url: '{{ url("admin/orders") }}',
+                        type: 'POST',
+                        data: myData,
+                        dataType: 'json',
+                        cache: false,
+                        processData: false,
+                        contentType: false,
+                        success: function (data) {
+                            if (data.type === 'success') {
+                                swal("Done!", "It was succesfully done!", "success");
+                                setTimeout(function () {
+                                    window.location.href = data.returnURL;
+                                }, 2000);
+                                 // disable button
+                                $("html, body").animate({scrollTop: 0}, "slow");
+
+                            } else if (data.type === 'error') {
+                                if (data.errors) {
+                                    $.each(data.errors, function (key, val) {
+                                        $('#error_' + key).html(val);
+                                    });
+                                }
+                                $("#status").html(data.message);
+                                $('#loader').hide();
+                                $("#submit").prop('disabled', false); // disable button
+                                swal("Error sending!", "Please try again", "error");
+
+                            }
+
+                        }
+                    });
+            }
+            // <- end 'submitHandler' callback
+        }); 
+
+        $(".add_vat").change(function() {
+            var subTotalPrice = $('#i_sub_total').val();
+            var Total = 0;
+            if(this.checked) {
+                var VAT = parseFloat(subTotalPrice) * parseFloat(0.2);
+                Total = parseFloat(VAT) + parseFloat(subTotalPrice);
+            }else{
+                Total = parseFloat(subTotalPrice);
+            }
+            $('#i_total').val(Total.toFixed(2));
+            $('#p_total').html('&pound;'+Total.toFixed(2))
+
+        });
         $('.select2').select2({
           placeholder: 'Select an option'
         });
 
+        $('#select-item').select2({
+          ajax: {
+            minimumInputLength: 2,
+            url: '/admin/get-item',
+            dataType: 'json',
+            type: "GET",
+            data: function (term) {
+            return {
+                term: term
+                };
+            },
+            processResults: function (data) {
+                var arr = []
+                    $.each(data.data, function (index, value) {
+                        arr.push({
+                            id: value.id,
+                            text: value.item_title
+                        })
+                    })
+                return {
+                    results: arr
+                };
+            }
+            // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+          }
+        });
         $("body").on("change", "#customer", function(e){
             var customerId = $("#customer").val();
             // alert(customerId);
@@ -156,14 +300,14 @@
                 type: 'GET',
                 url: '/admin/user-details?user_id=' + customerId,
                 success: function (data) {
-                    $('#shipping_address_first_name').val(data.userData.f_name);
-                    $('#shipping_address_last_name').val(data.userData.l_name);
-                    $('#shipping_address_1').val(data.userData.address_field_1);
-                    $('#shipping_address_2').val(data.userData.address_field_2);
-                    $('#shipping_city').val(data.userData.city);
-                    $('#shipping_postcode').val(data.userData.postcode);
-                    $('#shipping_country').val(data.userData.country);
-                    $('#shipping_contact').val(data.userData.mobile);
+                    $('#shipping_address_first_name').html(data.userData.f_name);
+                    $('#shipping_address_last_name').html(data.userData.l_name);
+                    $('#shipping_address_1').html(data.userData.address_field_1);
+                    $('#shipping_address_2').html(data.userData.address_field_2);
+                    $('#shipping_city').html(data.userData.city);
+                    $('#shipping_postcode').html(data.userData.postcode);
+                    $('#shipping_country').html(data.userData.country);
+                    $('#shipping_contact').html(data.userData.mobile);
                 },
                 error: function (result) {
                     // $("#modal_data").html("Sorry Cannot Load Data");
@@ -188,18 +332,35 @@
             });
         });
 
-        $("body").on("click",".select-product", function (e) {
+        $("body").on("click", ".delete-item", function (e) {
+            var id = $(this).attr('data-id');
+            $("#item_"+id).remove();
+            subTotal();
+        });
+
+        $(document).on("focusout", ".qty", function(e) {
+            e.preventDefault();
+            var idAttr = $(this).attr('id');
+            var idArr =  idAttr.split('_');
+            var qty = $('#qty_'+idArr[1]).val();
+            var price = $('#item_price_'+idArr[1]).val();
+
+            var itemTotal = parseFloat(qty) * parseFloat(price);
+            $('#item_total_' + idArr[1]).html("&pound;"+itemTotal);
+            $('#total_item_price_'+idArr[1]).val(itemTotal);
+            subTotal();
+        });
+
+
+        $("body").on("change","#select-item", function (e) {
             var allVals = [];
-            $("input[name='someCheckbox[]']:checked").each(function() {
-                allVals.push($(this).attr('value'));
-            });
-            var CSRF_TOKEN = $('input[name="csrf_token"]').val();
+            var id = $("#select-item :selected").val(); 
+            // var CSRF_TOKEN = $('input[name="csrf_token"]').val();
             $.ajax({
-                type: 'POST',
-                data: {ids:allVals,_token:CSRF_TOKEN},
-                url: '/admin/get-item-details',
+                type: 'GET',
+                url: '/admin/get-item-details/'+id,
                 success: function (data) {
-                    $("#manage_all_item tbody").append(data.html);
+                    $("#manage_all_item #product-item").append(data.html);
                     $("#myModal").modal('hide');
                 },
                 error: function (result) {
