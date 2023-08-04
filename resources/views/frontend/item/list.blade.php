@@ -1,5 +1,5 @@
-@extends('frontend.layouts.master') @section('video')
-@include('frontend.layouts.video_container') @endsection  @section('title',
+@extends('frontend.layouts.master')  
+@section('title',
 'Item') @section('content') <!-- page main wrapper start --> <div
 class="shop-main-wrapper section-padding pb-0 pt-0"> <div
 class="container-fluid">
@@ -367,8 +367,22 @@ $(document).ready(function() {
           
         });
     });
+
+    var banerHeight = $('.video-container').height();
+    $('.shop-main-wrapper').css('marginTop', banerHeight + 5);
+
+    $(window).resize(function(){
+        var banerHeight = $('.video-container').height();
+        $('.shop-main-wrapper').css('marginTop', banerHeight + 5);
+        // console.log(banerHeight);
+
+    });
 });
 
+$(window).resize(function() {
+  var width = $(window).width();
+  var height = $(window).height();
+})
 
 
 // banner hight
@@ -379,7 +393,11 @@ $(document).ready(function() {
     //     var item_type = $(this).val();
     //     alert(item_type);
     // });
-
+    // location.reload();
+    $(window).resize(function() {
+      var width = $(window).width();
+      var height = $(window).height();
+    })
     $('.dd-menu-link-1').mouseenter(function() {
             $(this).closest('.mega-menu').addClass('menu-hover-1 menu-slide');
             $('.dd-menu-link-1 .sidebar-body').addClass('z-9');
@@ -542,19 +560,6 @@ function escapeRegExp(str)
 
 
 });
-
-var banerHeight = $('.video-container').height();
-    $('.shop-main-wrapper').css('marginTop', banerHeight + 5);
-
-$(window).resize(function(){
-    var banerHeight = $('.video-container').height();
-    $('.shop-main-wrapper').css('marginTop', banerHeight + 5);
-    // console.log(banerHeight);
-
-});
-
-
-
 
 </script>
 
