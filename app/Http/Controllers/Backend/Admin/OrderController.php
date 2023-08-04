@@ -58,6 +58,7 @@ class OrderController extends Controller
            // $html .= '<a data-toggle="tooltip" ' . $can_edit . '  id="' . $orders->id . '" class="btn btn-xs btn-info edit" title="Edit"><i class="fa fa-edit"></i> </a>';
            $html .= '<a href="' . \URL :: to('admin/orders') .  '/' . $orders->id . '"  id="' . $orders->id . '" class="btn btn-xs btn-success margin-r-5" title="View"><i class="fa fa-eye fa-fw"></i> </a>';
            // $html .= '<a data-toggle="tooltip" ' . $can_delete . ' id="' . $orders->id . '" class="btn btn-xs btn-danger mr-1 delete" title="Delete"><i class="fa fa-trash"></i> </a>';
+           $html .= '<a href="' . \URL :: to('admin/pdf-download') .  '?id=' . $orders->id . '"  id="' . $orders->id . '" class="btn btn-xs btn-info margin-r-5" title="Download"><i class="fa fa-download fa-fw"></i> </a>';
            $html .= '</div>';
            return $html;
         })
@@ -95,7 +96,7 @@ class OrderController extends Controller
         $userDetails = User::find($request->user_id);
         $order = new Order();
         $order->user_id = $request->user_id;
-        $order->order_number = Order::autoGenerateOrderNumber();
+        // $order->order_number = Order::autoGenerateOrderNumber();
         $order->order_type = 0;
         $order->order_status = 0;
         $order->payment_status = 0;
@@ -134,10 +135,7 @@ class OrderController extends Controller
     public function show($id, Request $request)
     {
         $order = Order::find($id);
-        // return view('backend.admin.order.invoice',compact('order'));
-        $pdf = PDF::loadView('backend.admin.order.invoice',compact('order'));
-        return $pdf->stream();
-        // return view('backend.admin.order.view',compact('order'));
+        return view('backend.admin.order.view',compact('order'));
         if ($request->ajax()) {
             $haspermision = auth()->user()->can('role-view');
             if ($haspermision) {
@@ -254,5 +252,12 @@ class OrderController extends Controller
                     ->get()->toArray();
 
         return response()->json(['data' => $item]);
+    }
+
+    public function pdfDownload(Request $request)
+    {
+      $order = Order::find($request->id);
+      $pdf = PDF::loadView('backend.admin.order.invoice',compact('order'));
+      return $pdf->download();
     }
 }

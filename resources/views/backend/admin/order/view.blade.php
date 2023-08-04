@@ -5,9 +5,24 @@
         <div class="col-md-12 col-sm-12">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                    <h5><strong> Order Item </strong></h5>
+                    <div class="d-flex" style="justify-content: space-between;">
+                        <div>
+                            <h5><strong> Order Item </strong></h5>
+                        </div>
+                        <div>
+                            <a class="btn btn-xs btn-success" href="{{ URL :: to('/admin/pdf-download') }}?id={{$order->id}}">Download</a>
+                        </div>
+                    </div>
                     <div class="d-flex">
                         <div class="col-md-6 col-sm-12">
+                            <div class="d-flex">
+                                <div class="col-md-3">
+                                    <p><strong> Order Number : </strong></p>
+                                </div>
+                                <div class="col-md-9">
+                                    {{ $order->order_number }}
+                                </div>
+                            </div>
                             <div class="d-flex">
                                 <div class="col-md-3">
                                     <p><strong> Order By : </strong></p>

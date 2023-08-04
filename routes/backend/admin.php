@@ -58,6 +58,7 @@ Route::get('/add-product-data','OrderController@addProductData')->name('addProdu
 Route::get('/user-details','OrderController@userDetails')->name('userDetails');
 Route::get('/get-item-details/{id}','OrderController@getItemDetails')->name('getItemDetails');
 Route::get('/get-item','OrderController@getItem')->name('getItem');
+Route::get('/pdf-download','OrderController@pdfDownload')->name('pdfDownload');
 
 /* ===== Order End =========== */
 
