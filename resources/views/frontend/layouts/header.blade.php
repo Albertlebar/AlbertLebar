@@ -72,14 +72,17 @@
                             <div class="header-configure-area">
                                 <ul class="nav justify-content-end">
                                     <li class="user-hover">
+                                        @guest
+                                        <a href="{{ route('login') }}">
+                                            <i class="pe-7s-user"></i>
+                                        </a>
+                                        @else
                                         <a href="#">
                                             <i class="pe-7s-user"></i>
                                         </a>
                                         <ul class="dropdown-list">
-                                            @guest
-                                                <li><a class="dropdown-item" href="{{ route('login') }}">Login</a>
-                                                </li>
-                                            @else
+                                                <!-- <li><a class="dropdown-item" href="{{ route('login') }}">Login</a>
+                                                </li> -->
                                             <li><a href="javascript:void(0)">My Account</a></li>
                                                 <li>
                                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -92,8 +95,9 @@
                                                         @csrf
                                                     </form>
                                                 </li>
-                                            @endguest
+                                            
                                         </ul>
+                                        @endguest
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)">
