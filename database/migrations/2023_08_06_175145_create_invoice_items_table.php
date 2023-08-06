@@ -17,8 +17,8 @@ class CreateInvoiceItemsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('invoice_id')->index()->comment('id of invoices table');
             $table->foreign('invoice_id')->references('id')->on('invoices');
-            $table->unsignedBigInteger('item_id')->index()->comment('id of items table');
-            $table->foreign('item_id')->references('id')->on('items');
+            // $table->unsignedBigInteger('item_id')->index()->comment('id of items table');
+            // $table->foreign('item_id')->references('id')->on('items');
             $table->string('quantity')->nullable();
             $table->string('size')->nullable();
             $table->decimal('price',10,4)->nullable();
