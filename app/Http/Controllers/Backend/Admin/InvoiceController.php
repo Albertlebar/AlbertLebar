@@ -66,7 +66,7 @@ class InvoiceController extends Controller
            // $html .= '<a data-toggle="tooltip" ' . $can_edit . '  id="' . $orders->id . '" class="btn btn-xs btn-info edit" title="Edit"><i class="fa fa-edit"></i> </a>';
            $html .= '<a href="' . \URL :: to('admin/invoice') .  '/' . $invoices->id . '"  id="' . $invoices->id . '" class="btn btn-xs btn-success margin-r-5" title="View"><i class="fa fa-eye fa-fw"></i> </a>';
            // $html .= '<a data-toggle="tooltip" ' . $can_delete . ' id="' . $orders->id . '" class="btn btn-xs btn-danger mr-1 delete" title="Delete"><i class="fa fa-trash"></i> </a>';
-           $html .= '<a href="' . \URL :: to('admin/pdf-download') .  '?id=' . $invoices->id . '"  id="' . $invoices->id . '" class="btn btn-xs btn-info margin-r-5" title="Download"><i class="fa fa-download fa-fw"></i> </a>';
+           $html .= '<a href="' . \URL :: to('admin/pdf-download-invoice') .  '?id=' . $invoices->id . '"  id="' . $invoices->id . '" class="btn btn-xs btn-info margin-r-5" title="Download"><i class="fa fa-download fa-fw"></i> </a>';
            $html .= '</div>';
            return $html;
         })
@@ -178,5 +178,13 @@ class InvoiceController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function pdfDownload(Request $request)
+    {
+      $order = Invoice::find($request->id);
+      return view('backend.admin.invoice.invoice',compact('order'));
+      $pdf = PDF::loadView('backend.admin.invoice.invoice',compact('order'));
+      return $pdf->download();
     }
 }

@@ -10,7 +10,7 @@
                             <h5><strong> Invoice Item </strong></h5>
                         </div>
                         <div>
-                            <a class="btn btn-xs btn-success" href="{{ URL :: to('/admin/pdf-download') }}?id={{$order->id}}">Download</a>
+                            <a class="btn btn-xs btn-success" href="{{ URL :: to('/admin/pdf-download-invoice') }}?id={{$order->id}}">Download</a>
                         </div>
                     </div>
                     <div class="d-flex">

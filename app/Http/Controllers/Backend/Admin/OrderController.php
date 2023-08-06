@@ -267,6 +267,6 @@ class OrderController extends Controller
       $order = Order::find($request->id);
       // return view('backend.admin.order.invoice',compact('order'));
       $pdf = PDF::loadView('backend.admin.order.invoice',compact('order'));
-      return $pdf->stream();
+      return $pdf->download();
     }
 }
