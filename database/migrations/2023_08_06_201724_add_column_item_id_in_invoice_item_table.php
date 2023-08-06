@@ -14,7 +14,7 @@ class AddColumnItemIdInInvoiceItemTable extends Migration
     public function up()
     {
         Schema::table('invoice_items', function (Blueprint $table) {
-            $table->unsignedBigInteger('item_id')->index()->comment('id of items table')->after('invoice_id');
+            $table->Integer('item_id')->index()->comment('id of items table')->after('invoice_id');
             $table->foreign('item_id')->references('id')->on('items');
         });
     }
