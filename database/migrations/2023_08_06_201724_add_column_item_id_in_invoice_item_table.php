@@ -15,7 +15,7 @@ class AddColumnItemIdInInvoiceItemTable extends Migration
     {
         Schema::table('invoice_items', function (Blueprint $table) {
             $table->Integer('item_id')->index()->comment('id of items table')->after('invoice_id');
-            $table->foreign('item_id')->references('id')->on('items');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
         });
     }
 
