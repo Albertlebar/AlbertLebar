@@ -12,7 +12,7 @@
                     @can('user-create')
                         <a href="{{ URL :: to('/admin/orders/create') }}" class="btn btn-success"><i
                                 class="glyphicon glyphicon-plus"></i>
-                            Create Manual Order
+                            Create Order
                         </a>
                     @endcan
                 </div>
@@ -29,8 +29,10 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Shipping Name</th>
-                                <th>Order Type</th>
+                                <th>Order Date</th>
+                                <th>Order Number</th>
+                                <th>Clinet Name</th>
+                                <!-- <th>Order Type</th> -->
                                 <th>Order Status</th>
                                 <th>Order Total</th>
                                 <th>Action</th>
@@ -66,8 +68,10 @@
                 },
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                    {data: 'created_at', name: 'created_at'},
+                    {data: 'order_number', name: 'order_number'},
                     {data: 'shipping_address_first_name', name: 'shipping_address_first_name'},
-                    {data: 'order_type', name: 'order_type'},
+                    // {data: 'order_type', name: 'order_type'},
                     {data: 'order_status', name: 'order_status'},
                     {data: 'order_total', name: 'order_total'},
                     {data: 'action', name: 'action'}

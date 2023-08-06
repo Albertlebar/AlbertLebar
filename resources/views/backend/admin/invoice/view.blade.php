@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', ' Order Item')
+@section('title', ' Invoice Item')
 @section('content')
     <div class="row">
         <div class="col-md-12 col-sm-12">
@@ -7,7 +7,7 @@
                 <div class="card-body">
                     <div class="d-flex" style="justify-content: space-between;">
                         <div>
-                            <h5><strong> Order Item </strong></h5>
+                            <h5><strong> Invoice Item </strong></h5>
                         </div>
                         <div>
                             <a class="btn btn-xs btn-success" href="{{ URL :: to('/admin/pdf-download') }}?id={{$order->id}}">Download</a>
@@ -17,10 +17,10 @@
                         <div class="col-md-6 col-sm-12">
                             <div class="d-flex">
                                 <div class="col-md-3">
-                                    <p><strong> Order Number : </strong></p>
+                                    <p><strong> Invoice Number : </strong></p>
                                 </div>
                                 <div class="col-md-9">
-                                    {{ $order->order_number }}
+                                    {{ $order->invoice_number }}
                                 </div>
                             </div>
                             <div class="d-flex">
@@ -52,15 +52,7 @@
                                     <p><strong> Order Status : </strong></p>
                                 </div>
                                 <div class="col-md-9">
-                                    {{ config('params.order_status')[$order->order_status] }}
-                                </div>
-                            </div>
-                            <div class="d-flex">
-                                <div class="col-md-3">
-                                    <p><strong> Payment Status : </strong></p>
-                                </div>
-                                <div class="col-md-9">
-                                    {{ config('params.payment_status')[$order->payment_status] }}
+                                    {{ config('params.order_status')[$order->status] }}
                                 </div>
                             </div>
                         </div>

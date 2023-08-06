@@ -38,9 +38,9 @@ class UserController extends Controller
         ->addColumn('file_path', function ($users) {
            return "<img src='" . asset($users->file_path) . "' class='img-thumbnail' width='50px'>";
         })
-        ->addColumn('role', function ($user) {
-           return '<label class="badge badge-secondary">' . ucfirst($user->roles->pluck('name')->implode(' , ')) . '</label>';
-        })
+        // ->addColumn('role', function ($user) {
+        //    return '<label class="badge badge-secondary">' . ucfirst($user->roles->pluck('name')->implode(' , ')) . '</label>';
+        // })
         ->addColumn('status', function ($users) {
            return $users->status ? '<label class="badge badge-success">Active</label>' : '<label class="badge badge-danger">Inactive</label>';
         })
@@ -57,7 +57,7 @@ class UserController extends Controller
            $html .= '</div>';
            return $html;
         })
-        ->rawColumns(['action', 'file_path', 'status', 'role', 'user_type', 'is_approved'])
+        ->rawColumns(['action', 'file_path', 'status', 'user_type', 'is_approved'])
         ->addIndexColumn()
         ->make(true);
    }

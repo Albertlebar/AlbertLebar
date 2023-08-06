@@ -15,6 +15,7 @@ use App\Models\User;
 use App\Models\OrderItem;
 use URL;
 use PDF;
+use Carbon\Carbon;
 
 class OrderController extends Controller
 {
@@ -43,6 +44,13 @@ class OrderController extends Controller
         
         ->addColumn('order_type', function ($orders) {
            return config('params.order_type')[$orders->order_type];
+        })
+        ->addColumn('order_number', function ($orders) {
+           return $orders->order_number;
+        })
+        ->addColumn('created_at', function ($orders) {
+          return Carbon::parse($orders->created_at)->format('d/m/Y');
+           // return $orders->created_at;
         })
         ->addColumn('order_status', function ($orders) {
            return config('params.order_status')[$orders->order_status];
@@ -96,7 +104,7 @@ class OrderController extends Controller
         $userDetails = User::find($request->user_id);
         $order = new Order();
         $order->user_id = $request->user_id;
-        // $order->order_number = Order::autoGenerateOrderNumber();
+        $order->order_number = Order::autoGenerateOrderNumber();
         $order->order_type = 0;
         $order->order_status = 0;
         $order->payment_status = 0;
@@ -257,7 +265,8 @@ class OrderController extends Controller
     public function pdfDownload(Request $request)
     {
       $order = Order::find($request->id);
+      // return view('backend.admin.order.invoice',compact('order'));
       $pdf = PDF::loadView('backend.admin.order.invoice',compact('order'));
-      return $pdf->download();
+      return $pdf->stream();
     }
 }

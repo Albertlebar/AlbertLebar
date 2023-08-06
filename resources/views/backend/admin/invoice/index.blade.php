@@ -1,19 +1,19 @@
 @extends('backend.layouts.master')
-@section('title', ' All Users')
+@section('title', ' All Invoice')
 @section('content')
     <div class="app-page-title">
         <div class="page-title-wrapper">
             <div class="page-title-heading">
                 <div class="page-title-icon">
-                    <i class="pe-7s-users icon-gradient bg-mean-fruit"> </i>
+                    <i class="fa-duotone fa-ball-pile fa-lg"> </i>
                 </div>
-                <div>All Users</div>
+                <div>All Invoice</div>
                 <div class="d-inline-block ml-2">
                     @can('user-create')
-                        <button class="btn btn-success" onclick="create()"><i
+                        <a href="{{ URL :: to('/admin/invoice/create') }}" class="btn btn-success"><i
                                 class="glyphicon glyphicon-plus"></i>
-                            New User
-                        </button>
+                            Create Invoice
+                        </a>
                     @endcan
                 </div>
             </div>
@@ -29,13 +29,11 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Photo</th>
-                                <th>User Name</th>
-                                <th>Email</th>
-                                <!-- <th>Roles</th> -->
-                                <th>User Type</th>
-                                <th>Is Approved</th>
+                                <th>Invoice Date</th>
+                                <th>Invoice Number</th>
+                                <th>Client Name</th>
                                 <th>Status</th>
+                                <th>Total</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -60,7 +58,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    "url": '{!! route('admin.allUser.users') !!}',
+                    "url": '{!! route('admin.allInvoices') !!}',
                     "type": "GET",
                     headers: {
                         "X-CSRF-TOKEN": CSRF_TOKEN,
@@ -69,13 +67,11 @@
                 },
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                    {data: 'file_path', name: 'file_path'},
-                    {data: 'name', name: 'name'},
-                    {data: 'email', name: 'email'},
-                    // {data: 'role', name: 'role'},
-                    {data: 'user_type', name: 'user_type'},
-                    {data: 'is_approved', name: 'is_approved'},
+                    {data: 'created_at', name: 'created_at'},
+                    {data: 'invoice_number', name: 'invoice_number'},
+                    {data: 'shipping_address_first_name', name: 'shipping_address_first_name'},
                     {data: 'status', name: 'status'},
+                    {data: 'order_total', name: 'order_total'},
                     {data: 'action', name: 'action'}
                 ],
                 "autoWidth": false,
@@ -89,27 +85,27 @@
     </script>
     <script type="text/javascript">
         function create() {
-            ajax_submit_create('users');
+            ajax_submit_create('categories');
         }
 
         $(document).ready(function () {
             // View Form
             $("#manage_all").on("click", ".view", function () {
                 var id = $(this).attr('id');
-                ajax_submit_view('users', id)
+                ajax_submit_view('categories', id)
             });
 
             // Edit Form
             $("#manage_all").on("click", ".edit", function () {
                 var id = $(this).attr('id');
-                ajax_submit_edit('users', id)
+                ajax_submit_edit('categories', id)
             });
 
 
             // Delete
             $("#manage_all").on("click", ".delete", function () {
                 var id = $(this).attr('id');
-                ajax_submit_delete('users', id)
+                ajax_submit_delete('categories', id)
             });
 
         });

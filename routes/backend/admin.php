@@ -62,6 +62,13 @@ Route::get('/pdf-download','OrderController@pdfDownload')->name('pdfDownload');
 
 /* ===== Order End =========== */
 
+/* ===== Invoice Start =========== */
+
+Route::resource('invoice','InvoiceController');
+Route::get('/allInvoices','InvoiceController@getAll')->name('allInvoices');
+
+/* ===== Invoice End =========== */
+
 
 /* ===== Access Management Start =========== */
 Route::resource('users', 'UserController');

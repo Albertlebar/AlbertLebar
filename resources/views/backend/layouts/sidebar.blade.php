@@ -76,6 +76,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ URL :: to('/admin/invoice') }}">
+                        <i class="metismenu-icon pe-7s-categories"></i>
+                        Invoices
+                    </a>
+                </li>
+                <li>
                     <a href="{{ URL :: to('/admin/appointments') }}">
                         <i class="metismenu-icon pe-7s-categories"></i>
                         Appointments

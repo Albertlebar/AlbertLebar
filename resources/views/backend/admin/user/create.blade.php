@@ -5,7 +5,18 @@
         <br/>
         <div class="clearfix"></div>
         <div class="form-group col-md-6 col-sm-12">
-            <label for=""> Name </label>
+            <input class="flat-green" type="radio" name="user_type" id="trade" value="0" checked>
+            <label class="form-check-label" for="trade">Trade</label>
+            <input class="flat-green" type="radio" name="user_type" id="call" value="1">
+            <label class="form-check-label" for="call">Retailer</label>
+        </div>
+        <div class="form-group col-md-6 col-sm-12">
+            <label for=""> First Name </label>
+            <input type="text" class="form-control" id="name" name="name" value="" placeholder="" required>
+            <span id="error_name" class="has-error"></span>
+        </div>
+        <div class="form-group col-md-6 col-sm-12">
+            <label for=""> Last Name </label>
             <input type="text" class="form-control" id="name" name="name" value="" placeholder="" required>
             <span id="error_name" class="has-error"></span>
         </div>
@@ -13,6 +24,51 @@
             <label for=""> Email </label>
             <input type="text" class="form-control" id="email" name="email" value="" placeholder="" required>
             <span id="error_email" class="has-error"></span>
+        </div>
+        <div class="form-group col-md-6 col-sm-12" id="company_div">
+            <label for=""> Company </label>
+            <input type="text" class="form-control" id="company" name="company" value="" placeholder="" required>
+            <span id="error_company" class="has-error"></span>
+        </div>
+        <div class="form-group col-md-6 col-sm-12">
+            <label for=""> Address field 1 </label>
+            <input type="text" class="form-control" id="address_field_1" name="address_field_1" value="" placeholder="" required>
+            <span id="error_address_field_1" class="has-error"></span>
+        </div>
+        <div class="form-group col-md-6 col-sm-12">
+            <label for=""> Address field 2 </label>
+            <input type="text" class="form-control" id="address_field_2" name="address_field_2" value="" placeholder="" required>
+            <span id="error_address_field_2" class="has-error"></span>
+        </div>
+        <div class="form-group col-md-6 col-sm-12">
+            <label for=""> City </label>
+            <input type="text" class="form-control" id="city" name="city" value="" placeholder="" required>
+            <span id="error_city" class="has-error"></span>
+        </div>
+        <div class="form-group col-md-6 col-sm-12">
+            <label for=""> Country </label>
+            <input type="text" class="form-control" id="country" name="country" value="" placeholder="" required>
+            <span id="error_country" class="has-error"></span>
+        </div>
+        <div class="form-group col-md-6 col-sm-12">
+            <label for=""> State/Province/County </label>
+            <input type="text" class="form-control" id="state_province_county" name="state_province_county" value="" placeholder="" required>
+            <span id="error_state_province_county" class="has-error"></span>
+        </div>
+        <div class="form-group col-md-6 col-sm-12">
+            <label for=""> Postcode </label>
+            <input type="text" class="form-control" id="postcode" name="postcode" value="" placeholder="" required>
+            <span id="error_postcode" class="has-error"></span>
+        </div>
+        <div class="form-group col-md-6 col-sm-12">
+            <label for=""> Telephone </label>
+            <input type="text" class="form-control" id="telephone" name="telephone" value="" placeholder="" required>
+            <span id="error_telephone" class="has-error"></span>
+        </div>
+        <div class="form-group col-md-6 col-sm-12">
+            <label for=""> Mobile </label>
+            <input type="text" class="form-control" id="mobile" name="mobile" value="" placeholder="" required>
+            <span id="error_mobile" class="has-error"></span>
         </div>
         <div class="form-group col-md-6 col-sm-12">
             <label>Password:</label>
@@ -24,7 +80,31 @@
             {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control','required')) !!}
             <span id="error_confirm-password" class="has-error"></span>
         </div>
-        <div class="col-md-12">
+        <div class="form-group col-md-6 col-sm-12" id="vat_number_div">
+            <label for=""> VAT Number </label>
+            <input type="text" class="form-control" id="vat_number" name="vat_number" value="" placeholder="" required>
+            <span id="error_vat_number" class="has-error"></span>
+        </div>
+        <div class="form-group col-md-6 col-sm-12" id="refrences_div">
+            <label for=""> Refrences </label>
+            <input type="text" class="form-control" id="refrences" name="refrences" value="" placeholder="" required>
+            <span id="error_refrences" class="has-error"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label for=""> Status </label><br/>
+            <input type="radio" name="status" class="flat-green"
+                   value="1" checked> Active
+            <input type="radio" name="status" class="flat-green"
+                   value="0"/> In Active
+        </div>
+        <div class="form-group col-md-4 mt-2">
+            <label for=""> Is Approved ? </label><br/>
+            <input type="radio" name="is_approved" class="flat-green"
+                   value="1" checked> Yes
+            <input type="radio" name="is_approved" class="flat-green"
+                   value="0" > No
+        </div>
+        <!-- <div class="col-md-12">
             <label for="photo">Logo (File must be jpg, jpeg, png)</label>
             <div class="input-group">
                 <input id="photo" type="file" name="photo" style="display:none">
@@ -54,7 +134,7 @@
                     @endif
                 @endforeach
             </div>
-        </div>
+        </div> -->
         <div class="col-md-12 mb-3">
             <button type="submit" class="btn btn-success button-submit"
                     data-loading-text="Loading..."><span class="fa fa-save fa-fw"></span> Save
@@ -64,6 +144,20 @@
 </form>
 
 <script>
+
+    $("body").on("change", "input[name='user_type']", function (e) {
+        let user_type = $(this).val();
+        if(user_type == 1)
+        {
+          $('#company_div').addClass('d-none');
+          $('#vat_number_div').addClass('d-none');
+          $('#refrences_div').addClass('d-none'); 
+        }else{
+          $('#company_div').removeClass('d-none');
+          $('#vat_number_div').removeClass('d-none');
+          $('#refrences_div').removeClass('d-none');
+        }
+      });
 
     $(document).ready(function () {
         $('input[type="checkbox"].flat-green').iCheck({
