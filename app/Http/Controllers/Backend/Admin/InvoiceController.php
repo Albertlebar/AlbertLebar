@@ -183,7 +183,7 @@ class InvoiceController extends Controller
     public function pdfDownload(Request $request)
     {
       $order = Invoice::find($request->id);
-      return view('backend.admin.invoice.invoice',compact('order'));
+      // return view('backend.admin.invoice.invoice',compact('order'));
       $pdf = PDF::loadView('backend.admin.invoice.invoice',compact('order'));
       return $pdf->download();
     }
