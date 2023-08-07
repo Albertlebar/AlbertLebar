@@ -23,9 +23,9 @@
                             <div class="widget-body">
                                 <address class="contact-block">
                                     <ul>
-                                        <li><a href="https://www.google.com/maps/search/?api=1&query=51.51896070301455,-0.10800764314808704"><i class="pe-7s-home"></i></a> London Diamond Bourse <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100 Hatton Garden <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EC1N 8NX <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;London, United Kingdom</li>
-                                        <li><i class="pe-7s-mail"></i> <a href="mailto:demo@plazathemes.com">sales@albertlebar.com </a></li>
-                                        <li><i class="pe-7s-call"></i> <a href="tel:07930 906567">07930 906567</a></li>
+                                        <li><a href="https://www.google.com/maps/search/?api=1&query=51.51896070301455,-0.10800764314808704"><i class="pe-7s-home"></i></a> <a href="https://www.google.com/maps/search/?api=1&query=51.51896070301455,-0.10800764314808704" style="text-decoration: none;"> London Diamond Bourse <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100 Hatton Garden <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EC1N 8NX <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;London, United Kingdom </a></li>
+                                        <li><a style="text-decoration: none;" href="mailto:demo@plazathemes.com"><i class="pe-7s-mail"></i> </a> <a href="mailto:demo@plazathemes.com" style="text-decoration: none;">sales@albertlebar.com </a></li>
+                                        <li><a href="tel:07930 906567" style="text-decoration: none;"><i class="pe-7s-call"></i> </a> <a style="text-decoration: none;" href="tel:07930 906567">07930 906567</a></li>
                                     </ul>
                                 </address>
                             </div>
@@ -185,7 +185,7 @@
                                         <span class="cart-price" style="color: #f195ab;">{{ number_format((float)$item['price'], 2, '.', '') }}</span>
                                     </p>
                                 </div>
-                                <button class="minicart-remove"><i class="pe-7s-close"></i></button>
+                                <!-- <button class="minicart-remove"><i class="pe-7s-close"></i></button> -->
                             </li>
                             <?php
                                 $Total = $item['quantity'] * $item['price'];

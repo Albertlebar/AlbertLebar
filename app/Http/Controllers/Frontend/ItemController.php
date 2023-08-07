@@ -71,4 +71,19 @@ class ItemController extends Controller
       }
       return true;
     }
+
+    public function removeToCart(Request $request)
+    {
+      if(Auth::check())
+      {
+        $cart = Cart::where('id',Auth::user()->id)->where('item_id',$request->item_id)->first();
+        $cart->delete();
+      }else{
+        $cart = $request->session()->get('cart');
+        unset($cart[$request->item_id]);
+        session()->put('cart', $cart);
+      }
+      
+      return true;
+    }
 }

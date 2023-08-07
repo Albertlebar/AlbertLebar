@@ -12,6 +12,7 @@ Route::get('item/item-details/{item_id}','ItemController@itemDetails');
 
 
 Route::post('item/add-to-cart', 'ItemController@addToCart');
+Route::get('item-remove-cart/{item_id}', 'ItemController@removeToCart');
 Route::get('cart','CheckoutController@cart');
 
 Route::middleware('auth')->group(function ()

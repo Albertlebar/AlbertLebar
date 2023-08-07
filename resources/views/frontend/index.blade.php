@@ -167,10 +167,17 @@
 
                                         </div>
                                         <div class="col text-end">
+                                            @if(Auth::check() && Auth::user()->user_type == 0)
+                                            <div class="price-box">
+                                                <span style="font-size: 12px;color: #f195ab;"
+                                                    class="price-regular"><strong>&pound; {{ number_format((float)$item->total_trade, 2, '.', '') }}</strong></span>
+                                            </div>
+                                            @else
                                             <div class="price-box">
                                                 <span style="font-size: 12px;color: #f195ab;"
                                                     class="price-regular"><strong>&pound; {{ number_format((float)$item->total_retail, 2, '.', '') }}</strong></span>
                                             </div>
+                                            @endif
                                         </div>
                                         <!-- <p>{{ $item->item_description }}</p> -->
                                     </div>
@@ -187,7 +194,7 @@
         <!-- featured product area end -->
 
         <!-- testimonial area start -->
-        <section class="testimonial-area section-padding bg-img1" style="color: black;background-image: url({{ asset('assets/img/testimonial/testimonials-bg.jpeg')}})">
+        <section class="testimonial-area section-padding bg-img1" style="color: black;background-image: url({{ asset('assets/img/testimonial/testimonials-bg.jpg')}})">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -312,6 +319,26 @@ $(document).ready(function() {
             success: function(data) {
                 $("#quick_view_item_details").html(data.html);
                 $('#quick_view_item_details').modal('show'); // show bootstrap modal
+            },
+            error: function(result) {
+                $("#quick_view_item_details").html("Sorry Cannot Load Data");
+            }
+          
+        });
+    });
+
+    $(document).on("click", ".add-to-cart", function(e) {
+        e.preventDefault();
+        var itemId = $(this).attr('item-id');
+        var itemSize = $('#item-size').val();
+        var itemQty = $('#item-qty').val();
+        $.ajax({
+            url: 'item/add-to-cart',
+            data:{'item_id' : itemId, 'item_size' : itemSize, 'item_qty' : itemQty,'_token':"{{csrf_token()}}"},
+            dataType: 'json',
+            type: 'POST',
+            success: function(data) {
+                location.reload(true); // show bootstrap modal
             },
             error: function(result) {
                 $("#quick_view_item_details").html("Sorry Cannot Load Data");

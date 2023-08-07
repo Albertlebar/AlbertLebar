@@ -36,7 +36,7 @@
                     ?>
                     @if($cartItem)
                     @foreach($cartItem as $id=>$item)
-                    <tr>
+                    <tr id="cart_item-{{ $id }}">
                       <td class="pro-thumbnail"><img src="{{asset($item['images'])}}"></td>
                       <td class="pro-title">
                         {{ $item['item_title'] }}  
@@ -52,7 +52,7 @@
                         $allTotal = $allTotal + $Total;
                       ?>
                       <td class="pro-subtotal"><span class="money" data-currency-usd="$160.00">&pound;{{ number_format((float)$Total, 2, '.', '') }}</span></td>
-                      <td class="pro-remove"><a href="/cart/change?line=1&amp;quantity=0"><i class="pe-7s-trash"></i></a></td>
+                      <td class="pro-remove"><a href="javascript:void(0)" data-id="{{ $id }}" class="remove-item-cart"><i class="pe-7s-trash"></i></a></td>
                     </tr>
                     @endforeach
                     @endif
@@ -104,7 +104,27 @@
 
 $(document).ready(function() {
     // View Form
+    var subTotal = 0;
+    $('#product-item .total_item_price').each(function () {
+        subTotal = parseFloat(subTotal) + parseFloat($(this).val());
+    });
+
+    $(".remove-item-cart").click(function(event) {
+        var id = $(this).attr('data-id');
+        $.ajax({
+            url: 'item-remove-cart' + '/' + id,
+            type: 'get',
+            success: function(data) {
+                location.reload();
+            },
+            error: function(result) {
+                $("#quick_view_item_details").html("Sorry Cannot Load Data");
+            }
+          
+        });
+    });
     $(".quick_view_details").click(function(event) {
+
        
         $("#quick_view_item_details").empty();
       
@@ -134,6 +154,7 @@ $(document).ready(function() {
     //     var item_type = $(this).val();
     //     alert(item_type);
     // });
+
     var banerHeight = $('.video-container').height();
     $('.shop-main-wrapper').css('marginTop', banerHeight - 60);
      $(window).resize(function(){

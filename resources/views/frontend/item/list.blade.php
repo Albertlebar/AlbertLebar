@@ -307,10 +307,17 @@ class="container-fluid">
 
                                         </div>
                                         <div class="col text-end">
+                                            @if(Auth::check() && Auth::user()->user_type == 0)
+                                            <div class="price-box">
+                                                <span style="font-size: 12px;color: #f195ab;"
+                                                    class="price-regular"><strong>&pound; {{ number_format((float)$item->total_trade, 2, '.', '') }}</strong></span>
+                                            </div>
+                                            @else
                                             <div class="price-box">
                                                 <span style="font-size: 12px;color: #f195ab;"
                                                     class="price-regular"><strong>&pound; {{ number_format((float)$item->total_retail, 2, '.', '') }}</strong></span>
                                             </div>
+                                            @endif
                                         </div>
                                         <!-- <p>{{ $item->item_description }}</p> -->
                                     </div>

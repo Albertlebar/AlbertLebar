@@ -95,7 +95,7 @@ class UserController extends Controller
       if ($request->ajax()) {
          // Setup the validator
          $rules = [
-           'name' => 'required',
+           // 'name' => 'required',
            'email' => 'required|email|unique:users,email',
            'password' => 'required|same:confirm-password',
            'photo' => 'image|max:2024|mimes:jpeg,jpg,png'
@@ -131,17 +131,35 @@ class UserController extends Controller
             try {
 
                $user = new User();
-               $user->name = $request->input('name');
+               $user->name = $request->input('f_name') . ' ' . $request->input('l_name');
+               $user->f_name = $request->input('f_name');
+               $user->l_name = $request->input('l_name');
                $user->email = $request->input('email');
+               $user->company = $request->input('company');
+               $user->address_field_1 = $request->input('address_field_1');
+               $user->address_field_2 = $request->input('address_field_2');
+               $user->city = $request->input('city');
+               $user->country = $request->input('country');
+               $user->state_province_county = $request->input('state_province_county');
+               $user->postcode = $request->input('postcode');
+               $user->telephone = $request->input('telephone');
+               $user->mobile = $request->input('mobile');
+               $user->vat_number = $request->input('vat_number');
+               $user->refrences = $request->input('refrences');
+               $user->user_type = $request->input('user_type');
+               $user->is_approved = $request->input('is_approved');
+               $user->refrences = $request->input('refrences');
+               $user->refrences = $request->input('refrences');
                $user->password = Hash::make($request->password);
+               $user->email_verified_at = now();
                $user->file_path = $file_path;
                $user->save();
 
                // generate role
-               $roles = $request->input('roles');
-               if (isset($roles)) {
-                  $user->assignRole($roles);
-               }
+               // $roles = $request->input('roles');
+               // if (isset($roles)) {
+               //    $user->assignRole($roles);
+               // }
 
                DB::commit();
                return response()->json(['type' => 'success', 'message' => "Successfully Created"]);

@@ -37,5 +37,6 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+@include('cookieConsent::index')
 </body>
 </html>

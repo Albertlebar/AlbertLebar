@@ -16,7 +16,11 @@
       <input type="number" id="qty_{{ $item->id }}" name="qty[{{ $item->id }}]" class="form-control qty">
     </td>
     <td>
+      @if($userType == 0)
+      <input type="hidden" name="item_price" id="item_price_{{ $item->id }}" value="{{ $item->total_trade }}">
+      @else
       <input type="hidden" name="item_price" id="item_price_{{ $item->id }}" value="{{ $item->total_retail }}">
+      @endif
       <input type="hidden" name="total_item_price[{{ $item->id }}]" id="total_item_price_{{ $item->id }}" class="total_item_price" value="">
         <p id="item_total_{{ $item->id }}">&pound; 0.00</p>
     </td>

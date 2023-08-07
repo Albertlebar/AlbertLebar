@@ -56,7 +56,7 @@ Route::get('/allOrders','OrderController@getAll')->name('allOrders');
 Route::get('/add-product','OrderController@addProduct')->name('addProduct');
 Route::get('/add-product-data','OrderController@addProductData')->name('addProductData');
 Route::get('/user-details','OrderController@userDetails')->name('userDetails');
-Route::get('/get-item-details/{id}','OrderController@getItemDetails')->name('getItemDetails');
+Route::get('/get-item-details/{id}/{user_type}','OrderController@getItemDetails')->name('getItemDetails');
 Route::get('/get-item','OrderController@getItem')->name('getItem');
 Route::get('/pdf-download','OrderController@pdfDownload')->name('pdfDownload');
 

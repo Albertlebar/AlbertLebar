@@ -113,6 +113,7 @@
                             <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Item Code</th>
                                 <th>Image</th>
                                 <th>Product Title</th>
                                 <th>Quantity</th>
@@ -130,6 +131,7 @@
                                 ?>
                                     <tr>
                                     <td>{{ $rowCount }}</td>
+                                    <td>{{ $item->itemDetails->item_code }} </td>
                                       <td class="pro-thumbnail"><img width="80px;" height="80px" src="{{asset($item->itemDetails->photo_0)}}"></td>
                                       <td class="pro-title">
                                         {{ $item->itemDetails->item_title }}  
@@ -149,15 +151,15 @@
                                 ?>
                                 @endforeach
                                 <tr style="background: #f195ab;">
-                                    <td colspan="5" class="text-right"><strong>Sub Total</strong></td>
+                                    <td colspan="6" class="text-right"><strong>Sub Total</strong></td>
                                     <td><strong>&pound;{{ number_format((float)$order->sub_total, 2, '.', '') }}</strong></td>
                                 </tr>
                                 <tr style="background: #f195ab;">
-                                    <td colspan="5" class="text-right"><strong>VAT (20 %)</strong></td>
+                                    <td colspan="6" class="text-right"><strong>VAT (20 %)</strong></td>
                                     <td><strong>&pound;{{ number_format((float)$order->vat, 2, '.', '') }}</strong></td>
                                 </tr>
                                 <tr style="background: #f195ab;">
-                                    <td colspan="5" class="text-right"><strong>Total</strong></td>
+                                    <td colspan="6" class="text-right"><strong>Total</strong></td>
                                     <td><strong>&pound;{{ number_format((float)$order->order_total, 2, '.', '') }}</strong></td>
                                 </tr>
                             </tbody>

@@ -248,8 +248,9 @@ class OrderController extends Controller
     public function getItemDetails(Request $request)
     {
         $id = $request->id;
+        $userType = $request->user_type;
         $itemDetails = Item::where('id',$id)->get();
-        $view = View::make('backend.admin.order.order_item', compact('itemDetails'))->render();
+        $view = View::make('backend.admin.order.order_item', compact('itemDetails','userType'))->render();
         return response()->json(['html' => $view]);
     }
 

@@ -27,6 +27,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex mt-1">
+                                    <input type="hidden" name="user_type" value="" id="user_type">
                                     <div class="col-md-3">
                                         <p><strong> Shipping First Name : </strong></p>
                                     </div>
@@ -312,6 +313,7 @@
                     $('#shipping_postcode').html(data.userData.postcode);
                     $('#shipping_country').html(data.userData.country);
                     $('#shipping_contact').html(data.userData.mobile);
+                    $('#user_type').val(data.userData.user_type);
                 },
                 error: function (result) {
                     // $("#modal_data").html("Sorry Cannot Load Data");
@@ -358,11 +360,12 @@
 
         $("body").on("change","#select-item", function (e) {
             var allVals = [];
-            var id = $("#select-item :selected").val(); 
+            var id = $("#select-item :selected").val();
+            var user_type = $("#user_type").val();
             // var CSRF_TOKEN = $('input[name="csrf_token"]').val();
             $.ajax({
                 type: 'GET',
-                url: '/admin/get-item-details/'+id,
+                url: '/admin/get-item-details/'+id+'/'+user_type,
                 success: function (data) {
                     $("#manage_all_item #product-item").append(data.html);
                     $("#myModal").modal('hide');

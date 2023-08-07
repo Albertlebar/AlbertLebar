@@ -12,13 +12,13 @@
         </div>
         <div class="form-group col-md-6 col-sm-12">
             <label for=""> First Name </label>
-            <input type="text" class="form-control" id="name" name="name" value="" placeholder="" required>
-            <span id="error_name" class="has-error"></span>
+            <input type="text" class="form-control" id="f_name" name="f_name" value="" placeholder="" required>
+            <span id="error_f_name" class="has-error"></span>
         </div>
         <div class="form-group col-md-6 col-sm-12">
             <label for=""> Last Name </label>
-            <input type="text" class="form-control" id="name" name="name" value="" placeholder="" required>
-            <span id="error_name" class="has-error"></span>
+            <input type="text" class="form-control" id="l_name" name="l_name" value="" placeholder="" required>
+            <span id="error_l_name" class="has-error"></span>
         </div>
         <div class="form-group col-md-6 col-sm-12">
             <label for=""> Email </label>
@@ -166,17 +166,17 @@
 
         $('#create').validate({// <- attach '.validate()' to your form
             // Rules for form validation
-            rules: {
-                name: {
-                    required: true
-                }
-            },
-            // Messages for form validation
-            messages: {
-                name: {
-                    required: 'Enter Role Name'
-                }
-            },
+            // rules: {
+            //     name: {
+            //         required: true
+            //     }
+            // },
+            // // Messages for form validation
+            // messages: {
+            //     name: {
+            //         required: 'Enter Role Name'
+            //     }
+            // },
             submitHandler: function (form) {
 
                 var list_id = [];
@@ -189,18 +189,7 @@
                 myData.append('_token', CSRF_TOKEN);
                 myData.append('roles', list_id);
 
-                swal({
-                    title: "Confirm to assign " + list_id.length + " roles",
-                    text: "Assign Role",
-                    type: "warning",
-                    showCancelButton: true,
-                    closeOnConfirm: false,
-                    showLoaderOnConfirm: true,
-                    confirmButtonClass: "btn-danger",
-                    confirmButtonText: "Yes, Assign!"
-                }, function () {
-
-                    $.ajax({
+                $.ajax({
                         url: 'users',
                         type: 'POST',
                         data: myData,
@@ -234,7 +223,19 @@
 
                         }
                     });
-                });
+                // swal({
+                //     title: "Confirm to assign " + list_id.length + " roles",
+                //     text: "Assign Role",
+                //     type: "warning",
+                //     showCancelButton: true,
+                //     closeOnConfirm: false,
+                //     showLoaderOnConfirm: true,
+                //     confirmButtonClass: "btn-danger",
+                //     confirmButtonText: "Yes, Assign!"
+                // }, function () {
+
+                    
+                // });
 
             }
             // <- end 'submitHandler' callback
