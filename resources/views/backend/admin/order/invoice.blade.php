@@ -3,19 +3,12 @@
 <head>
     <meta charset="utf-8">
     <title>Invoice</title>
-    <!-- <link href="https://fonts.cdnfonts.com/css/santral-blackitalic" rel="stylesheet"> -->
     <style>
-        @font-face {
-            font-family: 'Santral-Medium';
-            font-style: normal;
-            font-weight: 400;
-            src: local('Santral-Medium'), url({{ storage_path('fonts/SantralMedium.woff') }}) format('woff'); 
-        }
         body {
             margin: 0;
             padding: 0;
             outline: 0;
-            font-family: "Santral-Medium";
+            font-family: "Muli", sans-serif;
         }
         .page-break {
             page-break-after: always;
