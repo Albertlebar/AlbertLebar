@@ -98,7 +98,7 @@
             // Edit Form
             $("#manage_all").on("click", ".edit", function () {
                 var id = $(this).attr('id');
-                ajax_submit_edit('categories', id)
+                ajax_submit_edit('invoice', id)
             });
 
 

@@ -45,10 +45,10 @@ return [
 
     'order_status' => [
         '0' => 'Pending',
-        '1' => 'Received',
-        '2' => 'Shipped',
-        '3' => 'Success',
-        '4' => 'Canceled',
+        '1' => 'In Transit',
+        '2' => 'Hold',
+        '3' => 'Cancel',
+        '4' => 'Done',
     ],
 
     'payment_status' => [
@@ -63,4 +63,10 @@ return [
         '0' => 'No',
         '1' => 'Yes',
     ],
+
+    'invoice_status' => [
+        '0' => 'Pending',
+        '1' => 'Posted',
+        '2' => 'Collected',
+    ]
 ];

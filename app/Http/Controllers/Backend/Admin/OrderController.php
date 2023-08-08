@@ -63,10 +63,10 @@ class OrderController extends Controller
         })
         ->addColumn('action', function ($orders) use ($can_edit, $can_delete) {
            $html = '<div class="btn-group">';
-           // $html .= '<a data-toggle="tooltip" ' . $can_edit . '  id="' . $orders->id . '" class="btn btn-xs btn-info edit" title="Edit"><i class="fa fa-edit"></i> </a>';
+           $html .= '<a data-toggle="tooltip" ' . $can_edit . '  id="' . $orders->id . '" class="btn btn-xs btn-info edit" title="Edit"><i class="fa fa-edit"></i> </a>';
            $html .= '<a href="' . \URL :: to('admin/orders') .  '/' . $orders->id . '"  id="' . $orders->id . '" class="btn btn-xs btn-success margin-r-5" title="View"><i class="fa fa-eye fa-fw"></i> </a>';
            // $html .= '<a data-toggle="tooltip" ' . $can_delete . ' id="' . $orders->id . '" class="btn btn-xs btn-danger mr-1 delete" title="Delete"><i class="fa fa-trash"></i> </a>';
-           $html .= '<a href="' . \URL :: to('admin/pdf-download') .  '?id=' . $orders->id . '"  id="' . $orders->id . '" class="btn btn-xs btn-info margin-r-5" title="Download"><i class="fa fa-download fa-fw"></i> </a>';
+           $html .= '<a href="' . \URL :: to('admin/pdf-download') .  '?id=' . $orders->id . '"  id="' . $orders->id . '" class="btn btn-xs btn-warning margin-r-5" title="Download"><i class="fa fa-download fa-fw"></i> </a>';
            $html .= '</div>';
            return $html;
         })
@@ -166,9 +166,21 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Request $request)
     {
-        //
+        if ($request->ajax()) {
+         $haspermision = auth()->user()->can('user-edit');
+         if ($haspermision) {
+            $order = Order::where('id', $id)->first();
+            $roles = Role::all(); //Get all roles
+            $view = View::make('backend.admin.order.edit', compact('order', 'roles'))->render();
+            return response()->json(['html' => $view]);
+         } else {
+            abort(403, 'Sorry, you are not authorized to access the page');
+         }
+      } else {
+         return response()->json(['status' => 'false', 'message' => "Access only ajax request"]);
+      }
     }
 
     /**
@@ -178,9 +190,28 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Order $order)
     {
-        //
+        if ($request->ajax()) {
+                
+        Order::findOrFail($order->id);
+
+        DB::beginTransaction();
+        try {
+           $order->order_status = $request->input('status');
+           // $order->updated_by = Auth::user()->id;
+           $order->save();
+
+           DB::commit();
+           return response()->json(['type' => 'success', 'message' => "Successfully Updated"]);
+
+        } catch (\Exception $e) {
+           DB::rollback();
+           return response()->json(['type' => 'error', 'message' => $e->getMessage()]);
+        }
+      } else {
+         return response()->json(['status' => 'false', 'message' => "Access only ajax request"]);
+      }
     }
 
     /**
