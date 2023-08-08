@@ -4,6 +4,9 @@
 ?>
 <tr id="item_{{ $item->id }}">
   <td>{{ $rowCount }}</td>
+    <td>
+      {{ $item->item_code }}
+    </td>
     <td class="pro-thumbnail"><img width="40px;" height="40px" src="{{asset($item->photo_0)}}"></td>
     <td class="pro-title">
       <input type="hidden" name="item_id[]" value="{{ $item->id }}">

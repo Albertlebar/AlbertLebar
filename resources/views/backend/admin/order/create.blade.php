@@ -117,6 +117,7 @@
                             <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Item Code</th>
                                 <th>Image</th>
                                 <th>Product Title</th>
                                 <th>Size</th>
@@ -129,7 +130,7 @@
                             
                             </tbody>
                             <tr style="background: #f195ab;">
-                                <td colspan="5" class="text-right"><strong>Sub Total</strong></td>
+                                <td colspan="6" class="text-right"><strong>Sub Total</strong></td>
                                 <td>
                                     <input type="hidden" name="i_sub_total" value="" id="i_sub_total">
                                     <strong><p id="p_sub_total">&pound;0</p></strong>
@@ -137,12 +138,12 @@
                                 <td></td>
                             </tr
 >                            <tr style="background: #f195ab;">
-                                <td colspan="5" class="text-right"><strong>Add VAT (20 %)</strong><input type="hidden" name="i_vat_total" id="i_vat_total"></td>
+                                <td colspan="6" class="text-right"><strong>Add VAT (20 %)</strong><input type="hidden" name="i_vat_total" id="i_vat_total"></td>
                                 <td><input type="checkbox" class="add_vat" name="add_vat"></td>
                                 <td></td>
                             </tr>
                             <tr style="background: #f195ab;">
-                                <td colspan="5" class="text-right"><strong>Total</strong></td>
+                                <td colspan="6" class="text-right"><strong>Total</strong></td>
                                 <td>
                                     <input type="hidden" name="i_total" value="" id="i_total">
                                     <strong><p id="p_total">&pound;0</p></strong>

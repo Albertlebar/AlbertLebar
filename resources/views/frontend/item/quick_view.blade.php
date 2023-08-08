@@ -55,7 +55,7 @@
                             <p style="margin-bottom: 0px;" class="pro-desc">{{ $item->item_description }}</p>
                             <p style="font-size: 10px;"><strong> Item Code: </strong> {{ $item->item_code }}</p>
                             <div class="price-box">
-                                <span class="price-regular"  style="color: black;">Measurement</span>
+                                <span style="font-size: 13px;" class="price-regular"  style="color: black;">Measurement: {{ $item->measurement }}</span>
                             </div>
                             <div class="quantity-cart-box d-flex align-items-center">
                                 <h6 class="option-title">Size</h6>

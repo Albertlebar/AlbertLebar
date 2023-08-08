@@ -52,6 +52,11 @@
                                         <span id="error_supplier_code" class="has-error"></span>
                                     </div>
                                     <div class="form-group col-md-12 col-sm-12">
+                                        <label for=""> Measurement </label>
+                                        <input type="text" class="form-control" id="measurement" name="measurement" value="" placeholder="" required>
+                                        <span id="error_measurement" class="has-error"></span>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12">
                                         <label for=""> Metal Type </label>
                                         {!! Form::select('metal_type', config('params.metal_type') ?? [],  $userRoleId ?? '', ['class' => 'form-control','data-control'=>"select2", 'id'=>'role']) !!}
                                         <span id="error_metal_type" class="has-error"></span>

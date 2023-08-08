@@ -248,6 +248,8 @@ class CatelogueController extends Controller
                $item->item_description = $request->input('item_description');
                $item->supplier_name = $request->input('supplier_name');
                $item->supplier_code = $request->input('supplier_code');
+               $item->measurement = $request->input('measurement');
+
                $item->metal_type = $request->input('metal_type');
                $item->metal_colour = $request->input('metal_colour');
                $item->total_gold_weight = $request->input('total_gold_weight');
@@ -444,7 +446,8 @@ class CatelogueController extends Controller
                $item->item_description = $request->input('item_description');
                $item->supplier_name = $request->input('supplier_name');
                $item->supplier_code = $request->input('supplier_code');
-
+               $item->measurement = $request->input('measurement');
+               
                $item->metal_type = $request->input('metal_type');
                $item->metal_colour = $request->input('metal_colour');
                $item->total_gold_weight = $request->input('total_gold_weight');
