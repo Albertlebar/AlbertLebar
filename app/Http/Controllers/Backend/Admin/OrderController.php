@@ -199,6 +199,8 @@ class OrderController extends Controller
         DB::beginTransaction();
         try {
            $order->order_status = $request->input('status');
+           $order->notes = $request->input('notes');
+
            // $order->updated_by = Auth::user()->id;
            $order->save();
 

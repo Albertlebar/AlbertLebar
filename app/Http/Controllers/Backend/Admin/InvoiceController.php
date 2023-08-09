@@ -65,14 +65,14 @@ class InvoiceController extends Controller
            $html = '<div class="btn-group">';
            if(Carbon::parse($invoices->created_at)->format('d/m/Y') == Carbon::parse(now())->format('d/m/Y')){
               $html .= '<a href="' . \URL :: to('admin/invoice') .  '/' . $invoices->id . '/edit" id="' . $invoices->id . '" class="btn btn-xs btn-info" title="Edit"><i class="fa fa-edit"></i> </a>';
-           }else{
-              $html .= '<a data-toggle="tooltip" ' . $can_edit . '  id="' . $invoices->id . '" class="btn btn-xs btn-info edit" title="Edit"><i class="fa fa-edit"></i> </a>'; 
            }
+            $html .= '<a data-toggle="tooltip" ' . $can_edit . '  id="' . $invoices->id . '" class="btn btn-xs btn-secondary edit" title="Status"><i class="fa fa-book"></i> </a>';
            
            $html .= '<a href="' . \URL :: to('admin/invoice') .  '/' . $invoices->id . '"  id="' . $invoices->id . '" class="btn btn-xs btn-success margin-r-5" title="View"><i class="fa fa-eye fa-fw"></i> </a>';
            // $html .= '<a data-toggle="tooltip" ' . $can_delete . ' id="' . $orders->id . '" class="btn btn-xs btn-danger mr-1 delete" title="Delete"><i class="fa fa-trash"></i> </a>';
            $html .= '<a href="' . \URL :: to('admin/pdf-download-invoice') .  '?id=' . $invoices->id . '"  id="' . $invoices->id . '" class="btn btn-xs btn-warning margin-r-5" title="Download"><i class="fa fa-download fa-fw"></i> </a>';
            $html .= '</div>';
+           $html .= '<a data-toggle="tooltip" ' . $can_edit . '  id="' . $invoices->id . '" class="btn btn-xs btn-secondary return" title="return">Return </a>';
            return $html;
         })
         ->rawColumns(['action', 'invoice_number', 'order_type', 'status', 'order_total', 'shipping_address_first_name'])
@@ -205,6 +205,7 @@ class InvoiceController extends Controller
           if($request->edit_status == 1)
           {
               $invoice->status = $request->input('status');
+              $invoice->notes = $request->input('notes');
              // $order->updated_by = Auth::user()->id;
              $invoice->save();
           }else{
@@ -270,5 +271,35 @@ class InvoiceController extends Controller
       // return view('backend.admin.invoice.invoice',compact('order'));
       $pdf = PDF::loadView('backend.admin.invoice.invoice',compact('order'));
       return $pdf->download();
+    }
+
+    public function returnProduct(Request $request)
+    {
+      $haspermision = auth()->user()->can('user-edit');
+      if ($request->ajax()) {
+         if ($haspermision) {
+            $invoiceId = $request->id;
+            $invoiceDetails = Invoice::find($invoiceId);
+            $roles = Role::all(); //Get all roles
+            $view = View::make('backend.admin.invoice.return', compact('invoiceDetails', 'roles'))->render();
+            return response()->json(['html' => $view]);
+         } else {
+            abort(403, 'Sorry, you are not authorized to access the page');
+         }
+      }
+    }
+
+    public function returnProductUpdate(Request $request)
+    {
+      if(!empty($request->ids))
+      {
+        foreach ($request->ids as $key => $value) {
+          $invoiceItem = InvoiceItem::find($value);
+          $invoiceItem->quantity = $invoiceItem->quantity - $request->quantity[$value];
+          $invoiceItem->return_quantity = $request->quantity[$value];
+          $invoiceItem->save();
+        }
+      }
+      return response()->json(['type' => 'success', 'message' => "Successfully Updated"]);
     }
 }

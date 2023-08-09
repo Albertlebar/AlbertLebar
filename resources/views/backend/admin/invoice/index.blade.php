@@ -108,6 +108,24 @@
                 ajax_submit_delete('categories', id)
             });
 
+            $("#manage_all").on("click", ".return", function () {
+                var id = $(this).attr('id');
+                $("#modal_data").empty();
+                $('.modal-title').text('Return Product');
+
+                $.ajax({
+                    url: 'invoice' + '/' + id + '/return',
+                    type: 'get',
+                    success: function (data) {
+                        $("#modal_data").html(data.html);
+                        $('#myModal').modal('show'); // show bootstrap modal
+                    },
+                    error: function (result) {
+                        $("#modal_data").html("Sorry Cannot Load Data");
+                    }
+                });
+            });
+
         });
 
     </script>

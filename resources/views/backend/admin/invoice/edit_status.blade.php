@@ -9,11 +9,17 @@
             {!! Form::select('status', config('params.invoice_status') ?? [],  $invoice->status ?? '', ['class' => 'form-control select2','data-control'=>"select2", 'id'=>'status']) !!}
             <span id="error_title" class="has-error"></span>
         </div>
-        <div class="col-md-12 mb-3 mt-3">
-            <button type="submit" class="btn btn-success button-submit"
-                    data-loading-text="Loading..."><span class="fa fa-save fa-fw"></span> Save
-            </button>
+        <div class="form-group col-md-4 col-sm-12">
+            <label for=""> Notes </label>
+            <textarea type="text" class="form-control" id="notes" name="notes" value="" placeholder="">{{ $invoice->notes }}</textarea>
+            <span id="error_item_code" class="has-error"></span>
         </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-success button-submit"
+                data-loading-text="Loading..."><span class="fa fa-save fa-fw"></span> Save
+        </button>
     </div>
 </form>
 <script>
