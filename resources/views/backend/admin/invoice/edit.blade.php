@@ -148,7 +148,7 @@
 >                            <tr style="background: #f195ab;">
                                 <?php  
                                     $checked = " ";
-                                    if(floatval($invoice->vat) < 0)
+                                    if(floatval($invoice->vat) > 0)
                                     {
                                         $checked = "checked";
                                     }
