@@ -63,7 +63,12 @@ class InvoiceController extends Controller
         })
         ->addColumn('action', function ($invoices) use ($can_edit, $can_delete) {
            $html = '<div class="btn-group">';
-           $html .= '<a data-toggle="tooltip" ' . $can_edit . '  id="' . $invoices->id . '" class="btn btn-xs btn-info edit" title="Edit"><i class="fa fa-edit"></i> </a>';
+           if(Carbon::parse($invoices->created_at)->format('d/m/Y') == Carbon::parse(now())->format('d/m/Y')){
+              $html .= '<a href="' . \URL :: to('admin/invoice') .  '/' . $invoices->id . '/edit" id="' . $invoices->id . '" class="btn btn-xs btn-info" title="Edit"><i class="fa fa-edit"></i> </a>';
+           }else{
+              $html .= '<a data-toggle="tooltip" ' . $can_edit . '  id="' . $invoices->id . '" class="btn btn-xs btn-info edit" title="Edit"><i class="fa fa-edit"></i> </a>'; 
+           }
+           
            $html .= '<a href="' . \URL :: to('admin/invoice') .  '/' . $invoices->id . '"  id="' . $invoices->id . '" class="btn btn-xs btn-success margin-r-5" title="View"><i class="fa fa-eye fa-fw"></i> </a>';
            // $html .= '<a data-toggle="tooltip" ' . $can_delete . ' id="' . $orders->id . '" class="btn btn-xs btn-danger mr-1 delete" title="Delete"><i class="fa fa-trash"></i> </a>';
            $html .= '<a href="' . \URL :: to('admin/pdf-download-invoice') .  '?id=' . $invoices->id . '"  id="' . $invoices->id . '" class="btn btn-xs btn-warning margin-r-5" title="Download"><i class="fa fa-download fa-fw"></i> </a>';
@@ -154,19 +159,33 @@ class InvoiceController extends Controller
      */
     public function edit($id, Request $request)
     {
-      if ($request->ajax()) {
-         $haspermision = auth()->user()->can('user-edit');
-         if ($haspermision) {
-            $invoice = Invoice::where('id', $id)->first();
-            $roles = Role::all(); //Get all roles
-            $view = View::make('backend.admin.invoice.edit', compact('invoice', 'roles'))->render();
+      $haspermision = auth()->user()->can('user-edit');
+        if ($request->ajax()) {
+           if ($haspermision) {
+              $invoice = Invoice::where('id', $id)->first();
+              $roles = Role::all(); //Get all roles
+              $view = View::make('backend.admin.invoice.edit_status', compact('invoice', 'roles'))->render();
+              return response()->json(['html' => $view]);
+           } else {
+              abort(403, 'Sorry, you are not authorized to access the page');
+           }
+        }
+       if ($haspermision) {
+          $invoice = Invoice::where('id', $id)->first();
+          $roles = Role::all(); //Get all roles
+          if($request->tab == 'tab-size-stock')
+          {
+            $itemStock = ItemStock::where('item_id',$id)->get();
+            $view = View::make('backend.admin.catelogue.tab_size_stock', compact('item', 'itemStock','roles'))->render();
             return response()->json(['html' => $view]);
-         } else {
-            abort(403, 'Sorry, you are not authorized to access the page');
-         }
-      } else {
-         return response()->json(['status' => 'false', 'message' => "Access only ajax request"]);
-      }
+            // return view('backend.admin.catelogue.tab_size_stock',compact('item','itemStock','roles'));
+          }else{
+            $users = User::pluck('f_name','id')->toArray();
+            return view('backend.admin.invoice.edit',compact('users','roles','invoice'));
+          }
+       } else {
+          abort(403, 'Sorry, you are not authorized to access the page');
+       }
     }
 
     /**
@@ -178,16 +197,50 @@ class InvoiceController extends Controller
      */
     public function update(Request $request, Invoice $invoice)
     {
-        if ($request->ajax()) {
+        if ($request->ajax()) 
+        {
                 
-        Invoice::findOrFail($invoice->id);
-
         DB::beginTransaction();
         try {
-           $invoice->status = $request->input('status');
-           // $order->updated_by = Auth::user()->id;
-           $invoice->save();
+          if($request->edit_status == 1)
+          {
+              $invoice->status = $request->input('status');
+             // $order->updated_by = Auth::user()->id;
+             $invoice->save();
+          }else{
+            $invoice = Invoice::find($invoice->id);
+            $invoice->sub_total = $request->i_sub_total;
+            $invoice->vat = $request->i_vat_total;
+            $invoice->order_total = $request->i_total;
+            $invoice->save();
 
+            if(!empty($request->old_item_id))
+                {
+                    foreach ($request->old_item_id as $key => $value) 
+                    {
+                        $itemStock = InvoiceItem::find($key);
+                        // $itemStock->size = $value;
+                        $itemStock->quantity = $request->old_qty[$key];
+                        $itemStock->price = $request->old_total_item_price[$key];
+                        $itemStock->save();
+                    }
+                    $itemStockDelete = InvoiceItem::where('invoice_id',$invoice->id)->whereNotIn('id',array_keys($request->old_item_id))->delete();
+                }
+
+                if(!empty($request->item_id))
+                {
+                    foreach ($request->item_id as $key => $value) {
+                      $orderItem = new InvoiceItem();
+                      $orderItem->invoice_id = $invoice->id;
+                      $orderItem->item_id = $value;
+                      $orderItem->quantity = $request->qty[$value];
+                      $orderItem->size = $request->size[$value] ?? NULL;
+                      $orderItem->price = $request->total_item_price[$value];
+                      $orderItem->save();
+                      // $item->delete();
+                    }
+                }
+            }
            DB::commit();
            return response()->json(['type' => 'success', 'message' => "Successfully Updated"]);
 

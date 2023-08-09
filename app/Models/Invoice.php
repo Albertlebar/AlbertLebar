@@ -14,6 +14,11 @@ class Invoice extends Model
         return $this->hasMany(InvoiceItem::class, 'invoice_id','id');	
     }
 
+    public function itemSize()
+    {
+        return $this->hasMany(ItemStock::class, 'item_id','id');
+    }
+
     public function orderUser()
     {
         return $this->belongsTo(User::class, 'user_id','id');
