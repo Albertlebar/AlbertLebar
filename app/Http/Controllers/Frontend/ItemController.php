@@ -86,4 +86,9 @@ class ItemController extends Controller
       
       return true;
     }
+
+    public function sizeGuide()
+    {
+      return view('frontend.item.size_guide');
+    }
 }
