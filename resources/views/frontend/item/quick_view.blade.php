@@ -62,7 +62,7 @@
                                 <div class="size">
                                     {!! Form::select('item_size', $itemSize ?? [],  '', ['class' => 'form-control dropdown-select','data-control'=>"select2", 'id'=>'item-size']) !!}
                                 </div>
-                                @if($item->category->title == 'ring')
+                                @if($item->category->title == 'Ring')
                                 <a class="ml-1" title="Size Guide" target="_blank" href="{{ URL :: to('/item/size/guide')}}" style="color: #f195ab;">?</a>
                                 @endif
                             </div>
