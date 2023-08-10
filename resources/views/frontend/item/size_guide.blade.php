@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Return Policy')
+@section('title', 'Size Guide')
 @section('content')
 <style type="text/css">
     .page {
