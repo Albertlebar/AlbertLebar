@@ -167,6 +167,7 @@
                         <ul>
                             <?php
                             $allTotal = 0;
+                            $VAT = 0;
                             ?>
                             @if(isset($cartItem))
                             @forelse($cartItem as $id=>$item)
@@ -190,6 +191,7 @@
                             <?php
                                 $Total = $item['quantity'] * $item['price'];
                                 $allTotal = $allTotal + $Total;
+                                $VAT = $allTotal * 0.2;
                             ?>
                             @empty
                             <div style="text-align: center;">No Item added</div>
@@ -201,8 +203,16 @@
                     <div class="minicart-pricing-box">
                         <ul>
                             <li class="total">
-                                <span>total</span>
+                                <span>Sub total</span>
                                 <span><strong style="color: #f195ab !important;">&pound;{{ number_format((float)$allTotal, 2, '.', '') }}</strong></span>
+                            </li>
+                            <li class="total">
+                                <span>VAT (20%)</span>
+                                <span><strong style="color: #f195ab !important;">&pound;{{ number_format($VAT, 2, '.', '') }}</strong></span>
+                            </li>
+                            <li class="total">
+                                <span>total</span>
+                                <span><strong style="color: #f195ab !important;">&pound;{{ number_format((float)$allTotal + $VAT, 2, '.', '') }}</strong></span>
                             </li>
                         </ul>
                     </div>

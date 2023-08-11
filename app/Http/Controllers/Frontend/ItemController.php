@@ -76,7 +76,7 @@ class ItemController extends Controller
     {
       if(Auth::check())
       {
-        $cart = Cart::where('id',Auth::user()->id)->where('item_id',$request->item_id)->first();
+        $cart = Cart::where('user_id',Auth::user()->id)->where('item_id',$request->item_id)->first();
         $cart->delete();
       }else{
         $cart = $request->session()->get('cart');

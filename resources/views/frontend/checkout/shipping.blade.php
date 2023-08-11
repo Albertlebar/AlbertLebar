@@ -26,7 +26,7 @@
                         <!-- <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">       -->
                         <input type="text" name="shipping_address_first_name" class="form-control"
                             id="shipping_address_first_name" placeholder="name@example.com"
-                            value="{{ old('shipping_address_first_name') }}">
+                            value="{{ $user->f_name }}">
                         <label for="floatingInput required">First Name</label>
                     </div>
                 </div>
@@ -34,42 +34,42 @@
                     <div class="form-floating mb-3">
                         <input type="text" name="shipping_address_last_name" class="form-control"
                             id="shipping_address_last_name" placeholder="name@example.com"
-                            value="{{ old('shipping_address_last_name') }}">
+                            value="{{ $user->l_name }}">
                         <label for="floatingInput required">Last Name</label>
                     </div>
                 </div>
                 <div class="col-lg-12 col-12">
                     <div class="form-floating mb-3">
                         <input type="text" name="shipping_address_1" class="form-control" id="shipping_address_1"
-                            placeholder="name@example.com" value="{{ old('shipping_address_1') }}">
+                            placeholder="name@example.com" value="{{ $user->address_field_1 }}">
                         <label for="floatingInput required">Address Line 1</label>
                     </div>
                 </div>
                 <div class="col-lg-12 col-12">
                     <div class="form-floating mb-3">
                         <input type="text" name="shipping_address_2" class="form-control" id="shipping_address_2"
-                            placeholder="name@example.com" value="{{ old('shipping_address_2') }}">
+                            placeholder="name@example.com" value="{{ $user->address_field_2 }}">
                         <label for="floatingInput required">Address Line 2</label>
                     </div>
                 </div>
                 <div class="col-lg-4 col-12">
                     <div class="form-floating mb-3">
                         <input type="text" name="shipping_country" class="form-control" id="shipping_country"
-                            placeholder="name@example.com" value="{{ old('shipping_country') }}">
+                            placeholder="name@example.com" value="{{ $user->country }}">
                         <label for="floatingInput required">Country</label>
                     </div>
                 </div>
                 <div class="col-lg-4 col-6">
                     <div class="form-floating mb-3">
                         <input type="text" name="shipping_city" class="form-control" id="shipping_city"
-                            placeholder="name@example.com" value="{{ old('shipping_city') }}">
+                            placeholder="name@example.com" value="{{ $user->city }}">
                         <label for="floatingInput required">City</label>
                     </div>
                 </div>
                 <div class="col-lg-4   col-6">
                     <div class="form-floating mb-3">
                         <input type="text" name="shipping_postcode" class="form-control" id="shipping_postcode"
-                            placeholder="name@example.com" value="{{ old('shipping_postcode') }}">
+                            placeholder="name@example.com" value="{{ $user->postcode }}">
                         <label for="floatingInput required">Postcode</label>
                     </div>
                 </div>

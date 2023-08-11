@@ -33,6 +33,7 @@
                   <tbody>
                     <?php
                     $allTotal = 0;
+                    $VAT = 0;
                     ?>
                     @if($cartItem)
                     @foreach($cartItem as $id=>$item)
@@ -50,9 +51,10 @@
                       <?php
                         $Total = $item['quantity'] * $item['price'];
                         $allTotal = $allTotal + $Total;
+                        $VAT = $allTotal * 0.2;
                       ?>
                       <td class="pro-subtotal"><span class="money" data-currency-usd="$160.00">&pound;{{ number_format((float)$Total, 2, '.', '') }}</span></td>
-                      <td class="pro-remove"><a href="javascript:void(0)" data-id="{{ $id }}" class="remove-item-cart"><i class="pe-7s-trash"></i></a></td>
+                      <td class="pro-remove"><a href="javascript:void(0)" data-id="{{ $item['item_id'] }}" class="remove-item-cart"><i class="pe-7s-trash"></i></a></td>
                     </tr>
                     @endforeach
                     @endif
@@ -67,17 +69,26 @@
         <div class="col-lg-5 ms-auto">
           <div class="cart-calculator-wrapper">
                 <div class="cart-total p-0 cart-calculate-items">
-                  <h6>Cart Totals</h6>
+                  <!-- <h6>Cart Totals</h6> -->
                   <div class="table-responsive">
                   <table class="table">
                     <tbody>
                       <tr class="cart-subtotal">
-                        
+                        <td>Sub Total</td>
+                        <td>
+                          <strong><span class="amount"><span id="bk-cart-subtotal-price"><span class="money" >&pound;{{ number_format((float)$allTotal, 2, '.', '') }}</span></span></span></strong>
+                        </td>
+                      </tr>
+                      <tr class="cart-subtotal">
+                        <td>VAT (20%)</td>
+                        <td>
+                          <strong><span class="amount"><span id="bk-cart-subtotal-price"><span class="money" >&pound;{{ number_format((float)$VAT, 2, '.', '') }}</span></span></span></strong>
+                        </td>
                       </tr>
                       <tr class="order-total">
                         <td>Total</td>
                         <td>
-                          <strong><span class="amount"><span id="bk-cart-subtotal-price"><span class="money" >&pound;{{ number_format((float)$allTotal, 2, '.', '') }}</span></span></span></strong>
+                          <strong><span class="amount"><span id="bk-cart-subtotal-price"><span class="money" >&pound;{{ number_format((float)$allTotal + $VAT, 2, '.', '') }}</span></span></span></strong>
                         </td>
                       </tr>                                         
                     </tbody>
