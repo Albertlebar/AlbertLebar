@@ -1,6 +1,12 @@
 @extends('frontend.layouts.master')  
 @section('title',
-'Item') @section('content') <!-- page main wrapper start --> <div
+'Item') @section('content') <!-- page main wrapper start --> 
+<?php 
+    $metalType = explode(',', request()->get('metal_type'));
+    $metalColour = explode(',', request()->get('metal_colour'));
+    $sort = explode(',', request()->get('sort'));
+?>
+<div
 class="shop-main-wrapper section-padding pb-0 pt-0"> <div
 class="container-fluid">
 
@@ -22,7 +28,7 @@ class="container-fluid">
 
                                             <li class="dd-menu-link-1">
                                                 <a href="javascript:void();">
-                                                    <span>Collection</span>
+                                                    <span>Metal Type</span>
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path
@@ -36,28 +42,43 @@ class="container-fluid">
                                                     <ul class="checkbox-container categories-list">
                                                         <li>
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input"
-                                                                    id="customCheck2">
-                                                                <label class="custom-control-label"
-                                                                    for="customCheck2">9K
-                                                                    (3)</label>
+                                                                @if(in_array("0",$metalType))
+                                                                <input type="checkbox" class="custom-control-input" name="metal_type[]" 
+                                                                    id="customCheck2" value="0" checked>
+                                                                @else
+                                                                <input type="checkbox" class="custom-control-input" name="metal_type[]" 
+                                                                    id="customCheck2" value="0">
+                                                                @endif
+                                                                <label class="custom-control-label metal_type"
+                                                                    for="customCheck2" data-value="0">9K
+                                                                    </label>
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input"
-                                                                    id="customCheck3">
-                                                                <label class="custom-control-label"
-                                                                    for="customCheck3">18K
-                                                                    (4)</label>
+                                                                @if(in_array("1",$metalType))
+                                                                <input type="checkbox" class="custom-control-input" name="metal_type[]"
+                                                                    id="customCheck3" value="1" checked>
+                                                                @else
+                                                                <input type="checkbox" class="custom-control-input" name="metal_type[]"
+                                                                    id="customCheck3" value="1">
+                                                                @endif
+                                                                <label class="custom-control-label metal_type"
+                                                                    for="customCheck3" data-value="1">18K
+                                                                    </label>
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="custom-control custom-checkbox">
+                                                                @if(in_array("2",$metalType))
                                                                 <input type="checkbox" class="custom-control-input"
-                                                                    id="customCheck4">
-                                                                <label class="custom-control-label"
-                                                                    for="customCheck4">Platinum (15)</label>
+                                                                    id="customCheck4" name="metal_type[]" value="2" checked>
+                                                                @else
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck4" name="metal_type[]" value="2">
+                                                                @endif
+                                                                <label class="custom-control-label metal_type"
+                                                                    for="customCheck4" data-value="2">Platinum</label>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -65,53 +86,10 @@ class="container-fluid">
 
 
                                             </li>
-                                            <li class="dd-menu-link-2">
-                                                <a href="javascript:void();">
-                                                    <span>Category</span>
-                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M15.39 7.6a.54.54 0 00-.78 0L10 12.21 5.39 7.6a.54.54 0 00-.78 0 .55.55 0 000 .77L10 13.76l5.39-5.39a.55.55 0 000-.77z"
-                                                            fill="currentColor">
-                                                        </path>
-                                                    </svg>
-                                                </a>
-
-                                                <div class="sidebar-body" id="dd-menu-2">
-                                                    <ul class="checkbox-container categories-list">
-                                                        <li>
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input"
-                                                                    id="customCheck22">
-                                                                <label class="custom-control-label"
-                                                                    for="customCheck22">10k</label>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input"
-                                                                    id="customCheck33">
-                                                                <label class="custom-control-label"
-                                                                    for="customCheck33">18K
-                                                                    (4)</label>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input"
-                                                                    id="customCheck44">
-                                                                <label class="custom-control-label"
-                                                                    for="customCheck44">Platinum (15)</label>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-
-
-                                            </li>
+                                            
                                             <li class="dd-menu-link-3">
                                                 <a href="javascript:void();">
-                                                    <span>Material</span>
+                                                    <span>Metal Colour</span>
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path
@@ -125,27 +103,55 @@ class="container-fluid">
                                                     <ul class="checkbox-container categories-list">
                                                         <li>
                                                             <div class="custom-control custom-checkbox">
+                                                                @if(in_array("0",$metalColour))
                                                                 <input type="checkbox" class="custom-control-input"
-                                                                    id="customCheck32">
-                                                                <label class="custom-control-label"
-                                                                    for="customCheck32">30k</label>
+                                                                    id="customCheck32" name="metal_colour[]" value="0" checked>
+                                                                @else
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck32" name="metal_colour[]" value="0">
+                                                                @endif
+                                                                <label class="custom-control-label metal_colour"
+                                                                    for="customCheck32" data-value="0">White</label>
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="custom-control custom-checkbox">
+                                                                @if(in_array("1",$metalColour))
                                                                 <input type="checkbox" class="custom-control-input"
-                                                                    id="customCheck43">
-                                                                <label class="custom-control-label"
-                                                                    for="customCheck43">38K
-                                                                    (4)</label>
+                                                                    id="customCheck43" name="metal_colour[]" value="1" checked>
+                                                                @else
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck43" name="metal_colour[]" value="1">
+                                                                @endif
+                                                                <label class="custom-control-label metal_colour"
+                                                                    for="customCheck43" data-value="1">Yellow
+                                                                    </label>
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="custom-control custom-checkbox">
+                                                                @if(in_array("2",$metalColour))
                                                                 <input type="checkbox" class="custom-control-input"
-                                                                    id="customCheck54">
-                                                                <label class="custom-control-label"
-                                                                    for="customCheck54">3Platinum (15)</label>
+                                                                    id="customCheck54" name="metal_colour[]" value="2" checked>
+                                                                @else
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck54" name="metal_colour[]" value="2">
+                                                                @endif
+                                                                <label class="custom-control-label metal_colour"
+                                                                    for="customCheck54" data-value="2">Red</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="custom-control custom-checkbox">
+                                                                @if(in_array("3",$metalColour))
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck55" name="metal_colour[]" value="3" checked>
+                                                                @else
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck55" name="metal_colour[]" value="3">
+                                                                @endif
+                                                                <label class="custom-control-label metal_colour"
+                                                                    for="customCheck55" data-value="3">Mix</label>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -170,16 +176,13 @@ class="container-fluid">
                                                     <ul class="checkbox-container categories-list">
                                                         <li>
                                                             <div class="custom-control custom-checkbox">
+                                                                @if(in_array('low_high',$sort))
                                                                 <input type="checkbox" class="custom-control-input"
-                                                                    id="customCheck332">
-                                                                <label class="custom-control-label"
-                                                                    for="customCheck332">Recommended</label>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="custom-control custom-checkbox">
+                                                                    id="customCheck443" name="sort[]" value="low_high" checked>
+                                                                @else
                                                                 <input type="checkbox" class="custom-control-input"
-                                                                    id="customCheck443">
+                                                                    id="customCheck443" name="sort[]" value="low_high">
+                                                                @endif
                                                                 <label class="custom-control-label"
                                                                     for="customCheck443">
                                                                     Price low to high
@@ -188,8 +191,13 @@ class="container-fluid">
                                                         </li>
                                                         <li>
                                                             <div class="custom-control custom-checkbox">
+                                                                @if(in_array("high_low",$sort))
                                                                 <input type="checkbox" class="custom-control-input"
-                                                                    id="customCheck554">
+                                                                    id="customCheck554" value="high_low" name="sort[]" checked>
+                                                                @else
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="customCheck554" name="sort[]" value="high_low">
+                                                                @endif
                                                                 <label class="custom-control-label"
                                                                     for="customCheck554">Price high to low</label>
                                                             </div>
@@ -197,6 +205,9 @@ class="container-fluid">
                                                     </ul>
                                                 </div>
 
+                                            </li>
+                                            <li class="ml-3">
+                                                <a href="javascript:void(0)" class="set_filter">Filter</a>
                                             </li>
                                         </div>
 
@@ -443,6 +454,32 @@ $(document).ready(function() {
             $(this).closest('.mega-menu').removeClass('menu-hover-last menu-slide');
             $('.dd-menu-link-last .sidebar-body').removeClass('z-9');
         });
+
+    $('.set_filter').click(function(){
+        var metalType = [];
+        var metalColour = [];
+        var sort = [];
+        // $("#"+$(this).attr('for')).prop("checked",true);
+        $("input[name='metal_type[]']:checked").each(function() {
+            metalType.push($(this).attr('value'));
+            // alert($(this).attr('value'));
+        });
+
+        $("input[name='metal_colour[]']:checked").each(function() {
+            metalColour.push($(this).attr('value'));
+            // alert($(this).attr('value'));
+        });
+
+        $("input[name='sort[]']:checked").each(function() {
+            sort.push($(this).attr('value'));
+            // alert($(this).attr('value'));
+        });
+        // console.log(allVals);
+        set_query_para('metal_type',metalType);
+        set_query_para('metal_colour',metalColour);
+        set_query_para('sort',sort);
+        location.reload();
+    });
 
      function ltrim(str, characters)
 {

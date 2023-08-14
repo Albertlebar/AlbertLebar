@@ -20,19 +20,34 @@ class ItemController extends Controller
       if($request->item_type == 'sale')
       {
         $items = Item::where('is_sale',1)->where('is_active',1);
-      }else{
+      }elseif($request->item_type == 'search' || (isset($request->metal_type) && $request->metal_type != '')){
+        $items = Item::where('item_title','LIKE',"%".$request->search_word."%")
+                    ->orWhere('item_code','LIKE',"%".$request->search_word."%");
+      }
+        else{
         $category = Category::where('title',$request->item_type)->first();
         $items = Item::where('category_id',$category->id)->where('is_active',1);
       }
+      
+      if(isset($request->metal_type) && $request->metal_type != '')
+      {
+        $items = $items->whereIn('metal_type',explode(',', $request->metal_type));
+      }
 
+      if(isset($request->metal_colour) && $request->metal_colour != '')
+      {
+        $items = $items->whereIn('metal_colour',explode(',', $request->metal_colour));
+      }
 
       if ($request->sort == 'low_high') {
-          $items = $items->orderBy('total_retail')->paginate($pagination);
-      } elseif (request()->sort == 'high_low') {
-          $items = $items->orderBy('total_retail', 'desc')->paginate($pagination);
-      } else {
-          $items = $items->paginate($pagination);
+          $items = $items->orderBy('total_retail');
       } 
+      if ($request->sort == 'high_low') {
+          $items = $items->orderBy('total_retail', 'desc');
+      }
+
+      $items = $items->paginate($pagination);
+
       return View::make('frontend.item.list', compact('items'));
    }
 

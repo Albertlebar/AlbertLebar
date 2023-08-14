@@ -6083,7 +6083,7 @@ blockquote {
 }
 .contact-block li a:hover {
   color: #f195ab;
-  letter-spacing: 1.1px;
+  /*letter-spacing: 1.1px;*/
 }
 
 .info-list {

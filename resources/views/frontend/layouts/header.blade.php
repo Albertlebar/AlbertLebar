@@ -175,7 +175,7 @@
                 <!-- search box start -->
                 <div class="search-box-offcanvas">
                     <form>
-                        <input type="text" placeholder="Search Here...">
+                        <input type="text" id="search_data" placeholder="Search Here...">
                         <button class="search-btn"><i class="pe-7s-search"></i></button>
                     </form>
                 </div>
