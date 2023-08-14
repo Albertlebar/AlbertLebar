@@ -8,6 +8,7 @@
 	if(Auth::check())
       {
         $cartItem = App\Models\Cart::join('items','carts.item_id','items.id')->join('item_images','carts.item_id','item_images.item_id')->where('is_main_image',1)->where('user_id',Auth::user()->id)->get()->toArray();
+        $fav = App\Models\Favorite::where('user_id',Auth::user()->id)->get()->toArray();
         // echo "<pre>";
         // print_r($cartItem);
         // die; 

@@ -257,9 +257,15 @@ class="container-fluid">
                                             @endif
                                         </a>
                                         <div class="button-group">
-                                            <a style="color: #f195ab;" href="javascript:void(0);"
-                                                data-bs-toggle="tooltip" data-bs-placement="left"><i
-                                                    class="pe-7s-like"></i></a>
+                                            @if(count($item->itemFavorite) > 0)
+                                            <a style="color: #f195ab;" data-id="{{ $item->id }}" class="unfavorite" href="javascript:void(0);"
+                                                data-bs-toggle="tooltip" data-bs-placement="left"><i class="fa fa-heart"></i>
+                                            </a>
+                                            @else
+                                            <a style="color: #f195ab;" data-id="{{ $item->id }}" class="favorite" href="javascript:void(0);"
+                                                data-bs-toggle="tooltip" data-bs-placement="left"><i class="pe-7s-like"></i>
+                                            </a>
+                                            @endif
                                             <!-- <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details" id="quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a> -->
                                         </div>
                                         <!-- <div class="cart-hover">
@@ -291,9 +297,15 @@ class="container-fluid">
                                             @endif
                                         </a>
                                         <div class="button-group">
-                                            <a style="color: #f195ab;" href="javascript:void(0);"
-                                                data-bs-toggle="tooltip" data-bs-placement="left"><i
-                                                    class="pe-7s-like"></i></a>
+                                            @if(count($item->itemFavorite) > 0)
+                                            <a style="color: #f195ab;" data-id="{{ $item->id }}" class="unfavorite" href="javascript:void(0);"
+                                                data-bs-toggle="tooltip" data-bs-placement="left"><i class="fa fa-heart"></i>
+                                            </a>
+                                            @else
+                                            <a style="color: #f195ab;" data-id="{{ $item->id }}" class="favorite" href="javascript:void(0);"
+                                                data-bs-toggle="tooltip" data-bs-placement="left"><i class="pe-7s-like"></i>
+                                            </a>
+                                            @endif
                                             <!-- <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details" id="quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a> -->
                                         </div>
                                         <!-- <div class="cart-hover">
@@ -551,6 +563,52 @@ function escapeRegExp(str)
         var sortBy = $("#sort-by :selected").val();
         set_query_para('sort',sortBy);
         location.reload();
+    });
+
+    $('.favorite').on('click',function(){
+        var itemId = $(this).attr('data-id');
+        // alert(itemId);
+         // $(this).find('i').removeClass('pe-7s-like');
+         //        $(this).find('i').addClass('fa fa-heart');
+         //        $(this).removeClass('favorite');
+         //        $(this).addClass('unfavorite')
+        $.ajax({
+            url: 'favorite',
+            data:{'item_id' : itemId,'_token':"{{csrf_token()}}"},
+            dataType: 'json',
+            type: 'POST',
+            success: function(data) {
+               
+                location.reload(true); // show bootstrap modal
+            },
+            error: function(result) {
+                $("#quick_view_item_details").html("Sorry Cannot Load Data");
+            }
+          
+        });
+    });
+
+    $('.unfavorite').on('click',function(){
+        var itemId = $(this).attr('data-id');
+        // alert(itemId);
+        // $(this).find('i').removeClass('fa fa-heart');
+        // $(this).find('i').addClass('pe-7s-like');
+        // $(this).addClass('favorite');
+        // $(this).removeClass('unfavorite');
+        $.ajax({
+            url: 'unfavorite',
+            data:{'item_id' : itemId,'_token':"{{csrf_token()}}"},
+            dataType: 'json',
+            type: 'POST',
+            success: function(data) {
+                
+                location.reload(true); // show bootstrap modal
+            },
+            error: function(result) {
+                $("#quick_view_item_details").html("Sorry Cannot Load Data");
+            }
+          
+        });
     });
 
     $(document).on("click", ".add-to-cart", function(e) {

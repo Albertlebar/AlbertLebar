@@ -10,6 +10,7 @@ use View;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Cart;
 use App\Models\ItemStock;
+use App\Models\Favorite;
 
 class ItemController extends Controller
 {
@@ -22,9 +23,13 @@ class ItemController extends Controller
         $items = Item::where('is_sale',1)->where('is_active',1);
       }elseif($request->item_type == 'search' || (isset($request->metal_type) && $request->metal_type != '')){
         $items = Item::where('item_title','LIKE',"%".$request->search_word."%")
-                    ->orWhere('item_code','LIKE',"%".$request->search_word."%");
-      }
-        else{
+                    ->orWhere('item_code','LIKE',"%".$request->search_word."%")->where('is_active',1);
+      }elseif ($request->item_type == 'favorite') {
+        // echo "yess";
+        // die;
+        $items = Item::Join('favorites','favorites.item_id','=','items.id')->where('favorites.user_id',Auth::user()->id)->whereNull('favorites.deleted_at')->where('items.is_active',1);  
+        // $items = Favorite::join('items','favorites.item_id','=','items.id')->where('favorites.user_id',Auth::user()->id)->where('items.is_active',1);
+      }else{
         $category = Category::where('title',$request->item_type)->first();
         $items = Item::where('category_id',$category->id)->where('is_active',1);
       }
@@ -105,5 +110,23 @@ class ItemController extends Controller
     public function sizeGuide()
     {
       return view('frontend.item.size_guide');
+    }
+
+    public function favorite(Request $request)
+    {
+      $favorite = new Favorite();
+      $favorite->user_id = Auth::user()->id;
+      $favorite->item_id = $request->item_id;
+      $favorite->save();
+
+      return true;
+    }
+
+    public function unfavorite(Request $request)
+    {
+      $favorite = Favorite::where('item_id',$request->item_id)->where('user_id',Auth::user()->id);
+      $favorite->delete();
+
+      return true;
     }
 }

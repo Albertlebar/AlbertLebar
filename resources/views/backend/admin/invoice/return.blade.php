@@ -19,8 +19,19 @@
             </thead>
             <tbody>
                 @foreach($invoiceDetails->orderItem as $id=>$item)
-                <tr>
-                <td><input type="checkbox" id="{{ $item->id }} " value="{{ $item->id }}" name="ids[]" /></td>
+                <?php
+                    $colors = '';
+                    if($item->return_quantity > 0)
+                    {
+                        $colors = 'red';
+                    }
+                ?>
+                <tr style="color: {{ $colors }}">
+                <td>
+                    @if($item->quantity > 0)
+                    <input type="checkbox" id="{{ $item->id }} " value="{{ $item->id }}" name="ids[]" />
+                    @endif
+                </td>
                 <td>{{ $item->itemDetails->item_code }} </td>
                   <td class="pro-thumbnail"><img width="80px;" height="80px" src="{{asset($item->itemDetails->photo_0)}}"></td>
                   <td class="pro-title">

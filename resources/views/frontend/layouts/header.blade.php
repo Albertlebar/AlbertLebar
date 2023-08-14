@@ -99,12 +99,14 @@
                                         </ul>
                                         @endguest
                                     </li>
+                                    @if(Auth::check())
                                     <li>
-                                        <a href="javascript:void(0)">
+                                        <a href="{{ URL::to('item/favorite') }}">
                                             <i class="pe-7s-like"></i>
-                                            <div class="notification">0</div>
+                                            <div class="notification">{{ count($fav) }}</div>
                                         </a>
                                     </li>
+                                    @endif
                                     <li>
                                         <a href="javascript:void(0)" class="minicart-btn">
                                             <i class="pe-7s-shopbag"></i>

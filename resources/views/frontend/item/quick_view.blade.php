@@ -63,7 +63,7 @@
                                     {!! Form::select('item_size', $itemSize ?? [],  '', ['class' => 'form-control dropdown-select','data-control'=>"select2", 'id'=>'item-size']) !!}
                                 </div>
                                 @if($item->category->title == 'Ring')
-                                <a class="ml-1" title="Size Guide" target="_blank" href="{{ URL :: to('/item/size/guide')}}" style="color: #f195ab;">?</a>
+                                <a class="ml-1" title="Size Guide" target="_blank" href="{{ URL :: to('/item/size/guide')}}" style="color: #f195ab;">size guide</a>
                                 @endif
                             </div>
                             <div class="quantity-cart-box d-flex align-items-center">
@@ -88,9 +88,15 @@
                                     <a style="background: #f195ab !important; color: black !important;" class="btn btn-cart add-to-cart" item-id="{{ $item->id }}" href="javascript:void(0)"><strong>Add to cart</strong></a>
                                 </div>
                                 <div class="ml-2" style="width: 50px;margin-top: 10px;">
-                                    <a style="color: #f195ab;" href="javascript:void(0);"
-                                                data-bs-toggle="tooltip" data-bs-placement="left"><i
-                                                    class="pe-7s-like"></i></a>
+                                    @if(count($item->itemFavorite) > 0)
+                                    <a style="color: #f195ab;" data-id="{{ $item->id }}" class="unfavorite" href="javascript:void(0);"
+                                        data-bs-toggle="tooltip" data-bs-placement="left"><i class="fa fa-heart"></i>
+                                    </a>
+                                    @else
+                                    <a style="color: #f195ab;" data-id="{{ $item->id }}" class="favorite" href="javascript:void(0);"
+                                        data-bs-toggle="tooltip" data-bs-placement="left"><i class="pe-7s-like"></i>
+                                    </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -112,5 +118,51 @@
     $(".fa-plus-circle").click(function(event) {
        var qty = $('#item-qty').val();
        $('#item-qty').val(parseInt(qty) + 1);
+    });
+
+    $('.favorite').on('click',function(){
+        var itemId = $(this).attr('data-id');
+        // alert(itemId);
+         // $(this).find('i').removeClass('pe-7s-like');
+         //        $(this).find('i').addClass('fa fa-heart');
+         //        $(this).removeClass('favorite');
+         //        $(this).addClass('unfavorite')
+        $.ajax({
+            url: 'favorite',
+            data:{'item_id' : itemId,'_token':"{{csrf_token()}}"},
+            dataType: 'json',
+            type: 'POST',
+            success: function(data) {
+               
+                location.reload(true); // show bootstrap modal
+            },
+            error: function(result) {
+                $("#quick_view_item_details").html("Sorry Cannot Load Data");
+            }
+          
+        });
+    });
+
+    $('.unfavorite').on('click',function(){
+        var itemId = $(this).attr('data-id');
+        // alert(itemId);
+        // $(this).find('i').removeClass('fa fa-heart');
+        // $(this).find('i').addClass('pe-7s-like');
+        // $(this).addClass('favorite');
+        // $(this).removeClass('unfavorite');
+        $.ajax({
+            url: 'unfavorite',
+            data:{'item_id' : itemId,'_token':"{{csrf_token()}}"},
+            dataType: 'json',
+            type: 'POST',
+            success: function(data) {
+                
+                location.reload(true); // show bootstrap modal
+            },
+            error: function(result) {
+                $("#quick_view_item_details").html("Sorry Cannot Load Data");
+            }
+          
+        });
     });
 </script>

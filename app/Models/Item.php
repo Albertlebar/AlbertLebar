@@ -4,8 +4,10 @@ namespace App\Models;
 
 use App\Models\Category;
 use App\Models\ItemImage;
+use App\Models\Favorite;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Item extends Model
@@ -35,5 +37,10 @@ class Item extends Model
     public function itemSize()
     {
         return $this->hasMany(ItemStock::class, 'item_id','id');
+    }
+
+    public function itemFavorite()
+    {
+        return $this->hasMany(Favorite::class, 'item_id','id')->where('user_id',Auth::user()->id);
     }
 }

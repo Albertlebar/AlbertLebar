@@ -297,9 +297,17 @@ class InvoiceController extends Controller
           $invoiceItem = InvoiceItem::find($value);
           $invoiceItem->quantity = $invoiceItem->quantity - $request->quantity[$value];
           $invoiceItem->return_quantity = $request->quantity[$value];
+          $invoice = Invoice::find($invoiceItem->invoice_id);
+          $invoice->sub_total = $invoice->sub_total - $invoiceItem->price;
+          $invoice->vat = $invoice->sub_total * 0.20;
+          $invoice->order_total = $invoice->sub_total + $invoice->vat;
+          $invoice->save();
+          $invoiceItem->price = 0;
           $invoiceItem->save();
         }
       }
+
+
       return response()->json(['type' => 'success', 'message' => "Successfully Updated"]);
     }
 }

@@ -22,4 +22,6 @@ Route::middleware('auth')->group(function ()
 	Route::post('checkout/shipping','CheckoutController@saveShipping');
 	Route::post('stripe', 'CheckoutController@stripePost')->name('stripe.post');
 	Route::get('checkout/payment/{order_id}', 'CheckoutController@payment')->name('checkout.payment');
+	Route::post('item/favorite','ItemController@favorite');
+	Route::post('item/unfavorite','ItemController@unfavorite');
 });
