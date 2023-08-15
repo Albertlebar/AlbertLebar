@@ -257,6 +257,7 @@ class="container-fluid">
                                             @endif
                                         </a>
                                         <div class="button-group">
+                                            @if(Auth::check())
                                             @if(count($item->itemFavorite) > 0)
                                             <a style="color: #f195ab;" data-id="{{ $item->id }}" class="unfavorite" href="javascript:void(0);"
                                                 data-bs-toggle="tooltip" data-bs-placement="left"><i class="fa fa-heart"></i>
@@ -265,6 +266,7 @@ class="container-fluid">
                                             <a style="color: #f195ab;" data-id="{{ $item->id }}" class="favorite" href="javascript:void(0);"
                                                 data-bs-toggle="tooltip" data-bs-placement="left"><i class="pe-7s-like"></i>
                                             </a>
+                                            @endif
                                             @endif
                                             <!-- <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details" id="quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a> -->
                                         </div>
@@ -297,14 +299,16 @@ class="container-fluid">
                                             @endif
                                         </a>
                                         <div class="button-group">
-                                            @if(count($item->itemFavorite) > 0)
-                                            <a style="color: #f195ab;" data-id="{{ $item->id }}" class="unfavorite" href="javascript:void(0);"
-                                                data-bs-toggle="tooltip" data-bs-placement="left"><i class="fa fa-heart"></i>
-                                            </a>
-                                            @else
-                                            <a style="color: #f195ab;" data-id="{{ $item->id }}" class="favorite" href="javascript:void(0);"
-                                                data-bs-toggle="tooltip" data-bs-placement="left"><i class="pe-7s-like"></i>
-                                            </a>
+                                            @if(Auth::check())
+                                                @if(count($item->itemFavorite) > 0)
+                                                <a style="color: #f195ab;" data-id="{{ $item->id }}" class="unfavorite" href="javascript:void(0);"
+                                                    data-bs-toggle="tooltip" data-bs-placement="left"><i class="fa fa-heart"></i>
+                                                </a>
+                                                @else
+                                                <a style="color: #f195ab;" data-id="{{ $item->id }}" class="favorite" href="javascript:void(0);"
+                                                    data-bs-toggle="tooltip" data-bs-placement="left"><i class="pe-7s-like"></i>
+                                                </a>
+                                                @endif
                                             @endif
                                             <!-- <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details" id="quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a> -->
                                         </div>

@@ -88,6 +88,7 @@
                                     <a style="background: #f195ab !important; color: black !important;" class="btn btn-cart add-to-cart" item-id="{{ $item->id }}" href="javascript:void(0)"><strong>Add to cart</strong></a>
                                 </div>
                                 <div class="ml-2" style="width: 50px;margin-top: 10px;">
+                                    @if(Auth::check())
                                     @if(count($item->itemFavorite) > 0)
                                     <a style="color: #f195ab;" data-id="{{ $item->id }}" class="unfavorite" href="javascript:void(0);"
                                         data-bs-toggle="tooltip" data-bs-placement="left"><i class="fa fa-heart"></i>
@@ -96,6 +97,7 @@
                                     <a style="color: #f195ab;" data-id="{{ $item->id }}" class="favorite" href="javascript:void(0);"
                                         data-bs-toggle="tooltip" data-bs-placement="left"><i class="pe-7s-like"></i>
                                     </a>
+                                    @endif
                                     @endif
                                 </div>
                             </div>
