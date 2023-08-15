@@ -68,5 +68,17 @@ return [
         '0' => 'Pending',
         '1' => 'Posted',
         '2' => 'Collected',
-    ]
+    ],
+
+    'appointment_type' => [
+        '0' => 'Face to Face',
+        '1' => 'Call',
+    ],
+
+    'appointment_status' => [
+        '0' => 'Pending',
+        '1' => 'Approved',
+        '2' => 'Not Approved',
+        '3' => 'Success',
+    ],
 ];

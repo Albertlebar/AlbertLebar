@@ -8,6 +8,7 @@ use App\Models\Role;
 use App\Models\User;
 use App\Models\Invoice;
 use App\Models\InvoiceItem;
+use App\Models\ItemStock;
 
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
@@ -133,6 +134,13 @@ class InvoiceController extends Controller
           $orderItem->size = $request->size[$value] ?? NULL;
           $orderItem->price = $request->total_item_price[$value];
           $orderItem->save();
+
+          $itemStock = ItemStock::where('item_id',$orderItem->item_id)->where('size',$orderItem->size)->first();
+          if(isset($itemStock))
+          {
+            $itemStock->stock = $itemStock->stock - $request->qty[$value];
+            $itemStock->save();  
+          }
           // $item->delete();
         }
         $returnURL = URL::to('/admin/invoice');
@@ -219,11 +227,25 @@ class InvoiceController extends Controller
                 {
                     foreach ($request->old_item_id as $key => $value) 
                     {
-                        $itemStock = InvoiceItem::find($key);
-                        // $itemStock->size = $value;
-                        $itemStock->quantity = $request->old_qty[$key];
-                        $itemStock->price = $request->old_total_item_price[$key];
-                        $itemStock->save();
+                      $itemStock = InvoiceItem::find($key);
+                      // $itemStock->size = $value;
+                      $updateItemQuantity = ItemStock::where('item_id',$itemStock->item_id)->where('size',$itemStock->size)->first();
+                      if(isset($updateItemQuantity))
+                      {
+                        $updateItemQuantity->stock = $updateItemQuantity->stock + $itemStock->quantity;
+                        $updateItemQuantity->save();
+                      }
+
+                      $itemStock->quantity = $request->old_qty[$key];
+                      $itemStock->price = $request->old_total_item_price[$key];
+                      $itemStock->save();
+
+                      if(isset($updateItemQuantity))
+                      {
+                        $updateItemQuantity->stock = $updateItemQuantity->stock - $itemStock->quantity;
+                        $updateItemQuantity->save();
+                      }
+
                     }
                     $itemStockDelete = InvoiceItem::where('invoice_id',$invoice->id)->whereNotIn('id',array_keys($request->old_item_id))->delete();
                 }
@@ -238,6 +260,13 @@ class InvoiceController extends Controller
                       $orderItem->size = $request->size[$value] ?? NULL;
                       $orderItem->price = $request->total_item_price[$value];
                       $orderItem->save();
+
+                      $itemStock = ItemStock::where('item_id',$orderItem->item_id)->where('size',$orderItem->size)->first();
+                      if(isset($itemStock))
+                      {
+                        $itemStock->stock = $itemStock->stock - $request->qty[$value];
+                        $itemStock->save();  
+                      }
                       // $item->delete();
                     }
                 }
@@ -295,6 +324,12 @@ class InvoiceController extends Controller
       {
         foreach ($request->ids as $key => $value) {
           $invoiceItem = InvoiceItem::find($value);
+          $updateItemQuantity = ItemStock::where('item_id',$invoiceItem->item_id)->where('size',$invoiceItem->size)->first();
+          if(isset($updateItemQuantity))
+          {
+            $updateItemQuantity->stock = $updateItemQuantity->stock + $invoiceItem->quantity;
+            $updateItemQuantity->save();
+          }
           $invoiceItem->quantity = $invoiceItem->quantity - $request->quantity[$value];
           $invoiceItem->return_quantity = $request->quantity[$value];
           $invoice = Invoice::find($invoiceItem->invoice_id);

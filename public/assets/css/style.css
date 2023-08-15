@@ -6641,3 +6641,10 @@ font-family:Arial;
   width: 200px;
   border-bottom: 0.3px solid #f195ab;
 }
+
+@media screen and (min-width: 1500px) {
+  .service-policy.section-padding.shop-main-wrapper {
+    position: relative;
+    top: 30px;
+  }
+}

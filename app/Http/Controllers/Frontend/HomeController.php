@@ -86,9 +86,17 @@ class HomeController extends Controller
                $appointment->email = $request->input('email');
                $appointment->phone_number = $request->input('phone_number');
                $appointment->appointment_type = $request->input('appointment_type');
+               $appointment->status = 0;
                $appointment->appointment_date = \DateTime::createFromFormat('d/m/Y H:i:s', $request->input('appointment_date').' '.date('H:i:s'));
                $appointment->notes = $request->input('notes');
                $appointment->save();
+
+               $details = [
+                  'title' => 'Appointment Registration From ALBERT LEBAR',
+                  'details' => $appointment
+              ];
+              \Mail::to($appointment->email)->send(new \App\Mail\AppointmentMail($details));
+
                DB::commit();
                return response()->json(['type' => 'success', 'message' => "Successfully Created"]);
 

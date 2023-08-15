@@ -150,6 +150,12 @@ class AppointmentController extends Controller
            $appointment->status = $request->input('status');
            $appointment->save();
 
+           $details = [
+                'title' => 'Appointment' . ' ' .config('params.appointment_status')[$appointment->status] . ' ' . 'From ALBERT LEBAR',
+                'details' => $appointment
+            ];
+            \Mail::to($appointment->email)->send(new \App\Mail\AppointmentMail($details));
+
            DB::commit();
            return response()->json(['type' => 'success', 'message' => "Successfully Updated"]);
 
