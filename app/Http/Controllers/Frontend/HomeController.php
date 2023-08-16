@@ -26,7 +26,9 @@ class HomeController extends Controller
 
    public function index()
    {
-      $items = Item::latest()->limit(8)->get();
+      // $items = Item::latest()->limit(8)->get();
+      $items = Item::where('best_seller',1)->get();
+      
       return View::make('frontend.index',compact('items'));
    }
 

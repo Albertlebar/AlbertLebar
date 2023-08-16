@@ -73,10 +73,10 @@
 
 	// hero slider active js
 	$('.hero-slider-active').slick({
-		fade: true,
+		fade: false,
 		speed: 1000,
 		dots: false,
-		autoplay: true,
+		autoplay: false,
 		prevArrow: '<button type="button" class="slick-prev"><i class="pe-7s-angle-left"></i></button>',
 		nextArrow: '<button type="button" class="slick-next"><i class="pe-7s-angle-right"></i></button>',
 		responsive: [{

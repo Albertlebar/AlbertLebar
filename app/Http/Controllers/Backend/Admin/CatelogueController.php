@@ -382,7 +382,7 @@ class CatelogueController extends Controller
                if ($request->file('photo_0')->isValid()) {
                   $destinationPath = public_path('assets/images/items/');
                   $extension = $request->file('photo_0')->getClientOriginalExtension();
-                  $fileName = time() . '.' . $extension;
+                  $fileName = time() . '0' . '.' . $extension;
                   $file_path_0 = 'assets/images/items/' . $fileName;
                   $request->file('photo_0')->move($destinationPath, $fileName);
                } else {
@@ -397,7 +397,7 @@ class CatelogueController extends Controller
                if ($request->file('photo_1')->isValid()) {
                   $destinationPath = public_path('assets/images/items/');
                   $extension = $request->file('photo_1')->getClientOriginalExtension();
-                  $fileName = time() . '.' . $extension;
+                  $fileName = time() . '1' . '.' . $extension;
                   $file_path_1 = 'assets/images/items/' . $fileName;
                   $request->file('photo_1')->move($destinationPath, $fileName);
                } else {
@@ -412,7 +412,7 @@ class CatelogueController extends Controller
                if ($request->file('photo_2')->isValid()) {
                   $destinationPath = public_path('assets/images/items/');
                   $extension = $request->file('photo_2')->getClientOriginalExtension();
-                  $fileName = time() . '.' . $extension;
+                  $fileName = time(). '2' . '.' . $extension;
                   $file_path_2 = 'assets/images/items/' . $fileName;
                   $request->file('photo_2')->move($destinationPath, $fileName);
                } else {
@@ -427,7 +427,7 @@ class CatelogueController extends Controller
                if ($request->file('photo_3')->isValid()) {
                   $destinationPath = public_path('assets/images/items/');
                   $extension = $request->file('photo_3')->getClientOriginalExtension();
-                  $fileName = time() . '.' . $extension;
+                  $fileName = time() . '3' . '.' . $extension;
                   $file_path_3 = 'assets/images/items/' . $fileName;
                   $request->file('photo_3')->move($destinationPath, $fileName);
                } else {

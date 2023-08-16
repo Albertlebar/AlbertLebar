@@ -207,7 +207,7 @@ class="container-fluid">
 
                                             </li>
                                             <li class="ml-3">
-                                                <a href="javascript:void(0)" class="set_filter">Filter</a>
+                                                <strong><a style="background: #f195ab; color: white" href="javascript:void(0)" class="badge set_filter">Filter</a></strong>
                                             </li>
                                         </div>
 
@@ -240,21 +240,6 @@ class="container-fluid">
                                                 src="{{asset($item->photo_0)}}"
                                                 alt="product">
                                             @endif
-                                            @if(!empty($item->photo_1))
-                                                <img class="sec-img"
-                                                src="{{asset($item->photo_1) }}"
-                                                alt="product">
-                                            @endif
-                                            @if(!empty($item->photo_2))
-                                                <img class="sec-img"
-                                                src="{{asset($item->photo_2) }}"
-                                                alt="product">
-                                            @endif
-                                            @if(!empty($item->photo_3))
-                                                <img class="sec-img"
-                                                src="{{asset($item->photo_3) }}"
-                                                alt="product">
-                                            @endif
                                         </a>
                                         <div class="button-group">
                                             @if(Auth::check())
@@ -277,23 +262,62 @@ class="container-fluid">
                                     <figure class="product-thumb mb-0">
                                         <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details"
                                             href="javascript:void(0);">
-                                            @if(!empty($item->photo_0))
-                                                <img class="pri-img"
-                                                src="{{asset($item->photo_0)}}"
-                                                alt="product">
-                                            @endif
                                             @if(!empty($item->photo_1))
-                                                <img class="sec-img"
+                                                <img class=""
                                                 src="{{asset($item->photo_1) }}"
                                                 alt="product">
                                             @endif
+                                        </a>
+                                        <div class="button-group">
+                                            @if(Auth::check())
+                                                @if(count($item->itemFavorite) > 0)
+                                                <a style="color: #f195ab;" data-id="{{ $item->id }}" class="unfavorite" href="javascript:void(0);"
+                                                    data-bs-toggle="tooltip" data-bs-placement="left"><i class="fa fa-heart"></i>
+                                                </a>
+                                                @else
+                                                <a style="color: #f195ab;" data-id="{{ $item->id }}" class="favorite" href="javascript:void(0);"
+                                                    data-bs-toggle="tooltip" data-bs-placement="left"><i class="pe-7s-like"></i>
+                                                </a>
+                                                @endif
+                                            @endif
+                                            <!-- <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details" id="quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a> -->
+                                        </div>
+                                        <!-- <div class="cart-hover">
+                                                <button class="btn btn-cart">add to cart</button>
+                                            </div> -->
+                                    </figure>
+                                    <figure class="product-thumb mb-0">
+                                        <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details"
+                                            href="javascript:void(0);">
                                             @if(!empty($item->photo_2))
-                                                <img class="sec-img"
+                                                <img class=""
                                                 src="{{asset($item->photo_2) }}"
                                                 alt="product">
                                             @endif
+                                        </a>
+                                        <div class="button-group">
+                                            @if(Auth::check())
+                                                @if(count($item->itemFavorite) > 0)
+                                                <a style="color: #f195ab;" data-id="{{ $item->id }}" class="unfavorite" href="javascript:void(0);"
+                                                    data-bs-toggle="tooltip" data-bs-placement="left"><i class="fa fa-heart"></i>
+                                                </a>
+                                                @else
+                                                <a style="color: #f195ab;" data-id="{{ $item->id }}" class="favorite" href="javascript:void(0);"
+                                                    data-bs-toggle="tooltip" data-bs-placement="left"><i class="pe-7s-like"></i>
+                                                </a>
+                                                @endif
+                                            @endif
+                                            <!-- <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details" id="quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a> -->
+                                        </div>
+                                        <!-- <div class="cart-hover">
+                                                <button class="btn btn-cart">add to cart</button>
+                                            </div> -->
+                                    </figure>
+                                    <figure class="product-thumb mb-0">
+                                        <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details"
+                                            href="javascript:void(0);">
                                             @if(!empty($item->photo_3))
-                                                <img class="sec-img"
+                                                <img class=""
                                                 src="{{asset($item->photo_3) }}"
                                                 alt="product">
                                             @endif

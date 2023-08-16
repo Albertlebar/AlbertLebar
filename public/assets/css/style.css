@@ -3260,8 +3260,8 @@ textarea:focus {
   visibility: visible;
 }
 .product-item:hover .product-thumb .pri-img, .product-list-item:hover .product-thumb .pri-img {
-  opacity: 0;
-  visibility: hidden;
+  /*opacity: 0;
+  visibility: hidden;*/
 }
 .product-item:hover .button-group a, .product-list-item:hover .button-group a {
   opacity: 1;

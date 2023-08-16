@@ -58,13 +58,18 @@
                                 <span style="font-size: 13px;" class="price-regular"  style="color: black;">Measurement: {{ $item->measurement }}</span>
                             </div>
                             <div class="quantity-cart-box d-flex align-items-center">
-                                <h6 class="option-title">Size</h6>
-                                <div class="size">
-                                    {!! Form::select('item_size', $itemSize ?? [],  '', ['class' => 'form-control dropdown-select','data-control'=>"select2", 'id'=>'item-size']) !!}
-                                </div>
-                                @if($item->category->title == 'Ring')
-                                <a class="ml-1" title="Size Guide" target="_blank" href="{{ URL :: to('/item/size/guide')}}" style="color: #f195ab;">size guide</a>
-                                @endif
+                                @if(count($itemSize) > 0)
+                                    <h6 class="option-title">Size</h6>
+                                    <div class="size">
+                                        {!! Form::select('item_size', $itemSize ?? [],  '', ['class' => 'form-control dropdown-select','data-control'=>"select2", 'id'=>'item-size']) !!}
+                                    </div>
+
+                                    @if($item->category->title == 'Ring')
+                                    <a class="ml-1" title="Size Guide" target="_blank" href="{{ URL :: to('/item/size/guide')}}" style="color: #f195ab;">Size Guide</a>
+                                    @endif
+                                @else
+                                    <input type="hidden" name="item_size">
+                                @endif    
                             </div>
                             <div class="quantity-cart-box d-flex align-items-center">
                                 <h6 class="option-title">qty</h6>
