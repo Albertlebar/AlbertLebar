@@ -25,16 +25,17 @@
               <h3 class="login-heading mb-4">Welcome</h3>
 
               <!-- Sign In Form -->
+              <p>By registering on the Lebar website you authorise to store the details you supply.</p>
               <form method="POST" action="{{ route('register') }}" class="validate-form">
                 @csrf
                 <div class="form-floating mb-3 d-flex">
-                  <div>
-                    <input class="form-check-input" type="radio" name="user_type" id="trade" value="0" checked>
-                    <label class="form-check-label" for="trade">Trade</label>  
+                  <div style="width: 70px;" class="d-flex">
+                    <input class="form-check-input mr-1" type="radio" name="user_type" id="trade" value="0" checked>
+                    <label class="form-check-label" style="margin-left: 10px; " for="trade">Trade</label>  
                   </div>
-                  <div style="margin-left: 1rem; ">
+                  <div style="margin-left: 1rem; " class="d-flex">
                     <input class="form-check-input" type="radio" name="user_type" id="call" value="1">
-                    <label class="form-check-label" for="call">Retailer</label>
+                    <label class="form-check-label" style="margin-left: 10px; " for="call">Retailer</label>
                   </div>
                   <span id="error_appointment" class="has-error"></span>
                 </div>
@@ -166,7 +167,7 @@
                     <span class="is-invalid">The refrences field is required.</span>
                 @endif
                 </div>
-
+                <p><strong style="color: red;">* </strong> Please allow up to 24 hours for trade user registration to be approved by the team. </p>
                 <div class="form-check mb-3">
                   <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
                   <label class="form-check-label" for="rememberPasswordCheck">

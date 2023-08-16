@@ -8,9 +8,10 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/santral-blackitalic" rel="stylesheet">
     <link href="{{ asset('assets/login/css/util.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/login/css/main.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/assets/css/vendor/bootstrap.min.css') }}">
+    <link href="{{ asset('assets/login/css/main.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
