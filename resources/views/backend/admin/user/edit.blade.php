@@ -36,7 +36,7 @@
         </div>
         <div class="form-group col-md-6 col-sm-12">
             <label for=""> Address field 2 </label>
-            <input type="text" class="form-control" id="address_field_2" name="address_field_2" value="{{ $user->address_field_2 }}" placeholder="" required>
+            <input type="text" class="form-control" id="address_field_2" name="address_field_2" value="{{ $user->address_field_2 }}" placeholder="">
             <span id="error_address_field_2" class="has-error"></span>
         </div>
         <div class="form-group col-md-6 col-sm-12">
@@ -51,7 +51,7 @@
         </div>
         <div class="form-group col-md-6 col-sm-12">
             <label for=""> State/Province/County </label>
-            <input type="text" class="form-control" id="state_province_county" name="state_province_county" value="{{ $user->state_province_county }}" placeholder="" required>
+            <input type="text" class="form-control" id="state_province_county" name="state_province_county" value="{{ $user->state_province_county }}" placeholder="">
             <span id="error_state_province_county" class="has-error"></span>
         </div>
         <div class="form-group col-md-6 col-sm-12">
@@ -61,7 +61,7 @@
         </div>
         <div class="form-group col-md-6 col-sm-12">
             <label for=""> Telephone </label>
-            <input type="text" class="form-control" id="telephone" name="telephone" value="{{ $user->telephone }}" placeholder="" required>
+            <input type="text" class="form-control" id="telephone" name="telephone" value="{{ $user->telephone }}" placeholder="">
             <span id="error_telephone" class="has-error"></span>
         </div>
         <div class="form-group col-md-6 col-sm-12">
