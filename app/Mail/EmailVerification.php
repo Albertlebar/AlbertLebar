@@ -30,9 +30,9 @@ class EmailVerification extends Mailable
      */
     public function build()
     {
-        $address = '9409ae6ba8-7f22b4@inbox.mailtrap.io';
-        $name = 'Lebar';
-        $subject = 'verify Email';
+        $address = 'emilia@albertlebar.com';
+        $name = 'Albert Lebar Pvt.';
+        $subject = 'Verify Email';
         return $this->to($this->user)->subject($subject)->from($address, $name)->
         markdown('emails.verify-email',['url' => $this->verifyUrl,'user' => $this->user]);
         // return $this->markdown('emails.verify-email');

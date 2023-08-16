@@ -49,17 +49,16 @@ class AppServiceProvider extends ServiceProvider
 
         // Paginator::defaultSimpleView('simple-pagination');
 
-        // VerifyEmail::toMailUsing(function ($notifiable){        
-        //     $verifyUrl = URL::temporarySignedRoute('verification.verify',
-        //     \Illuminate\Support\Carbon::now()->addMinutes(\Illuminate\Support\Facades 
-        //     \Config::get('auth.verification.expire', 60)),
-        //     [
-        //         'id' => $notifiable->getKey(),
-        //         'hash' => sha1($notifiable->getEmailForVerification()),
-        //     ]
-        // );
-        // return new EmailVerification($verifyUrl, $notifiable);
-
-        // });
+        VerifyEmail::toMailUsing(function ($notifiable){        
+            $verifyUrl = URL::temporarySignedRoute('verification.verify',
+            \Illuminate\Support\Carbon::now()->addMinutes(\Illuminate\Support\Facades 
+            \Config::get('auth.verification.expire', 60)),
+            [
+                'id' => $notifiable->getKey(),
+                'hash' => sha1($notifiable->getEmailForVerification()),
+            ]
+        );
+        return new EmailVerification($verifyUrl, $notifiable);
+        });
     }
 }

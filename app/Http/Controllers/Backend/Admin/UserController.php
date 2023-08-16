@@ -284,7 +284,7 @@ class UserController extends Controller
                $user->refrences = $request->input('refrences');
                $user->refrences = $request->input('refrences');
                // $user->password = Hash::make($request->password);
-               $user->email_verified_at = now();
+               // $user->email_verified_at = now();
                $user->file_path = "assets/images/users/default.png";
                $user->save();
 

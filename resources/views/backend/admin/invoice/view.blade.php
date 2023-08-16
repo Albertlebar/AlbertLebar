@@ -129,8 +129,15 @@
                                 <?php
                                     $rowCount = 1;
                                 ?>
-                                    <tr>
-                                    <td>{{ $rowCount }}</td>
+                                <?php
+                                    $colors = '';
+                                    if($item->return_quantity > 0)
+                                    {
+                                        $colors = 'red';
+                                    }
+                                ?>
+                                    <tr style="color: {{ $colors }}">
+                                    <td></td>
                                     <td>{{ $item->itemDetails->item_code }} </td>
                                       <td class="pro-thumbnail"><img width="80px;" height="80px" src="{{asset($item->itemDetails->photo_0)}}"></td>
                                       <td class="pro-title">
