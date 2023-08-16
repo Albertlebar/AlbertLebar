@@ -31,6 +31,6 @@ class AppointmentMail extends Mailable
     {
         $mailInfo = $this->details;
         return $this->subject($mailInfo['title'])
-                    ->view('frontend.mail_appointment',compact('mailInfo'));
+                    ->markdown('emails.appointment_mail',compact('mailInfo'));
     }
 }

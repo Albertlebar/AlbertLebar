@@ -80,5 +80,6 @@ return [
         '1' => 'Approved',
         '2' => 'Not Approved',
         '3' => 'Success',
+        '4' => "Cancel"
     ],
 ];
