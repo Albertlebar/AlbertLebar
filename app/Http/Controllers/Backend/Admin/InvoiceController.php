@@ -359,4 +359,16 @@ class InvoiceController extends Controller
 
       return response()->json(['type' => 'success', 'message' => "Successfully Updated"]);
     }
+
+    public function sendInvoiceMail(Request $request)
+    {
+     $haspermision = auth()->user()->can('user-create');
+     if ($haspermision) {
+      $invoice = Invoice::find($request->id);
+      \Mail::to($invoice->orderUser->email)->send(new \App\Mail\SendInvoiceMail($invoice));
+      return true;
+     } else {
+        abort(403, 'Sorry, you are not authorized to access the page');
+     }
+    }
 }

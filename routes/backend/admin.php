@@ -67,6 +67,7 @@ Route::get('/pdf-download','OrderController@pdfDownload')->name('pdfDownload');
 Route::resource('invoice','InvoiceController');
 Route::get('/allInvoices','InvoiceController@getAll')->name('allInvoices');
 Route::get('/pdf-download-invoice','InvoiceController@pdfDownload');
+Route::get('/send-invoice-mail','InvoiceController@sendInvoiceMail');
 Route::get('/invoice/{id}/return','InvoiceController@returnProduct');
 Route::post('/invoice/return-product','InvoiceController@returnProductUpdate');
 

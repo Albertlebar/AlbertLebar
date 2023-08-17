@@ -10,6 +10,7 @@
                             <h5><strong> Invoice Item </strong></h5>
                         </div>
                         <div>
+                            <a class="btn btn-xs btn-info send-mail" href="{{ URL :: to('/admin/send-invoice-mail') }}?id={{$order->id}}">Send Mail</a>
                             <a class="btn btn-xs btn-success" href="{{ URL :: to('/admin/pdf-download-invoice') }}?id={{$order->id}}">Download</a>
                         </div>
                     </div>
@@ -212,6 +213,20 @@
                 var id = $(this).attr('id');
                 ajax_submit_delete('categories', id)
             });
+
+            $(".send-mail").on("click", function() {
+                $.ajax({
+                    type: 'GET',
+                    url: '{{ url("admin/invoice") }}'+'/?id='+'{{ $order->id }}',
+                    success: function (data) {
+                        $("#manage_all_item #product-item").append(data.html);
+                        $("#myModal").modal('hide');
+                    },
+                    error: function (result) {
+                        $("#modal_data").html("Sorry Cannot Load Data");
+                    }
+                });
+            })
 
         });
 
