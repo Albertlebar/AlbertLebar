@@ -146,14 +146,35 @@
                                     @if(!empty($item->photo_0))
                                         <img class="pri-img" src="{{ asset($item->photo_0) }}" alt="product">
                                     @endif
+                                    </a>
+                                    <div class="button-group">
+                                        <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
+                                    </div>
+                                </figure>
+                                <figure class="product-thumb">
+                                    <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details" href="javascript:void(0);">
                                     @if(!empty($item->photo_1))
-                                        <img class="sec-img" src="{{ asset($item->photo_1) }}" alt="product">
+                                        <img class="" src="{{ asset($item->photo_1) }}" alt="product">
                                     @endif
+                                    </a>
+                                    <div class="button-group">
+                                        <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
+                                    </div>
+                                </figure>
+                                <figure class="product-thumb">
+                                    <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details" href="javascript:void(0);">
                                     @if(!empty($item->photo_2))
-                                        <img class="sec-img" src="{{ asset($item->photo_2) }}" alt="product">
+                                        <img class="" src="{{ asset($item->photo_2) }}" alt="product">
                                     @endif
+                                    </a>
+                                    <div class="button-group">
+                                        <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
+                                    </div>
+                                </figure>
+                                <figure class="product-thumb">
+                                    <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details" href="javascript:void(0);">
                                     @if(!empty($item->photo_3))
-                                        <img class="sec-img" src="{{ asset($item->photo_3) }}" alt="product">
+                                        <img class="" src="{{ asset($item->photo_3) }}" alt="product">
                                     @endif
                                     </a>
                                     <div class="button-group">
