@@ -366,7 +366,7 @@ class InvoiceController extends Controller
      if ($haspermision) {
       $invoice = Invoice::find($request->id);
       \Mail::to($invoice->orderUser->email)->send(new \App\Mail\SendInvoiceMail($invoice));
-      return true;
+      return redirect()->back();
      } else {
         abort(403, 'Sorry, you are not authorized to access the page');
      }
