@@ -52,7 +52,7 @@ class UserController extends Controller
         })
         ->addColumn('action', function ($user) use ($can_edit, $can_delete) {
            $html = '<div class="btn-group">';
-           $html .= '<a data-toggle="tooltip" ' . $can_edit . '  id="' . $user->id . '" class="btn btn-xs btn-info mr-1 edit" title="Edit"><i class="fa fa-edit"></i> </a>';
+           $html .= '<a href="' . \URL :: to('admin/users') .  '/' . $user->id . '/edit" data-toggle="tooltip" ' . $can_edit . '  id="' . $user->id . '" class="btn btn-xs btn-info mr-1" title="Edit"><i class="fa fa-edit"></i> </a>';
            $html .= '<a data-toggle="tooltip" ' . $can_delete . ' id="' . $user->id . '" class="btn btn-xs btn-danger mr-1 delete" title="Delete"><i class="fa fa-trash"></i> </a>';
            $html .= '</div>';
            return $html;
@@ -202,19 +202,20 @@ class UserController extends Controller
     */
    public function edit($id, Request $request)
    {
-      if ($request->ajax()) {
-         $haspermision = auth()->user()->can('user-edit');
-         if ($haspermision) {
-            $user = User::with('roles')->where('id', $id)->first();
-            $roles = Role::all(); //Get all roles
-            $view = View::make('backend.admin.user.edit', compact('user', 'roles'))->render();
+     $haspermision = auth()->user()->can('user-edit');
+     if ($haspermision) {
+        $user = User::with('roles')->where('id', $id)->first();
+        $roles = Role::all(); //Get all roles
+        if($request->tab == 'tab-invoice'){
+            $view = View::make('backend.admin.user.tab_invoice',compact('user'))->render();
             return response()->json(['html' => $view]);
-         } else {
-            abort(403, 'Sorry, you are not authorized to access the page');
-         }
-      } else {
-         return response()->json(['status' => 'false', 'message' => "Access only ajax request"]);
-      }
+        }else{
+          $view = View::make('backend.admin.user.edit', compact('user', 'roles'))->render();
+          return view('backend.admin.user.edit',compact('user','roles'));  
+        }
+     } else {
+        abort(403, 'Sorry, you are not authorized to access the page');
+     }
    }
 
    /**

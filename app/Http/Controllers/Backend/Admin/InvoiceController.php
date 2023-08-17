@@ -30,7 +30,7 @@ class InvoiceController extends Controller
         return view('backend.admin.invoice.index');
     }
 
-    public function getAll()
+    public function getAll(Request $request)
    {
       $can_edit = $can_delete = '';
       if (!auth()->user()->can('user-edit')) {
@@ -40,9 +40,18 @@ class InvoiceController extends Controller
          $can_delete = "style='display:none;'";
       }
 
-      $invoices = Invoice::all();
+      $return = $status = '';
+      if(!empty($request['user_id']))
+      {
+        $invoices = Invoice::where('user_id',$request['user_id'])->get(); 
+        $return = "style='display:none;'";
+        $status = "style='display:none;'";
+
+        // $invoices->;
+      }else{
+        $invoices = Invoice::all();
+      }
       return Datatables::of($invoices)
-        
         ->addColumn('order_type', function ($invoices) {
            return config('params.order_type')[$invoices->order_type];
         })
@@ -62,20 +71,25 @@ class InvoiceController extends Controller
         ->addColumn('shipping_address_first_name', function ($invoices) {
            return $invoices->shipping_address_first_name . ' ' . $invoices->shipping_address_last_name;
         })
-        ->addColumn('action', function ($invoices) use ($can_edit, $can_delete) {
+        ->addColumn('action', function ($invoices) use ($can_edit, $can_delete, $return) {
            $html = '<div class="btn-group">';
            if(Carbon::parse($invoices->created_at)->format('d/m/Y') == Carbon::parse(now())->format('d/m/Y')){
               $html .= '<a href="' . \URL :: to('admin/invoice') .  '/' . $invoices->id . '/edit" id="' . $invoices->id . '" class="btn btn-xs btn-info" title="Edit"><i class="fa fa-edit"></i> </a>';
            }
-            $html .= '<a data-toggle="tooltip" ' . $can_edit . '  id="' . $invoices->id . '" class="btn btn-xs btn-secondary edit" title="Status"><i class="fa fa-book"></i> </a>';
+            $html .= '<a data-toggle="tooltip" ' . $can_edit . '  id="' . $invoices->id . '" class="btn btn-xs btn-secondary edit" ' . $return . ' title="Status"><i class="fa fa-book"></i> </a>';
            
            $html .= '<a href="' . \URL :: to('admin/invoice') .  '/' . $invoices->id . '"  id="' . $invoices->id . '" class="btn btn-xs btn-success margin-r-5" title="View"><i class="fa fa-eye fa-fw"></i> </a>';
            // $html .= '<a data-toggle="tooltip" ' . $can_delete . ' id="' . $orders->id . '" class="btn btn-xs btn-danger mr-1 delete" title="Delete"><i class="fa fa-trash"></i> </a>';
            $html .= '<a href="' . \URL :: to('admin/pdf-download-invoice') .  '?id=' . $invoices->id . '"  id="' . $invoices->id . '" class="btn btn-xs btn-warning margin-r-5" title="Download"><i class="fa fa-download fa-fw"></i> </a>';
            $html .= '</div>';
-           $html .= '<a data-toggle="tooltip" ' . $can_edit . '  id="' . $invoices->id . '" class="btn btn-xs btn-secondary return" title="return">Return </a>';
+           $html .= '<a data-toggle="tooltip" ' . $can_edit . '  id="' . $invoices->id . '" class="btn btn-xs btn-secondary return"  ' . $return . ' title="return">Return </a>';
            return $html;
         })
+        // ->filter(function ($instance) use ($request) {
+        //     if (!empty($request->get('user_id'))) {
+        //         $instance->where('user_id', $request->get('user_id'));
+        //     }
+        // })
         ->rawColumns(['action', 'invoice_number', 'order_type', 'status', 'order_total', 'shipping_address_first_name'])
         ->addIndexColumn()
         ->make(true);

@@ -63,6 +63,8 @@ class AppointmentController extends Controller
            return '<label class="badge badge-danger">Not Approved</label>';
           }elseif($appointment->status == 3){
            return '<label class="badge badge-success">Success</label>'; 
+          }elseif($appointment->status == 4){
+           return '<label class="badge badge-dark">Cancel</label>';
           }
         })
         ->addColumn('appointment_date', function ($appointment) {
