@@ -109,9 +109,16 @@ class ItemController extends Controller
       return true;
     }
 
-    public function sizeGuide()
+    public function sizeGuide(Request $request)
     {
-      return view('frontend.item.size_guide');
+      if($request->item_type == 'Ring')
+      {
+        return view('frontend.item.ring_size_guide');        
+        // return view('frontend.item.bracelet_size_guide');
+      }elseif($request->item_type == 'Bracelet'){
+        $path = public_path('\assets\size_guide\Lebar_BraceletSizeGuide.pdf');
+        return response()->download($path);
+      }
     }
 
     public function favorite(Request $request)
