@@ -61,7 +61,7 @@ class ItemController extends Controller
    public function itemDetails(Request $request)
    {
       $item = Item::where('id',$request->item_id)->first();
-      $itemSize = ItemStock::where('item_id',$request->item_id)->get()->pluck('size', 'id')->toArray();
+      $itemSize = ItemStock::where('item_id',$request->item_id)->where('size','!=','')->get()->pluck('size', 'id')->toArray();
       $view = View::make('frontend.item.quick_view', compact('item','itemSize'))->render();
       return response()->json(['html' => $view]);
    }
@@ -118,6 +118,7 @@ class ItemController extends Controller
       }elseif($request->item_type == 'Bracelet'){
         $path = public_path('\assets\size_guide\Lebar_BraceletSizeGuide.pdf');
         return response()->download($path);
+        // return download();
       }
     }
 
