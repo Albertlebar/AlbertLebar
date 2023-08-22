@@ -3407,10 +3407,12 @@ input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"
 }
 .nav-link{
     display:block;
-    padding:.5rem 1rem
+    padding:.5rem 1rem;
+    color: black
 }
 .nav-link:hover,.nav-link:focus{
-    text-decoration:none
+    text-decoration:none;
+    color: #f195ab;
 }
 .nav-link.disabled{
     color:#6c757d;
@@ -3429,6 +3431,7 @@ input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"
     border-top-right-radius:.25rem
 }
 .nav-tabs .nav-link:hover,.nav-tabs .nav-link:focus{
+    color: #f195ab;
     border-color:#e9ecef #e9ecef #dee2e6
 }
 .nav-tabs .nav-link.disabled{
@@ -3447,7 +3450,7 @@ input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"
     border-top-right-radius:0
 }
 .nav-pills .nav-link{
-    border-radius:.25rem
+    border-radius:.0rem !important
 }
 .nav-pills .nav-link.active,.nav-pills .show>.nav-link{
     color:#fff;
@@ -12010,16 +12013,16 @@ a.badge-alternate:hover,a.badge-alternate:focus{
     cursor:pointer
 }
 .nav-tabs .nav-link:hover{
-    color:#3f6ad8 !important
+    color:#f195ab !important
 }
 .nav-tabs .nav-link.active{
-    color:#3f6ad8
+    color:#f195ab
 }
 .nav-pills .nav-link:hover{
-    color:#3f6ad8 !important
+    color:#f195ab !important
 }
 .nav-pills .nav-link.active{
-    background:#3f6ad8
+    background:#f195ab;
 }
 .nav-pills .nav-link.active:hover{
     color:#fff !important
@@ -12040,12 +12043,12 @@ a.badge-alternate:hover,a.badge-alternate:focus{
     position:absolute;
     display:block;
     border-radius:.25rem;
-    background:#3f6ad8;
+    background:#f195ab;
     transition:all .2s;
     height:4px
 }
 .tabs-animated .nav-link.active,.tabs-animated .nav-link:hover{
-    color:#3f6ad8
+    color:#f195ab
 }
 .tabs-animated .nav-link.active::before,.tabs-animated .nav-link:hover::before{
     transform:scale(1)
@@ -12202,7 +12205,7 @@ a.badge-alternate:hover,a.badge-alternate:focus{
     opacity:.8
 }
 .nav-pills .nav-link:hover{
-    color:#495057 !important
+    color:#f195ab !important
 }
 .nav-justified .nav-link .nav-text{
     display:block;

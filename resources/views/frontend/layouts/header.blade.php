@@ -83,7 +83,7 @@
                                         <ul class="dropdown-list">
                                                 <!-- <li><a class="dropdown-item" href="{{ route('login') }}">Login</a>
                                                 </li> -->
-                                            <li><a href="javascript:void(0)">My Account</a></li>
+                                            <li><a href="{{ URL::to('/my-account') }}">My Account</a></li>
                                                 <li>
                                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                                        onclick="event.preventDefault();

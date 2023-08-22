@@ -15,6 +15,7 @@ use Session;
 use App\Models\User;
 use App\Models\Invoice;
 use App\Models\InvoiceItem;
+use DB;
 
 class CheckoutController extends Controller
 {
@@ -216,4 +217,48 @@ class CheckoutController extends Controller
     return redirect('/');
 
 	}
+
+    public function myAccount(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+        $orders = Order::where('user_id',Auth::user()->id)->get();
+        return view('frontend.myaccount.index',compact('user'));
+    }
+
+    public function saveUserDetails(Request $request)
+    {
+        DB::beginTransaction();
+        try{
+            $user = User::findOrFail($request->user_id);
+            $user->name = $request->input('f_name') . ' ' . $request->input('l_name');
+            $user->f_name = $request->input('f_name');
+            $user->l_name = $request->input('l_name');
+            // $user->email = 'krashmin7@gmail.com';
+            $user->company = $request->input('company');
+            $user->address_field_1 = $request->input('address_field_1');
+            $user->address_field_2 = $request->input('address_field_2');
+            $user->city = $request->input('city');
+            $user->country = $request->input('country');
+            $user->state_province_county = $request->input('state_province_county');
+            $user->postcode = $request->input('postcode');
+            $user->telephone = $request->input('telephone');
+            $user->mobile = $request->input('mobile');
+            $user->vat_number = $request->input('vat_number');
+            $user->refrences = $request->input('refrences');
+            $user->user_type = $request->input('user_type');
+            $user->is_approved = $request->input('is_approved');
+            $user->refrences = $request->input('refrences');
+            $user->refrences = $request->input('refrences');
+            $user->file_path = "assets/images/users/default.png";
+            $user->save();
+            DB::commit();
+            return response()->json(['type' => 'success', 'message' => "Successfully Created"]);
+        }catch(\Exception $e) {
+            DB::rollback();
+            return response()->json(['type' => 'error', 'message' => $e->getMessage()]);
+        }
+        echo "<pre>";
+        print_r($request->all());
+        die;
+    }
 }
