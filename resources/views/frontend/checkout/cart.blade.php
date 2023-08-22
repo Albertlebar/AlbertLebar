@@ -5,7 +5,7 @@
 <?php
   if(Auth::check())
       {
-        $cartItem = App\Models\Cart::join('items','carts.item_id','items.id')->join('item_images','carts.item_id','item_images.item_id')->where('is_main_image',1)->where('user_id',Auth::user()->id)->get()->toArray();
+        $cartItem = App\Models\Cart::join('items','carts.item_id','items.id')->where('user_id',Auth::user()->id)->get()->toArray();
         // echo "<pre>";
         // print_r($cartItem);
         // die; 
@@ -38,7 +38,7 @@
                     @if($cartItem)
                     @foreach($cartItem as $id=>$item)
                     <tr id="cart_item-{{ $id }}">
-                      <td class="pro-thumbnail"><img src="{{asset($item['images'])}}"></td>
+                      <td class="pro-thumbnail"><img src="{{asset($item['photo_0'])}}"></td>
                       <td class="pro-title">
                         {{ $item['item_title'] }}  
                       </td>

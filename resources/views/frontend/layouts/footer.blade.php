@@ -196,7 +196,7 @@
                             <li class="minicart-item">
                                 <div class="minicart-thumb">
                                     <a href="javascript:void(0);">
-                                        <img src="{{ asset($item['images']) }}" alt="product">
+                                        <img src="{{ asset($item['photo_0']) }}" alt="product">
                                     </a>
                                 </div>
                                 <div class="minicart-content">
