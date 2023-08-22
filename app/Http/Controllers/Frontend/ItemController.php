@@ -86,7 +86,7 @@ class ItemController extends Controller
         'item_title' => $item->item_title,
         'quantity' => $request->item_qty,
         'size' => $request->item_size,
-        'images' => $item->photo_0,
+        'photo_0' => $item->photo_0,
         'price' => $item->total_retail,
         ];
         $request->Session()->put('cart', $cart);

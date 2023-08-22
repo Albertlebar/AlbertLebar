@@ -218,7 +218,7 @@ img {
     right: 0px;
     bottom: 0px;
     left: 0px;
-    background-color: rgba(0,0,0,0.40);
+    background-color: rgba(0,0,0,0.50);
 }
 
 .btn,
@@ -1365,7 +1365,7 @@ textarea:focus {
   color: #f195ab;
   font-size: 14px;
   padding: 37px 12px;
-  font-weight: 600;
+  /*font-weight: 600;*/
   display: block;
   text-transform: capitalize;
 }
@@ -1598,7 +1598,7 @@ textarea:focus {
   }
 }
 .sticky.is-sticky .main-menu li a {
-  padding: 20px 12px;
+  padding: 30px 12px;
 }
 .sticky.is-sticky .main-menu li:first-child a {
   padding-left: 0;

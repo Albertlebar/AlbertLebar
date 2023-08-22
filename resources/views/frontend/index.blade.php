@@ -248,7 +248,7 @@
                             <div class="testimonial-content-carousel">
                                 <div class="testimonial-content">
                                     <p><strong> Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</strong></p>
-                                    <div class="ratings" style="color: black;">
+                                    <div class="ratings">
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
@@ -259,7 +259,7 @@
                                 </div>
                                 <div class="testimonial-content">
                                     <p><strong> Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</strong></p>
-                                    <div class="ratings"  style="color: black;">
+                                    <div class="ratings">
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
@@ -270,7 +270,7 @@
                                 </div>
                                 <div class="testimonial-content">
                                     <p><strong> Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</strong></p>
-                                    <div class="ratings"  style="color: black;">
+                                    <div class="ratings">
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
@@ -281,7 +281,7 @@
                                 </div>
                                 <div class="testimonial-content">
                                     <p><strong> Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</strong></p>
-                                    <div class="ratings"  style="color: black;">
+                                    <div class="ratings">
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>

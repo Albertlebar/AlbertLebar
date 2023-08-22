@@ -53,7 +53,7 @@
                     <div class="col-lg-5">
                         <div class="header-right d-flex align-items-center justify-content-lg-end">
                             <div class="header-search-container" id="searchParent" style="margin-right: 10px;display: contents; ">
-                                <button class="search-trigger" id="search"><i
+                                <button class="search-trigger" style="margin-top: 3px; " id="search"><i
                                         class="pe-7s-search"></i></button>
                                 <div id="inputParent">
                                     <input type="text" placeholder="Search entire store" autocoplete="off"       id="input-bar">
