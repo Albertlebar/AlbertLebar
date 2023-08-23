@@ -16,6 +16,7 @@ use App\Models\User;
 use App\Models\Invoice;
 use App\Models\InvoiceItem;
 use DB;
+use View;
 
 class CheckoutController extends Controller
 {
@@ -190,39 +191,43 @@ class CheckoutController extends Controller
     $invoice->save();
 
     foreach ($orderItem as $o_item) {
-      $orderItem = new InvoiceItem();
-      $orderItem->invoice_id = $invoice->id;
-      $orderItem->item_id = $o_item->item_id;
-      $orderItem->quantity = $o_item->quantity;
-      $orderItem->size = $o_item->size ?? NULL;
-      $orderItem->price = $o_item->price;
-      $orderItem->save();
+      $invoiceItem = new InvoiceItem();
+      $invoiceItem->invoice_id = $invoice->id;
+      $invoiceItem->item_id = $o_item->item_id;
+      $invoiceItem->quantity = $o_item->quantity;
+      $invoiceItem->size = $o_item->size ?? NULL;
+      $invoiceItem->price = $o_item->price;
+      $invoiceItem->save();
       // $item->delete();
     }
-    // if($stripe->status == 'succeeded')
-    // {
-    //     $orderDetails->payment_status = 3;
-    //     $orderDetails->save();
-    //     foreach ($orderItem as $itemDetails) {
-    //         $itemStock = ItemStock::where('item_id',$itemDetails->item_id)->first();
-    //         $itemStockCount = json_decode($itemStock->stock,true);
-    //         $itemStockCount[$itemDetails->size] = $itemStockCount[$itemDetails->size] - $itemDetails->quantity;
-    //         $itemStock->stock = json_encode($itemStockCount);
-    //         $itemStock->save();
-    //     }
-    // }
-
+    if($stripe->status == 'succeeded')
+    {
+        $orderDetails->payment_status = 3;
+        $orderDetails->save();
+        foreach ($orderItem as $itemDetails) {
+            $updateItemQuantity = ItemStock::where('item_id',$itemDetails->item_id)->where('size',$itemDetails->size)->first();
+          if(isset($updateItemQuantity))
+          {
+            $updateItemQuantity->stock = $updateItemQuantity->stock - $itemDetails->quantity;
+            $updateItemQuantity->save();
+          }
+        }
+    }
+    \Mail::to($invoice->orderUser->email)->send(new \App\Mail\SendInvoiceMail($invoice));
     Session::flash('payment-success', 'Payment successful!');
 
-    return redirect('/');
+    return view('frontend.thankyou');
 
 	}
 
     public function myAccount(Request $request)
     {
         $user = User::find(Auth::user()->id);
-        $orders = Order::where('user_id',Auth::user()->id)->get();
-        return view('frontend.myaccount.index',compact('user'));
+        $orders = Order::where('user_id',Auth::user()->id)->orderBy('created_at','DESC')->get();
+        // echo "<pre>";
+        // print_r($orders[0]->orderItem[0]->itemDetails);
+        // die;
+        return view('frontend.myaccount.index',compact('user','orders'));
     }
 
     public function saveUserDetails(Request $request)
@@ -245,10 +250,10 @@ class CheckoutController extends Controller
             $user->mobile = $request->input('mobile');
             $user->vat_number = $request->input('vat_number');
             $user->refrences = $request->input('refrences');
-            $user->user_type = $request->input('user_type');
-            $user->is_approved = $request->input('is_approved');
-            $user->refrences = $request->input('refrences');
-            $user->refrences = $request->input('refrences');
+            // $user->user_type = $request->input('user_type');
+            // $user->is_approved = $request->input('is_approved');
+            // $user->refrences = $request->input('refrences');
+            // $user->refrences = $request->input('refrences');
             $user->file_path = "assets/images/users/default.png";
             $user->save();
             DB::commit();
@@ -260,5 +265,55 @@ class CheckoutController extends Controller
         echo "<pre>";
         print_r($request->all());
         die;
+    }
+
+    public function orderDetails(Request $request)
+    {
+        $order = Order::find($request->order_id);
+        $view = View::make('frontend.myaccount.order_view', compact('order'))->render();
+        return response()->json(['html' => $view]);
+    }
+
+    public function orderCancel(Request $request)
+    {
+
+        $order = Order::find($request->order_id);
+        $view = View::make('frontend.myaccount.order_cancel', compact('order'))->render();
+        return response()->json(['html' => $view]);
+        // DB::beginTransaction();
+        // try{
+
+
+        // }catch(\Exception $e){
+        //     DB::rollback();
+        //     return response()->json(['type' => 'error', 'message' => $e->getMessage()]);
+        // }
+    }
+
+    public function cancel(Request $request)
+    {
+        DB::beginTransaction();
+        try{
+            $order = Order::find($request->order_id);
+            $orderItems = OrderItem::where('order_id',$request->order_id)->get();
+            foreach ($orderItems as $item) {
+                $updateItemQuantity = ItemStock::where('item_id',$item->item_id)->where('size',$item->size)->first();
+              if(isset($updateItemQuantity))
+              {
+                $updateItemQuantity->stock = $updateItemQuantity->stock + $item->quantity;
+                $updateItemQuantity->save();
+              }
+                $item->quantity = 0;
+                $item->save();
+            }
+            $order->cancel_reason = $request->cancel_reason;
+            $order->order_status = 3;
+            $order->save();
+            DB::commit();
+            return response()->json(['type' => 'success', 'message' => "Cancel Successfully"]);
+        }catch(\Exception $e){
+            DB::rollback();
+            return response()->json(['type' => 'error', 'message' => $e->getMessage()]);
+        }
     }
 }

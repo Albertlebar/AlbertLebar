@@ -22,7 +22,7 @@
                     </a>
                 </div>
               </div>
-              <h3 class="login-heading mb-4">Welcome back!</h3>
+              <h3 class="login-heading mb-4"></h3>
 
               <!-- Sign In Form -->
               <form method="POST" action="{{ route('login') }}" class="validate-form">

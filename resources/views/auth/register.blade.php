@@ -22,7 +22,7 @@
                     </a>
                 </div>
               </div>
-              <h3 class="login-heading mb-4">Welcome</h3>
+              <h3 class="login-heading mb-4"></h3>
 
               <!-- Sign In Form -->
               <p>By registering on the Lebar website you authorise to store the details you supply.</p>
