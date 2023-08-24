@@ -156,6 +156,7 @@
                                             </div>
                                             <div class="mt-1" style="margin: auto;width: 35%;">
                                                 <input id="photo-0" type="file" accept="image/*" class="form-control" name="photo_0" onchange="showImage(0)">
+
                                             </div>
                                         </div>
                                         <div class="row mt-5">

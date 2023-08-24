@@ -1,7 +1,8 @@
 <div class="js-cookie-consent cookie-consent" style="background: #000;
     text-align: center;
     position: sticky;
-    bottom: 0;">
+    bottom: 0;height: 35px;
+    padding: 6px;">
 
     <span class="cookie-consent__message" style="color: #f195ab;">
         <!-- {!! trans('cookieConsent::texts.message') !!} -->

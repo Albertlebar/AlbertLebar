@@ -161,9 +161,11 @@
                                         </div> -->
                                         <div style="text-align: center;">
                                             <img id="preview-0" src="{{ asset($item->photo_0) }}" alt="" style="width: 105px; height: 100px;">
+                                            <a class="remove-image" id="id-remove-image" data-id="0" href="javascript:void(0)" style="display: inline;">&#215;</a>
+
                                         </div>
                                         <div class="mt-1" style="margin: auto;width: 35%;">
-                                            <input id="photo-0" type="file" accept="image/*" class="form-control" name="photo_0" onchange="showImage(0)">
+                                            <input id="photo-0" type="file" accept="image/*" class="form-control" value="{{ $item->photo_0 }}" name="photo_0" onchange="showImage(0)">
                                         </div>
                                     </div>
                                     <div class="row mt-5">
@@ -173,6 +175,7 @@
                                         <div class="col-md-4 p-0 pl-2">
                                             <div style="">
                                                 <img id="preview-1" src="{{ asset($item->photo_1) }}" alt="" style="width: 105px; height: 100px;">
+                                                <a class="remove-image1" id="id-remove-image" data-id="1" href="javascript:void(0)" style="display: inline;">&#215;</a>
                                             </div>
                                             <div class="mt-1" style="margin: auto;width: 102px;">
                                                 <input id="photo-1" type="file" accept="image/*" class="form-control" name="photo_1" onchange="showImage(1)">
@@ -181,6 +184,7 @@
                                         <div class="col-md-4 p-0 pl-1">
                                             <div style="text-align: center;">
                                                 <img id="preview-2" src="{{ asset($item->photo_2) }}" alt="" style="width: 105px; height: 100px;">
+                                                <a class="remove-image1" id="id-remove-image" data-id="2" href="javascript:void(0)" style="display: inline;">&#215;</a>
                                             </div>
                                             <div class="mt-1" style="margin: auto;width: 102px;">
                                                 <input id="photo-2" type="file" accept="image/*" class="form-control" name="photo_2" onchange="showImage(2)">
@@ -189,6 +193,7 @@
                                         <div class="col-md-4 p-0">
                                             <div style="text-align: right;">
                                                 <img id="preview-3" src="{{ asset($item->photo_3) }}" alt="" style="width: 105px; height: 100px;">
+                                                <a class="remove-image1" id="id-remove-image" data-id="3" href="javascript:void(0)" style="display: inline;">&#215;</a>
                                             </div>
                                             <div class="mt-1" style="margin: auto;width: 102px;">
                                                 <input id="photo-3" type="file" accept="image/*" class="form-control" name="photo_3" onchange="showImage(3)">
@@ -258,6 +263,23 @@
             });
         });
 
+        $('body').on('click','#id-remove-image',function(event) {
+            id = $(this).attr('data-id');
+            // alert(id);
+            $('#preview-'+id).attr('src', '');
+            // $('#photo-'+id).attr('value','');
+            $.ajax({
+                type: "GET",
+                url: '{{ url("admin/remove-photo") }}?item_id='+'{{ $item->id }}'+'&photo_id='+id,
+                datatype: 'html',
+                success: function (data) {
+                    
+                },
+                error: function (result) {
+                    $("#modal_data").html("Sorry Cannot Load Data");
+                }
+            });
+        });
 
         let add_number = 1;
         $("body").on("click", ".add", function (e) {

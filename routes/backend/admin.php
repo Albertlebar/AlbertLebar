@@ -34,6 +34,7 @@ Route::get('/allCategory','CategoryController@getAll')->name('allCategory');
 
 Route::resource('catelogues','CatelogueController');
 Route::get('/allCatelogue','CatelogueController@getAll')->name('allCatelogue');
+Route::get('/remove-photo','CatelogueController@removePhoto');
 
 Route::resource('/appointments','AppointmentController');
 Route::get('/allAppointment','AppointmentController@getAllAppointment')->name('allAppointment');

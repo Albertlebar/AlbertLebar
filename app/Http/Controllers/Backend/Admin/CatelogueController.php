@@ -269,6 +269,8 @@ class CatelogueController extends Controller
                $item->best_seller = $request->input('best_seller');
                if(isset($file_path_0)){
                 $item->photo_0 = $file_path_0;                
+               }else{
+                $item->photo_0 = NULL;
                }
                if(isset($file_path_1)){
                 $item->photo_1 = $file_path_1;                
@@ -514,5 +516,14 @@ class CatelogueController extends Controller
           } else {
              return response()->json(['status' => 'false', 'message' => "Access only ajax request"]);
           }
+    }
+
+    public function removePhoto(Request $request)
+    {
+      $photo = "photo_".$request->photo_id;
+      $item = Item::find($request->item_id);
+      $item->$photo = NULL;
+      $item->save();
+      return true;
     }
 }

@@ -24,7 +24,8 @@
                                 @endif
                                 <nav class="desktop-menu">
                                     <?php
-                                        $categorys = \App\Models\Category::all(); 
+                                        $categorys = \App\Models\Category::all();
+                                        $count = 1;
                                     ?>
                                     <ul>
                                         @forelse($categorys as $category)
