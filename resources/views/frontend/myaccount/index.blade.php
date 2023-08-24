@@ -9,6 +9,7 @@
           <div  class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
             <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Profile</a>
             <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Your Orders</a>
+            <a class="nav-link" id="v-pills-invoice-tab" data-toggle="pill" href="#v-pills-invoice" role="tab" aria-controls="v-pills-invoice" aria-selected="false">Your Invoices</a>
           </div>
         </div>
         <div class="col-9">
@@ -117,7 +118,7 @@
             <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
               <div class="row">
                 <div class="col-lg-12 col-12 p-0">
-                  <div class="cart-table table-responsive mb-40">
+                  <div class="cart-table table-responsive mb-40" style="position: relative;height: 700px;overflow: auto;">
                     <table class="table table-bordered">
                       <thead>
                         <tr>
@@ -154,7 +155,45 @@
                   </div>
                 </div>
                 </div>
-          </div>
+            </div>
+            <div class="tab-pane fade"  id="v-pills-invoice"  role="tabpanel" aria-labelledby="v-pills-invoice-tab">
+              <div class="row">
+                <div class="col-lg-12 col-12 p-0">
+                  <div class="cart-table table-responsive mb-40" style="position: relative;height: 700px;overflow: auto;">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th class="pro-thumbnail">Date</th>
+                          <th class="pro-title">Number</th>
+                          <th class="pro-price">Status</th>
+                          <th class="pro-subtotal">Total</th>
+                          <th class="pro-remove">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @forelse($invoices as $invoice)
+                          <tr>
+                            <td>{{ \Carbon\Carbon::parse($invoice->created_at)->format('d/m/Y') }}</td>
+                            <td>{{ $invoice->invoice_number }}</td>
+                            <td>{{ config('params.invoice_status')[$invoice->status] }}</td>
+                            <td>{{ number_format((float)$invoice->order_total, 2, '.', '') }}</td>
+                            <td>
+                              <div class="btn-group">
+                                <a href="javascript:void(0)"  id="{{ $invoice->id }}" class="btn btn-xs btn-success margin-r-5 view_invoice" title="View"><i class="fa fa-eye fa-fw"></i> </a>
+                              </div>
+                            </td>
+                          </tr>
+                        @empty
+                        <tr>
+                          <td colspan="5">No Any Order</td>
+                        </tr>
+                        @endforelse
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
     </div>
@@ -185,6 +224,23 @@
         var id = $(this).attr('id');
         $.ajax({
             url: 'my-account/order' + '/' + id,
+            type: 'get',
+            success: function (data) {
+                $("#modal_data").html(data.html);
+                $('#myModal').modal('show'); // show bootstrap modal
+            },
+            error: function (result) {
+                $("#modal_data").html("Sorry Cannot Load Data");
+            }
+        });
+    });
+
+    $(document).on("click", ".view_invoice", function () {
+        $("#modal_data").empty();
+        $('.modal-title').text('View Invoice'); // Set Title to Bootstrap modal title
+        var id = $(this).attr('id');
+        $.ajax({
+            url: 'my-account/invoice' + '/' + id,
             type: 'get',
             success: function (data) {
                 $("#modal_data").html(data.html);

@@ -11,6 +11,9 @@
                         <a class="nav-link active" id="link-tab-user-details" data-mdb-toggle="tab" href-div="tab-user-details" role="tab" aria-controls="ex1-tabs-1" aria-selected="true" >User Details</a>
                       </li>
                       <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="link-tab-order" data-mdb-toggle="tab" href-div="tab-order" role="tab" aria-controls="ex1-tabs-3" aria-selected="false">Order</a>
+                      </li>
+                      <li class="nav-item" role="presentation">
                         <a class="nav-link" id="link-tab-invoice" data-mdb-toggle="tab" href-div="tab-invoice" role="tab" aria-controls="ex1-tabs-2" aria-selected="false">Invoice</a>
                       </li>
                     </ul>
@@ -163,6 +166,9 @@
                             </form>
                         </div>
                         <div class="tab-pane fade" id="tab-invoice" role="tabpanel" aria-labelledby="ex1-tab-2">
+                            
+                        </div>
+                        <div class="tab-pane fade" id="tab-order" role="tabpanel" aria-labelledby="ex1-tab-3">
                             
                         </div>
                     </div>

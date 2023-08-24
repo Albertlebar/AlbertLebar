@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function ()
 	Route::get('checkout','CheckoutController@checkout');
 	Route::get('my-account','CheckoutController@myAccount');
 	Route::get('my-account/order/{order_id}','CheckoutController@orderDetails');
+	Route::get('my-account/invoice/{invoice_id}','CheckoutController@invoiceDetails');
 	Route::get('my-account/cancel-order/{order_id}','CheckoutController@orderCancel');
 	Route::post('cancel', 'CheckoutController@cancel')->name('cancel');
 	Route::post('save-user-details', 'CheckoutController@saveUserDetails');

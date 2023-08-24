@@ -29,8 +29,9 @@ class OrderController extends Controller
         return view('backend.admin.order.index');
     }
 
-    public function getAll()
+    public function getAll(Request $request)
    {
+      
       $can_edit = $can_delete = '';
       if (!auth()->user()->can('user-edit')) {
          $can_edit = "style='display:none;'";
@@ -38,8 +39,16 @@ class OrderController extends Controller
       if (!auth()->user()->can('user-delete')) {
          $can_delete = "style='display:none;'";
       }
+      if(!empty($request['user_id']))
+      {
+        $orders = Order::where('user_id',$request['user_id'])->get(); 
+        $return = "style='display:none;'";
+        $status = "style='display:none;'";
 
-      $orders = Order::all();
+        // $invoices->;
+      }else{
+        $orders = Order::all();
+      }
       return Datatables::of($orders)
         
         ->addColumn('order_type', function ($orders) {

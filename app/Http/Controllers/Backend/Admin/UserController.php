@@ -209,6 +209,9 @@ class UserController extends Controller
         if($request->tab == 'tab-invoice'){
             $view = View::make('backend.admin.user.tab_invoice',compact('user'))->render();
             return response()->json(['html' => $view]);
+        }elseif($request->tab == 'tab-order'){
+          $view = View::make('backend.admin.user.tab_order',compact('user'))->render();
+          return response()->json(['html' => $view]);
         }else{
           $view = View::make('backend.admin.user.edit', compact('user', 'roles'))->render();
           return view('backend.admin.user.edit',compact('user','roles'));  

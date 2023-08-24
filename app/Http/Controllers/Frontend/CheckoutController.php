@@ -224,10 +224,11 @@ class CheckoutController extends Controller
     {
         $user = User::find(Auth::user()->id);
         $orders = Order::where('user_id',Auth::user()->id)->orderBy('created_at','DESC')->get();
+        $invoices = Invoice::where('user_id',Auth::user()->id)->orderBy('created_at','DESC')->get();
         // echo "<pre>";
         // print_r($orders[0]->orderItem[0]->itemDetails);
         // die;
-        return view('frontend.myaccount.index',compact('user','orders'));
+        return view('frontend.myaccount.index',compact('user','orders','invoices'));
     }
 
     public function saveUserDetails(Request $request)
@@ -271,6 +272,13 @@ class CheckoutController extends Controller
     {
         $order = Order::find($request->order_id);
         $view = View::make('frontend.myaccount.order_view', compact('order'))->render();
+        return response()->json(['html' => $view]);
+    }
+
+    public function invoiceDetails(Request $request)
+    {
+        $order = Invoice::find($request->invoice_id);
+        $view = View::make('frontend.myaccount.invoice_view', compact('order'))->render();
         return response()->json(['html' => $view]);
     }
 

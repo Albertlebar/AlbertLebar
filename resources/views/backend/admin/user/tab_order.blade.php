@@ -4,13 +4,13 @@
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="manage_all"
+                    <table id="manage_all_order"
                            class="align-middle mb-0 table table-borderless table-striped table-hover">
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Invoice Date</th>
-                            <th>Invoice Number</th>
+                            <th>Order Date</th>
+                            <th>Order Number</th>
                             <th>Client Name</th>
                             <th>Status</th>
                             <th>Total</th>
@@ -33,16 +33,15 @@
     </style>
     <script>
         $(document).ready(function(){
-
-        });
-        $(function () {
-            table = $('#manage_all').DataTable({
+             $('table.display').DataTable();
+            $(function () {
+            table = $('#manage_all_order').DataTable({
                 processing: true,
                 serverSide: true,
                 destroy: true,
                 retrieve: true,
                 ajax: {
-                    "url": '{!! route('admin.allInvoices') !!}',
+                    "url": '{!! route('admin.allOrders') !!}',
                     "type": "GET",
                     headers: {
                         "X-CSRF-TOKEN": CSRF_TOKEN,
@@ -53,11 +52,12 @@
                     "dataType": 'json'
                 },
                 columns: [
-                    {data: 'DT_RowIndex', name: 'DT_RowIndex',orderable: false},
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'created_at', name: 'created_at'},
-                    {data: 'invoice_number', name: 'invoice_number'},
+                    {data: 'order_number', name: 'order_number'},
                     {data: 'shipping_address_first_name', name: 'shipping_address_first_name'},
-                    {data: 'status', name: 'status'},
+                    // {data: 'order_type', name: 'order_type'},
+                    {data: 'order_status', name: 'order_status'},
                     {data: 'order_total', name: 'order_total'},
                     {data: 'action', name: 'action'}
                 ],
@@ -68,6 +68,7 @@
                 'height': '30px'
             });
 
+        });
         });
     </script>
     <script type="text/javascript">
