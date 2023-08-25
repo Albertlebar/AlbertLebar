@@ -44,7 +44,47 @@ class CheckoutController extends Controller
             \Session::forget('cart');
         }
     	$user = User::find(Auth::user()->id);
-    	return view('frontend.checkout.shipping',compact('user'));
+        if($request->shipping_method == 1){
+            return view('frontend.checkout.shipping',compact('user'));
+        }else{
+            $userId = Auth::user()->id;
+        $cartItem = Cart::where('user_id',$userId)->get();
+        $totalPrice = 0;
+        $VAT = 0;
+        foreach ($cartItem as $item) {
+            $totalPrice = $totalPrice + $item->price;
+        }
+        $VAT = $totalPrice * 0.2;
+        $order = new Order();
+        $order->user_id = Auth::user()->id;
+        $order->order_number = Order::autoGenerateOrderNumber();
+        $order->order_type = 0;
+        $order->order_status = 0;
+        $order->sub_total = $totalPrice;
+        $order->vat = $VAT;
+        $order->order_total = $totalPrice + $VAT;
+        $order->shipping_method = 0;
+        $order->shipping_address_first_name = $user->shipping_address_first_name;
+        $order->shipping_address_last_name = $user->shipping_address_last_name;
+        $order->shipping_address_1 = $user->shipping_address_1;
+        $order->shipping_address_2 = $user->shipping_address_2;
+        $order->shipping_city = $user->shipping_city;
+        $order->shipping_postcode = $user->shipping_postcode;
+        $order->shipping_country = $user->shipping_country;
+        $order->shipping_contact = $user->shipping_contact;
+        $order->save();
+        foreach ($cartItem as $item) {
+            $orderItem = new OrderItem();
+            $orderItem->order_id = $order->id;
+            $orderItem->item_id = $item->item_id;
+            $orderItem->quantity = $item->quantity;
+            $orderItem->size = $item->size;
+            $orderItem->price = $item->price;
+            $orderItem->save();
+            $item->delete();
+        }
+        return redirect()->route('frontend.checkout.payment',['order_id'=>$order->id])->with(['totalPrice' => $totalPrice,'order' => $order]);
+        }
     }
 
     public function saveShipping(Request $request)
@@ -78,6 +118,7 @@ class CheckoutController extends Controller
         $order->sub_total = $totalPrice;
         $order->vat = $VAT;
 		$order->order_total = $totalPrice + $VAT;
+        $order->shipping_method = 1;
 		$order->shipping_address_first_name = $request->shipping_address_first_name;
 		$order->shipping_address_last_name = $request->shipping_address_last_name;
 		$order->shipping_address_1 = $request->shipping_address_1;

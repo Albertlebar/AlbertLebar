@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Cart;
 use App\Models\ItemStock;
 use App\Models\Favorite;
+use DB;
 
 class ItemController extends Controller
 {
@@ -61,7 +62,7 @@ class ItemController extends Controller
    public function itemDetails(Request $request)
    {
       $item = Item::where('id',$request->item_id)->first();
-      $itemSize = ItemStock::where('item_id',$request->item_id)->where('size','!=','')->get()->pluck('size', 'id')->toArray();
+      $itemSize = ItemStock::select('id', DB::raw("CONCAT(size,' - ',stock) AS size"))->where('item_id',$request->item_id)->where('size','!=','')->get()->pluck('size', 'id')->toArray();
       $view = View::make('frontend.item.quick_view', compact('item','itemSize'))->render();
       return response()->json(['html' => $view]);
    }

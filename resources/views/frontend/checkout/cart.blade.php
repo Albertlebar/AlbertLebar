@@ -91,13 +91,21 @@
                           <strong><span class="amount"><span id="bk-cart-subtotal-price"><span class="money" >&pound;{{ number_format((float)$allTotal + $VAT, 2, '.', '') }}</span></span></span></strong>
                         </td>
                       </tr>                                         
+                      <tr>
+                        <td>
+                          <input type="radio" class="set_shipping_method" name="shipping_method" value="0" checked>
+                          <strong>Collection</strong>
+                          <input type="radio" class="ml-3 set_shipping_method" name="shipping_method" value="1">
+                          <strong>Delivery</strong>
+                        </td>
+                      </tr>
                     </tbody>
                   </table>
                   </div>
                   
                 </div>
                 <div class="proceed-to-checkout">
-                    <a href="{{ URL :: to('/checkout') }}" class="btn btn-sqr d-block">Proceed to Checkout</a>
+                    <a href="{{ URL::to('/checkout') }}?shipping_method=0" id="checkout" class="btn btn-sqr d-block">Proceed to Checkout</a>
                   </div>
                  
               </div>
@@ -115,6 +123,17 @@
 
 $(document).ready(function() {
     // View Form
+
+    $("body").on("change", "input[name='shipping_method']", function (e) {
+      let shipping_method = $(this).val();
+      if(shipping_method == 1)
+      {
+        $("#checkout").attr("href", "{{ URL :: to('/checkout') }}" + "?shipping_method=1");
+      }else{
+        $("#checkout").attr("href", "{{ URL :: to('/checkout') }}" + "?shipping_method=0");
+      }
+    });
+
     var subTotal = 0;
     $('#product-item .total_item_price').each(function () {
         subTotal = parseFloat(subTotal) + parseFloat($(this).val());
