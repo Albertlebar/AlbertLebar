@@ -82,4 +82,9 @@ return [
         '3' => 'Success',
         '4' => "Cancel"
     ],
+
+    'appointment_purpose' => [
+        '0' => 'Discover Lebar Collections',
+        '1' => 'Care Services',
+    ],
 ];

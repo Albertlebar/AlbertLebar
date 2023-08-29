@@ -60,14 +60,12 @@ class HomeController extends Controller
 
    public function bookAppointmentSave(Request $request)
    {
-      if ($request->ajax()) {
          // Setup the validator
          $rules = [
            'first_name' => 'required|max:255',
            'last_name' => 'required|max:255',
            'email' => 'required|max:255',
            'phone_number' => 'required',
-           'appointment_type' => 'required',
            'appointment_date' => 'required',
          ];
 
@@ -81,7 +79,6 @@ class HomeController extends Controller
 
             DB::beginTransaction();
             try {
-
                $appointment = new Appointment();
                $appointment->first_name = $request->input('first_name');
                $appointment->last_name = $request->input('last_name');
@@ -89,7 +86,11 @@ class HomeController extends Controller
                $appointment->phone_number = $request->input('phone_number');
                $appointment->appointment_type = $request->input('appointment_type');
                $appointment->status = 0;
+               $appointment->appointment_type = 0;
+               $appointment->purpose = $request->input('purpose');
+               $appointment->title = $request->input('title');  
                $appointment->appointment_date = \DateTime::createFromFormat('d/m/Y H:i:s', $request->input('appointment_date').' '.date('H:i:s'));
+               $appointment->appointment_time = $request->input('appointment_time');
                $appointment->notes = $request->input('notes');
                $appointment->save();
 
@@ -100,7 +101,8 @@ class HomeController extends Controller
               \Mail::to($appointment->email)->send(new \App\Mail\AppointmentMail($details));
 
                DB::commit();
-               return response()->json(['type' => 'success', 'message' => "Successfully Created"]);
+              return view('frontend.book_thankyou');
+               // return response()->json(['type' => 'success', 'message' => "Successfully Created"]);
 
             } catch (\Exception $e) {
                DB::rollback();
@@ -108,8 +110,5 @@ class HomeController extends Controller
             }
 
          }
-      } else {
-         return response()->json(['status' => 'false', 'message' => "Access only ajax request"]);
-      }
    }
 }

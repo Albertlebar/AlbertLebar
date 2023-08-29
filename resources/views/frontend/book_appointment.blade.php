@@ -9,10 +9,14 @@
   box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.6);
   /*max-width: 800px;
   min-width: 500px;*/
+
 }
 
 #terms-and-conditions {
   font-size: 15px; // default  
+}
+.tab {
+  display: none;
 }
 </style>
 <div class="shop-main-wrapper section-padding page">
@@ -21,78 +25,153 @@
       <img src="{{ asset('assets/img/appointment_page.jpg') }}" alt="Albert" style="max-width: 75%;"></div>
     <div class="col-md-6">
       <div id="terms-and-conditions">
-    <h1 style="margin-bottom: 10px;">Book Appointment</h1>
-    <form id='create' action="" enctype="multipart/form-data" method="post" accept-charset="utf-8" class="needs-validation"
+    <form id='create' action="{{ URL::to('book-appointment-save') }}" enctype="multipart/form-data" method="post" accept-charset="utf-8" class="needs-validation"
       novalidate>
-      <div class="form-group row mt-5">
-        <div class="col-md-4">
-          <strong><label for="staticEmail" class="col-form-label">First Name :</label></strong>
-        </div>
-        <div class="col-md-8">
-          <input type="text" name="first_name" class=" input-round-style" id="first_name" value="">
-          <span id="error_first_name" class="has-error"></span>
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-md-4">
-          <strong><label for="staticEmail" class="col-form-label">Last Name :</label></strong>
-        </div>
-        <div class="col-md-8">
-          <input type="text" name="last_name" class=" input-round-style" id="last_name" value="">
-          <span id="error_last_name" class="has-error"></span>
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-md-4">
-          <strong><label for="staticEmail" class="col-form-label">Email :</label></strong>
-        </div>
-        <div class="col-md-8">
-          <input type="text" name="email" class=" input-round-style" id="email" value="">
-          <span id="error_email" class="has-error"></span>
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-md-4">
-          <strong><label for="staticEmail" class="col-form-label">Appointment Type :</label></strong>
-        </div>
-        <div class="col-md-8">
-          <input class="form-check-input" type="radio" name="appointment_type" id="face_to_face" value="0" checked>
-          <label class="form-check-label" for="face_to_face">Face to Face</label>
-          <input class="form-check-input ml-2" type="radio" name="appointment_type" id="call" value="1">
-          <label class="form-check-label ml-4" for="call">Call</label>
-          <span id="error_appointment" class="has-error"></span> 
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-md-4">
-          <strong><label for="staticEmail" class="col-form-label">Phone Number :</label></strong>
-        </div>
-        <div class="col-md-8">
-          <input type="number" name="phone_number" class=" input-round-style" id="phone_number" value="">
-          <span id="error_phone_number" class="has-error"></span>
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-md-4">
-          <strong><label for="staticEmail" class="col-form-label">Appointment Date :</label></strong>
-        </div>
-        <div class="col-md-8">
-          <input type="text" class="input-round-style" name="appointment_date" id="datepicker" />
+      @csrf
+      <div class="tab">
+        <h3 style="margin-bottom: 10px;">APPOINTMENT DETAILS</h3>
+        <div class="form-group mt-5">
+          <div class="col-md-4">
+            <strong><label for="staticEmail" class="col-form-label">Date</label></strong>
+          </div>
+          <div class="col-md-8 d-flex">
+            <div class="input-icon">
+              <i class="fa fa-calendar" aria-hidden="true"></i>            
+            </div>
+            <input type="text" class="input-round-style" name="appointment_date" id="datepicker"  required="true" />
+          </div>
           <span id="error_appointment_date" class="has-error"></span>
         </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-md-4">
-          <strong><label for="staticEmail" class="col-form-label">Notes :</label></strong>
+        <div class="form-group">
+          <div class="col-md-4">
+            <strong><label for="staticEmail" class="col-form-label">Availabel time</label></strong>
+          </div>
+          <div class="col-md-8 d-flex">
+            <div class="input-icon">
+             <i class="fa fa-clock-o" aria-hidden="true"></i>            
+            </div>
+            <input type="time" class="input-round-style" name="appointment_time" id="appintment_time" required="false"/>
+          </div>
+          <span id="error_appointment_time" class="has-error"></span>
         </div>
-        <div class="col-md-8">
-          <textarea type="text" class="form-control" id="notes" name="notes" value="" placeholder=""></textarea>
-          <span id="error_notes" class="has-error"></span>
+        <div class="form-group">
+          <div class="col-md-4">
+            <strong><label for="staticEmail" class="col-form-label">Purpose Of Your Visit</label></strong>
+          </div>
+          <div class="col-md-8 d-flex">
+            <input type="radio" class="mr-1" id="discover" name="purpose" value="0" required="false" checked/>
+            <label class="form-check-label" for="face_to_face">Discover Lebar Collections</label>
+            <input type="radio" class="ml-2 mr-1" name="purpose" value="1" required="false" />
+            <label class="form-check-label" id="care" for="face_to_face">Care Services</label>
+            <span id="error_appointment_time" class="has-error"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-5">
+            <strong><label for="staticEmail" class="col-form-label">Complementary Comments</label></strong>
+          </div>
+          <div class="col-md-8 d-flex">
+            <textarea type="text" class="form-control" id="notes" name="notes" value="" placeholder="Please tell us more about the reason for your visit:" rows="5" required="false"></textarea>
+            <span id="error_notes" class="has-error"></span>
+          </div>
         </div>
       </div>
-      <div class="text-center">
-        <button type="submit" style="background: #f195ab !important; color: black !important;" class="btn btn-cart">Submit</button>
+      <div class="tab">
+        <div class="form-group">
+          <div class="col-md-5">
+            <strong><label for="staticEmail" class="col-form-label">Title</label></strong>
+          </div>
+          <div class="col-md-12 d-flex">
+            <input type="radio" class="mr-1" name="title" value="0" checked/>
+            <label class="form-check-label" for="face_to_face">Mr.</label>
+            <input type="radio" class="ml-2 mr-1" name="title" value="1" />
+            <label class="form-check-label" for="face_to_face">Ms.</label>
+            <span id="error_appointment_time" class="has-error"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-5">
+            <strong><label for="staticEmail" class="col-form-label">First Name</label></strong>
+          </div>
+          <div class="col-md-12 d-flex">
+            <input type="text" name="first_name" class="input-all-round-style" id="first_name" value="" required="true">
+          </div>
+          <span id="error_first_name" class="has-error"></span>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-5">
+            <strong><label for="staticEmail" class="col-form-label">Last Name</label></strong>
+          </div>
+          <div class="col-md-12 d-flex">
+            <input type="text" name="last_name" class="input-all-round-style" id="last_name" value="" required="true">
+          </div>
+          <span id="error_last_name" class="has-error"></span>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-4">
+            <strong><label for="staticEmail" class="col-form-label">Phone Number</label></strong>
+          </div>
+          <div class="col-md-12 d-flex">
+            <input type="number" name="phone_number" class="input-all-round-style" id="phone_number" value="" required="true">
+          </div>
+          <span id="error_phone_number" class="has-error"></span>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-4">
+            <strong><label for="staticEmail" class="col-form-label">Email Address</label></strong>
+          </div>
+          <div class="col-md-12 d-flex">
+            <input type="text" name="email" class=" input-all-round-style" id="email" value="" required="true">
+          </div>
+          <span id="error_email" class="has-error"></span>
+        </div>
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
+          <label class="form-check-label" for="rememberPasswordCheck">
+            I would also like to receive marketing information about Lebar Pvt. products or services. We may send you this infromation using e-mail, text, telephone, post, social media or through online advertising. You can ask us to stop marketing at any time.
+          </label>
+        </div>
       </div>
+      <div class="tab">
+        <h3 style="margin-bottom: 10px;">APPOINTMENT CONFIRMATION</h3>
+        <p>Your appointment has been confirmed. Please find the details below:</p>
+        <div class="text-center">
+          <div>
+            <p style="color: #f195ab">Boutique</p>
+            <h6>The London Diamond Bourse,</h6>
+            <h6>100 Hatton Garden,</h6>
+            <h6>London, EC1N 8NX</h6>
+          </div>
+
+          <hr>
+          <div class="mt-3">
+            <p style="color: #f195ab">Date</p>
+            <h6 id="appointment_confirm_date">30/08/2023</h6>
+            <h6 id="appointment_confirm_time">5:00 PM</h6>
+          </div>
+          <hr>
+
+          <div class="mt-3">
+            <p style="color: #f195ab">Purpose of your visit</p>
+            <h6 id="appointment_confirm_purpose">Discover Lebar collections</h6>
+            <h6 id="appointment_confirm_note">fdskfh</h6>
+          </div>
+          <hr>
+        </div>
+      </div>
+      <div style="overflow:auto;">
+        <div style="text-align: center;">
+          <!-- <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button> -->
+          <button type="button" style="background: #f195ab !important; color: black !important;" class="btn btn-cart" id="nextBtn" onclick="nextPrev(1)">Continue</button>
+        </div>
+      </div>
+     <!--  <div class="text-center">
+        <button type="submit" style="background: #f195ab !important; color: black !important;" class="btn btn-cart" onclick="nextPrev(1)">Submit</button>
+      </div> -->
     </form>
   </div><!--  end #terms-and-conditions  -->
     </div>
@@ -182,6 +261,91 @@
                     });
             }
             // <- end 'submitHandler' callback
-        });                    // <- end '.validate()'
+        });                 // <- end '.validate()'
+
+
+  var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  // if (n == 0) {
+  //   document.getElementById("prevBtn").style.display = "none";
+  // } else {
+  //   document.getElementById("prevBtn").style.display = "inline";
+  // }
+  if (n == (x.length - 1)) {
+    document.getElementById("appointment_confirm_date").innerHTML = $('#datepicker').val();
+    document.getElementById("appointment_confirm_time").innerHTML = $('#appintment_time').val();
+    if ($('#discover').is(":checked"))
+    {
+      document.getElementById("appointment_confirm_purpose").innerHTML = "Discover Lebar Collections";
+    }else{
+      document.getElementById("appointment_confirm_purpose").innerHTML = "Care Services";
+    }
+    document.getElementById("appointment_confirm_note").innerHTML = $('#notes').val();
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Countinue";
+  }
+  //... and run a function that will display the correct step indicator:
+  // fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("create").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // console.log(y[0].required);
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "" && y[i].required) {
+      // add an "invalid" class to the field:
+      $('#error_' + y[i].name).html("This filed is required");
+      y[i].className += " invalid";
+      // and set the current valid status to false
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  // if (valid) {
+  //   document.getElementsByClassName("step")[currentTab].className += " finish";
+  // }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[n].className += " active";
+}
 </script>
 @endpush

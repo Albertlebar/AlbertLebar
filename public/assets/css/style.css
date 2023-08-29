@@ -1685,6 +1685,25 @@ textarea:focus {
   height: 40px;
   border: 1px solid #ddd;
   padding: 0 15px;
+  border-radius: 0px 40px 40px 0px;
+  float: left;
+}
+.input-icon {
+  text-align: center;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 40px 0px 0px 40px;
+    width: 40px;
+    height: 40px;
+}
+input[type="time"]::-webkit-calendar-picker-indicator {
+    background: none;
+}
+.input-all-round-style{
+  width: 550px;
+  height: 40px;
+  border: 1px solid #ddd;
+  padding: 0 15px;
   border-radius: 40px;
   float: left;
 }
