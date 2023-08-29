@@ -229,7 +229,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="testimonial-thumb-wrapper">
-                            <div class="testimonial-thumb-carousel">
+                            <!-- <div class="testimonial-thumb-carousel">
                                 <div class="testimonial-thumb">
                                     <img src="{{ asset('assets/img/testimonial/testimonial-1.png') }}" alt="testimonial-thumb">
                                 </div>
@@ -242,7 +242,7 @@
                                 <div class="testimonial-thumb">
                                     <img src="{{ asset('assets/img/testimonial/testimonial-2.png') }}" alt="testimonial-thumb">
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="testimonial-content-wrapper">
                             <div class="testimonial-content-carousel">
