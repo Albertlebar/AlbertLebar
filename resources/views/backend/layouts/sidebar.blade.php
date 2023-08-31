@@ -33,12 +33,12 @@
     <div class="scrollbar-sidebar">
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
-                <!-- <li>
+                <li>
                     <a href="{{ URL :: to('/admin/dashboard') }}">
                         <i class="metismenu-icon pe-7s-rocket"></i>
                         Dashboard
                     </a>
-                </li> -->
+                </li>
                 <li>
                     <a href="{{ URL :: to('/admin/users') }}">
                         <i class="metismenu-icon pe-7s-users"></i>

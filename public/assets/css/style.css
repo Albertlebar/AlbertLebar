@@ -1681,7 +1681,7 @@ textarea:focus {
 }
 
 .input-round-style{
-  width: 375px;
+  width: 550px;
   height: 40px;
   border: 1px solid #ddd;
   padding: 0 15px;
@@ -6284,7 +6284,7 @@ blockquote {
 }
 .info-list li a {
   font-size: 14px;
-  color: #555555;
+  color: black;
   text-transform: capitalize;
 }
 .info-list li a:hover {
@@ -6297,10 +6297,10 @@ blockquote {
 .social-link a {
   width: 40px;
   height: 40px;
-  font-size: 18px;
+  font-size: 25px;
   line-height: 40px;
   margin-right: 10px;
-  color: #777777;
+  color: black;
   display: inline-block;
   text-align: center;
   background-color: #fff;

@@ -34,7 +34,7 @@
           <div class="col-md-4">
             <strong><label for="staticEmail" class="col-form-label">Date</label></strong>
           </div>
-          <div class="col-md-8 d-flex">
+          <div class="col-md-12 d-flex">
             <div class="input-icon">
               <i class="fa fa-calendar" aria-hidden="true"></i>            
             </div>
@@ -46,11 +46,11 @@
           <div class="col-md-4">
             <strong><label for="staticEmail" class="col-form-label">Availabel time</label></strong>
           </div>
-          <div class="col-md-8 d-flex">
+          <div class="col-md-12 d-flex">
             <div class="input-icon">
              <i class="fa fa-clock-o" aria-hidden="true"></i>            
             </div>
-            <input type="time" class="input-round-style" name="appointment_time" id="appintment_time" required="false"/>
+            <input type="text" class="input-round-style timepicker" name="appointment_time" id="appintment_time" required="false"/>
           </div>
           <span id="error_appointment_time" class="has-error"></span>
         </div>
@@ -58,7 +58,7 @@
           <div class="col-md-4">
             <strong><label for="staticEmail" class="col-form-label">Purpose Of Your Visit</label></strong>
           </div>
-          <div class="col-md-8 d-flex">
+          <div class="col-md-12 d-flex">
             <input type="radio" class="mr-1" id="discover" name="purpose" value="0" required="false" checked/>
             <label class="form-check-label" for="face_to_face">Discover Lebar Collections</label>
             <input type="radio" class="ml-2 mr-1" name="purpose" value="1" required="false" />
@@ -70,7 +70,7 @@
           <div class="col-md-5">
             <strong><label for="staticEmail" class="col-form-label">Complementary Comments</label></strong>
           </div>
-          <div class="col-md-8 d-flex">
+          <div class="col-md-12 d-flex">
             <textarea type="text" class="form-control" id="notes" name="notes" value="" placeholder="Please tell us more about the reason for your visit:" rows="5" required="false"></textarea>
             <span id="error_notes" class="has-error"></span>
           </div>
@@ -181,6 +181,15 @@
 @push('script')
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<script src="
+https://cdn.jsdelivr.net/npm/wickedpicker@0.4.3/dist/wickedpicker.min.js
+"></script>
+<link href="
+https://cdn.jsdelivr.net/npm/wickedpicker@0.4.3/dist/wickedpicker.min.css
+" rel="stylesheet">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 <script type="text/javascript">
   var dateToday = new Date(); 
   $("#datepicker").datepicker({
@@ -203,6 +212,37 @@
   return;
  }
 });
+  $('.timepicker').timepicker({
+     timeFormat: 'h:mm p',
+    interval: 30,
+    minTime: '10',
+    maxTime: '5:00pm',
+    defaultTime: '11',
+    startTime: '10:00',
+    dynamic: false,
+    dropdown: true,
+    scrollbar: true
+});
+   //  var options = {
+   //      now: "12:35", //hh:mm 24 hour format only, defaults to current time
+   //      twentyFour: false,  //Display 24 hour format, defaults to false
+   //      upArrow: 'wickedpicker__controls__control-up',  //The up arrow class selector to use, for custom CSS
+   //      downArrow: 'wickedpicker__controls__control-down', //The down arrow class selector to use, for custom CSS
+   //      close: 'wickedpicker__close', //The close class selector to use, for custom CSS
+   //      hoverState: 'hover-state', //The hover state class to use, for custom CSS
+   //      title: 'Timepicker', //The Wickedpicker's title,
+   //      showSeconds: false, //Whether or not to show seconds,
+   //      timeSeparator: ' : ', // The string to put in between hours and minutes (and seconds)
+   //      secondsInterval: 1, //Change interval for seconds, defaults to 1,
+   //      minutesInterval: 1, //Change interval for minutes, defaults to 1
+   //      beforeShow: null, //A function to be called before the Wickedpicker is shown
+   //      afterShow: null, //A function to be called after the Wickedpicker is closed/hidden
+   //      show: null, //A function to be called when the Wickedpicker is shown
+   //      clearable: false, //Make the picker's input clearable (has clickable "x")
+   //      minTime: '10',
+   //      maxTime: '6:00pm',
+   //  };
+   // $('.timepicker').wickedpicker(options);
 
   $('#create').validate({// <- attach '.validate()' to your form
             // Rules for form validation
