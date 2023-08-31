@@ -104,7 +104,6 @@
                             <div class="widget-body">
                                 <ul class="info-list" style="display: block !important;">
                                     <li><a href="{{ URL :: to('/about-us') }}">About Us</a></li>
-                                    <li><a href="{{ URL :: to('/book-appointment') }}">Book Appointment</a></li>
                                     <!-- <li><a href="javascript:void(0)">Delivery Information</a></li> -->
                                     <li><a href="{{ URL :: to('/return-policy') }}">Return Policy</a></li>
                                     <li><a href="{{ URL :: to('/terms-conditions') }}">Terms & Conditions</a></li>
