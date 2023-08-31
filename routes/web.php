@@ -13,6 +13,7 @@ Route::group([
 // Bakcend
 
 Route::post('/book-appointment-save','Frontend\HomeController@bookAppointmentSave')->name('book-appointment-save');
+Route::post('/enquiry-save','Frontend\HomeController@enquirySave')->name('enquiry-save');
 
 // Admin Auth
 Route::prefix('admin_login')->group(function () {

@@ -68,7 +68,27 @@
                                                             </div>
                                                             
                                                         </li>
-                                                        <li><a style="text-decoration: none;" href="mailto:demo@plazathemes.com"><i class="pe-7s-mail"></i> </a> <a href="mailto:demo@plazathemes.com" style="text-decoration: none;">sales@albertlebar.com </a></li>
+                                                        <li class="d-flex">
+                                                            <div class="col-md-1">
+                                                                <a href="tel:07930 906567" style="text-decoration: none;"><i class="fa fa-envelope" aria-hidden="true"></i></a> 
+                                                                
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <a style="text-decoration: none;" href="javascript:void(0)" class="minicart-btn2">Email <svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 256 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/></svg> </a>
+                                                            </div>
+                                                            
+                                                        </li>
+
+                                                        <li class="d-flex">
+                                                            <div class="col-md-1">
+                                                                <a href="tel:07930 906567" style="text-decoration: none;"><i class="fa fa-map-marker" aria-hidden="true"></i></a> 
+                                                                
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <a style="text-decoration: none;" href="javascript:void(0)" class="minicart-btn3">Visit Us <svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 256 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/></svg> </a>
+                                                            </div>
+                                                            
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </li>
@@ -267,6 +287,93 @@
                     <div class="minicart-button">
                         <a href="{{ URL :: to('/cart') }}"><i class="fa fa-shopping-cart"></i> View Cart</a>
                         <!-- <a href="javascript:void(0)"><i class="fa fa-share"></i> Checkout</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas-minicart-wrapper">
+        <div class="minicart-inner2">
+            <div class="offcanvas-overlay"></div>
+            <div class="minicart-inner-content">
+                <div class="minicart-close">
+                    <i class="pe-7s-close"></i>
+                </div>
+                <form id='enquiry-create' action="{{ URL::to('enquiry-save') }}" enctype="multipart/form-data" method="post" accept-charset="utf-8" class="needs-validation" novalidate>
+                    @csrf
+                    <div class="minicart-content-box">
+                        <div class="minicart-item-wrapper">
+                            <h4>Email</h4>
+                            <p>Complete the form below with your inquiry</p>
+                        </div>
+
+                        <div class="minicart-pricing-box">
+                            <p>General Enquiry</p>
+                            <textarea type="text" class="form-control" id="message" name="message" value="" placeholder="Type Your message here" rows="5" required="false"></textarea>
+
+                            <div class="form-floating mb-3 mt-3">
+                              <input type="text" style="height: calc(3rem + 2px);" name="first_name" class="form-control" id="first_name" placeholder="name@example.com" value="{{ old('first_name') }}">
+                              <label for="floatingInput required">First Name</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                              <input type="text" style="height: calc(3rem + 2px);" name="last_name" class="form-control" id="last_name" placeholder="name@example.com" value="{{ old('last_name') }}">
+                              <label for="floatingInput required">Last Name</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                              <input type="text" style="height: calc(3rem + 2px);" name="phone" class="form-control" id="phone" placeholder="name@example.com" value="{{ old('phone') }}">
+                              <label for="floatingInput required">Phone</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                              <input type="text" style="height: calc(3rem + 2px);" name="email" class="form-control" id="email" placeholder="name@example.com" value="{{ old('email') }}">
+                              <label for="floatingInput required">Email</label>
+                            </div>
+                        </div>
+
+                        <div class="minicart-button d-flex">
+                            <div class="col-md-6">
+                                <a class="close-btn" href="javascript:void(0)"></i> Cancel</a>            
+                            </div>
+                            <div class="col-md-6">
+                                <button type="submit"><i class="fa fa-share"></i> Send</button>
+                                <!-- <a href="javascript:void(0)"><i class="fa fa-share"></i> Send</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas-minicart-wrapper">
+        <div class="minicart-inner3">
+            <div class="offcanvas-overlay"></div>
+            <div class="minicart-inner-content">
+                <div class="minicart-close">
+                    <i class="pe-7s-close"></i>
+                </div>
+                <div class="text-center">
+                    <div>
+                        <h5 class="mb-4" style="color: #f195ab">FIND US</h5>
+                        <h6>The London Diamond Bourse,</h6>
+                        <h6>100 Hatton Garden,</h6>
+                        <h6>London, EC1N 8NX</h6>
+                    </div>
+                    <div class="minicart-button mt-2">
+                        <a href="https://www.google.com/maps/search/?api=1&query=51.51896070301455,-0.10800764314808704"> Get Directions</a>
+                    </div>
+
+                    <div class="mt-5">
+                        <h5 class="mb-4" style="color: #f195ab">Hours Of Operations</h5>
+                        <h6>Monday 10:30 am - 5:00 pm</h6>
+                        <h6>Tuesday 10:30 am - 5:00 pm</h6>
+                        <h6>Wednesday 10:30 am - 5:00 pm</h6>
+                        <h6>Thursday 10:30 am - 5:00 pm</h6>
+                        <h6>Friday 10:30 am - 2:00 pm</h6>
+
                     </div>
                 </div>
             </div>

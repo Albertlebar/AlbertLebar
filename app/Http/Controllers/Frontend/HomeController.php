@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Appointment;
 use App\Models\Cart;
 use App\Models\Item;
+use App\Models\Enquiry;
 
 
 class HomeController extends Controller
@@ -102,6 +103,51 @@ class HomeController extends Controller
 
                DB::commit();
               return view('frontend.book_thankyou');
+               // return response()->json(['type' => 'success', 'message' => "Successfully Created"]);
+
+            } catch (\Exception $e) {
+               DB::rollback();
+               return response()->json(['type' => 'error', 'message' => $e->getMessage()]);
+            }
+
+         }
+   }
+
+   public function enquirySave(Request $request)
+   {
+      $rules = [
+           'first_name' => 'required|max:255',
+           'last_name' => 'required|max:255',
+           'email' => 'required|max:255',
+           'phone' => 'required',
+         ];
+
+         $validator = Validator::make($request->all(), $rules);
+         if ($validator->fails()) {
+            return response()->json([
+              'type' => 'error',
+              'errors' => $validator->getMessageBag()->toArray()
+            ]);
+         } else {
+
+            DB::beginTransaction();
+            try {
+               $enquiry = new Enquiry();
+               $enquiry->first_name = $request->input('first_name');
+               $enquiry->last_name = $request->input('last_name');
+               $enquiry->email = $request->input('email');
+               $enquiry->phone = $request->input('phone');
+               $enquiry->message = $request->input('message');
+               $enquiry->save();
+
+               $details = [
+                  'title' => 'Enquiry Registration',
+                  'details' => $enquiry
+              ];
+              \Mail::to($enquiry->email)->cc('emilia@albertlebar.com')->send(new \App\Mail\EnquireyMail($details));
+
+               DB::commit();
+              return view('frontend.enquiry_thankyou');
                // return response()->json(['type' => 'success', 'message' => "Successfully Created"]);
 
             } catch (\Exception $e) {

@@ -450,9 +450,26 @@
 		$(".minicart-inner").addClass('show')
 	})
 
+	$(".minicart-btn2").on('click', function(){
+		$("body").addClass('fix');
+		$(".minicart-inner2").addClass('show')
+	})
+
+	$(".minicart-btn3").on('click', function(){
+		$("body").addClass('fix');
+		$(".minicart-inner3").addClass('show')
+	})
+
+	$(".close-btn").on('click', function(){
+		$("body").removeClass('fix');
+		$(".minicart-inner2").removeClass('show')
+	})
+
 	$(".offcanvas-close, .minicart-close,.offcanvas-overlay").on('click', function(){
 		$("body").removeClass('fix');
 		$(".minicart-inner").removeClass('show')
+		$(".minicart-inner2").removeClass('show')
+		$(".minicart-inner3").removeClass('show')
 	})
 
 
