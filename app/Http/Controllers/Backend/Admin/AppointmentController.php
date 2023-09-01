@@ -24,7 +24,7 @@ class AppointmentController extends Controller
         return view('backend.admin.appointment.index');
     }
 
-    public function getAllAppointment()
+    public function getAllAppointment(Request $request)
     {
       $can_edit = $can_delete = '';
       if (!auth()->user()->can('user-edit')) {
@@ -33,7 +33,13 @@ class AppointmentController extends Controller
       if (!auth()->user()->can('user-delete')) {
          $can_delete = "style='display:none;'";
       }
-        $appointment = Appointment::all();
+      $appointment = Appointment::select('*');
+      if(!empty($request['param']))
+      {
+        $appointment->where('created_at', '>=', Carbon::yesterday());
+        $appointment->orWhere('created_at', '=',now());  
+      }
+      $appointment->get();
       return Datatables::of($appointment)
         
         ->addColumn('first_name', function ($appointment) {

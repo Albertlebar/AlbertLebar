@@ -47,7 +47,13 @@ class OrderController extends Controller
 
         // $invoices->;
       }else{
-        $orders = Order::all();
+        $orders = Order::select('*');
+        if(!empty($request['param']))
+        {
+          $orders->where('orders.created_at', '>=', Carbon::yesterday());
+          $orders->orWhere('orders.created_at', '=',now());  
+        }
+        $orders->get();
       }
       return Datatables::of($orders)
         

@@ -47,6 +47,8 @@
         }
     </style>
     <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
         $(function () {
 
             table = $('#manage_all').DataTable({
@@ -58,18 +60,21 @@
                     headers: {
                         "X-CSRF-TOKEN": CSRF_TOKEN,
                     },
+                    data: function(d) {
+                        d.param = urlParams.get('param');
+                    },
                     "dataType": 'json'
                 },
                 columns: [
-                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                    {data: 'first_name', name: 'first_name'},
-                    {data: 'last_name', name: 'last_name'},
-                    {data: 'email', name: 'email'},
-                    {data: 'phone_number', name: 'phone_number'},
-                    {data: 'appointment_type', name: 'appointment_type'},
-                    {data: 'appointment_date', name: 'appointment_date'},
-                    {data: 'notes', name: 'notes'},
-                    {data: 'status', name: 'status'},
+                    {data: 'DT_RowIndex', searchable: false, orderable: false},
+                    {data: 'first_name', name: 'appointments.first_name'},
+                    {data: 'last_name', name: 'appointments.last_name'},
+                    {data: 'email', name: 'appointments.email'},
+                    {data: 'phone_number', name: 'appointments.phone_number'},
+                    {data: 'appointment_type', name: 'appointments.appointment_type'},
+                    {data: 'appointment_date', name: 'appointments.appointment_date'},
+                    {data: 'notes', name: 'appointments.notes'},
+                    {data: 'status', name: 'appointments.status'},
                     {data: 'action', name: 'action'}
                 ],
                 "autoWidth": true,

@@ -53,6 +53,9 @@
         }
     </style>
     <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+// console.log(queryString);
         $(function () {
 
             table = $('#manage_all').DataTable({
@@ -64,16 +67,19 @@
                     headers: {
                         "X-CSRF-TOKEN": CSRF_TOKEN,
                     },
+                    data: function(d) {
+                        d.param = urlParams.get('param');
+                    },
                     "dataType": 'json'
                 },
                 columns: [
-                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                    {data: 'created_at', name: 'created_at'},
-                    {data: 'order_number', name: 'order_number'},
-                    {data: 'shipping_address_first_name', name: 'shipping_address_first_name'},
+                    {data: 'DT_RowIndex',searchable: false, orderable: false},
+                    {data: 'created_at', name: 'orders.created_at'},
+                    {data: 'order_number', name: 'orders.order_number'},
+                    {data: 'shipping_address_first_name', name: 'orders.shipping_address_first_name'},
                     // {data: 'order_type', name: 'order_type'},
-                    {data: 'order_status', name: 'order_status'},
-                    {data: 'order_total', name: 'order_total'},
+                    {data: 'order_status', name: 'orders.order_status'},
+                    {data: 'order_total', name: 'orders.order_total'},
                     {data: 'action', name: 'action'}
                 ],
                 "autoWidth": false,
