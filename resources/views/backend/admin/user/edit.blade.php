@@ -129,6 +129,11 @@
                                         </script>
                                         <span id="error_photo" class="has-error"></span>
                                     </div> -->
+                                    <div class="form-group col-md-6 col-sm-12" id="vat_number_div">
+                                        <label for=""> Password </label>
+                                        <input type="password" class="form-control" id="password" name="password" value="" placeholder="">
+                                        <span id="error_password" class="has-error"></span>
+                                    </div>
                                     <div class="form-group col-md-4">
                                         <label for=""> Status </label><br/>
                                         <input type="radio" name="status" class="flat-green"
@@ -157,6 +162,7 @@
                                         <input type="radio" name="is_approved" class="flat-green"
                                                value="0" {{ ( $user->is_approved == 0 ) ? 'checked' : '' }}/> No
                                     </div>
+
                                     <div class="col-md-12 mb-3 mt-3">
                                         <button type="submit" class="btn btn-success button-submit"
                                                 data-loading-text="Loading..."><span class="fa fa-save fa-fw"></span> Save

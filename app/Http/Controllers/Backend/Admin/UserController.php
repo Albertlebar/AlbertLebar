@@ -286,8 +286,10 @@ class UserController extends Controller
                $user->user_type = $request->input('user_type');
                $user->is_approved = $request->input('is_approved');
                $user->refrences = $request->input('refrences');
-               $user->refrences = $request->input('refrences');
-               // $user->password = Hash::make($request->password);
+               if(!is_null($user->password))
+               {
+                  $user->password = Hash::make($request->password);                
+               }
                // $user->email_verified_at = now();
                $user->file_path = "assets/images/users/default.png";
                $user->save();

@@ -158,6 +158,9 @@ class="container-fluid">
                                                 </div>
 
                                             </li>
+                                            <li class="ml-3">
+                                                <strong><a style="background: #f195ab; color: white" href="javascript:void(0)" class="badge set_filter">Filter</a></strong>
+                                            </li>
                                         </div>
                                         <div class="d-flex">
                                             <li class="dd-menu-link-last">
@@ -205,9 +208,6 @@ class="container-fluid">
                                                     </ul>
                                                 </div>
 
-                                            </li>
-                                            <li class="ml-3">
-                                                <strong><a style="background: #f195ab; color: white" href="javascript:void(0)" class="badge set_filter">Filter</a></strong>
                                             </li>
                                         </div>
 

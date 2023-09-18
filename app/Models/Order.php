@@ -16,10 +16,10 @@ class Order extends Model
         return $this->hasMany(OrderItem::class, 'order_id','id');	
     }
 
-    public function orderUser()
-    {
-        return $this->belongsTo(User::class, 'user_id','id');
-    }
+        public function orderUser()
+        {
+            return $this->belongsTo(User::class, 'user_id','id');
+        }
 
     public static function autoGenerateOrderNumber() {
         $po_detail = self::select('order_number')->orderBy('id', 'desc')->first();

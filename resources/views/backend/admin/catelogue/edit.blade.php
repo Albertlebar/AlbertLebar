@@ -14,6 +14,9 @@
                       <li class="nav-item" role="presentation">
                         <a class="nav-link" id="link-tab-size-stock" data-mdb-toggle="tab" href-div="tab-size-stock" role="tab" aria-controls="ex1-tabs-2" aria-selected="false">Size & Stock</a>
                       </li>
+                      <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="link-tab-images" data-mdb-toggle="tab" href-div="tab-images" role="tab" aria-controls="ex1-tabs-3" aria-selected="false">Images</a>
+                      </li>
                     </ul>
                     <!-- Tabs navs -->
 
@@ -28,7 +31,7 @@
                             <div id="status"></div>
                             <br/>
                             <div class="clearfix"></div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group col-md-12 col-sm-12">
                                     <label for=""> Category </label>
                                     {!! Form::select('category_id', $categories ?? [],  $item->category_id ?? '', ['class' => 'form-control','data-control'=>"select2", 'id'=>'role']) !!}
@@ -85,7 +88,7 @@
                                     <span id="error_total_ct_weight" class="has-error"></span>
                                 </div>
                             </div>
-                            <div class="col-md-4 verticle-line">
+                            <div class="col-md-6 verticle-line">
                                 <div class="form-group col-md-12 col-sm-12">
                                     <label for=""> Gold Price </label>
                                     <input type="number" class="form-control" id="gold_price" name="gold_price" value="{{ $item->gold_price }}" placeholder="" required>
@@ -153,56 +156,6 @@
                                            value="0" {{ ( $item->is_sale == 0 ) ? 'checked' : '' }}> No
                                 </div>
                             </div>
-                            <div class="col-md-4 verticle-line">
-                                <div id="append_image">
-                                    <div class="">
-                                        <!-- <div class="col-md-2">
-                                            <input type="radio" name="is_main_image" class="form-control-sm" value="0">
-                                        </div> -->
-                                        <div style="text-align: center;">
-                                            <img id="preview-0" src="{{ asset($item->photo_0) }}" alt="" style="width: 105px; height: 100px;">
-                                            <a class="remove-image" id="id-remove-image" data-id="0" href="javascript:void(0)" style="display: inline;">&#215;</a>
-
-                                        </div>
-                                        <div class="mt-1" style="margin: auto;width: 35%;">
-                                            <input id="photo-0" type="file" accept="image/*" class="form-control" value="{{ $item->photo_0 }}" name="photo_0" onchange="showImage(0)">
-                                        </div>
-                                    </div>
-                                    <div class="row mt-5">
-                                        <!-- <div class="col-md-2">
-                                            <input type="radio" name="is_main_image" class="form-control-sm" value="0">
-                                        </div> -->
-                                        <div class="col-md-4 p-0 pl-2">
-                                            <div style="">
-                                                <img id="preview-1" src="{{ asset($item->photo_1) }}" alt="" style="width: 105px; height: 100px;">
-                                                <a class="remove-image1" id="id-remove-image" data-id="1" href="javascript:void(0)" style="display: inline;">&#215;</a>
-                                            </div>
-                                            <div class="mt-1" style="margin: auto;width: 102px;">
-                                                <input id="photo-1" type="file" accept="image/*" class="form-control" name="photo_1" onchange="showImage(1)">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 p-0 pl-1">
-                                            <div style="text-align: center;">
-                                                <img id="preview-2" src="{{ asset($item->photo_2) }}" alt="" style="width: 105px; height: 100px;">
-                                                <a class="remove-image1" id="id-remove-image" data-id="2" href="javascript:void(0)" style="display: inline;">&#215;</a>
-                                            </div>
-                                            <div class="mt-1" style="margin: auto;width: 102px;">
-                                                <input id="photo-2" type="file" accept="image/*" class="form-control" name="photo_2" onchange="showImage(2)">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 p-0">
-                                            <div style="text-align: right;">
-                                                <img id="preview-3" src="{{ asset($item->photo_3) }}" alt="" style="width: 105px; height: 100px;">
-                                                <a class="remove-image1" id="id-remove-image" data-id="3" href="javascript:void(0)" style="display: inline;">&#215;</a>
-                                            </div>
-                                            <div class="mt-1" style="margin: auto;width: 102px;">
-                                                <input id="photo-3" type="file" accept="image/*" class="form-control" name="photo_3" onchange="showImage(3)">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
                             <div class="col-md-12 mb-3">
                                 <button type="submit" class="btn btn-success button-submit"
                                         data-loading-text="Loading..."><span class="fa fa-save fa-fw"></span> Save
@@ -212,6 +165,9 @@
                         </form>
                       </div>
                       <div class="tab-pane fade" id="tab-size-stock" role="tabpanel" aria-labelledby="ex1-tab-2">
+                        
+                      </div>
+                      <div class="tab-pane fade" id="tab-images" role="tabpanel" aria-labelledby="ex1-tab-3">
                         
                       </div>
                     </div>
@@ -415,6 +371,51 @@
             }
             // <- end 'submitHandler' callback
         });        
+
+        $('body').on('click', '.image-submit', function(event) {
+            var list_id = [];
+                    
+                    var myData = new FormData($("#image-tab")[0]);
+                    var CSRF_TOKEN = $('input[name="csrf_token"]').val();
+                    myData.append('_token', CSRF_TOKEN);
+                    myData.append('roles', list_id);
+
+        $.ajax({
+                url: '{{ url("admin/catelogue-image") }}',
+                type: 'POST',
+                data: myData,
+                dataType: 'json',
+                cache: false,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+
+                    if (data.type === 'success') {
+                        swal("Done!", "It was succesfully done!", "success");
+                        $("#link-tab-images").trigger("click");
+                        reload_table();
+                        notify_view(data.type, data.message);
+                        $('#loader').hide();
+                        $("#submit").prop('disabled', false); // disable button
+                        $("html, body").animate({scrollTop: 0}, "slow");
+                        $('#myModal').modal('hide'); // hide bootstrap modal
+
+                    } else if (data.type === 'error') {
+                        if (data.errors) {
+                            $.each(data.errors, function (key, val) {
+                                $('#error_' + key).html(val);
+                            });
+                        }
+                        $("#status").html(data.message);
+                        $('#loader').hide();
+                        $("#submit").prop('disabled', false); // disable button
+                        swal("Error sending!", "Please try again", "error");
+
+                    }
+
+                }
+            });     
+        });
 
         $('body').on('click', '.size_stock', function(event) {
             var list_id = [];

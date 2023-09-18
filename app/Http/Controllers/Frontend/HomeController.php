@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use DB;
 use View;
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Appointment;
