@@ -147,9 +147,17 @@
                                         <img class="pri-img" src="{{ asset($item->photo_0) }}" alt="product">
                                     @endif
                                     </a>
-                                    <div class="button-group">
-                                        <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                    </div>
+                                    @if(Auth::check())
+                                    @if(count($item->itemFavorite) > 0)
+                                    <a style="color: #f195ab;" data-id="{{ $item->id }}" class="unfavorite" href="javascript:void(0);"
+                                        data-bs-toggle="tooltip" data-bs-placement="left"><i class="fa fa-heart"></i>
+                                    </a>
+                                    @else
+                                    <a style="color: #f195ab;" data-id="{{ $item->id }}" class="favorite" href="javascript:void(0);"
+                                        data-bs-toggle="tooltip" data-bs-placement="left"><i class="pe-7s-like"></i>
+                                    </a>
+                                    @endif
+                                    @endif
                                 </figure>
                                 <figure class="product-thumb">
                                     <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details" href="javascript:void(0);">
@@ -157,9 +165,17 @@
                                         <img class="" src="{{ asset($item->photo_1) }}" alt="product">
                                     @endif
                                     </a>
-                                    <div class="button-group">
-                                        <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                    </div>
+                                    @if(Auth::check())
+                                    @if(count($item->itemFavorite) > 0)
+                                    <a style="color: #f195ab;" data-id="{{ $item->id }}" class="unfavorite" href="javascript:void(0);"
+                                        data-bs-toggle="tooltip" data-bs-placement="left"><i class="fa fa-heart"></i>
+                                    </a>
+                                    @else
+                                    <a style="color: #f195ab;" data-id="{{ $item->id }}" class="favorite" href="javascript:void(0);"
+                                        data-bs-toggle="tooltip" data-bs-placement="left"><i class="pe-7s-like"></i>
+                                    </a>
+                                    @endif
+                                    @endif
                                 </figure>
                                 <figure class="product-thumb">
                                     <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details" href="javascript:void(0);">
@@ -167,9 +183,17 @@
                                         <img class="" src="{{ asset($item->photo_2) }}" alt="product">
                                     @endif
                                     </a>
-                                    <div class="button-group">
-                                        <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                    </div>
+                                   @if(Auth::check())
+                                    @if(count($item->itemFavorite) > 0)
+                                    <a style="color: #f195ab;" data-id="{{ $item->id }}" class="unfavorite" href="javascript:void(0);"
+                                        data-bs-toggle="tooltip" data-bs-placement="left"><i class="fa fa-heart"></i>
+                                    </a>
+                                    @else
+                                    <a style="color: #f195ab;" data-id="{{ $item->id }}" class="favorite" href="javascript:void(0);"
+                                        data-bs-toggle="tooltip" data-bs-placement="left"><i class="pe-7s-like"></i>
+                                    </a>
+                                    @endif
+                                    @endif
                                 </figure>
                                 <figure class="product-thumb">
                                     <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details" href="javascript:void(0);">
@@ -177,9 +201,17 @@
                                         <img class="" src="{{ asset($item->photo_3) }}" alt="product">
                                     @endif
                                     </a>
-                                    <div class="button-group">
-                                        <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                    </div>
+                                    @if(Auth::check())
+                                    @if(count($item->itemFavorite) > 0)
+                                    <a style="color: #f195ab;" data-id="{{ $item->id }}" class="unfavorite" href="javascript:void(0);"
+                                        data-bs-toggle="tooltip" data-bs-placement="left"><i class="fa fa-heart"></i>
+                                    </a>
+                                    @else
+                                    <a style="color: #f195ab;" data-id="{{ $item->id }}" class="favorite" href="javascript:void(0);"
+                                        data-bs-toggle="tooltip" data-bs-placement="left"><i class="pe-7s-like"></i>
+                                    </a>
+                                    @endif
+                                    @endif
                                 </figure>
                                 <div class="row">
                                         <div class="col">
