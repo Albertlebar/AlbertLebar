@@ -196,8 +196,8 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="testimonial-thumb-wrapper">
-                            <!-- <div class="testimonial-thumb-carousel">
-                                <div class="testimonial-thumb">
+                            <div class="testimonial-thumb-carousel">
+                                <!-- <div class="testimonial-thumb">
                                     <img src="{{ asset('assets/img/testimonial/testimonial-1.png') }}" alt="testimonial-thumb">
                                 </div>
                                 <div class="testimonial-thumb">
@@ -205,16 +205,13 @@
                                 </div>
                                 <div class="testimonial-thumb">
                                     <img src="{{ asset('assets/img/testimonial/testimonial-3.png') }}" alt="testimonial-thumb">
-                                </div>
-                                <div class="testimonial-thumb">
-                                    <img src="{{ asset('assets/img/testimonial/testimonial-2.png') }}" alt="testimonial-thumb">
-                                </div>
-                            </div> -->
+                                </div> -->
+                            </div>
                         </div>
                         <div class="testimonial-content-wrapper">
-                            <div class="testimonial-content-carousel">
+                            <div class="testimonial-content-carousel slick-row-10">
                                 <div class="testimonial-content">
-                                    <p style="color: #f195ab;"><strong> Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</strong></p>
+                                    <p style="color: #f195ab;"><strong> I absolutely love shopping at Lebar. Their jewellery is of the highest quality, and I always find pieces that fit my budget perfectly. The exceptional customer service makes every visit a joy, and I highly recommend them for anyone seeking beautiful jewellery.</strong></p>
                                     <div class="ratings">
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
@@ -222,10 +219,10 @@
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
                                     </div>
-                                    <h5 class="testimonial-author" style="color: #f195ab;">lindsy niloms</h5>
+                                    <h5 class="testimonial-author" style="color: #f195ab;">Dudu Edreyi</h5>
                                 </div>
                                 <div class="testimonial-content">
-                                    <p style="color: #f195ab;"><strong> Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</strong></p>
+                                    <p style="color: #f195ab;"><strong> Shopping at Lebar Jewellery is like going on a treasure hunt in a candy store! Every visit is an adventure, and I always leave with a smile on my face.</strong></p>
                                     <div class="ratings">
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
@@ -233,10 +230,10 @@
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
                                     </div>
-                                    <h5 class="testimonial-author" style="color: #f195ab;">Daisy Millan</h5>
+                                    <h5 class="testimonial-author" style="color: #f195ab;">Jess Lewis</h5>
                                 </div>
                                 <div class="testimonial-content">
-                                    <p style="color: #f195ab;"><strong> Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</strong></p>
+                                    <p style="color: #f195ab;"><strong> I had the pleasure of commissioning a bespoke piece of jewellery from Lebar, and the experience was nothing short of magical. They took my vision and truned it into a wearable work of art. If you're looking for a one-of-a-kinf design, Emilia is the Person to make your dreams come true!</strong></p>
                                     <div class="ratings">
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
@@ -244,18 +241,7 @@
                                         <span><i class="fa fa-star-o"></i></span>
                                         <span><i class="fa fa-star-o"></i></span>
                                     </div>
-                                    <h5 class="testimonial-author" style="color: #f195ab;">Anamika lusy</h5>
-                                </div>
-                                <div class="testimonial-content">
-                                    <p style="color: #f195ab;"><strong> Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</strong></p>
-                                    <div class="ratings">
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                    </div>
-                                    <h5 class="testimonial-author" style="color: #f195ab;">Maria Mora</h5>
+                                    <h5 class="testimonial-author" style="color: #f195ab;">Emma Hartley</h5>
                                 </div>
                             </div>
                         </div>

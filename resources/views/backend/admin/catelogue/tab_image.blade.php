@@ -10,7 +10,7 @@
                     <input type="radio" name="is_main_image" class="form-control-sm" value="0">
                 </div> -->
                 <div style="text-align: center;">
-                    <img id="preview-0" src="{{ asset($item->photo_0) }}" alt="" style="width: 105px; height: 100px;">
+                    <img id="preview-0" src="{{ asset($item->photo_0) }}" alt="" style="width: 200px; height: 200px;">
                     <a class="remove-image" id="id-remove-image" data-id="0" href="javascript:void(0)" style="display: inline;">&#215;</a>
 
                 </div>
