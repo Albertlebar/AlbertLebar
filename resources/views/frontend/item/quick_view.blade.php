@@ -35,6 +35,7 @@
                             <div class="pro-large-img img-zoom">
                                 <img  src="{{asset($item->photo_0)}}" alt="product-details" />
                             </div>
+                            @endif
                             @if(!empty($item->photo_1))
                             <div class="pro-nav-thumb">
                                 <img src="{{ asset($item->photo_1) }}" alt="product-details" />
