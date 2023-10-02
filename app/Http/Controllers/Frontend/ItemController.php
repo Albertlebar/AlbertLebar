@@ -12,6 +12,8 @@ use App\Models\Cart;
 use App\Models\ItemStock;
 use App\Models\Favorite;
 use DB;
+use Illuminate\Support\Facades\Hash;
+
 
 class ItemController extends Controller
 {

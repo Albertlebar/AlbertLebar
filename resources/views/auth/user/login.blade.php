@@ -3,14 +3,14 @@
 
 <div class="container-fluid ps-md-0">
   <div class="row g-0">
-    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image">
+    <div class="d-none d-md-flex col-md-6 col-lg-6 bg-image">
         <div class="video-container">
-            <video autoplay loop muted>
+            <video autoplay loop muted class="w-100">
                 <source src="{{ asset('assets/video/login1.mp4') }}" type="video/mp4">
             </video>
         </div>
     </div>
-    <div class="col-md-8 col-lg-6">
+    <div class="col-md-6 col-lg-6">
       <div class="login d-flex align-items-center py-5">
         <div class="container">
           <div class="row">

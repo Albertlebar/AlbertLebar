@@ -3,9 +3,9 @@
 
 <div class="container-fluid ps-md-0">
   <div class="row g-0">
-    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image">
-        <div class="video-container w-100">
-            <video autoplay loop muted class="w-100 h-100" style="object-fit:cover">
+    <div class="video-container">
+        <div class="video-container">
+            <video autoplay loop muted class="w-100" >
                 <source src="{{ asset('assets/video/login1.mp4') }}" type="video/mp4">
             </video>
         </div>

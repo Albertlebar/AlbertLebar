@@ -1,0 +1,94 @@
+
+.logo-f-small {
+    max-width: 100px;
+}
+.order-items-name .col-md-3 {
+    width:190px;
+    max-width: 190px;
+    min-width: 100px;
+    margin: 5px 0;
+    padding: 0;
+}
+.order-items-name .col-md-9{
+    margin: 5px 0;
+}
+
+
+.order-items-name {
+    font-size: 12px;
+}
+
+@media (max-width:1024px) and (min-width:991px){
+    
+}
+
+@media (max-width:991px){
+    .sidebar-body {
+        width: 100% !important;
+        left: 0 !important;
+        padding-left: 25px;
+    }
+
+    .group-product-area.section-padding,
+   .feature-product.section-padding {
+        padding-top: 0;
+        padding-bottom: 10px;
+
+    }
+    .footer-top.section-padding {
+        padding-top: 40px;
+        padding-bottom: 10px;
+    }
+    .policy-item {margin-top: 0; padding: 0 5px;}
+    h6 {
+        font-size:0.8rem;
+        font-weight: 500;
+    }
+    .widget-logo img {
+        max-width: 200px !important;
+    }
+   
+}
+
+@media(max-width:767px) {
+    .section-padding.page {
+        padding: 60px 20px;
+    }
+    .appointment-img {
+        max-width: 100% !important;
+    }
+    
+    .footer-bottom {
+        padding-bottom: 0;
+    }
+    .header-configure-area ul li {
+        margin-left: 18px;
+    }
+.price-box .price-regular,
+.product-name.p-0 {
+    font-size: 14px !important;
+}
+.shop-main-wrapper.section-padding.pb-0.pt-0 {
+    margin-top: 60px !important;
+}
+.minicart-inner2.show .minicart-inner-content,
+.minicart-inner3.show .minicart-inner-content,
+.minicart-inner .minicart-inner-content {
+    max-width: 300px;
+}
+.minicart-inner2 .minicart-close,
+.minicart-inner3 .minicart-close,
+.minicart-inner .minicart-close {
+    right: 300px;
+}
+.section-padding.page.content-bg-page {
+    margin-top: 65px !important;
+    padding: 0 34px;
+    width: 100%;
+    min-width: 100%;
+}
+table#manage_all th {
+    white-space: nowrap;
+}
+
+}

@@ -23,7 +23,7 @@
                             <div class="widget-body">
                                 <ul class="info-list" style="display: block !important;">
                                     <li class="d-flex">
-                                        <div class="col-md-1">
+                                        <div class="col-md-1 col-auto">
                                             <a href="tel:07930 906567" style="text-decoration: none;"><i class="fa fa-phone"></i> </a> 
                                         </div>
                                         <div class="col-auto">
@@ -32,7 +32,7 @@
                                         
                                     </li>
                                     <li class="d-flex">
-                                        <div class="col-md-1">
+                                        <div class="col-md-1 col-auto">
                                             <a href="tel:07930 906567" style="text-decoration: none;"><i class="fa fa-calendar" aria-hidden="true"></i></a> 
                                             
                                         </div>
@@ -42,7 +42,7 @@
                                         
                                     </li>
                                     <li class="d-flex">
-                                        <div class="col-md-1">
+                                        <div class="col-md-1 col-auto">
                                             <a href="tel:07930 906567" style="text-decoration: none;"><i class="fa fa-envelope" aria-hidden="true"></i></a> 
                                             
                                         </div>
@@ -52,7 +52,7 @@
                                         
                                     </li>
                                     <li class="d-flex">
-                                        <div class="col-md-1">
+                                        <div class="col-md-1 col-auto">
                                             <a href="tel:07930 906567" style="text-decoration: none;"><i class="fa fa-map-marker" aria-hidden="true"></i></a> 
                                         </div>
                                         <div class="col-auto">
@@ -99,7 +99,7 @@
                     <div class="col-12">
                         <div class="copyright-text text-center">
                             <p><a href="{{ URL :: to('/') }}">
-                            <img src="{{ asset('assets/img/logo.png') }}" alt="Albert" style="max-width: 7%;"></a></p>
+                            <img src="{{ asset('assets/img/logo.png') }}" alt="Albert"  class="logo-f-small"></a></p>
                         </div>
                     </div>
                 </div>

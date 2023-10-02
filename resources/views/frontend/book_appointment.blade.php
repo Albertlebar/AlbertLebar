@@ -19,18 +19,18 @@
   display: none;
 }
 </style>
-<div class="shop-main-wrapper section-padding page">
+<div class="shop-main-wrapper section-padding page ">
   <div class="row">
     <div class="col-md-6">
-      <img src="{{ asset('assets/img/appointment_page.jpg') }}" alt="Albert" style="max-width: 75%;"></div>
+      <img src="{{ asset('assets/img/appointment_page.jpg') }}" alt="Albert" class="appointment-img" style="max-width: 75%;"></div>
     <div class="col-md-6">
       <div id="terms-and-conditions">
     <form id='create' action="{{ URL::to('book-appointment-save') }}" enctype="multipart/form-data" method="post" accept-charset="utf-8" class="needs-validation"
       novalidate>
       @csrf
       <div class="tab">
-        <h3 style="margin-bottom: 10px;">APPOINTMENT DETAILS</h3>
-        <div class="form-group mt-5">
+        <h3 class="my-3">APPOINTMENT DETAILS</h3>
+        <div class="form-group mt-4">
           <div class="col-md-4">
             <strong><label for="staticEmail" class="col-form-label">Date</label></strong>
           </div>
