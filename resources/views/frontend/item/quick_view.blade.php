@@ -31,6 +31,10 @@
                             @endif
                         </div>
                         <div class="pro-nav slick-row-10 slick-arrow-style">
+                            @if(!empty($item->photo_0))
+                            <div class="pro-large-img img-zoom">
+                                <img  src="{{asset($item->photo_0)}}" alt="product-details" />
+                            </div>
                             @if(!empty($item->photo_1))
                             <div class="pro-nav-thumb">
                                 <img src="{{ asset($item->photo_1) }}" alt="product-details" />
