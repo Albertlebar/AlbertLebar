@@ -144,6 +144,23 @@
                                         <input type="radio" name="is_sale" class="flat-green"
                                                value="0"/> No
                                     </div>
+                                    <div class="d-flex">
+                                    <div class="form-group col-md-4 col-sm-12">
+                                        <label for=""> Is Trade ? </label><br/>
+                                        <input type="radio" name="is_trade" class="flat-green"
+                                               value="1"  /> Yes
+                                        <input type="radio" name="is_trade" class="flat-green"
+                                               value="0" > No
+                                    </div>
+                                    
+                                    <div class="form-group col-md-4 col-sm-12">
+                                        <label for=""> Is Retailer ? </label><br/>
+                                        <input type="radio" name="is_retailer" class="flat-green"
+                                               value="1" /> Yes
+                                        <input type="radio" name="is_retailer" class="flat-green"
+                                               value="0" > No
+                                    </div>
+                                </div>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <button type="submit" class="btn btn-success button-submit"

@@ -10,7 +10,7 @@
         <!-- hero slider area end -->
 
         <!-- service policy area start -->
-        <div class="service-policy section-padding shop-main-wrapper">
+        <div class="service-policy section-padding shop-main-wrapper home-page">
             <div class="container text-center">
                 <div class="d-flex mtn-30" style="justify-content: space-around;">
                     <div class="">
@@ -252,9 +252,9 @@
         <!-- testimonial area end -->
 
         <!-- group product start -->
-        <section class="group-product-area section-padding">
+        <!-- <section class="group-product-area section-padding">
             
-        </section>
+        </section> -->
         <!-- group product end -->
 
         <!-- latest blog area start -->

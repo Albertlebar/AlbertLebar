@@ -49,6 +49,13 @@ class ItemController extends Controller
         $items = $items->whereIn('metal_colour',explode(',', $request->metal_colour));
       }
 
+      if(Auth::check() && Auth::user()->user_type == 0)
+      {
+        $items->where('is_trade','=','1');
+      }elseif(Auth::check() && Auth::user()->user_type == 1 ) {
+        $items->where('is_retailer','=','1');
+      }
+
       if ($request->sort == 'low_high') {
           $items = $items->orderBy('total_retail');
       } 

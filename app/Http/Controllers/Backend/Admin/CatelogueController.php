@@ -265,6 +265,9 @@ class CatelogueController extends Controller
                $item->total_trade = $request->input('total_trade');
                $item->total_retail = $request->input('total_retail');
                $item->is_active = $request->input('is_active');
+               $item->is_trade = $request->input('is_trade');
+               $item->is_retailer = $request->input('is_retailer');
+
                $item->is_sale = $request->input('is_sale');
                $item->best_seller = $request->input('best_seller');
                if(isset($file_path_0)){
@@ -470,6 +473,9 @@ class CatelogueController extends Controller
                $item->total_retail = $request->input('total_retail');
                $item->is_active = $request->input('is_active');
                $item->is_sale = $request->input('is_sale');
+               $item->is_trade = $request->input('is_trade');
+               $item->is_retailer = $request->input('is_retailer');
+               
                $item->best_seller = $request->input('best_seller');
                if(!empty($file_path_0)){
                 $item->photo_0 = $file_path_0;                
