@@ -10,11 +10,11 @@
                             <a class="btn btn-xs btn-success" href="{{ URL :: to('/admin/pdf-download') }}?id={{$order->id}}">Download</a>
                         </div> -->
                     </div>
-                    <div class="d-flex">
-                        <div class="col-md-6 col-sm-12">
+                    <div class="row order-items-name">
+                        <div class="col-12 col-lg-6">
                             <div class="d-flex">
                                 <div class="col-md-3">
-                                    <p><strong> Order Number : </strong></p>
+                                    <p><strong> Order Number  : </strong></p>
                                 </div>
                                 <div class="col-md-9">
                                     {{ $order->order_number }}
@@ -61,7 +61,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-12">
+                        <div class="col-12 col-lg-6">
                             <div class="d-flex">
                                 <div class="col-md-3">
                                     <p><strong> Shipping Name : </strong></p>

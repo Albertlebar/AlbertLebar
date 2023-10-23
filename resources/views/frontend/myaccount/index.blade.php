@@ -19,7 +19,7 @@
               novalidate>
                 <div class="row">
                   <input type="hidden" name="user_id" value="{{ $user->id }}">
-                  <div class="col-6">
+                  <div class="col-12 col-sm-6">
                     <div class="form-group col-md-12">
                       <label for="" style="color: #f195ab;"> First Name </label>
                       <input type="text" class="form-control" id="f_name" name="f_name" value="{{ $user->f_name }}" placeholder="" required>
@@ -63,7 +63,7 @@
                       <span id="error_country" class="has-error"></span>
                     </div>
                   </div>
-                  <div class="col-6">
+                  <div class="col-12 col-sm-6">
                     <div class="form-group col-md-12">
                       <label for="" style="color: #f195ab"> State/Province/County </label>
                       <input type="text" class="form-control" id="state_province_county" name="state_province_county" value="{{ $user->state_province_county }}" placeholder="" required>

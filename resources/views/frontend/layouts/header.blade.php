@@ -144,12 +144,58 @@
                             </a>
                         </div>
                         <div class="mobile-menu-toggler">
-                            <div class="mini-cart-wrap">
-                                <a href="javascript:void(0)">
-                                    <i class="pe-7s-shopbag"></i>
-                                    <div class="notification">0</div>
-                                </a>
+
+                        
+                        <div class="header-configure-area pr-0">
+                                <ul class="nav justify-content-end">
+                                    <li class="user-hover">
+                                        @guest
+                                        <a href="{{ route('login') }}">
+                                            <i class="pe-7s-user"></i>
+                                        </a>
+                                        @else
+                                        <a href="#">
+                                            <i class="pe-7s-user"></i>
+                                        </a>
+                                        <ul class="dropdown-list">
+                                                <!-- <li><a class="dropdown-item" href="{{ route('login') }}">Login</a>
+                                                </li> -->
+                                            <li><a href="{{ URL::to('/my-account') }}">My Account</a></li>
+                                                <li>
+                                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                                       onclick="event.preventDefault();
+                                                                     document.getElementById('logout-form').submit();">
+                                                        {{ __('Logout') }}
+                                                    </a>
+
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                                </li>
+                                            
+                                        </ul>
+                                        @endguest
+                                    </li>
+                                    @if(Auth::check())
+                                    <li>
+                                        <a href="{{ URL::to('item/favorite') }}">
+                                            <i class="pe-7s-like"></i>
+                                            <div class="notification">{{ count($fav) }}</div>
+                                        </a>
+                                    </li>
+                                    @endif
+                                    <li>
+                                        <a href="javascript:void(0)" class="minicart-btn">
+                                            <i class="pe-7s-shopbag"></i>
+                                            @if(isset($cartItem))
+
+                                            <div class="notification">{{ count($cartItem)}}</div>
+                                            @endif
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
+                            
                             <button class="mobile-menu-btn">
                                 <span></span>
                                 <span></span>

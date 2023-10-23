@@ -39,9 +39,9 @@
   
 }
 </style>
-    <div class="shop-main-wrapper section-padding page" style="background: #f195ab;">
+    <div class="shop-main-wrapper section-padding page content-bg-page" style="background: #f195ab;">
   <div id="terms-and-conditions" style="color: white;">
-    <h1>Return Policy for Jewelry Retail Company (United Kingdom)</h1>
+    <h2>Return Policy for Jewelry Retail Company (United Kingdom)</h2>
     <ol>
       <li>
         <b>Returns and Exchanges</b>

@@ -11,7 +11,7 @@
                         <a class="btn btn-xs btn-success" href="{{ URL :: to('/admin/pdf-download-invoice') }}?id={{$order->id}}">Download</a>
                     </div>
                 </div>
-                <div class="d-flex">
+                <div class="row order-items-name mt-3">
                     <div class="col-md-6 col-sm-12">
                         <div class="d-flex">
                             <div class="col-md-3">

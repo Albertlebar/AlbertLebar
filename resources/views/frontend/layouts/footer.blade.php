@@ -23,7 +23,11 @@
                             <div class="widget-body">
                                 <ul class="info-list" style="display: block !important;">
                                     <li class="d-flex">
+<<<<<<< HEAD
                                         <div class="col-md-1 col-auto w-30px">
+=======
+                                        <div class="col-md-1 col-auto">
+>>>>>>> 7d400a948a4f5995787cd7013a8a310f7e46c599
                                             <a href="tel:07930 906567" style="text-decoration: none;"><i class="fa fa-phone"></i> </a> 
                                         </div>
                                         <div class="col-auto">
@@ -32,7 +36,11 @@
                                         
                                     </li>
                                     <li class="d-flex">
+<<<<<<< HEAD
                                         <div class="col-md-1 col-auto w-30px">
+=======
+                                        <div class="col-md-1 col-auto">
+>>>>>>> 7d400a948a4f5995787cd7013a8a310f7e46c599
                                             <a href="tel:07930 906567" style="text-decoration: none;"><i class="fa fa-calendar" aria-hidden="true"></i></a> 
                                             
                                         </div>
@@ -42,7 +50,11 @@
                                         
                                     </li>
                                     <li class="d-flex">
+<<<<<<< HEAD
                                         <div class="col-md-1 col-auto w-30px">
+=======
+                                        <div class="col-md-1 col-auto">
+>>>>>>> 7d400a948a4f5995787cd7013a8a310f7e46c599
                                             <a href="tel:07930 906567" style="text-decoration: none;"><i class="fa fa-envelope" aria-hidden="true"></i></a> 
                                             
                                         </div>
@@ -52,7 +64,11 @@
                                         
                                     </li>
                                     <li class="d-flex">
+<<<<<<< HEAD
                                         <div class="col-md-1 col-auto w-30px">
+=======
+                                        <div class="col-md-1 col-auto">
+>>>>>>> 7d400a948a4f5995787cd7013a8a310f7e46c599
                                             <a href="tel:07930 906567" style="text-decoration: none;"><i class="fa fa-map-marker" aria-hidden="true"></i></a> 
                                         </div>
                                         <div class="col-auto">

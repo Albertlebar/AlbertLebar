@@ -51,7 +51,7 @@
             <span id="error_country" class="has-error"></span>
         </div>
         <div class="form-group col-md-6 col-sm-12">
-            <label for=""> State/Province/County </label>
+            <label for=""> State/Province/County  </label>
             <input type="text" class="form-control" id="state_province_county" name="state_province_county" value="" placeholder="" required>
             <span id="error_state_province_county" class="has-error"></span>
         </div>
