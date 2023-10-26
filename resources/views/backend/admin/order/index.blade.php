@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', ' All Categories')
+@section('title', ' All Orders')
 @section('content')
     <div class="app-page-title">
         <div class="page-title-wrapper">
@@ -83,6 +83,7 @@
                     {data: 'action', name: 'action'}
                 ],
                 "autoWidth": false,
+            });
             $('.dataTables_filter input[type="search"]').attr('placeholder', 'Type here to search...').css({
                 'width': '220px',
                 'height': '30px'
