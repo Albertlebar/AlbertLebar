@@ -10,7 +10,8 @@ return [
         '' => 'Select Metal Type',
         '0' => '9K',
         '1' => '18K',
-        '2' => 'Platinum'
+        '2' => 'Platinum',
+        '3' => 'Silver',
     ],
     'metal_colour' => [
         '' => 'Select Metal Colour',
