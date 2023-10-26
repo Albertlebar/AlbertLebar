@@ -87,6 +87,12 @@
                         Appointments
                     </a>
                 </li>
+                <li>
+                    <a href="{{ URL :: to('/admin/promocodes') }}">
+                        <i class="metismenu-icon pe-7s-categories"></i>
+                        Promocode
+                    </a>
+                </li>
                 <!-- <li>
                     <a href="{{ URL :: to('/admin/blogs') }}">
                         <i class="metismenu-icon pe-7s-bookmarks"></i>

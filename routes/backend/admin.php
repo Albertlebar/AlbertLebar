@@ -28,6 +28,10 @@ Route::get('/allCategory','CategoryController@getAll')->name('allCategory');
 
 /* ===== Category End =========== */
 
+
+Route::resource('promocodes','PromocodeController');
+Route::get('/allPromocode','PromocodeController@getAll')->name('allPromocode');
+
 // Catelogue Controller
 
 /* ===== Catelogue Start =========== */
