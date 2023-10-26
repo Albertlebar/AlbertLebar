@@ -15,6 +15,7 @@ Route::get('/item/size/guide/{item_type}','ItemController@sizeGuide');
 Route::post('item/add-to-cart', 'ItemController@addToCart');
 Route::get('item-remove-cart/{item_id}', 'ItemController@removeToCart');
 Route::get('cart','CheckoutController@cart');
+Route::get('check-promocode/{code}','CheckoutController@checkPromocode');
 
 Route::middleware('auth')->group(function ()
 {

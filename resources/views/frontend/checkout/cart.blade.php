@@ -85,10 +85,20 @@
                           <strong><span class="amount"><span id="bk-cart-subtotal-price"><span class="money" >&pound;{{ number_format((float)$VAT, 2, '.', '') }}</span></span></span></strong>
                         </td>
                       </tr>
+                      <tr class="cart-subtotal">
+                        <td>
+                          Promocode
+                          <input type="text" name="promocode" id="promocode" style="width: 150px">
+                          <a href="javascript:void(0)" id="promocode_btn">Apply</a>
+                        </td>
+                        <td>
+                          <strong><span class="amount"><span id="bk-cart-subtotal-price">-&pound;<span class="money" id="promocode_apply">0.00</span></span></span></strong>
+                        </td>
+                      </tr>
                       <tr class="order-total">
                         <td>Total</td>
                         <td>
-                          <strong><span class="amount"><span id="bk-cart-subtotal-price"><span class="money" >&pound;{{ number_format((float)$allTotal + $VAT, 2, '.', '') }}</span></span></span></strong>
+                          <strong><span class="amount"><span id="bk-cart-subtotal-price">&pound;<span class="money" id="final_total">{{ number_format((float)$allTotal + $VAT, 2, '.', '') }}</span></span></span></strong>
                         </td>
                       </tr>                                         
                       <tr>
@@ -139,6 +149,26 @@ $(document).ready(function() {
       }
     });
 
+    $("#promocode_btn").click(function(event) {
+        var code = $("#promocode").val();
+        $.ajax({
+            url: 'check-promocode' + '/' + code,
+            type: 'get',
+            success: function(data) {
+              if(data.type == 'success'){
+                $("#promocode_apply").html(data.data.discount);
+                var total = $("#final_total").html();
+                $("#final_total").html((parseFloat(total) - parseFloat(data.data.discount)).toFixed(2));
+                $("#promocode_btn").off('click');
+              }
+            },
+            error: function(result) {
+                $("#quick_view_item_details").html("Sorry Cannot Load Data");
+            }
+          
+        });
+    });
+
     var subTotal = 0;
     $('#product-item .total_item_price').each(function () {
         subTotal = parseFloat(subTotal) + parseFloat($(this).val());
@@ -158,6 +188,7 @@ $(document).ready(function() {
           
         });
     });
+
     $(".quick_view_details").click(function(event) {
 
        

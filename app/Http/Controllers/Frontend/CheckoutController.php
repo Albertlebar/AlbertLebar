@@ -15,6 +15,7 @@ use Session;
 use App\Models\User;
 use App\Models\Invoice;
 use App\Models\InvoiceItem;
+use App\Models\Promocode;
 use DB;
 use View;
 
@@ -43,6 +44,11 @@ class CheckoutController extends Controller
             }
             \Session::forget('cart');
         }
+        $discount = 0;
+        if(\Session::has('discount'))
+        {
+            $discount = \Session::get('discount');
+        }
     	$user = User::find(Auth::user()->id);
         if($request->shipping_method == 1){
             return view('frontend.checkout.shipping',compact('user'));
@@ -62,7 +68,7 @@ class CheckoutController extends Controller
         $order->order_status = 0;
         $order->sub_total = $totalPrice;
         $order->vat = $VAT;
-        $order->order_total = $totalPrice + $VAT;
+        $order->order_total = ($totalPrice + $VAT) - $discount;
         $order->shipping_method = 0;
         $order->shipping_address_first_name = $user->shipping_address_first_name;
         $order->shipping_address_last_name = $user->shipping_address_last_name;
@@ -109,6 +115,11 @@ class CheckoutController extends Controller
 		foreach ($cartItem as $item) {
 			$totalPrice = $totalPrice + $item->price;
 		}
+        $discount = 0;
+        if(\Session::has('discount'))
+        {
+            $discount = \Session::get('discount');
+        }
         $VAT = $totalPrice * 0.2;
 		$order = new Order();
 		$order->user_id = Auth::user()->id;
@@ -117,7 +128,7 @@ class CheckoutController extends Controller
 		$order->order_status = 0;
         $order->sub_total = $totalPrice;
         $order->vat = $VAT;
-		$order->order_total = $totalPrice + $VAT;
+		$order->order_total = ($totalPrice + $VAT) - $discount;
         $order->shipping_method = 1;
 		$order->shipping_address_first_name = $request->shipping_address_first_name;
 		$order->shipping_address_last_name = $request->shipping_address_last_name;
@@ -363,6 +374,18 @@ class CheckoutController extends Controller
         }catch(\Exception $e){
             DB::rollback();
             return response()->json(['type' => 'error', 'message' => $e->getMessage()]);
+        }
+    }
+
+    public function checkPromocode(Request $request)
+    {
+        $checkcode = Promocode::where('promocode',$request->code)->first()->toArray();
+        if(!is_null($checkcode))
+        {
+            $request->Session()->put('discount', $checkcode['discount']);
+            return response()->json(['type' => 'success', 'data' => $checkcode]);
+        }else{
+            return response()->json(['type' => 'error', 'data' => "Not Validate"]);
         }
     }
 }
