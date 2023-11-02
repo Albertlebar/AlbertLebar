@@ -60,7 +60,7 @@
                             <p style="margin-bottom: 0px;" class="pro-desc">{{ $item->item_description }}</p>
                             <p style="font-size: 10px;"><strong> Item Code: </strong> {{ $item->item_code }}</p>
                             <div class="price-box">
-                                <span style="font-size: 13px;" class="price-regular"  style="color: black;">Measurement: {{ $item->measurement }}</span>
+                                <span style="font-size: 13px;"  style="color: black;">Measurement: {{ $item->measurement }}</span>
                             </div>
                             <div>
                                 <span style="font-size: 13px;" style="color: black !important;">Metal Type: {{ config('params.metal_type')[$item->metal_type] }}</span>
@@ -88,7 +88,7 @@
                                 </div>
                                 <i class="fa fa-plus-circle"></i>
                             </div>
-                            <div class="d-flex" style="justify-content: end;">
+                            <div class="d-flex mt-5" style="justify-content: center;">
                                 @if(Auth::check() && Auth::user()->user_type == 0)
                                 <div class="price-box"  style="margin-top:5px;">
                                     <span class="price-regular"  style="color: black;">&pound; {{ number_format((float)$item->total_trade, 2, '.', '') }}</span>
