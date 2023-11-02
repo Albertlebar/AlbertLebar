@@ -232,6 +232,7 @@ class="container-fluid">
                             <div class="product-item">
                                 <div
                                     class="hero-slider-active slick-arrow-style slick-arrow-style_hero slick-dot-style">
+                                    @if(!empty($item->photo_0))
                                     <figure class="product-thumb mb-0">
                                         <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details"
                                             href="javascript:void(0);">
@@ -259,6 +260,8 @@ class="container-fluid">
                                                 <button class="btn btn-cart">add to cart</button>
                                             </div> -->
                                     </figure>
+                                    @endif
+                                    @if(!empty($item->photo_1))
                                     <figure class="product-thumb mb-0">
                                         <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details"
                                             href="javascript:void(0);">
@@ -286,6 +289,8 @@ class="container-fluid">
                                                 <button class="btn btn-cart">add to cart</button>
                                             </div> -->
                                     </figure>
+                                    @endif
+                                    @if(!empty($item->photo_2))
                                     <figure class="product-thumb mb-0">
                                         <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details"
                                             href="javascript:void(0);">
@@ -313,6 +318,8 @@ class="container-fluid">
                                                 <button class="btn btn-cart">add to cart</button>
                                             </div> -->
                                     </figure>
+                                    @endif
+                                    @if(!empty($item->photo_3))
                                     <figure class="product-thumb mb-0">
                                         <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details"
                                             href="javascript:void(0);">
@@ -340,6 +347,7 @@ class="container-fluid">
                                                 <button class="btn btn-cart">add to cart</button>
                                             </div> -->
                                     </figure>
+                                    @endif
                                 </div>
                                 <div class="product-content-list py-2 px-3">
 
