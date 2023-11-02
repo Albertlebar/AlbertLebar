@@ -28,7 +28,18 @@ class HomeController extends Controller
    public function index()
    {
       // $items = Item::latest()->limit(8)->get();
-      $items = Item::where('best_seller',1)->get();
+      $items = Item::where('best_seller',1);
+      if(Auth::check() && Auth::user()->user_type == 0)
+      {
+        $items->where('is_trade','=','1');
+      }elseif(Auth::check() && Auth::user()->user_type == 1 ) {
+        $items->where('is_retailer','=','1');
+      }else{
+        $items->where('is_retailer','=','1');
+      }
+
+      $items = $items->get();
+
       
       return View::make('frontend.index',compact('items'));
    }

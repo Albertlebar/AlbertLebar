@@ -166,8 +166,8 @@ class CatelogueController extends Controller
            'labour_cost' => 'required|numeric|min:0|max:100000',
            'duty_and_extra' => 'required|numeric|min:0|max:100000',
            'total_cost' => 'required|numeric|min:0|max:100000',
-           'profit_trade' => 'required|numeric|min:0|max:100',
-           'profit_retail' => 'required|numeric|min:0|max:100',
+           'profit_trade' => 'required|numeric|min:0',
+           'profit_retail' => 'required|numeric|min:0',
          ];
 
          $validator = Validator::make($request->all(), $rules);

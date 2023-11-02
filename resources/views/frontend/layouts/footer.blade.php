@@ -98,8 +98,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="copyright-text text-center">
-                            <p><a href="{{ URL :: to('/') }}">
-                            <img src="{{ asset('assets/img/logo.png') }}" alt="Albert"  class="logo-f-small"></a></p>
+                            <a href="{{ URL :: to('/') }}" style="border-right: 1px solid black; margin-right: 3px; padding-right: 7px;">
+                            <img src="{{ asset('assets/img/logo.png') }}" alt="Albert"  class="logo-f-small"></a>
+                            <a href="https://londondiamondbourse.com/" target="_blank">
+                            <img src="{{ asset('assets/img/diamond_burse.png') }}" alt="Albert"  class="logo-f-small"></a>
+                            
                         </div>
                     </div>
                 </div>

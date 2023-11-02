@@ -54,6 +54,8 @@ class ItemController extends Controller
         $items->where('is_trade','=','1');
       }elseif(Auth::check() && Auth::user()->user_type == 1 ) {
         $items->where('is_retailer','=','1');
+      }else{
+        $items->where('is_retailer','=','1');
       }
 
       if ($request->sort == 'low_high') {

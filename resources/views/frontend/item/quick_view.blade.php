@@ -62,6 +62,12 @@
                             <div class="price-box">
                                 <span style="font-size: 13px;" class="price-regular"  style="color: black;">Measurement: {{ $item->measurement }}</span>
                             </div>
+                            <div>
+                                <span style="font-size: 13px;" style="color: black !important;">Metal Type: {{ config('params.metal_type')[$item->metal_type] }}</span>
+                            </div>
+                            <div>
+                                <span style="font-size: 13px;" style="color: black !important;">Metal Colour: {{ config('params.metal_colour')[$item->metal_colour] }}</span>
+                            </div>
                             <div class="quantity-cart-box d-flex align-items-center">
                                 @if(count($itemSize) > 0)
                                     <h6 class="option-title">Size</h6>
