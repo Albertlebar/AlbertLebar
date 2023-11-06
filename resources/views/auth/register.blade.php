@@ -35,7 +35,7 @@
                   </div>
                   <div style="margin-left: 1rem; " class="d-flex">
                     <input class="form-check-input" type="radio" name="user_type" id="call" value="1">
-                    <label class="form-check-label" style="margin-left: 10px; " for="call">Retailer</label>
+                    <label class="form-check-label" style="margin-left: 10px; " for="call">Public</label>
                   </div>
                   <span id="error_appointment" class="has-error"></span>
                 </div>
@@ -145,7 +145,7 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="confirm_password" class="form-control" name="password_confirmation" id="confirm_password" placeholder="Confirm Password">
+                  <input type="text" class="form-control" name="password_confirmation" id="confirm_password" placeholder="Confirm Password">
                   <label for="floatingPassword">Confirm Password</label>
                   @if ($errors->has('confirm_password'))
                     <span class="is-invalid">The Confirm Password field is required.</span>
@@ -176,7 +176,7 @@
                 </div>
 
                 <div class="d-grid">
-                  <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</button>
+                  <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign up</button>
                   <div class="text-center">
                     <a class="small" href="{{ route('login') }}">Log In</a>
                   </div>

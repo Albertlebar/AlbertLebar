@@ -53,7 +53,7 @@
                 <div class="d-grid">
                   <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</button>
                   <div class="text-center">
-                    <a class="small" href="{{ route('register') }}">Registration</a> | 
+                    <a class="small" href="{{ route('register') }}">Create an account</a> | 
                     <a class="small" href="route('password.request')">Forgot password?</a>
                   </div>
                 </div>
