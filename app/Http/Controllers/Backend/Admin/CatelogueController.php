@@ -246,6 +246,7 @@ class CatelogueController extends Controller
                $item->item_title = $request->input('item_title');
                $item->item_code = $request->input('item_code');
                $item->item_description = $request->input('item_description');
+               $item->est_deli_date = \DateTime::createFromFormat('d/m/Y H:i:s', $request->input('est_deli_date').' '.date('H:i:s'));
                $item->supplier_name = $request->input('supplier_name');
                $item->supplier_code = $request->input('supplier_code');
                $item->measurement = $request->input('measurement');
@@ -453,6 +454,7 @@ class CatelogueController extends Controller
                $item->item_title = $request->input('item_title');
                $item->item_code = $request->input('item_code');
                $item->item_description = $request->input('item_description');
+               $item->est_deli_date = \DateTime::createFromFormat('d/m/Y H:i:s', $request->input('est_deli_date').' '.date('H:i:s'));
                $item->supplier_name = $request->input('supplier_name');
                $item->supplier_code = $request->input('supplier_code');
                $item->measurement = $request->input('measurement');

@@ -41,6 +41,10 @@
                                         <textarea type="text" class="form-control" id="item_code" name="item_description" value="" placeholder="" required></textarea>
                                         <span id="error_item_code" class="has-error"></span>
                                     </div>
+                                    <div class="form-group col-md-12">
+                                        <label for=""> Estimate Delivery Date  </label>
+                                        <input type="text" class="form-control" name="est_deli_date" value="" id="datepicker"  required="true" />
+                                    </div>
                                     <div class="form-group col-md-12 col-sm-12">
                                         <label for=""> Supplier Name </label>
                                         <input type="text" class="form-control" id="supplier_name" name="supplier_name" value="" placeholder="" required>
@@ -178,8 +182,30 @@
     </div>
 @endsection
 @push('script')
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 <script>
+    var dateToday = new Date(); 
+  $("#datepicker").datepicker({
+ format: "dd/mm/yyyy",
+ autoclose: true,
+ todayHighlight: true,
+ startDate: dateToday,
+ beforeShowDay: function(date){
+     var d = date;
+     var curr_date = d.getDate();
+     var curr_month = d.getMonth() + 1; //Months are zero based
+     var curr_year = d.getFullYear();
+     var formattedDate = curr_date + "/" + curr_month + "/" + curr_year
 
+     // if ($.inArray(formattedDate, booked_date) != -1){
+     //   return {
+     //      classes: 'activeClass'
+     //   };
+     // }
+  return;
+ }
+});
     function showImage(imgNumber) {
         const imageUploader = document.querySelector("#photo-"+imgNumber);
         const imagePreview = document.querySelector("#preview-"+imgNumber);
