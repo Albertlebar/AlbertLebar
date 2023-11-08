@@ -113,6 +113,7 @@
                                     </a>
                                     @endif
                                     @endif
+                                    <a href="javascript:void(0);" data-id="{{ URL::to('/item') }}/search?search_word={{$item->item_code}}" id="copy_link" title="copy link" style="color: #f195ab;"><i class="pe-7s-copy-file"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -135,6 +136,18 @@
        var qty = $('#item-qty').val();
        $('#item-qty').val(parseInt(qty) + 1);
     });
+
+    $('#copy_link').click(function (e) {
+       e.preventDefault();
+       var copyText = $(this).attr('data-id');
+
+       document.addEventListener('copy', function(e) {
+          e.clipboardData.setData('text/plain', copyText);
+          e.preventDefault();
+       }, true);
+
+       document.execCommand('copy');
+     });
 
     $('.favorite').on('click',function(){
         var itemId = $(this).attr('data-id');
