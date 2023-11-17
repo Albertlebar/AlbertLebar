@@ -260,7 +260,7 @@ class="container-fluid">
                                                 <button class="btn btn-cart">add to cart</button>
                                             </div> -->
                                     </figure>
-                                    @endif
+                                    @endif  
                                     @if(!empty($item->photo_1))
                                     <figure class="product-thumb mb-0">
                                         <a data-bs-toggle="modal" data-id="{{ $item->id }}" class="quick_view_details"
@@ -471,7 +471,7 @@ $(document).ready(function() {
         .mouseleave(function() {
             $(this).closest('.mega-menu').removeClass('menu-hover-1 menu-slide');
             $('.dd-menu-link-1 .sidebar-body').removeClass('z-9');
-        });
+        }); 
 
 
     $('.dd-menu-link-2').mouseenter(function() {

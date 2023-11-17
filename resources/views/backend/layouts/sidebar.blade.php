@@ -52,6 +52,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ URL :: to('/admin/sub-categories') }}">
+                        <i class="metismenu-icon pe-7s-categories"></i>
+                        Sub Categories
+                    </a>
+                </li>
+                <li>
                     <a href="{{ URL :: to('/admin/catelogues') }}">
                         <i class="metismenu-icon pe-7s-categories"></i>
                         All Products

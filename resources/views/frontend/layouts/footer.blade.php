@@ -378,6 +378,9 @@
     <!-- Main JS -->
     <script src="{{ asset('assets/js/main2.js') }}"></script>
     <script type="text/javascript">
+
+        
+
         $('#input-bar').keyup(function()
         {
             var keycode = (event.keyCode ? event.keyCode : event.which);

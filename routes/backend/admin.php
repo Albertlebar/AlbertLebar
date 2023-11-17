@@ -26,6 +26,9 @@ Route::get('/allBlogs', 'BlogController@getAll')->name('allBlogs');
 Route::resource('categories','CategoryController');
 Route::get('/allCategory','CategoryController@getAll')->name('allCategory');
 
+Route::resource('sub-categories','SubCategoryController');
+Route::get('/allSubCategory','SubCategoryController@getAll')->name('allSubCategory');
+
 /* ===== Category End =========== */
 
 
