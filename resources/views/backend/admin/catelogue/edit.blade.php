@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for=""> Estimate Delivery Date  </label>
-                                    <input type="text" class="form-control" name="est_deli_date" value="{{ $item->est_deli_date }}" id="datepicker"  required="true" />
+                                    <input type="text" class="form-control" name="est_deli_date" value="{{ $item->est_deli_date }}"  required="true" />
                                 </div>
                                 <div class="form-group col-md-12 col-sm-12">
                                     <label for=""> Supplier Name </label>

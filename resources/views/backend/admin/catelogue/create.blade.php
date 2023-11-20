@@ -43,7 +43,7 @@
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for=""> Estimate Delivery Date  </label>
-                                        <input type="text" class="form-control" name="est_deli_date" value="" id="datepicker"  required="true" />
+                                        <input type="text" class="form-control" name="est_deli_date" value=""  required="true" />
                                     </div>
                                     <div class="form-group col-md-12 col-sm-12">
                                         <label for=""> Supplier Name </label>
