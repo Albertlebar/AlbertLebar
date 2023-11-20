@@ -14,7 +14,7 @@ class AddColumnEstDeliDateInItemsTable extends Migration
     public function up()
     {
         Schema::table('items', function (Blueprint $table) {
-            $table->datetime('est_deli_date')->nullable()->after('photo_3');
+            $table->string('est_deli_date',255)->nullable()->after('photo_3');
         });
     }
 
