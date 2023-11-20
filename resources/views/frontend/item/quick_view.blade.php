@@ -88,6 +88,9 @@
                                 </div>
                                 <i class="fa fa-plus-circle"></i>
                             </div>
+                            <div>
+                                <span style="font-size: 13px;" style="color: black !important;">Estimate Delivery: {{ $item->est_deli_date }}</span>
+                            </div>
                             <div class="d-flex mt-5" style="justify-content: center;">
                                 @if(Auth::check() && Auth::user()->user_type == 0)
                                 <div class="price-box"  style="margin-top:5px;">
