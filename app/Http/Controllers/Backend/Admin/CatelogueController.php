@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\SubCategory;
 use App\Models\Item;
 
 use Illuminate\Support\Facades\Validator;
@@ -243,6 +244,8 @@ class CatelogueController extends Controller
 
                $item = new Item();
                $item->category_id = $request->input('category_id');
+               $item->sub_category_id = $request->input('sub_category_id');
+
                $item->item_title = $request->input('item_title');
                $item->item_code = $request->input('item_code');
                $item->item_description = $request->input('item_description');
@@ -340,7 +343,9 @@ class CatelogueController extends Controller
           }else{
             $categories = Category::pluck('title','id')->toArray();
             $categories[''] = 'Select Category';
-            return view('backend.admin.catelogue.edit',compact('item','categories'));
+            $subCategory = SubCategory::where('category_id',$item->category_id)->pluck('title','id')->toArray();
+           
+            return view('backend.admin.catelogue.edit',compact('item','categories','subCategory'));
           }
        } else {
           abort(403, 'Sorry, you are not authorized to access the page');
@@ -451,6 +456,8 @@ class CatelogueController extends Controller
             DB::beginTransaction();
             try {
                $item->category_id = $request->input('category_id');
+               $item->sub_category_id = $request->input('sub_category_id');
+
                $item->item_title = $request->input('item_title');
                $item->item_code = $request->input('item_code');
                $item->item_description = $request->input('item_description');

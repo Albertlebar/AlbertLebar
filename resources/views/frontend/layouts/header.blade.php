@@ -29,7 +29,14 @@
                                     ?>
                                     <ul>
                                         @forelse($categorys as $category)
-                                        <li><a href="{{ URL :: to('/item/'.strtolower($category->title)) }}">{{ strtoupper($category->title) }}</a></li>
+                                    <!-- {{ URL :: to('/item/'.strtolower($category->title)) }} -->
+                                        <li><a href="javascript:void(0)">{{ strtoupper($category->title) }} <i class="fa fa-angle-down"></i></a>
+                                            <ul class="dropdown">
+                                                @foreach($category->subCategory as $subCat)
+                                                <li><a href="{{ URL :: to('/item/'.strtolower($category->title).'?sub_cate_id='.$subCat->id) }}">{{ $subCat->title }}</a></li>
+                                                @endforeach
+                                            </ul>
+                                        </li>
                                         @empty
                                         @endforelse
                                         <li><a href="{{ URL :: to('/item/sale') }}">SALE</a></li>

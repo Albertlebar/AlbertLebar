@@ -23,7 +23,12 @@
                                 <div class="col-md-6">
                                     <div class="form-group col-md-12 col-sm-12">
                                         <label for=""> Category </label>
-                                        {!! Form::select('category_id', $categories ?? [],  $userRoleId ?? '', ['class' => 'form-control','data-control'=>"select2", 'id'=>'role']) !!}
+                                        {!! Form::select('category_id', $categories ?? [],  $userRoleId ?? '', ['class' => 'form-control','data-control'=>"select2", 'id'=>'category_id']) !!}
+                                        <span id="error_email" class="has-error"></span>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12">
+                                        <label for="">Sub Category </label>
+                                        {!! Form::select('sub_category_id', $subCategory ?? [],  '', ['class' => 'form-control','data-control'=>"select2", 'id'=>'sub_category_id']) !!}
                                         <span id="error_email" class="has-error"></span>
                                     </div>
                                     <div class="form-group col-md-12 col-sm-12">
@@ -219,6 +224,29 @@
 
         let number_of_image = 1;
     $(document).ready(function () {
+
+        $("body").on("change","#category_id",function(e){
+            var categoryId = $("#category_id :selected").val();
+            var actionURL = "{{ URL::to('admin/get-subcategory') }}?category_id="+categoryId;
+            $.ajax({
+                    type: 'GET',
+                    url: actionURL,
+                    success: function (data) {
+                        $('#sub_category_id').empty();
+                        $('#sub_category_id').append($('<option>', {
+                            value: '',
+                            text : 'Select Sub Category'
+                        }));
+                        $.each(data.data, function (i, item) {
+                            $('#sub_category_id').append('<option value='+ i +'>'+ item +'</option');
+                        });
+                    },
+                    error: function (result) {
+                        // $("#modal_data").html("Sorry Cannot Load Data");
+                    }
+                });
+            // var sub_catalogue = {!! json_encode(config('params.')) !!};
+        });
 
         $("body").on("click", "#add_more", function (e) {
             $("#append_image").append(

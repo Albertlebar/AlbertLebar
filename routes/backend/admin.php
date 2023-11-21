@@ -43,6 +43,7 @@ Route::resource('catelogues','CatelogueController');
 Route::get('/allCatelogue','CatelogueController@getAll')->name('allCatelogue');
 Route::post('/catelogue-image','CatelogueController@catelogueImage');
 Route::get('/remove-photo','CatelogueController@removePhoto');
+Route::get('/get-subcategory','SubCategoryController@getSubCategory');
 
 Route::resource('/appointments','AppointmentController');
 Route::get('/allAppointment','AppointmentController@getAllAppointment')->name('allAppointment');

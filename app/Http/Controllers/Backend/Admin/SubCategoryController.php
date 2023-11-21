@@ -230,4 +230,10 @@ class SubCategoryController extends Controller
              return response()->json(['status' => 'false', 'message' => "Access only ajax request"]);
           }
     }
+
+    public function getSubCategory(Request $request)
+    {
+        $subCatalogue = SubCategory::where('category_id',$request->category_id)->pluck('title','id')->toArray();
+        return response()->json(['data' => $subCatalogue]);
+    }
 }

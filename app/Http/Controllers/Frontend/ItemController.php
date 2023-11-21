@@ -31,7 +31,7 @@ class ItemController extends Controller
         // $items = Favorite::join('items','favorites.item_id','=','items.id')->where('favorites.user_id',Auth::user()->id)->where('items.is_active',1);
       }elseif(isset($request->item_type) && $request->item_type != 'search'){
         $category = Category::where('title',$request->item_type)->first();
-        $items = Item::where('category_id',$category->id)->where('is_active',1);
+        $items = Item::where('category_id',$category->id)->where('sub_category_id',$request->sub_cate_id)->where('is_active',1);
       }
 
       if($request->item_type == 'search'){

@@ -1380,10 +1380,10 @@ textarea:focus {
   color: #f195ab;
 }
 .main-menu ul li ul.dropdown {
-  top: calc(100% - 1px);
-  left: 0;
+  top: calc(100% - 1px) !important;
+  left: 0 !important;
   text-align: left  ;
-  width: 220px;
+  width: 220px !important;
   position: absolute;
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;
