@@ -244,7 +244,13 @@
                     <nav>
                         <ul class="mobile-menu">
                             @forelse($categorys as $category)
-                            <li><a href="{{ URL :: to('/item/'.strtolower($category->title)) }}">{{ strtoupper($category->title) }}</a></li>
+                            <li class="menu-item-has-children"><a href="javascript:void(0)">{{ strtoupper($category->title) }}</a>
+                                <ul class="dropdown">
+                                    @foreach($category->subCategory as $subCat)
+                                    <li><a href="{{ URL :: to('/item/'.strtolower($category->title).'?sub_cate_id='.$subCat->id) }}">{{ $subCat->title }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </li>
                             @empty
                             @endforelse
                             <li><a href="{{ URL :: to('/item/sale') }}">SALE</a></li>

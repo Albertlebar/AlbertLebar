@@ -6839,7 +6839,7 @@ font-family:Arial;
 }
 
 .dropdown {
-  float: left;
+  /*float: left;*/
   overflow: hidden;
 }
 
