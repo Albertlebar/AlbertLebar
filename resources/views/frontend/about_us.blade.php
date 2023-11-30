@@ -43,10 +43,10 @@
     <h1 style="margin-bottom: 10px;">About Us</h1>
     <ul>
       <li style="list-style: disc;">
-        Welcome to Albert Lebar Jewellery, your trusted source for exquisite Jewellery. We are a premier Jewellery wholesaler, specializing in providing high-quality Jewellery to private clients and retailers alike. With our extensive collection and dedication to exceptional craftsmanship, we strive to bring elegance and beauty to every piece we offer.
+        Welcome to Lebar.uk, your trusted source for exquisite Jewellery. We are a premier Jewellery wholesaler, specializing in providing high-quality Jewellery to private clients and retailers alike. With our extensive collection and dedication to exceptional craftsmanship, we strive to bring elegance and beauty to every piece we offer.
       </li>
       <li style="list-style: disc;">
-       At Albert Lebar Ltd, we understand that Jewellery is more than just an accessory; it is a reflection of individuality and personal style. That's why we curate a diverse selection of stunning pieces, ranging from timeless classics to the latest trends. Whether you're looking for an exquisite diamond necklace, a statement cocktail ring, or a delicate bracelet, we have something to suit every taste and occasion.
+       At Lebar.uk, we understand that Jewellery is more than just an accessory; it is a reflection of individuality and personal style. That's why we curate a diverse selection of stunning pieces, ranging from timeless classics to the latest trends. Whether you're looking for an exquisite diamond necklace, a statement cocktail ring, or a delicate bracelet, we have something to suit every taste and occasion.
       </li>
       <li style="list-style: disc;">
        As a Jewellery wholesaler, we have built strong partnerships with renowned Jewellery manufacturers and designers, allowing us to offer competitive prices without compromising on quality. Our commitment to excellence ensures that each piece in our collection is meticulously crafted using the finest materials and expert techniques. We take pride in delivering Jewellery that not only dazzles with its beauty but also stands the test of time.
@@ -58,7 +58,7 @@
        In addition to serving private clients, we also cater to retailers looking to expand their Jewellery offerings. We offer wholesale pricing and flexible ordering options to meet your business needs. Our extensive inventory and quick turnaround times ensure that you can stock your store with the latest Jewellery trends, attracting discerning customers and enhancing your reputation as a trusted retailer.
       </li>
       <li style="list-style: disc;">
-       At Albert Lebar, we value our relationships with our clients. We prioritize exceptional customer service, and our knowledgeable team is always available to assist you with any inquiries or special requests. We strive to exceed your expectations and build lasting partnerships based on trust, reliability, and integrity.
+       At Lebar.uk, we value our relationships with our clients. We prioritize exceptional customer service, and our knowledgeable team is always available to assist you with any inquiries or special requests. We strive to exceed your expectations and build lasting partnerships based on trust, reliability, and integrity.
       </li>
       <li style="list-style: disc;">
        Thank you for choosing us. We are honored to be part of your Jewellery journey, and we look forward to helping you discover the perfect piece that will be cherished for a lifetime.
