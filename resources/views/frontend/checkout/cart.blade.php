@@ -115,12 +115,13 @@
                   
                 </div>
                 <div class="proceed-to-checkout">
-                    <!-- @if(Auth::check() && Auth::user()->user_type == 0)
-                    <a href="{{ URL::to('/checkout') }}?shipping_method=0" id="checkout" class="btn btn-sqr d-block">Place Order</a>
-                    @endif -->
-                    @if(count($cartItem) > 0)
-                    <a href="{{ URL::to('/checkout') }}?shipping_method=0" id="checkout" class="btn btn-sqr d-block">Proceed to Checkout</a>
+                    @if(Auth::check() && Auth::user()->user_type == 0)
+                    <a href="{{ URL::to('/checkout') }}?order_type=1" id="checkout" class="btn btn-sqr d-block">Place Order</a>
                     @endif
+                    @if(count($cartItem) > 0)
+                    <a href="{{ URL::to('/checkout') }}?shipping_method=0" id="checkout" class="btn btn-sqr d-block" style="border-top: 1px solid white">Proceed to Checkout</a>
+                    @endif
+
                   </div>
                  
               </div>

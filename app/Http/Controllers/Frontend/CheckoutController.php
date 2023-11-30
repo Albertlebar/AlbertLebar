@@ -89,7 +89,13 @@ class CheckoutController extends Controller
             $orderItem->save();
             $item->delete();
         }
-        return redirect()->route('frontend.checkout.payment',['order_id'=>$order->id])->with(['totalPrice' => $totalPrice,'order' => $order]);
+
+        if(isset($request->order_type) && $request->order_type == 1)
+        {
+            return view('frontend.thankyou', compact('order'));   
+        }else{
+            return redirect()->route('frontend.checkout.payment',['order_id'=>$order->id])->with(['totalPrice' => $totalPrice,'order' => $order]);
+        }
         }
     }
 

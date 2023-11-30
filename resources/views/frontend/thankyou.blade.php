@@ -9,6 +9,7 @@
           </svg>
           <h1 class="text-4xl font-bold">Thank You !</h1>
           <p>Thank you for purchase! Check your email for order.</p>
+          <h5></strong>Order No : {{ $order->order_number }}</strong></h5>
           <a
             class="inline-flex items-center px-4 py-2 text-white bg-indigo-600 border border-indigo-600 rounded rounded-full hover:bg-indigo-700 focus:outline-none focus:ring" href="{{ URL::to('/') }}" style="background: #f195ab;">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 mr-2" fill="none" viewBox="0 0 24 24"
