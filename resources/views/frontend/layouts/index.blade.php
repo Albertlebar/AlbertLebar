@@ -11,8 +11,8 @@
 
         <!-- service policy area start -->
         <div class="service-policy section-padding shop-main-wrapper">
-            <div class="container text-center">
-                <div class="d-flex mtn-30" style="justify-content: space-around;">
+            <div class="container text-center" style="margin-top: 40px !important ">
+                <div class="d-flex mt-30" style="justify-content: space-around;">
                     <div class="">
                         <div class="policy-item" style="align-items: flex-end;">
                             <div class="policy-icon">

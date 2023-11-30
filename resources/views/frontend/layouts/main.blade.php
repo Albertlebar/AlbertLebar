@@ -5,7 +5,7 @@
 
         <!-- service policy area start -->
         <div class="service-policy section-padding">
-            <div class="container">
+            <div class="container" style="margin-top: 40px; ">
                 <div class="row mtn-30">
                     <div class="col-sm-6 col-lg-3">
                         <div class="policy-item">

@@ -11,7 +11,7 @@
 
         <!-- service policy area start -->
         <div class="service-policy section-padding shop-main-wrapper home-page">
-            <div class="container text-center">
+            <div class="container text-center" style="margin-top: 40px;">
                 <div class="d-flex mtn-30" style="justify-content: space-around;">
                     <div class="">
                         <div class="policy-item" style="align-items: flex-end;">
@@ -124,7 +124,7 @@
         <!-- product banner statistics area end -->
 
         <!-- featured product area start -->
-        <section class="feature-product section-padding">
+        <section class="feature-product">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
