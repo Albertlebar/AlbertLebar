@@ -289,7 +289,7 @@
                     $.each(data.data, function (index, value) {
                         arr.push({
                             id: value.id,
-                            text: value.item_title
+                            text: value.item_title + ' (' + value.item_code + ')'
                         })
                     })
                 return {
