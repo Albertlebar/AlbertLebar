@@ -198,12 +198,9 @@
                     <tbody>
                         <tr>
                             <td align="center">
-                                <div style="font-size: 12px; line-height: 15px; font-weight: bold; margin-bottom: 10px; ">Albert Lebar</div>
-                                <div class="td_tag">100 Hatton Garden</div>
-                                <div class="td_tag">London</div>
-                                <div class="td_tag">EC1N 8NX</div>
-                                <div class="td_tag">lebarltd@gmail.com</div>
-                                <div class="td_tag">VAT Registration NO.: 401041670</div>
+                                <div style="font-size: 12px; line-height: 15px; font-weight: bold; margin-bottom: 10px; ">Lebar.uk</div>
+                                <div class="td_tag">100 Hatton Garden,London, EC1N 8NX</div>
+                                <div class="td_tag">Account Name: Sapire Lebar Account No: 51149676 Sort Code: 23-05-80</div>
                             </td>
                         </tr>
                     </tbody>
