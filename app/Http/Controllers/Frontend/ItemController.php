@@ -123,7 +123,8 @@ class ItemController extends Controller
 
     public function sizeGuide(Request $request)
     {
-      if($request->item_type == 'Ring')
+      
+      if($request->item_type == 'Rings')
       {
         return view('frontend.item.ring_size_guide');        
         // return view('frontend.item.bracelet_size_guide');
