@@ -107,7 +107,7 @@ class HomeController extends Controller
                $appointment->save();
 
                $details = [
-                  'title' => 'Appointment Registration From ALBERT LEBAR',
+                  'title' => 'Appointment Registration From Lebar.uk|bespoke jewellery',
                   'details' => $appointment
               ];
               \Mail::to($appointment->email)->send(new \App\Mail\AppointmentMail($details));

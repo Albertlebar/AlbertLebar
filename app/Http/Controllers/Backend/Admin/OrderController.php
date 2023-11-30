@@ -134,6 +134,7 @@ class OrderController extends Controller
         $order->shipping_postcode = $userDetails->postcode;
         $order->shipping_country = $userDetails->country;
         $order->shipping_contact = $userDetails->mobile;
+        $order->action_flag = 1;
         $order->save();
         foreach ($request->item_id as $key => $value) {
           $orderItem = new OrderItem();
@@ -158,12 +159,13 @@ class OrderController extends Controller
     public function show($id, Request $request)
     {
         $order = Order::find($id);
+        $order->action_flag = 1;
+        $order->save();
         return view('backend.admin.order.view',compact('order'));
         if ($request->ajax()) {
             $haspermision = auth()->user()->can('role-view');
             if ($haspermision) {
                 $order = Order::find($id);
-                
                 $permissions = $role->permissions()->get();
                 $view = View::make('backend.admin.role.view', compact('role', 'permissions'))->render();
                 return response()->json(['html' => $view]);
@@ -215,6 +217,7 @@ class OrderController extends Controller
         try {
            $order->order_status = $request->input('status');
            $order->notes = $request->input('notes');
+          $order->action_flag = 1;
 
            // $order->updated_by = Auth::user()->id;
            $order->save();
@@ -314,6 +317,8 @@ class OrderController extends Controller
     public function pdfDownload(Request $request)
     {
       $order = Order::find($request->id);
+      $order->action_flag = 1;
+      $order->save();
       // return view('backend.admin.order.invoice',compact('order'));
       $pdf = PDF::loadView('backend.admin.order.invoice',compact('order'));
       return $pdf->download();
