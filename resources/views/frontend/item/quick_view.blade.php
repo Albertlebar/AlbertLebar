@@ -117,7 +117,7 @@
                                     @endif
                                     @endif
                                     <!-- <a href="javascript:void(0);" data-id="{{ URL::to('/item') }}/search?search_word={{$item->item_code}}" id="copy_link" title="copy link" style="color: #f195ab; font-size: 20px"><i class="pe-7s-copy-file"></i></a> -->
-                                    <a href="https://wa.me/447930906567/?text={{ URL::to('/item') }}/search?search_word={{$item->item_code}}" title="share via whatsapp" style="color: #f195ab; font-size: 20px"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                                    <a href="whatsapp://send?text={{ URL::to('/item') }}/search?search_word={{$item->item_code}}" title="share via whatsapp" style="color: #f195ab; font-size: 20px"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
