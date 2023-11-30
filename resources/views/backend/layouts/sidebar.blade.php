@@ -99,6 +99,12 @@
                         Promocode
                     </a>
                 </li>
+                <li>
+                    <a href="{{ URL :: to('/admin/videos') }}">
+                        <i class="metismenu-icon pe-7s-categories"></i>
+                        Video
+                    </a>
+                </li>
                 <!-- <li>
                     <a href="{{ URL :: to('/admin/blogs') }}">
                         <i class="metismenu-icon pe-7s-bookmarks"></i>

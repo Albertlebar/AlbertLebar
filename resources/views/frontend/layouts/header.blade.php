@@ -127,6 +127,7 @@
                                         @empty
                                         @endforelse
                                         <li><a href="{{ URL :: to('/item/sale') }}">SALE</a></li>
+                                        <li><a style="text-decoration: none;" href="{{ URL :: to('/book-appointment') }}">APPOINTMENT</a></li>
                                     </ul>
                                 </nav>
                                 <!-- main menu navbar end -->
@@ -255,6 +256,7 @@
                             @empty
                             @endforelse
                             <li><a href="{{ URL :: to('/item/sale') }}">SALE</a></li>
+                            <li><a style="text-decoration: none;" href="{{ URL :: to('/book-appointment') }}">APPOINTMENT</a></li>
                         </ul>
                     </nav>
                     <!-- mobile menu navigation end -->

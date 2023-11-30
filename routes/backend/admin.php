@@ -119,3 +119,5 @@ Route::delete('backups/delete/{file_name}', 'BackupController@delete');
 
 Route::get('/barcode', 'AdminController@barcode');
 Route::get('/passport', 'AdminController@passport');
+
+Route::resource('videos', 'VideoController');
