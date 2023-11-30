@@ -52,7 +52,7 @@
            <div class="card mb-3 widget-content bg-arielle-smile">
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
-                        <div class="widget-heading">New Sell</div>
+                        <div class="widget-heading">New Invoice</div>
                         <!-- <div class="widget-subheading">Total Clients Profit</div> -->
                     </div>
                     <div class="widget-content-right">
