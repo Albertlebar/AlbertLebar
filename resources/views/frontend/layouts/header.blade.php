@@ -24,7 +24,7 @@
                     <div class="col-lg-5">
                         <div class="header-right d-flex align-items-center justify-content-lg-end">
                             <div class="header-search-container" id="searchParent" style="margin-right: 10px;display: contents; ">
-                                <button class="search-trigger" style="margin-top: 3px; " id="search"><i
+                                <button class="search-trigger" style="margin-top: 3px; " id="search"><i style="font-weight: 600 !important"
                                         class="pe-7s-search"></i></button>
                                 <div id="inputParent">
                                     <input type="text" placeholder="Search entire store" autocoplete="off"       id="input-bar">
@@ -45,11 +45,11 @@
                                     <li class="user-hover">
                                         @guest
                                         <a href="{{ route('login') }}">
-                                            <i class="pe-7s-user"></i>
+                                            <i style="font-weight: 600 !important" class="pe-7s-user"></i>
                                         </a>
                                         @else
                                         <a href="#">
-                                            <i class="pe-7s-user"></i>
+                                            <i style="font-weight: 600 !important" class="pe-7s-user"></i>
                                         </a>
                                         <ul class="dropdown-list">
                                                 <!-- <li><a class="dropdown-item" href="{{ route('login') }}">Login</a>
@@ -73,14 +73,14 @@
                                     @if(Auth::check())
                                     <li>
                                         <a href="{{ URL::to('item/favorite') }}">
-                                            <i class="pe-7s-like"></i>
+                                            <i style="font-weight: 600 !important" class="pe-7s-like"></i>
                                             <div class="notification">{{ count($fav) }}</div>
                                         </a>
                                     </li>
                                     @endif
                                     <li>
                                         <a href="javascript:void(0)" class="minicart-btn">
-                                            <i class="pe-7s-shopbag"></i>
+                                            <i style="font-weight: 600 !important" class="pe-7s-shopbag"></i>
                                             @if(isset($cartItem))
 
                                             <div class="notification">{{ count($cartItem)}}</div>
@@ -188,7 +188,7 @@
                                     @if(Auth::check())
                                     <li>
                                         <a href="{{ URL::to('item/favorite') }}">
-                                            <i class="pe-7s-like"></i>
+                                            <i class="font-weight-bold pe-7s-like"></i>
                                             <div class="notification">{{ count($fav) }}</div>
                                         </a>
                                     </li>

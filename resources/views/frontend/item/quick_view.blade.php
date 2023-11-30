@@ -91,7 +91,7 @@
                             <div>
                                 <span style="font-size: 13px;" style="color: black !important;">Estimate Delivery: {{ $item->est_deli_date }}</span>
                             </div>
-                            <div class="d-flex mt-5" style="justify-content: center;">
+                            <div class="d-flex mt-5">
                                 @if(Auth::check() && Auth::user()->user_type == 0)
                                 <div class="price-box"  style="margin-top:5px;">
                                     <span class="price-regular"  style="color: black;">&pound; {{ number_format((float)$item->total_trade, 2, '.', '') }}</span>
@@ -104,19 +104,20 @@
                                 <div class="action_link ml-3">
                                     <a style="background: #f195ab !important; color: black !important;" class="btn btn-cart add-to-cart" item-id="{{ $item->id }}" href="javascript:void(0)"><strong>Add to cart</strong></a>
                                 </div>
-                                <div class="ml-2" style="width: 50px;margin-top: 10px;">
+                                <div class="ml-2" style="width: 50px;margin-top: 5px;">
                                     @if(Auth::check())
                                     @if(count($item->itemFavorite) > 0)
-                                    <a style="color: #f195ab;" data-id="{{ $item->id }}" class="unfavorite" href="javascript:void(0);"
+                                    <a style="color: #f195ab; font-size: 20px" data-id="{{ $item->id }}" class="unfavorite" href="javascript:void(0);"
                                         data-bs-toggle="tooltip" data-bs-placement="left"><i class="fa fa-heart"></i>
                                     </a>
                                     @else
-                                    <a style="color: #f195ab;" data-id="{{ $item->id }}" class="favorite" href="javascript:void(0);"
+                                    <a style="color: #f195ab; font-size: 20px" data-id="{{ $item->id }}" class="favorite" href="javascript:void(0);"
                                         data-bs-toggle="tooltip" data-bs-placement="left"><i class="pe-7s-like"></i>
                                     </a>
                                     @endif
                                     @endif
-                                    <a href="javascript:void(0);" data-id="{{ URL::to('/item') }}/search?search_word={{$item->item_code}}" id="copy_link" title="copy link" style="color: #f195ab;"><i class="pe-7s-copy-file"></i></a>
+                                    <!-- <a href="javascript:void(0);" data-id="{{ URL::to('/item') }}/search?search_word={{$item->item_code}}" id="copy_link" title="copy link" style="color: #f195ab; font-size: 20px"><i class="pe-7s-copy-file"></i></a> -->
+                                    <a href="https://wa.me/447930906567/?text={{ URL::to('/item') }}/search?search_word={{$item->item_code}}" title="share via whatsapp" style="color: #f195ab; font-size: 20px"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
