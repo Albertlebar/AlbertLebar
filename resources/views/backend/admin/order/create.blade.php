@@ -358,7 +358,6 @@
             subTotal();
         });
 
-
         $("body").on("change","#select-item", function (e) {
             var allVals = [];
             var id = $("#select-item :selected").val();

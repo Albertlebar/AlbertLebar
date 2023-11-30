@@ -358,6 +358,19 @@
             subTotal();
         });
 
+        $(document).on("focusout", ".total_item_price", function(e) {
+            e.preventDefault();
+            var idAttr = $(this).attr('id');
+            var idArr =  idAttr.split('_');
+            var qty = $('#qty_'+idArr[1]).val();
+            var price = $('#item_price_'+idArr[1]).val();
+
+            var itemTotal = parseFloat(qty) * parseFloat(price);
+            $('#item_total_' + idArr[1]).html("&pound;"+itemTotal);
+            $('#total_item_price_'+idArr[1]).val(itemTotal);
+            subTotal();
+        });
+
 
         $("body").on("change","#select-item", function (e) {
             var allVals = [];
