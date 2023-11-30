@@ -56,7 +56,7 @@
                         <!-- <div class="widget-subheading">Total Clients Profit</div> -->
                     </div>
                     <div class="widget-content-right">
-                        <div class="widget-numbers text-white"><span>&pound; {{ number_format((float)$orderInformation->new_sell, 2, '.', '') }}</span></div>
+                        <div class="widget-numbers text-white"><span>{{ $invoiceInformation->new_invoice }}</span></div>
                     </div>
                 </div>
             </div> 
@@ -65,11 +65,11 @@
             <div class="card mb-3 widget-content bg-arielle-smile">
                 <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
-                        <div class="widget-heading">Totol Sell</div>
+                        <div class="widget-heading">Total Sell</div>
                         <!-- <div class="widget-subheading">Total Clients Profit</div> -->
                     </div>
                     <div class="widget-content-right">
-                        <div class="widget-numbers text-white"><span>&pound; {{ number_format((float)$orderInformation->total_order_price, 2, '.', '') }}</span></div>
+                        <div class="widget-numbers text-white"><span>&pound; {{ number_format((float)$invoiceInformation->total_order_price, 2, '.', '') }}</span></div>
                     </div>
                 </div>
             </div>

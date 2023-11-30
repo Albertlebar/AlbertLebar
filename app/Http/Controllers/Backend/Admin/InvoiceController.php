@@ -170,6 +170,8 @@ class InvoiceController extends Controller
     public function show($id, Request $request)
     {
         $order = Invoice::find($id);
+        $order->action_flag = 1;
+        $order->save();
         return view('backend.admin.invoice.view',compact('order'));
     }
 
@@ -235,6 +237,8 @@ class InvoiceController extends Controller
             $invoice->sub_total = $request->i_sub_total;
             $invoice->vat = $request->i_vat_total;
             $invoice->order_total = $request->i_total;
+            $invoice->action_flag = 1;
+
             $invoice->save();
 
             if(!empty($request->old_item_id))
@@ -311,6 +315,8 @@ class InvoiceController extends Controller
     public function pdfDownload(Request $request)
     {
       $order = Invoice::find($request->id);
+      $order->action_flag = 1;
+      $order->save();
       // return view('backend.admin.invoice.invoice',compact('order'));
       $pdf = PDF::loadView('backend.admin.invoice.invoice',compact('order'));
       return $pdf->download();
@@ -323,6 +329,9 @@ class InvoiceController extends Controller
          if ($haspermision) {
             $invoiceId = $request->id;
             $invoiceDetails = Invoice::find($invoiceId);
+            $invoiceDetails->action_flag = 1;
+            $invoiceDetails->save();
+
             $roles = Role::all(); //Get all roles
             $view = View::make('backend.admin.invoice.return', compact('invoiceDetails', 'roles'))->render();
             return response()->json(['html' => $view]);
@@ -350,6 +359,7 @@ class InvoiceController extends Controller
           $invoice->sub_total = $invoice->sub_total - $invoiceItem->price;
           $invoice->vat = $invoice->sub_total * 0.20;
           $invoice->order_total = $invoice->sub_total + $invoice->vat;
+          $invoice->action_flag = 1;
           $invoice->save();
           $invoiceItem->price = 0;
           $invoiceItem->save();

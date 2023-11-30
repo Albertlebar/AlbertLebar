@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use View;
 use App\Models\Appointment;
+use App\Models\Invoice;
 use Yajra\DataTables\DataTables;
 use Carbon\Carbon;
 use DB;
@@ -20,15 +21,15 @@ class DashboardController extends Controller
         $orderInformation = Order::select(DB::raw("sum(orders.order_total) as total_order_price"),DB::raw("count(id) as total_order"),DB::raw("SUM(CASE 
             WHEN action_flag IS NULL THEN 1 ELSE 0 END) AS new_order"), DB::raw("SUM(CASE 
             WHEN created_at >= '" . Carbon::yesterday() . "' OR created_at = now()  THEN orders.order_total ELSE 0 END) AS new_sell"))->first();
+
+        $invoiceInformation = Invoice::select(DB::raw("sum(invoices.order_total) as total_order_price"),DB::raw("SUM(CASE 
+            WHEN action_flag IS NULL THEN 1 ELSE 0 END) AS new_invoice"))->first();
         $appointment = Appointment::select(DB::raw("count(id) as total_appointment"),DB::raw("SUM(CASE 
             WHEN created_at >= '" . Carbon::yesterday() . "' OR created_at = now()  THEN 1 ELSE 0 END) AS new_appointment"))->first();
         // echo "<pre>";
-        // print_r($appointment);
-        // die;
-        // echo "<pre>";
         // print_r($orderInformation);
         // die;
-        return View::make('backend.admin.home',compact('orderInformation','appointment'));
+        return View::make('backend.admin.home',compact('orderInformation','appointment','invoiceInformation'));
     }
 
     public function appointment()
