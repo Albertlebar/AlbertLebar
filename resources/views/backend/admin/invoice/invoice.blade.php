@@ -123,8 +123,8 @@
                                     <td width="10%" height="25" align="center" bgcolor="#e5dddf" valign="middle" style="border-right: 1px solid #fff"><span style="font-size: 12px; color: #78bd7d;">ITEM CODE</span></td>
                                     <td width="15%" height="25" align="center" bgcolor="#e5dddf" valign="middle" style="border-right: 1px solid #fff"><span style="font-size: 12px; color: #78bd7d;">TITLE</span></td>
                                     <!-- <td width="10%" height="25" align="center" bgcolor="#e5dddf" valign="middle" style="border-right: 1px solid #fff"><span style="font-size: 12px; color: #78bd7d;">DESCRIPTION</span></td> -->
-                                    <td width="5%" height="25" align="center" bgcolor="#e5dddf" valign="middle" style="border-right: 1px solid #fff"><span style="font-size: 12px; color: #78bd7d;">QTY</span></td>
                                     <td width="10%" height="25" align="center" bgcolor="#e5dddf" valign="middle" style="border-right: 1px solid #fff"><span style="font-size: 12px; color: #78bd7d;">RATE</span></td>
+                                    <td width="5%" height="25" align="center" bgcolor="#e5dddf" valign="middle" style="border-right: 1px solid #fff"><span style="font-size: 12px; color: #78bd7d;">QTY</span></td>
                                     <td width="10%" height="25" align="center" bgcolor="#e5dddf" valign="middle" style="border-right: 1px solid #fff"><span style="font-size: 12px; color: #78bd7d;">AMOUNT</span></td>
                                     <td width="1%" align="center" valign="middle">&nbsp;</td>
                                 </tr>
@@ -132,11 +132,11 @@
                                     <tr>
                                         <td></td>
                                         <td class="td_tag" align="center">{{ $item->itemDetails->item_code }}</td>
-                                        <td class="td_tag" align="left">{{ $item->itemDetails->item_title }}</td>
+                                        <td class="td_tag" align="center">{{ $item->itemDetails->item_title }}</td>
                                         <!-- <td class="td_tag" align="left">{{ $item->itemDetails->item_description }}</td> -->
-                                        <td class="td_tag" align="center">{{ $item->quantity }}</td>
                                         <td class="td_tag" align="center">{{ number_format((float)$item->itemDetails->total_retail, 2, '.', '') }}</td>
-                                        <td class="td_tag" align="right">&pound; {{ number_format((float)$item->price, 2, '.', '') }}</td>
+                                        <td class="td_tag" align="center">{{ $item->quantity }}</td>
+                                        <td class="td_tag" align="center">&pound; {{ number_format((float)$item->price, 2, '.', '') }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
