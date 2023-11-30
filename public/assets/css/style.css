@@ -1364,7 +1364,7 @@ textarea:focus {
 .main-menu ul li a {
   color: #f195ab;
   font-size: 14px;
-  padding: 37px 5px;
+  padding: 15px 30px;
   /*font-weight: 600;*/
   display: block;
   text-transform: capitalize;
@@ -1409,7 +1409,7 @@ textarea:focus {
   color: #f195ab;
   font-size: 14px;
   font-weight: 400;
-  padding: 10px 20px;
+  padding: 15px 30px;
   text-transform: capitalize;
   position: relative;
   border-bottom: 1px dashed #efefef;
@@ -1598,7 +1598,7 @@ textarea:focus {
   }
 }
 .sticky.is-sticky .main-menu li a {
-  padding: 30px 12px;
+  padding: 15px 30px;
 }
 .sticky.is-sticky .main-menu li:first-child a {
   padding-left: 0;

@@ -7,44 +7,7 @@
                 <div class="row align-items-center position-relative">
                     <!-- main menu area start -->
                     <div class="col-lg-5 position-static">
-                        <div class="main-menu-area">
-                            <div class="main-menu">
-                                <!-- main menu navbar start -->
-                                @if (Session::has('payment-success'))
-                                    <div class="alert alert-success text-center">
-                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                                        <p>{{ Session::get('payment-success') }}</p>
-                                    </div>
-                                @endif
-                                @if ($errors->has('global'))
-                                    <div class="alert alert-danger text-center">
-                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                                        <p>{{ $errors->first('global') }}</p>
-                                    </div>
-                                @endif
-                                <nav class="desktop-menu">
-                                    <?php
-                                        $categorys = \App\Models\Category::all();
-                                        $count = 1;
-                                    ?>
-                                    <ul>
-                                        @forelse($categorys as $category)
-                                    <!-- {{ URL :: to('/item/'.strtolower($category->title)) }} -->
-                                        <li><a href="javascript:void(0)">{{ strtoupper($category->title) }} <i class="fa fa-angle-down"></i></a>
-                                            <ul class="dropdown">
-                                                @foreach($category->subCategory as $subCat)
-                                                <li><a href="{{ URL :: to('/item/'.strtolower($category->title).'?sub_cate_id='.$subCat->id) }}">{{ $subCat->title }}</a></li>
-                                                @endforeach
-                                            </ul>
-                                        </li>
-                                        @empty
-                                        @endforelse
-                                        <li><a href="{{ URL :: to('/item/sale') }}">SALE</a></li>
-                                    </ul>
-                                </nav>
-                                <!-- main menu navbar end -->
-                            </div>
-                        </div>
+                        
                     </div>
                     <!-- main menu area end -->
                     <!-- start logo area -->
@@ -131,6 +94,44 @@
                     <!-- mini cart area end -->
 
                 </div>
+                <div class="main-menu-area">
+                            <div class="main-menu">
+                                <!-- main menu navbar start -->
+                                @if (Session::has('payment-success'))
+                                    <div class="alert alert-success text-center">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                        <p>{{ Session::get('payment-success') }}</p>
+                                    </div>
+                                @endif
+                                @if ($errors->has('global'))
+                                    <div class="alert alert-danger text-center">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                        <p>{{ $errors->first('global') }}</p>
+                                    </div>
+                                @endif
+                                <nav class="desktop-menu">
+                                    <?php
+                                        $categorys = \App\Models\Category::all();
+                                        $count = 1;
+                                    ?>
+                                    <ul>
+                                        @forelse($categorys as $category)
+                                    <!-- {{ URL :: to('/item/'.strtolower($category->title)) }} -->
+                                        <li><a href="javascript:void(0)">{{ strtoupper($category->title) }} <i class="fa fa-angle-down"></i></a>
+                                            <ul class="dropdown">
+                                                @foreach($category->subCategory as $subCat)
+                                                <li><a href="{{ URL :: to('/item/'.strtolower($category->title).'?sub_cate_id='.$subCat->id) }}">{{ $subCat->title }}</a></li>
+                                                @endforeach
+                                            </ul>
+                                        </li>
+                                        @empty
+                                        @endforelse
+                                        <li><a href="{{ URL :: to('/item/sale') }}">SALE</a></li>
+                                    </ul>
+                                </nav>
+                                <!-- main menu navbar end -->
+                            </div>
+                        </div>
             </div>
         </div>
         <!-- header middle area end -->
