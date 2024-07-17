@@ -27,7 +27,7 @@
                                             <a href="tel:07930 906567" style="text-decoration: none;"><i class="fa fa-phone"></i> </a> 
                                         </div>
                                         <div class="col-auto">
-                                            <a style="text-decoration: none;" href="tel:07376003131">Call +44(0) 7376003131 <svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 256 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/></svg> </a>
+                                            <a style="text-decoration: none;" href="tel:07949913306">Call +44(0) 7949913306 <svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 256 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/></svg> </a>
                                         </div>
                                         
                                     </li>
@@ -84,7 +84,7 @@
                             <div class="widget-body social-link">
                                 <a target="_blank" href="https://www.instagram.com/lebar.uk/"><i class="fa fa-instagram"></i></a>
                                 <a target="_blank" href="https://www.facebook.com/lebardiamondandjewelry"><i class="fa fa-facebook" style="font-family: "></i></a><br>
-                                <a target="_blank" href="https://api.whatsapp.com/send?phone=447376003131"><i class="fa fa-whatsapp"></i></a>
+                                <a target="_blank" href="https://api.whatsapp.com/send?phone=447949913306"><i class="fa fa-whatsapp"></i></a>
                                 <a target="_blank" href="https://www.linkedin.com/company/93232851/admin/feed/posts/"><i class="fa fa-linkedin"></i></a>
                             </div>
                         </div>
