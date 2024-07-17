@@ -84,7 +84,7 @@
                             <div class="widget-body social-link">
                                 <a target="_blank" href="https://www.instagram.com/lebar.uk/"><i class="fa fa-instagram"></i></a>
                                 <a target="_blank" href="https://www.facebook.com/lebardiamondandjewelry"><i class="fa fa-facebook" style="font-family: "></i></a><br>
-                                <a target="_blank" href="https://api.whatsapp.com/send?phone=447930906567"><i class="fa fa-whatsapp"></i></a>
+                                <a target="_blank" href="https://api.whatsapp.com/send?phone=447376003131"><i class="fa fa-whatsapp"></i></a>
                                 <a target="_blank" href="https://www.linkedin.com/company/93232851/admin/feed/posts/"><i class="fa fa-linkedin"></i></a>
                             </div>
                         </div>
